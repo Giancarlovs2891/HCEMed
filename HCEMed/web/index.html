@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+
+    <head>
+        <title>MEDS.IO</title>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!--<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />-->
+        <link rel="apple-touch-icon" href="img/ipadlogo57.png"/>
+        
+        <!--Splash-->
+        <link rel="apple-touch-startup-image" href="img/splash-landscape-retina-ipad.png" />
+        <link rel="apple-touch-startup-image" sizes="1024x768" href="img/splash-landscape-ipad.png" />
+        <!--<link rel="apple-touch-startup-image" sizes="1536x2048" href="img/splash-portrait-retina-ipad.png" />
+        <link rel="apple-touch-startup-image" sizes="768x1024" href="img/splash-portrait-ipad.png" />
+        
+        <link rel="apple-touch-startup-image" sizes="320x480" href="img/splash-iphone-1.png" />
+        <link rel="apple-touch-startup-image" sizes="640x960" href="img/splash-iphone-2.png" />
+        <link rel="apple-touch-startup-image" sizes="640x1136" href="img/splash-iphone5.png" />-->
+
+        <!--CSS-->
+        <link href="css/ionicons.css" rel="stylesheet" type="text/css" />
+        <link rel="apple-touch-icon" href="images/appleicon.png"/>
+        <link href="css/reset.css" rel="stylesheet" type="text/css" />
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/jquery-ui-1.9.2.custom.min.css"/>
+
+    </head>
+
+    <body onload="inicioMedsio();">
+        <p id="cacheMensaje" onclick="document.getElementById('cacheMensaje').style.visibility = 'hidden';">Cargando <span id="cacheProgress"></span> archivos, por favor espere.</p>
+        <div id="popUpVideo">
+            <canvas id="canvas" style="display:none;"></canvas>
+            <div id="videoContainer">
+                <video id="video" autoplay=""></video>
+                <a href="javascript:detenerCamara();" id="cancelarFoto">Cancelar</a>
+                <a href="javascript:tomarFoto();" id="tomarFoto">Tomar Foto</a>
+            </div>
+        </div>
+        <input type="file" id="fotoParaSubir" accept="image/*" style="display:none"/>
+        <div id="fotoCarrete">
+            <a href="javascript:toggleFotoCarrete()" id="cerrarFotoCarrete">Cerrar</a>
+            <a href="javascript:void(0);" id="nextFotoCarrete">></a>
+            <a href="javascript:void(0);" id="previousFotoCarrete"><</a>
+            <div id="fotoCarreteContainer">
+
+            </div>
+        </div>
+        <div id="evolucionCarrete">
+            <a href="javascript:toggleEvolucionCarrete()" id="cerrarEvolucionCarrete">Cerrar</a>    
+        </div>
+    </div>
+    <div id="header">
+        <div class="leftHeader" id="leftbtn">
+            <i  class="icon ion-log-out" onclick="showPatientsList();"></i>
+        </div>
+        <h1 id="mainTitle"  onclick="scrollUp();">PACIENTES</h1>
+        <div class="rightHeader" id="rightbtn">
+            <i class="icon ion-plus-round" onclick="loadDatosBasicos();"></i>
+        </div>
+    </div>
+    <div id="subHeader">
+        <input type="search" placeholder="Busqueda de Pacientes" id="busquedaPacientes" onkeyup="buscarPaciente(this);"/>
+    </div>
+
+    <ul id="listaPacientes">
+
+    </ul>
+
+    <div id="mainBody">
+        <div id="medsioMenu">
+            <ul>
+                <a href="javascript:void(0);" id="datos_basicos" onclick="activateMenu(this);"><li><img id="fotoMenuDatosBasicos" src="modulos/datos_basicos/img/menu.png" /><span>Datos Basicos</span></li></a>
+                <a href="javascript:void(0);" id="anamnesis" onclick="activateMenu(this);"><li><img src="modulos/anamnesis/img/menu.png"><span>Anamnesis</span></li></a>
+                <a href="javascript:void(0);" id="examen_fisico" onclick="activateMenu(this);"><li><img src="modulos/examen_fisico/img/menu.png" /><span>Examen Fisico</span></li></a>
+                <!--<a href="javascript:void(0);" id="farmacologia" onclick="activateMenu(this);"><li><img src="modulos/farmacologia/img/menu.png"><span>Farmacia</span></li></a>
+                <a href="javascript:void(0);" id="psiquiatria" onclick="activateMenu(this);"><li><img src="modulos/psiquiatria/img/menu.png"><span>Psiquiatría</span></li></a>-->
+                <a href="javascript:void(0);" id="cirugia_plastica" onclick="activateMenu(this);"><li><img src="modulos/cirugia_plastica/img/menu.png" /><span>Cirugia Plastica</span></li></a>
+                <a href="javascript:void(0);" id="tratamientos" onclick="activateMenu(this);"><li><img src="modulos/tratamientos/img/menu.png" /><span>Plan de Tratamiento</span></li></a>
+                <a href="javascript:void(0);" id="planes_de_tratamiento" onclick="activateMenu(this);"><li><img src="modulos/planes_de_tratamiento/img/menu.png" /><span>Costos</span></li></a>
+                <a href="javascript:void(0);" id="evolucion" onclick="activateMenu(this);"><li><img src="modulos/evolucion/img/menu.png" /><span>Evolucion</span></li></a>
+                <a href="javascript:void(0);" id="galeria" onclick="activateMenu(this);"><li><img src="modulos/galeria/img/menu.png" /><span>Galeria</span></li></a>
+
+            </ul>
+        </div>
+        <div></div>
+        <div id="MedsioContent">
+            <div id="pacienteInfoGeneralMedsio">
+                <p id="nombrePacienteGeneralMedsio"></p>
+                <p id="alertaMedicaGeneralMedsio"></p>
+            </div>
+            
+            <div id="medsioContent">
+
+            </div>
+        </div>
+        <div id="galeriaPortable">
+
+        </div>
+    </div>
+</body>
+<!--JS-->
+<script src="js/localDb.js"></script>
+<script  src="js/ajax.js"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/jquery.loadJSON.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script  src="js/iscroll.js"></script>
+<script src="js/main.js"></script>
+<script  src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script  src="js/fabric/dist/all.js"></script>
+<script  src="js/exif.js"></script>
+<script  src="js/binaryajax.js"></script>
+<script  src="js/camara.js"></script>
+
+
+</html>

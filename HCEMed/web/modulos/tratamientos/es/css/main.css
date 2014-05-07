@@ -1,0 +1,20 @@
+#descripcionModulo{
+    margin-top:50px;
+}
+.eliminarTratamientoBtn{
+  display:block;
+  width:32px;
+  height:32px;
+  background-image:url("../../img/eliminarTratamiento.png");
+  display:block;
+}
+.agregarTratamientoBtn{
+  display:block;
+  width:32px;
+  height:32px;
+  background-image:url("../../img/agregarTratamiento.png");
+  display:block;
+}
+.desTratamiento{
+    margin-top:10px;
+}

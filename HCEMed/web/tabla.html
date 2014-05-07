@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>MEDS.IO</title>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!--CSS-->
+        <link href="css/ionicons.css" rel="stylesheet" type="text/css" />
+        <link rel="apple-touch-icon" href="images/appleicon.png"/>
+        <link href="css/reset.css" rel="stylesheet" type="text/css" />
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <style>
+
+            input[type="checkbox"]{
+                position: relative !important;
+                width: 100% !important;
+                height: 100% !important;
+                -webkit-appearance: none;
+                -o-appearance: none;
+                -moz-appearance: none;
+                color: red !important;
+                padding: 0px !important;
+                border-style: none !important;
+                border-width: 0px !important;
+                border-color: #BFBFBF !important;
+                margin-top: 1px !important;
+                margin-bottom:1px !important;
+                margin-left:1px !important;
+                margin-right:0px !important;
+            }
+            input[type="checkbox"][value="normal"]:checked {
+                background-image: url("img/chulotablarojo.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: white;
+            }
+            .margen{
+                padding-bottom: 3px !important;
+                padding-left:  1px !important;
+                padding-right:  3px !important;
+                padding-top:  1px !important;
+            }
+            tbody tr th{
+                text-align: center; 
+                width: 90px;
+            }
+
+        </style>
+    </head>
+    <body>
+         <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <table class="table table-bordered table-responsive">
+                <tbody><tr>
+                        <th></th>
+                        <th><span >Padres</span></th>
+                        <th><span >Madre</span></th>
+                        <th><span >Hijo</span></th>
+                        <th><span >Tío (p)</span></th>
+                        <th><span >Tío (m)</span></th>
+                        <th><span >Hnos</span></th>
+                        <th><span >Abuelo (p)</span></th>
+                        <th><span >Abuelo (m)</span></th>
+                        <th><span >Ninguno</span></th>
+                    </tr>
+                    <tr>
+                        <td><span >Diabetes</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Obesidad</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Colesterol</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Triglicéridos</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Infartos</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Hipertensión</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Cáncer</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Osteoporosis</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Otros</span></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                        <td><input type="checkbox"  name="" value="normal"></td>
+                    </tr>
+                </tbody></table>
+        </div>
+    </div>
+
+    </body>
+</html>

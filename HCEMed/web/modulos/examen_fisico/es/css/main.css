@@ -1,0 +1,15 @@
+.oculto{
+    display: none;
+}
+
+input[type="radio"][value="normal"]:checked {
+    background-image: url("../../../../img/radiobgno.png");
+}
+
+input[type="radio"][value="alterado"]:checked {
+    background-image: url("../../../../img/radiobgsi.png");
+}
+
+input[type="radio"][value="no_evaluado"]:checked {
+    background-image: url("../../../../img/radiobgnegro.png");
+}

@@ -1,0 +1,2948 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="cirugiaPlasticaContenedor">
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <!--<h4>Estética cabeza y cuello</h4>-->
+            <img src="modulos/cirugia_plastica/img/estetica_cabeza_y_cuello.png" /> <small>Estética cabeza y cuello</small>
+
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="verde">Si</span>
+                <input  type="radio" name="esteticaCabezaCuello" value="si" onclick="mostrar('alopeciaFacial');">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="rojo">No</span>
+                <input type="radio" name="esteticaCabezaCuello" value="no"  onclick="ocultar('alopeciaFacial');">
+            </div>
+        </div>
+    </div>
+
+    <div id="alopeciaFacial" class="oculto">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Alopecia</span>-->
+                    <img src="modulos/cirugia_plastica/img/alopecia.png" /> <small>Alopecia</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input  type="radio" name="alopecia" value="si" onclick="mostrar('capaAlopecia');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="alopecia" value="no"  onclick="ocultar('capaAlopecia');">
+                </div>
+            </div>
+        </div>
+        <div id="capaAlopecia" class="oculto">
+            <div class="row">
+                &nbsp;
+            </div>
+            <section class="contraste">
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Sufre caida de cabello:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>normal (80-100)</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="caidaDeCabello" value="normal">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Moderada (150-200)</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="caidaDeCabello" value="moderada">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Severa (250 ó más)</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="caidaDeCabello" value="severa">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                        &nbsp;
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <span>Edad de inicio del debilitamiento capilar</span>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id='edadInicioDebilitamientoCapilar'>
+                                <span class="input-group-addon">años</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visible-sm visible-xs">
+                        &nbsp;
+                    </div>
+                    <div class='col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <span>Edad de inicio de la caída capilar</span>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <div class="input-group">
+                                <input type="number" class="form-control" id='edadInicioCaidaCapilar'>
+                                <span class="input-group-addon">años</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Estabilizada</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="estabilizada" value="si">
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="estabilizada" value="no">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Antecedentes familiares</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="antecedentesFamiliares" value="si">
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="antecedentesFamiliares" value="no">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Tratamientos previos</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="tratamientosPrevios" value="si">
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="tratamientosPrevios" value="no">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Cortes:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Corto</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="cortes" value="corto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Mediano</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="cortes" value="mediano">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Largo</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="cortes" value="largo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <span class="">Color</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                            <select name="" id="color" class="form-control">
+                                <option value="cano">Cano</option>
+                                <option value="castano">Castaño</option>
+                                <option value="negro">Negro</option>
+                                <option value="rojo">Rojo</option>
+                                <option value="rubio">Rubio</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Espesor cabello:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Grueso</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="espesorCabello" value="grueso">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Mediano</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="espesorCabello" value="mediano">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Largo</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="espesorCabello" value="largo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <span class="">Estructura</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                            <select name="" id="estructura" class="form-control">
+                                <option value="crespo">Crespo</option>
+                                <option value="ensortijado">Ensortijado</option>
+                                <option value="lacio">Lacio</option>
+                                <option value="rizado">Rizado</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Poros:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Grueso</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="poros" value="grueso">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Mediano</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="poros" value="mediano">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Fino</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="poros" value="fino">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Espesor cuero cabelludo:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Grueso</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="espesorCueroCabelludo" value="grueso">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Mediano</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="espesorCueroCabelludo" value="mediano">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Fino</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="espesorCueroCabelludo" value="fino">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <span class="">Flexibilidad del cuero cabelludo</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                            <select id="flexibilidadCueroCabelludo" class="form-control">
+                                <option value="excelente">Excelente</option>
+                                <option value="bueno">Bueno</option>
+                                <option value="normal">Normal</option>
+                                <option value="nula">Nula</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Cicatrices</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Ninguna</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="cicatrices" value="grueso">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Mínima</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="cicatrices" value="mediano">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Importante</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="cicatrices" value="fino">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Pull test:</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Negativo (10% o menos)</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="pullTest" value="negativo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Positivo (mas del 10%)</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="pullTest" value="positivo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <span class="">Componentes psíquicos</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                            <select name="" id="componentesPsiquicos" class="form-control">
+                                <option value="stress">Stress</option>
+                                <option value="faltaDeSueno">Falta de sueño</option>
+                                <option value="depresion">Depresión</option>
+                                <option value="arrancamiento">Arrancamiento</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Densidad por zonas:</span>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <button type="button" class="btn btn-info" id="muestraOcultaEscala" onclick="muestraOcultaEscala();">Mostrar escala</button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    &nbsp;
+                </div>
+                <div class="row" id="escala">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>
+                                    Escala: Escasa de 40 folículos o menos por cm2, Normal de 90-120 por cm2 y Abundante mas de 120 por cm2
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Frontal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Escasa</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaFrontal" value="escasa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Normal</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaFrontal" value="normal">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Abundante</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaFrontal" value="abundante">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Occipital</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Escasa</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaOccipital" value="escasa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Normal</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaOccipital" value="normal">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Abundante</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaOccipital" value="abundante">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Temporal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Escasa</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaTemporal" value="escasa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Normal</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaTemporal" value="normal">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Abundante</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaTemporal" value="abundante">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Parietal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Escasa</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaParietal" value="escasa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Normal</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaParietal" value="normal">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <span>Abundante</span>
+                            </div>   
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <input type="radio" name="densidadZonaParietal" value="abundante">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <span class="">Perdida zona</span>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <select id="perdidaZona" class="form-control">
+                                <option value="total">Total</option>
+                                <option value="difusa">Difusa</option>
+                                <option value="frontal">Frontal</option>
+                                <option value="temporal">Temporal</option>
+                                <option value="parietal">Parietal</option>
+                                <option value="coronal">Coronal</option>
+                                <option value="ceja">Ceja</option>
+                                <option value="pestanas">Pestañas</option>
+                                <option value="otra">Otra</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Tipo de alopecia</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <span>No cicatricial</span>
+                            </div>   
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <select id="tipoAlopeciaNoCicatricial" class="form-control" onchange="muestraOcultaElemento('tipoAlopeciaNoCicatricial', 'capaNoCicatricial', 'otra');">
+                                    <option value="androgenica">Androgénica</option>
+                                    <option value="areata">Areata</option>
+                                    <option value="farmacologica">Farmacológica</option>
+                                    <option value="traumatica">Traumática</option>
+                                    <option value="difusa">Difusa</option>
+                                    <option value="postparto">Postparto</option>
+                                    <option value="otra">Otra</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-6" id="capaNoCicatricial">
+                                <textarea class="form-control" id="otroTipoDeAlopeciaNoCicatricial"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <span>Cicatricial</span>
+                            </div>   
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <select id="tipoAlopeciaCicatricial" class="form-control" onchange="muestraOcultaElemento('tipoAlopeciaCicatricial', 'capaCicatricial', 'otra');">
+                                    <option value="hereditario">Hereditario</option>
+                                    <option value="agentesFisicoquimicos">Agentes fisicoquímicos</option>
+                                    <option value="infeccion">Infección</option>
+                                    <option value="neoplasia">Neoplasia</option>
+                                    <option value="psiquicos">Psiquicos</option>
+                                    <option value="postEmbarazo">Post embarazo</option>
+                                    <option value="hormonales">Hormonales</option>
+                                    <option value="dermatosis">Dermatosis</option>
+                                    <option value="sindromeClinico">Síndromes clínicos descalvantes por UV</option>
+                                    <option value="otra">Otra</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-6" id="capaCicatricial">
+                                <textarea class="form-control" id="otroTipoAlopeciaCicatricial"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Tipo de alopecia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div id="imagenesAlopeciaHombre">
+                    <input type="text" id="gradoDeAlopeciaHombre" class="oculto" />
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado1m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado2m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado3m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado4m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado5m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado6m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="imagenesAlopeciaMujer">
+                    <input type="text" id="gradoDeAlopeciaMujer" class="oculto" />
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado1f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado2f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado3f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado4f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado5f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado6f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Expectativas del paciente</span>
+                            <textarea class="form-control" id="expectativasPaciente"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span class="">Propuesta terapéutica</span>
+                            <textarea class="form-control" id="propuestasTerapeuticas"></textarea>
+                        </div>
+                    </div>
+                </div>       
+            </section>
+        </div> <!-- final capaAlopecia -->
+
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Facial</span>-->
+                    <img src="modulos/cirugia_plastica/img/cara.png" /> <small>Facial</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input  type="radio" name="facial" value="si" onclick="mostrar('capaFacial');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="facial" value="no"  onclick="ocultar('capaFacial');">
+                </div>
+            </div>
+        </div>
+
+        <div id="capaFacial" class="oculto">
+            <div class="row">
+                &nbsp;
+            </div>
+            <section class="contraste">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Antropometría frente</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="antropometriaFrente" value="si" onclick="mostrar('capaComentarioAntropometriaF');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="antropometriaFrente" value="no" onclick="ocultar('capaComentarioAntropometriaF');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioAntropometriaF" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosAntropometriaFrente"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Antropometría perfil</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="antropometriaPerfil" value="si" onclick="mostrar('capaComentarioAntropometriaP');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="antropometriaPerfil" value="no" onclick="ocultar('capaComentarioAntropometriaP');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioAntropometriaP" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosAntropometriaPerfil"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Frente</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="frente" value="si" onclick="mostrar('capaComentarioFrente');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="frente" value="no" onclick="ocultar('capaComentarioFrente');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioFrente" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosFrente"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Zona peri-orbitaria</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="zonaPeriorbitaria" value="si" onclick="mostrar('capaComentarioZonaPeriorbitaria');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="zonaPeriorbitaria" value="no" onclick="ocultar('capaComentarioZonaPeriorbitaria');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioZonaPeriorbitaria" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosZonaPeriorbitaria"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Región malar</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="regionMalar" value="si" onclick="mostrar('capaComentarioRegionMalar');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="regionMalar" value="no" onclick="ocultar('capaComentarioRegionMalar');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioRegionMalar" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosRegionMalar"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Region mandibular</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="regionMandibular" value="si" onclick="mostrar('capaComentarioRegionMandibular');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="regionMandibular" value="no" onclick="ocultar('capaComentarioRegionMandibular');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioRegionMandibular" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosRegionMandibular"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Auricular</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="auricular" value="si" onclick="mostrar('capaComentarioAuricular');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="auricular" value="no" onclick="ocultar('capaComentarioAuricular');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioAuricular" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosAuricular"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Nasal</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="nasal" value="si" onclick="mostrar('capaComentarioNasal');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="nasal" value="no" onclick="ocultar('capaComentarioNasal');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioNasal" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosNasal"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Peri bucal</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="periBucal" value="si" onclick="mostrar('capaComentarioPeriBucal');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="periBucal" value="no" onclick="ocultar('capaComentarioPeriBucal');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioPeriBucal" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosPeriBucal"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Mentoniana</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="mentoniana" value="si" onclick="mostrar('capaComentarioMentoniana');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="mentoniana" value="no" onclick="ocultar('capaComentarioMentoniana');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioMentoniana" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosMentoniana"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Cervical</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input  type="radio" name="cervical" value="si" onclick="mostrar('capaComentarioCervical');" >
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="cervical" value="no" onclick="ocultar('capaComentarioCervical');" >
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioCervical" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosCervical"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div> <!-- final capaFacial -->
+    </div> <!-- final alopecialFacial -->
+
+    <div class="row">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <!--<h4>Estética corporal</h4>-->
+            <img src="modulos/cirugia_plastica/img/estetica_corporal.png" /> <small>Estética corporal</small>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="verde">Si</span>
+                <input  type="radio" name="esteticaCorporal" value="si" onclick="mostrar('capaEsteticaCorporal');">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="rojo">No</span>
+                <input type="radio" name="esteticaCorporal" value="no"  onclick="ocultar('capaEsteticaCorporal');">
+            </div>
+        </div>
+    </div>
+
+    <div id="capaEsteticaCorporal" class="oculto">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Región torácica anterior</span>-->
+                    <img src="modulos/cirugia_plastica/img/region_toracica_anterior.png" /> <small>Región torácica anterior</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input type="radio" name="regionToracicaAnterior" value="si" onclick="mostrarEc('hombreMujer');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="regionToracicaAnterior" value="no" onclick="ocultarEc('hombreMujer');">
+                </div>
+            </div>
+        </div>
+
+        <div id="hombreMujer" class="oculto">
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div id="mujer">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Antecedentes mamarios</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input type="radio" name="antecedentesMamarios" value="si" onclick="mostrar('capaComentarioAntecedentesMamarios');">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="antecedentesMamarios" value="no" onclick="ocultar('capaComentarioAntecedentesMamarios');">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioAntecedentesMamarios" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosAntecedentesMamarios"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Mamografías</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input type="radio" name="mamografias" value="si" onclick="mostrar('capaComentarioMamografias');">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="mamografias" value="no" onclick="ocultar('capaComentarioMamografias');">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioMamografias" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosMamografias"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Autoexamen</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input type="radio" name="autoexamen" value="si" onclick="mostrar('capaComentarioAutoexamen');">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="autoexamen" value="no" onclick="ocultar('capaComentarioAutoexamen');">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaComentarioAutoexamen" class="oculto">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <textarea class="form-control" id="comentariosAutoexamen"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Clasificación volumen mamario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                                <span>Derecho</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <select id="volumenMamarioDerecho" class="form-control" onchange="muestraOcultaElemento('volumenMamarioDerecho', 'capaHipertrofiaDerecha', 'hipertrofia');">
+                                <option value="amastiaUnilateral">Amastia unilateral o bilateral</option>
+                                <option value="hipomastia">Hipomastia</option>
+                                <option value="normomastia">Normomastia</option>
+                                <option value="hipertrofia">Hipertrofia</option>
+                                <option value="asimetria">Asimetria</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="capaHipertrofiaDerecha">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <select id="hipertrofiaVolumenMamarioDerecho" class="form-control">
+                                    <option value="leve">Leve 300 gr de resección</option>
+                                    <option value="moderada">Moderada 300 a 700 gr de resección</option>
+                                    <option value="severa">Severa 700 a 1200 gr de resección</option>
+                                    <option value="gigantomastia">Gigantomastia mas de 1200 gr</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                                <span>Izquierdo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <select id="volumenMamarioIzquierdo" class="form-control" onchange="muestraOcultaElemento('volumenMamarioIzquierdo', 'capaHipertrofiaIziquierda', 'hipertrofia');">
+                                <option value="amastiaUnilateral">Amastia unilateral o bilateral</option>
+                                <option value="hipomastia">Hipomastia</option>
+                                <option value="normomastia">Normomastia</option>
+                                <option value="hipertrofia">Hipertrofia</option>
+                                <option value="asimetria">Asimetria</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="capaHipertrofiaIziquierda">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <select id="hipertrofiaVolumenMamarioIzquierdo" class="form-control">
+                                    <option value="leve">Leve 300 gr de resección</option>
+                                    <option value="moderada">Moderada 300 a 700 gr de resección</option>
+                                    <option value="severa">Severa 700 a 1200 gr de resección</option>
+                                    <option value="gigantomastia">Gigantomastia mas de 1200 gr</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Clasificación forma mamaria</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <span>Derecha</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <select id="formaMamariaDerecha" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="tuberosa">Tuberosa</option>
+                            <option value="asimetrica">Asimétrica</option>
+                            <option value="pendular">Pendular</option>
+                            <option value="conica">Cónica</option>
+                            <option value="proyeccionReducida">Proyección reducida</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <div class="visible-sm visible-xs">
+                        &nbsp;
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <span>Izquierda</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <select id="formaMamariaIzquierda" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="tuberosa">Tuberosa</option>
+                            <option value="asimetrica">Asimétrica</option>
+                            <option value="pendular">Pendular</option>
+                            <option value="conica">Cónica</option>
+                            <option value="proyeccionReducida">Proyección reducida</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Ptosis mamaria</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input type="radio" name="ptosisMamaria" value="si">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="ptosisMamaria" value="no">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Clasificación ptosis regnault</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input type="radio" name="clasificacionPtosisRegnoult" value="si">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="clasificacionPtosisRegnoult" value="no">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Tipos de piel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <span>Derecha</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <select id="tipoPielDerecha" class="form-control">
+                            <option value="tonificada">Tonificada</option>
+                            <option value="estriada">Estriada</option>
+                            <option value="laxa">Laxa</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <div class="visible-sm visible-xs">
+                        &nbsp;
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <span>Izquierda</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <select id="tipoPielIzquierda" class="form-control">
+                            <option value="tonificada">Tonificada</option>
+                            <option value="estriada">Estriada</option>
+                            <option value="laxa">Laxa</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Sensibilidad pezón</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <span>Derecha</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <select id="sensibilidadPezonDerecho" class="form-control">
+                            <option value="nula">Nula</option>
+                            <option value="disminuida">Disminuida</option>
+                            <option value="normal">Normal</option>
+                            <option value="aumentada">Aumentada</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    <div class="visible-sm visible-xs">
+                        &nbsp;
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <span>Izquierda</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <select id="sensibilidadPezonIzquierdo" class="form-control">
+                            <option value="nula">Nula</option>
+                            <option value="disminuida">Disminuida</option>
+                            <option value="normal">Normal</option>
+                            <option value="aumentada">Aumentada</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                            <span>Diametro complejo areola pezón</span>
+                        </div>
+                        <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="diametroComplejoAreola">
+                                <span class="input-group-addon">cm</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Volumen mamario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                                <span>Derecho</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Diagrama posición del pezón</span>
+                                <input type="text" class="form-control" id="diagramaPosicionDerecho">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visible-xs">
+                        &nbsp;
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Base mamaria</span>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="baseMamariaDerecho">
+                                    <span class="input-group-addon">cm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visible-xs">
+                        &nbsp;
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Medida del tórax</span>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="medidaToraxDerecho">
+                                    <span class="input-group-addon">pulgadas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12-col-md-12 col-sm-12 col-xs-12">
+                                <span>Izquierdo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Diagrama posición del pezón</span>
+                                <input type="text" class="form-control" id="diagramaPosicionIzquierdo">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visible-xs">
+                        &nbsp;
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Base mamaria</span>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="baseMamariaIzquierdo">
+                                    <span class="input-group-addon">cm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="visible-xs">
+                        &nbsp;
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Medida del tórax</span>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="medidaToraxIzquierdo">
+                                    <span class="input-group-addon">pulgadas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Diagnóstico mamario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <textarea class="form-control" id="diagnosticoMamario"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Otros diagnósticos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <textarea class="form-control" id="otrosDiagnosticosMamarios"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Plan de tratamiento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <textarea class="form-control" id="planTratamientoMamario"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- final capa mujer -->
+
+            <div id="hombre">
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Ginecomastia</span>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="verde">Si</span>
+                            <input type="radio" name="ginecomastia" value="si" onclick="mostrar('capaGinecomastia');">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                            <span class="rojo">No</span>
+                            <input type="radio" name="ginecomastia" value="no" onclick="ocultar('capaGinecomastia');">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaGinecomastia" class="oculto">
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Clasificación Wiesman</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <select id="clasificacionWiesman" class="form-control">
+                                        <option value="ginecomastiaPequeña">Ginecomastia pequeña sin exceso de piel</option>
+                                        <option value="ginecomastiaGrandeSin">Ginecomastia grande sin exceso de piel</option>
+                                        <option value="ginecomastiaGrandeCon">Ginecomastia grande con exceso de piel</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <span>Antecedentes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="antecedentesGinecomastia"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Tipos</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <select id="tipoGinecomastia" class="form-control">
+                                        <option value="puberal">Para puberal</option>
+                                        <option value="adquiridaDelAdulto">Adquirida del adulto</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <span>Comentarios</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="comentariosTipoGinecomastia"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <span>Pectorales</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="pectorales"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <span>Otros diagnósticos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="otrosDiagnosticosGinecomastia"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <span>Plan de tratamiento</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="planTratamientoGinecomastia"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- final capa ginecomastia -->
+            </div> <!-- final capa hombre -->
+        </div> <!-- final capa hombreMujer -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Abdomen</span>-->
+                    <img src="modulos/cirugia_plastica/img/abdomen_cintura.png" /> <small>Abdomen</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input type="radio" name="abdomen" value="si" onclick="mostrar('capaAbdomen');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="abdomen" value="no" onclick="ocultar('capaAbdomen');">
+                </div>
+            </div>
+        </div>
+
+        <div id="capaAbdomen" class="oculto">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Cintura</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="imagen" class="oculto">
+
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Relación cintura cadera</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span id="icc"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Clasificación según Matarasso para abdominoplastia</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="verde">Si</span>
+                        <input type="radio" name="clasificacionMatarasso" value="si" onclick="mostrar('imagen2');">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="rojo">No</span>
+                        <input type="radio" name="clasificacionMatarasso" value="no" onclick="ocultar('imagen2');">
+                    </div>
+                </div>
+            </div>
+
+            <div id="imagen2" class="oculto">
+
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Comentarios</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="comentariosAbdomen"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Diagnóstico abdomen</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="diagnosticoAbdomen"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Plan de tratamiento</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="planTratamientoAbdomen"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capa abdomen -->
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Espalda</span>-->
+                    <img src="modulos/cirugia_plastica/img/espalda.png" /> <small>Espalda</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input type="radio" name="espalda" value="si" onclick="mostrar('capaEspalda');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="espalda" value="no" onclick="ocultar('capaEspalda');">
+                </div>
+            </div>
+        </div>
+
+        <div id="capaEspalda" class="oculto">
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Comentarios</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="comentariosEspalda"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Diagnóstico</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="diagnosticoEspalda"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Plan de tratamiento</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="planTratamientoEspalda"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaEspalda -->
+
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Glúteos</span>-->
+                    <img src="modulos/cirugia_plastica/img/gluteos.png" /> <small>Glúteos</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input type="radio" name="gluteos" value="si" onclick="mostrar('capaGluteos');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="gluteos" value="no" onclick="ocultar('capaGluteos');">
+                </div>
+            </div>
+        </div>
+
+        <div id="capaGluteos" class="oculto">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Volumen</span>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="volumenGluteos"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Posición</span>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="posicionGluteos"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Forma</span>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="formaGluteos"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Características de la piel</span>
+                        <textarea class="form-control" id="caracteristicasPielGluteos"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Asimetría</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="verde">Si</span>
+                        <input type="radio" name="asimetria" value="si">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="rojo">No</span>
+                        <input type="radio" name="asimetria" value="no">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Secuelas de trauma</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="verde">Si</span>
+                        <input type="radio" name="secuelasTrauma" value="si">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="rojo">No</span>
+                        <input type="radio" name="secuelasTrauma" value="no">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Comentarios</span>
+                        <textarea class="form-control" id="comentariosGluteos"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+        </div> <!-- final capaGluteos -->
+
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Extremidades superiores</span>-->
+                    <img src="modulos/cirugia_plastica/img/extremidades_superiores.png" /> <small>Extremidades superiores</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input type="radio" name="extremidadesSuperiores" value="si" onclick="mostrar('capaExtremidadesSuperiores');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="extremidadesSuperiores" value="no" onclick="ocultar('capaExtremidadesSuperiores');">
+                </div>
+            </div>
+        </div>
+
+        <div id="capaExtremidadesSuperiores" class="oculto">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4>">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Brazos con depósito de grasa mínimo a moderado, con laxitud mínima.</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="verde">Si</span>
+                        <input type="radio" name="depositoGrasaMinimoModeradoMinimaLaxitud" value="si" onclick="mostrar('sugerenciaDepositoMinimoGrasa');">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="rojo">No</span>
+                        <input type="radio" name="depositoGrasaMinimoModeradoMinimaLaxitud" value="no" onclick="ocultar('sugerenciaDepositoMinimoGrasa');">
+                    </div>
+                </div>
+                <div id="sugerenciaDepositoMinimoGrasa" class="oculto">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <span>Lipo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4>">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Brazos con depósito de grasa generalizada y moderada laxitud de piel.</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="verde">Si</span>
+                        <input type="radio" name="depositoGrasaGeneralizadaModeradaLaxitud" value="si" onclick="mostrar('sugerenciaDepositoGrasaGeneralizada');">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="rojo">No</span>
+                        <input type="radio" name="depositoGrasaGeneralizadaModeradaLaxitud" value="no" onclick="ocultar('sugerenciaDepositoGrasaGeneralizada');">
+                    </div>
+                </div>
+                <div id="sugerenciaDepositoGrasaGeneralizada" class="oculto">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <span>Liposucción y excisión.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4>">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Brazos con obesidad generalizada y severa laxitud de piel.</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="verde">Si</span>
+                        <input type="radio" name="obesidadGeneralizadaSeveraLaxitud" value="si" onclick="mostrar('sugerenciaObesidadGeneralizada');">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="rojo">No</span>
+                        <input type="radio" name="obesidadGeneralizadaSeveraLaxitud" value="no" onclick="ocultar('sugerenciaObesidadGeneralizada');">
+                    </div>
+                </div>
+                <div id="sugerenciaObesidadGeneralizada" class="oculto">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <span>Lipo circunferencial y resección de piel.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4>">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Brazos con mínima grasa subcutánea y extensa laxitud de piel.</span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="verde">Si</span>
+                        <input type="radio" name="minimaGrasaSubcutaneaExtensaLaxitud" value="si" onclick="mostrar('sugerenciaMinimaGrasaSubcutanea');">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                        <span class="rojo">No</span>
+                        <input type="radio" name="minimaGrasaSubcutaneaExtensaLaxitud" value="no" onclick="ocultar('sugerenciaMinimaGrasaSubcutanea');">
+                    </div>
+                </div>
+                <div id="sugerenciaMinimaGrasaSubcutanea" class="oculto">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <span>Excisión quirúrgica.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Comentarios</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="comentariosExtremidadesSuperiores"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaExtremidadesSuperiores -->
+
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Extremidades inferiores</span>-->
+                    <img src="modulos/cirugia_plastica/img/extremidades_inferiores.png" /> <small>Extremidades inferiores</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input type="radio" name="extremidadesInferiores" value="si" onclick="mostrar('capaExtremidadesInferiores');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="extremidadesInferiores" value="no" onclick="ocultar('capaExtremidadesInferiores');">
+                </div>
+            </div>
+        </div>
+
+        <div id="capaExtremidadesInferiores" class="oculto">
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Comentarios</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="comentariosExtremidadesInferiores"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Diagnóstico</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="diagnosticoExtremidadesInferiores"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Plan de tratamiento</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" id="planTratamientoExtremidadesInferiores"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capa esteticaCorporal -->
+
+    <div class="row">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <h4>Reconstructiva cabeza y cuello</h4>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="verde">Si</span>
+                <input  type="radio" name="reconstructivaCabezaCuello" value="si" onclick="mostrar('capaRcc');">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="rojo">No</span>
+                <input type="radio" name="reconstructivaCabezaCuello" value="no"  onclick="ocultar('capaRcc');">
+            </div>
+        </div>
+    </div>
+
+    <div id="capaRcc" class="oculto">
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea class="form-control" id="comentariosReconstructivaCabezaCuello"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Diagnóstico</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea class="form-control" id="diagnosticoReconstructivaCabezaCuello"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Plan de tratamiento</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea class="form-control" id="planTratamientoReconstructivaCabezaCuello"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaRcc -->    
+
+    <div class="row">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <h4>Reconstructiva corporal</h4>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="verde">Si</span>
+                <input  type="radio" name="reconstructivaCorporal" value="si" onclick="mostrar('capaRc');">
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                <span class="rojo">No</span>
+                <input type="radio" name="reconstructivaCorporal" value="no"  onclick="ocultar('capaRc');">
+            </div>
+        </div>
+    </div>
+
+    <div id="capaRc" class="oculto">
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea class="form-control" id="comentariosReconstructivaCorporal"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Diagnóstico</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea class="form-control" id="diagnosticoReconstructivaCorporal"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Plan de tratamiento</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <textarea class="form-control" id="planTratamientoReconstructivaCorporal"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaRc -->
+</div>

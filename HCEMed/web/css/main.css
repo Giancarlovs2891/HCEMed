@@ -1,0 +1,933 @@
+li img + h1 {
+    text-transform: capitalize;
+}
+
+body{
+    height:100%;
+    width:100%;
+    font-family:Arial;
+    font-size: 16px !important;
+}
+
+#header{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:44px;
+    background-color: #7FD3E5;
+    z-index:3;
+}
+.leftHeader{
+    position:relative;
+    float:left;
+    display:box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-webkit-box;
+    box-align:center;
+    -webkit-box-align:center;
+    -moz-box-align:center;
+    -ms-box-align:center;
+    box-pack:start;
+    -moz-box-pack:start;
+    -ms-box-pack:start;
+    -webkit-box-pack:start;
+    width:9%;
+    height:100%;
+    color:#FFF;
+    padding-left:1%;
+}
+#header h1{
+    position:relative;
+    float:left;
+    width:80%;
+    height:100%;
+    color:#FFF;
+    font-size:16px;
+    display:box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-webkit-box;
+    box-align:center;
+    -webkit-box-align:center;
+    -moz-box-align:center;
+    -ms-box-align:center;
+    box-pack:center;
+    -webkit-box-pack:center;
+    -moz-box-pack:center;
+    -ms-box-pack:center;
+    margin:0px;
+    padding:0px;
+}
+.rightHeader{
+    position:relative;
+    float:left;
+    display:box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-webkit-box;
+    box-align:center;
+    -webkit-box-align:center;
+    -moz-box-align:center;
+    -ms-box-align:center;
+    box-pack:end;
+    -moz-box-pack:end;
+    -ms-box-pack:end;
+    -webkit-box-pack:end;
+    width:9%;
+    height:100%;
+    color:#FFF;
+    padding-right:1%;
+}
+#header i{
+    font-size:28px;
+}
+#subHeader{
+    position:absolute;
+    top:44px;
+    left:0px;
+    width:100%;
+    height:44px;
+    background-color:#F2F4F7;
+    z-index:3;
+    border-bottom-style:solid;
+    border-width:1px;
+    border-color:#DDD;
+}
+.rightSubHeader{
+    position:relative;
+    float:left;
+    display:box;
+    display:-moz-box;
+    display:-ms-box;
+    display:-webkit-box;
+    box-align:center;
+    -webkit-box-align:center;
+    -moz-box-align:center;
+    -ms-box-align:center;
+    box-pack:end;
+    -moz-box-pack:end;
+    -ms-box-pack:end;
+    -webkit-box-pack:end;
+    width:9%;
+    height:100%;
+    color:#777;
+    padding-right:1%;
+}	
+/*Los Subheader estan en los media types mas abajo*/
+#subHeader i{
+    font-size:28px;
+}
+#subHeader input{
+    position:relative;
+    float:left;
+    width:98%;
+    height:36px;
+    margin-left:1%;
+    margin-top:4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CCC;
+}
+#mainBody{
+    position:absolute;
+    display:none;
+    top:89px;
+    bottom:0px;
+    width:100%;
+    background-color:#FFF;
+    transform: translate3d(100%,0,0);
+    -webkit-transform: translate3d(100%,0,0);
+    transition: -webkit-transform 0.4s;
+    z-index:1;
+}
+ul#listaPacientes{
+    position:absolute;
+    width:100%;
+    min-height:100%;
+    visibility: visible;
+    margin-top:89px;
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    transition: -webkit-transform 0.4s;
+    z-index:3;
+    background-color:#FFF;
+}
+ul#listaPacientes li{
+    position:relative;
+    float:left;
+    width:100%;
+    height:100px;
+    border-bottom-style:solid;
+    border-width:1px;
+    border-color:#CCC;
+}
+ul#listaPacientes li img{
+    position:relative;
+    float:left;
+    width:80px;
+    height:80px;
+    margin-top:10px;
+    margin-left:10px;
+}
+ul#listaPacientes li h1{
+    position:relative;
+    float:left;
+    width:60%;
+    margin:0px;
+    padding:0px;
+    margin-top:20px;
+    margin-left:10px;
+    font-weight:normal;
+    font-size:18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+ul#listaPacientes li h1 span.apellido{
+    font-weight:bold;
+}
+ul#listaPacientes li h2{
+    position:relative;
+    float:left;
+    width:60%;
+    margin:0px;
+    padding:0px;
+    margin-top:10px;
+    margin-left:10px;
+    font-weight:normal;
+    font-size:16px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+ul#listaPacientes li.divider{
+    position:relative;
+    float:left;
+    width:98%;
+    height:21px;
+    padding-left:2%;
+    font-size:18px;
+    text-shadow:1px 1px 1px #0001;
+    margin:0px;
+    color:#FFF;
+    background-color:#E6E6E6;
+    display:-ms-flexbox;
+    -ms-flex-align:center;
+    display:-moz-box;
+    -moz-box-align:center;
+    display:-webkit-box;
+    -webkit-box-align:center;
+    display:box;
+    box-align:center;
+}
+ #MedsioContent #pacienteInfoGeneralMedsio{
+        position:relative;
+        float:left;
+        width:100%;
+        height:80px;
+        background-color:#FFF;
+        z-index:1;
+        border-bottom-style:solid;
+        border-width:2px;
+        border-color:#EEE;
+    }
+ #nombrePacienteGeneralMedsio{
+        position:relative;
+        float:left;
+        width:48%;
+        height:100%;
+        font-weight:bold;
+        display:-ms-flexbox;
+        -ms-flex-align:center;
+        display:-moz-box;
+        -moz-box-align:center;
+        display:-webkit-box;
+        -webkit-box-align:center;
+        display:box;
+        box-align:center;
+        padding-left:2%;
+    }
+    #alertaMedicaGeneralMedsio{
+        position:relative;
+        float:left;
+        width:48%;
+        height:100%;
+        color:#F00;
+        border-left-style:solid;
+        border-width:2px;
+        border-color:#EEE;
+        display:-ms-flexbox;
+        -ms-flex-align:center;
+        display:-moz-box;
+        -moz-box-align:center;
+        display:-webkit-box;
+        -webkit-box-align:center;
+        display:box;
+        box-align:center;
+        padding-left:2%;
+        overflow-y:auto;
+    }
+@media screen and (max-width: 768px) {/*Celulares hasta el Note3 tanto en landscape como en portrait*/
+    .leftSubHeader{
+        position:relative;
+        float:left;
+        display:box;
+        display:-moz-box;
+        display:-ms-box;
+        display:-webkit-box;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:start;
+        -moz-box-pack:start;
+        -ms-box-pack:start;
+        -webkit-box-pack:start;
+        width:9%;
+        height:100%;
+        color:#777;
+        padding-left:1%;
+    }
+    #subHeader h1{
+        position:relative;
+        float:left;
+        width:80%;
+        height:100%;
+        font-size:16px;
+        color:#777;
+        display:box;
+        display:-moz-box;
+        display:-ms-box;
+        display:-webkit-box;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:center;
+        -webkit-box-pack:center;
+        -moz-box-pack:center;
+        -ms-box-pack:center;
+        margin:0px;
+        padding:0px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #MedsioContent{
+      position:absolute;
+      top:0px;
+      bottom:0px;
+      left:0px;
+      right:0px;
+      background-color:#FFF;
+      transition: left 0.4s;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling: touch;  
+    }
+    
+    #medsioContent{
+        position:relative;
+        float:left;
+        width:100%;
+        background-color:#FFF;
+        transition: left 0.4s;
+        padding:5px;
+        z-index:1;
+    }
+    #medsioMenu{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:104px;
+        height:100%;
+        transform: translate3d(-104px,0,0);
+        -webkit-transform: translate3d(-104px,0,0);
+        transition: -webkit-transform 0.4s;
+        background-color:#E6E6E6;
+        overflow-y:scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index:2;
+    }
+}
+@media screen and (min-width: 768px){/*Ipad en Portrait*/
+    .leftSubHeader{
+        position:relative;
+        float:left;
+        display:box;
+        display:-moz-box;
+        display:-ms-box;
+        display:-webkit-box;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:start;
+        -moz-box-pack:start;
+        -ms-box-pack:start;
+        -webkit-box-pack:start;
+        width:9%;
+        height:100%;
+        color:#777;
+        padding-left:1%;
+    }
+    #subHeader h1{
+        position:relative;
+        float:left;
+        width:80%;
+        height:100%;
+        color:#777;
+        font-size:16px;
+        display:box;
+        display:-moz-box;
+        display:-ms-box;
+        display:-webkit-box;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:center;
+        -webkit-box-pack:center;
+        -moz-box-pack:center;
+        -ms-box-pack:center;
+        margin:0px;
+        padding:0px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #MedsioContent{
+      position:absolute;
+      top:0px;
+      bottom:0px;
+      left:0px;
+      right:0px;
+      background-color:#FFF;
+      transition: left 0.4s;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling: touch;  
+    }
+    
+    #medsioContent{
+        position:relative;
+        float:left;
+        width:100%;
+        background-color:#FFF;
+        transition: left 0.4s;
+        padding:5px;
+        z-index:1;
+    }
+    #medsioMenu{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:104px;
+        height:100%;
+        transform: translate3d(-104px,0,0);
+        -webkit-transform: translate3d(-104px,0,0);
+        transition: -webkit-transform 0.4s;
+        background-color:#E6E6E6;
+        overflow-y:scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index:2;
+    }
+}
+@media screen and (min-width: 992px){/*Ipad en landscape*/
+    .leftSubHeader{
+        position:relative;
+        float:left;
+        display:none;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:start;
+        -moz-box-pack:start;
+        -ms-box-pack:start;
+        -webkit-box-pack:start;
+        width:9%;
+        height:100%;
+        color:#777;
+        padding-left:1%;
+    }  
+    #subHeader h1{
+        position:relative;
+        float:left;
+        width:80%;
+        height:100%;
+        color:#777;
+        font-size:16px;
+        display:box;
+        display:-moz-box;
+        display:-ms-box;
+        display:-webkit-box;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:center;
+        -webkit-box-pack:center;
+        -moz-box-pack:center;
+        -ms-box-pack:center;
+        margin:0px;
+        padding:0px;
+        margin-left:10%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #MedsioContent{
+      position:absolute;
+      top:0px;
+      bottom:0px;
+      left:104px;
+      right:0px;
+      background-color:#FFF;
+      transition: left 0.4s;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling: touch;  
+    }
+   
+    #medsioContent{
+        position:relative;
+        float:left;
+        width:100%;
+        background-color:#FFF;
+        transition: left 0.4s;
+        padding:5px;
+        z-index:1;
+    }
+    #medsioMenu{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:104px !important;
+        height:100%;
+        transform: translate3d(0,0,0) !important;
+        -webkit-transform: translate3d(0,0,0) !important;
+        transition: -webkit-transform 0.4s;
+        background-color:#E6E6E6;
+        overflow-y:scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index:2;
+    }
+}
+@media screen and (min-width: 1200px){/*Laptops en Adelante*/
+    .leftSubHeader{
+        position:relative;
+        float:left;
+        display:none;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:start;
+        -moz-box-pack:start;
+        -ms-box-pack:start;
+        -webkit-box-pack:start;
+        width:9%;
+        height:100%;
+        color:#777;
+        padding-left:1%;
+    }  
+    #subHeader h1{
+        position:relative;
+        float:left;
+        width:80%;
+        height:100%;
+        color:#777;
+        font-size:16px;
+        display:box;
+        display:-moz-box;
+        display:-ms-box;
+        display:-webkit-box;
+        box-align:center;
+        -webkit-box-align:center;
+        -moz-box-align:center;
+        -ms-box-align:center;
+        box-pack:center;
+        -webkit-box-pack:center;
+        -moz-box-pack:center;
+        -ms-box-pack:center;
+        margin:0px;
+        padding:0px;
+        margin-left:10%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #MedsioContent{
+      position:absolute;
+      top:0px;
+      bottom:0px;
+      left:104px;
+      right:0px;
+      background-color:#FFF;
+      transition: left 0.4s;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      -webkit-overflow-scrolling: touch;  
+    }
+    
+   
+    #medsioContent{
+        position:relative;
+        float:left;
+        width:100%;
+        background-color:#FFF;
+        transition: left 0.4s;
+        padding:5px;
+        z-index:1;
+    }
+    #medsioMenu{
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:104px;
+        height:100%;
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+        transition: -webkit-transform 0.4s;
+        background-color:#E6E6E6;
+        overflow-y:scroll;
+        -webkit-overflow-scrolling: touch;
+        z-index:2;
+    }
+}
+/*#medsioContent{
+        position:fixed;
+        top:0px;
+        bottom:0px;
+        left:104px;
+        right:0px;
+        background-color:#FFF;
+        -webkit-overflow-scrolling: touch;
+}
+ #medsioMenu{
+        position:fixed;
+        top:0px;
+        left:0px;
+        width:104px;
+        height:100%;
+        background-color:#E6E6E6;
+        overflow-y:scroll;
+        -webkit-overflow-scrolling: touch;
+}*/
+#medsioMenu ul{
+    position:relative;
+    float:left;
+    width:100%;
+}
+#medsioMenu ul li{
+    position:relative;
+    float:left;
+    width:100%;
+    height:84px;
+    border-top-style:solid;
+    border-width:1px;
+    border-color:#BBB;
+    color:#E6E6E6;
+}
+#medsioMenu ul li.selected{
+    background-color:#FFF;
+    color:#999;
+}
+#medsioMenu ul li span{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:18px;
+    text-align:center;
+    font-size:11px;
+    overflow:hidden;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+#medsioMenu ul li img{
+    position:relative;
+    float:left;
+    width:52px;
+    height:52px;
+    margin-left:26px;
+    margin-top:10px;
+}
+.menuProfile{
+    position:relative;
+    float:left;
+    width:61px;
+    height:62px;
+    margin-left:20px;
+    margin-top:10px;
+    border-style:solid;
+    border-width:1px;
+    border-color:#BBB;
+}
+#galeriaPortable{
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    width:154px;
+    right:-154px;
+     transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transition: -webkit-transform 0.4s;
+    background-color:#FFF;
+    z-index:5;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
+    border-left-style:solid;
+    border-width:1px;
+    border-color:#CCC;
+}
+#galeriaPortable a{
+    position:relative;
+    float:left;
+    width:134px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:20px;
+    overflow:hidden;
+}
+#galeriaPortable a img{
+    position:relative;
+    float:left;
+    width:100%;
+}
+#galeriaPortable a span{
+    position:relative;
+    float:left;
+    width:100%;
+    text-align:center;
+    color:#777;
+}
+#fotoCarrete{
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    width:100%;
+    right:-100%;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transition: -webkit-transform 0.4s;
+    background-color:#FFF;
+    z-index:5;
+    overflow-y:hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+#cerrarFotoCarrete{
+    position:absolute;
+    top:5px;
+    left:5px;
+    display:block;
+    background-color:#7FD3E5;
+    color:#FFF;
+    padding:5px;
+    border-radius:5px;
+    z-index:2;
+    overflow:hidden;
+}
+#nextFotoCarrete{
+    position:absolute;
+    top:50%;
+    right:0px;
+    display:block;
+    width: 30px;
+    background-color:#7FD3E5;
+    color:#FFF;
+    padding:5px;
+    border-radius:5px 0px 0px 5px;
+    font-size: 24px;
+    z-index:2;
+    overflow:hidden;
+}
+#previousFotoCarrete{
+    position:absolute;
+    top:50%;
+    leftt:0px;
+    display:block;
+    width:30px;
+    background-color:#7FD3E5;
+    color:#FFF;
+    padding:5px;
+    border-radius:0px 5px 5px 0px;
+    font-size: 24px;
+    z-index:2;
+    overflow:hidden;
+}
+#fotoCarreteContainer{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    display:box;
+    box-pack:center;
+    box-align:center;
+    overflow:hidden;
+}
+#evolucionCarrete{
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    width:100%;
+    right:-100%;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transition: -webkit-transform 0.4s;
+    background-color:#FFF;
+    z-index:5;
+    overflow-y:auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-top:50px;
+}
+#cerrarEvolucionCarrete{
+    position:absolute;
+    top:5px;
+    left:5px;
+    display:block;
+    background-color:#7FD3E5;
+    color:#FFF;
+    padding:5px;
+    border-radius:5px;
+    z-index:2;
+    overflow:hidden;
+}
+input[type="radio"] {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -moz-appearance: none;
+    border-radius: 2px;
+    color: #000;
+    padding: 0px;
+    border-style: Solid;
+    border-width: 1px;
+    border-color: #BFBFBF;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -moz-appearance: none;
+    border-radius: 2px;
+    color: #000;
+    padding: 0px;
+    border-style: Solid;
+    border-width: 1px;
+    border-color: #BFBFBF;
+}
+
+.verde {
+    color: #7DB25C;
+}
+
+.rojo {
+    color: #D22C19;
+}
+
+textarea {
+    height: 121px !important;
+}
+#popUpVideo{
+  position:fixed;
+  top:0px;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  display:none;
+  background-color:rgba(0, 0, 0, 0.6);
+  z-index:4;
+}
+#videoContainer{
+  position:absolute;
+  top:10px;
+  left:50%;
+  width:500px;
+  margin-left:-250px;
+  font-family: 'Open Sans', sans-serif;
+}
+#video{
+  position:relative;
+  float:left;
+  width:500px;
+  height:500px;
+  background-color:#000;
+}
+#cancelarFoto{
+  position:relative;
+  float:left;
+  display:block;
+  text-decoration:none;
+  padding:5px;
+  border-radius:5px;
+  margin-top:5px;
+  color:#FFF;
+  background-color:#c0392b;
+}
+#tomarFoto{
+  position:relative;
+  float:right;
+  display:block;
+  padding:5px;
+  border-radius:5px;
+  margin-top:5px;
+  color:#000;
+  background-color:#2ecc71;
+}
+.boton{
+    position: relative;
+    float: left;
+    width: 19px;
+    height: 19px;
+    margin-top: 15px;
+    margin-right:20px;
+    margin-bottom: 15px;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+#cacheMensaje{
+    position:fixed;
+    left:25%;
+    top:50%;
+    margin-top:-15px;
+    width:50%;
+    height:30px;
+    z-index:20;
+    color:#FFF;
+    background-color:#7FD3E5;
+    visibility:hidden;
+    display:-ms-flexbox;
+    -ms-flex-pack:center;
+    -ms-flex-align:center;
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    display:box;
+    box-pack:center;
+    box-align:center;
+}

@@ -1,0 +1,652 @@
+<div id="frmbd">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <img src="modulos/datos_basicos/img/fotoPerfil.png" id="fotoPrincipalDatosBasicos" class="pull-right">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <a href="javascript:activarCamara(subirFotoDatosBasicos2);" id="camaraPacienteDatosBasicos" class="boton" style="background-image:url(&quot;img/camerabg.png&quot;);"></a>
+                        <a href="javascript:void(0);" id="fotoPickerDatosBasicos" class="boton" onclick="activarInput('subirFotoDatosBasicos2');" style="background-image:url(&quot;img/glassbg.png&quot;);"></a>
+                        </a>
+                        <textarea type="text" id="inputImagen"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <span>Alerta Médica</span>
+            <textarea class="form-control" id="alertaMedica"></textarea>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Nombres</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="nombrePaciente" name="iniciales">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Apellidos</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="apellidoPaciente" name="iniciales">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Fecha de nacimiento</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="date" class="form-control" id="fechaNacimientoPaciente" onchange="fechaActuall();">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Tipo identificación</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="tipoIdentificacionPaciente">
+                            <option value="cc">C.C</option>
+                            <option value="nuip">N.U.I.P</option>
+                            <option value="ti">Tarjeta de Identidad</option>
+                            <option value="pasaporte">Pasaporte</option>
+                            <option value="ce">Cedula de Extranjería</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Identificación</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="number" class="form-control" id="identificacionPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Estado</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="estadoPaciente">
+                            <option value="activo">Activo</option>
+                            <option value="cancelado">Cancelado</option>
+                            <option value="controlado">Controlado</option>
+                            <option value="empalmado">Empalmado</option>
+                            <option value="inactivo">Inactivo</option>
+                            <option value="remitido">Remitido</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Estado civil</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="estadoCivilPaciente">
+                            <option value="soltero">Soltero</option>
+                            <option value="casado">Casado</option>
+                            <option value="viudo">Viudo</option>
+                            <option value="divorciado">Divorciado</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Género</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="sexoPaciente">
+                            <option value="m">Masculino</option>
+                            <option value="f">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Raza</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="razaPaciente">
+                            <option value="asiatica">Asiática</option>
+                            <option value="blanca">Blanca</option>
+                            <option value="hispana">Hispana</option>
+                            <option value="india">India</option>
+                            <option value="mestiza">Mestiza</option>
+                            <option value="mulata">Mulata</option>
+                            <option value="negra">Negra</option>
+                            <option value="otra">Otra</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Ocupación</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="ocupacionPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Teléfono</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="number" class="form-control" id="telefonoPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Celular</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="number" class="form-control" id="celularPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Correo electrónico</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="email" class="form-control" id="emailPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>País</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="paisPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Departamento</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="departamentoPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Ciudad</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="ciudadPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Nacionalidad</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="nacionalidadPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Dirección</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="direccionPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Zona residencial</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="zonaResidencialPaciente">
+                            <option value="rural">Rural</option>
+                            <option value="urbana">Urbana</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Código postal</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="number" class="form-control" id="codigoPostalPaciente">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Estrato</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="estratoPaciente">
+                            <option value="e1">Estrato 1</option>
+                            <option value="e2">Estrato 2</option>
+                            <option value="e3">Estrato 3</option>
+                            <option value="e4">Estrato 4</option>
+                            <option value="e5">Estrato 5</option>
+                            <option value="e6">Estrato 6</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Compañía de seguro</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="companiaSeguroPaciente">
+                            <option value="colsanita">Colsanita</option>
+                            <option value="sura">Sura</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Tipo de vinculación</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <select class="form-control" id="tipoVinculacionPaciente">
+                            <option value="contributivo">Contributivo</option>
+                            <option value="particular">Particular</option>
+                            <option value="subsidiado">Subsidiado</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h4>Representante legal</h4>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+    <div id="representante">
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <span>Nombres</span>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <input type="text" class="form-control" id="nombreRepresentante" onkeyup="revisaCampo(this);">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <span>Apellidos</span>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <input type="text" class="form-control" id="apellidoRepresentante" onkeyup="revisaCampo(this);">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <span>Tipo de identificación</span>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <select class="form-control" id="tipoIdentificacionRepresentante">
+                                <option value="cc">C.C</option>
+                                <option value="nuip">N.U.I.P</option>
+                                <option value="ti">Tarjeta de Identidad</option>
+                                <option value="pasaporte">Pasaporte</option>
+                                <option value="ce">Cedula de Extranjeria</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <span>Identificación</span>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <input type="number" class="form-control" id="identificacionRepresentante" onkeyup="revisaCampo(this);">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <span>Teléfono</span>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <input type="number" class="form-control" id="telefonoRepresentante" onkeyup="revisaCampo(this);">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <span>Parentesco</span>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                            <input type="text" class="form-control" id="parentescoRepresentante" onkeyup="revisaCampo(this);">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4>Contacto de emergencia</h4>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Nombre y apellidos</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="nombreEmergencia">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Teléfono</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="number" class="form-control" id="telefonoEmergencia">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Parentesco</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="parentescoEmergencia">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4>Referencia</h4>
+    </div>
+
+    <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                        <span>Nombre de quien lo refirió</span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                        <input type="text" class="form-control" id="nombreReferido">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

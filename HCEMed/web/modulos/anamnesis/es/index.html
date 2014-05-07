@@ -1,0 +1,4249 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="anamnesisContenedor">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Motivo de la consulta</span>
+            <textarea class="form-control" id="motivoConsulta"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Historia de la enfermedad actual</span>
+            <textarea class="form-control" id="historiaEnfermedadActual"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+            <span>Está bajo medicación?</span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <span class="rojo">Si</span>
+            <input type="radio" name="bajoMedicacion" value="si" onclick="mostrar('capaBajoMedicacion');" />
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <span class="verde">No</span>
+            <input type="radio" name="bajoMedicacion" value="no" onclick="ocultar('capaBajoMedicacion');" />
+        </div>
+    </div>
+
+    <div id='capaBajoMedicacion'>
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <textarea class="form-control" id="bajoMedicacionComentarios"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="antecedentesPersonales">Antecedentes personales</label>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="verde">No</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="verde">No</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="verde">No</span>
+            </div>
+        </div>
+    </div>
+
+    <form id="formularioAntecedentesFamiliares">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Alergia</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="alergia" value="si" onclick="mostrar('capaAlergia');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="alergia" value="no" onclick="ocultar('capaAlergia');" />
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Epilepsia</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="epilepsia" value="si" onclick="mostrar('capaEpilepsia');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="epilepsia" value="no" onclick="ocultar('capaEpilepsia');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Problemas cardíacos</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasCardiacos" value="si" onclick="mostrar('capaProblemasCardiacos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasCardiacos" value="no" onclick="ocultar('capaProblemasCardiacos');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Anemia</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="anemia" value="si" onclick="mostrar('capaAnemia');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="anemia" value="no" onclick="ocultar('capaAnemia');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Fiebre reumática</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="fiebreReumatica" value="si" onclick="mostrar('capaFiebreReumatica');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="fiebreReumatica" value="no" onclick="ocultar('capaFiebreReumatica');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Problemas endocrinos</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasEndocrinos" value="si" onclick="mostrar('capaProblemasEndocrinos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasEndocrinos" value="no" onclick="ocultar('capaProblemasEndocrinos');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Artritis</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="artritis" value="si" onclick="mostrar('capaArtritis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="artritis" value="no" onclick="ocultar('capaArtritis');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Hemorragias</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="hemorragias" value="si" onclick="mostrar('capaHemorragias');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="hemorragias" value="no" onclick="ocultar('capaHemorragias');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Problemas psicológicos</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasPsicologicos" value="si" onclick="mostrar('capaProblemasPsicologicos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasPsicologicos" value="no" onclick="ocultar('capaProblemasPsicologicos');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Asma</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="asma" value="si" onclick="mostrar('capaAsma');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="asma" value="no" onclick="ocultar('capaAsma');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Hepatitis</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="hepatitis" value="si" onclick="mostrar('capaHepatitis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="hepatitis" value="no" onclick="ocultar('capaHepatitis');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Problemas tiroideos</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasTiroideos" value="si" onclick="mostrar('capaProblemasTiroideos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="problemasTiroideos" value="no" onclick="ocultar('capaProblemasTiroideos');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Cáncer</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="cancer" value="si" onclick="mostrar('capaCancer');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="cancer" value="no" onclick="ocultar('capaCancer');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Herpes</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="herpes" value="si" onclick="mostrar('capaHerpes');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="herpes" value="no" onclick="ocultar('capaHerpes');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tuberculosis</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="tuberculosis" value="si" onclick="mostrar('capaTuberculosis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="tuberculosis" value="no" onclick="ocultar('capaTuberculosis');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Diabetes</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="diabetes" value="si" onclick="mostrar('capaDiabetes');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="diabetes" value="no" onclick="ocultar('capaDiabetes');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Hipertensión</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="hipertension" value="si" onclick="mostrar('capaHipertension');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="hipertension" value="no" onclick="ocultar('capaHipertension');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Úlceras orales</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="ulcerasOrales" value="si" onclick="mostrar('capaUlcerasOrales');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="ulcerasOrales" value="no" onclick="ocultar('capaUlcerasOrales');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Enfermedad renal</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="enfermedadRenal" value="si" onclick="mostrar('capaEnfermedadRenal');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="enfermedadRenal" value="no" onclick="ocultar('capaEnfermedadRenal');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Osteoporosis</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="osteoporosis" value="si" onclick="mostrar('capaOsteoporosis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="osteoporosis" value="no" onclick="ocultar('capaOsteoporosis');" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>VIH</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="vih" value="si" onclick="mostrar('capaVIH');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" name="vih" value="no" onclick="ocultar('capaVIH');" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row" id="antecedentesPatologicos">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="antecedentesPatologicos">Antecedentes patológicos</label>
+        </div>
+    </div>
+
+    <div id="capaAlergia">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Alergia</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoAlergia" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoAlergia" value="si" onclick="mostrar('capaTratamientoAlergia');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoAlergia" value="no" onclick="ocultar('capaTratamientoAlergia');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoAlergia">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoAlergia" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoAlergia" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionAlergia"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoAlergia -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosAlergia"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaAlergia -->
+
+    <div id="capaHepatitis">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Hepatitis</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoHepatitis" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoHepatitis" value="si" onclick="mostrar('capaTratamientoHepatitis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoHepatitis" value="no" onclick="ocultar('capaTratamientoHepatitis')" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoHepatitis">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoHepatitis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoHepatitis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionHepatitis"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoHepatitis -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosHepatitis"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capa hepatitis -->
+
+    <div id="capaVIH">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>VIH</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoVih" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoVih" value="si" onclick="mostrar('capaTratamientoVIH');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoVih" value="no" onclick="ocultar('capaTratamientoVIH');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoVIH">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoVih" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoVih" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionVih"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoVIH -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosVih"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaVIH -->
+
+    <div id="capaAnemia">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Anemia</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoAnemia" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoAnemia" value="si" onclick="mostrar('capaTratamientoAnemia');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoAnemia" value="no" onclick="ocultar('capaTratamientoAnemia');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoAnemia">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoAnemia" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoAnemia" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionAnemia"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoAnemia -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosAnemia"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaAnemia -->
+
+    <div id="capaHerpes">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Herpes</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoHerpes" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoHerpes" value="si" onclick="mostrar('capaTratamientoHerpes');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoHerpes" value="no" onclick="ocultar('capaTratamientoHerpes');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoHerpes">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoHerpes" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoHerpes" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionHerpes"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoHerpes -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosHerpes"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaHerpes -->
+
+    <div id="capaEnfermedadRenal">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Enfermedad renal</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoEnfermedadRenal" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoEnfermedadRenal" value="si" onclick="mostrar('capaTratamientoEnfermedadRenal');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoEnfermedadRenal" value="no" onclick="ocultar('capaTratamientoEnfermedadRenal');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoEnfermedadRenal">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoEnfermedadRenal" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoEnfermedadRenal" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionEnfermedadRenal"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoEnfermedadRenal -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosEnfermedadRenal"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaEnfermedadRenal -->
+
+    <div id="capaArtritis">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Artritis</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoArtritis" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoArtritis" value="si" onclick="mostrar('capaTratamientoArtritis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoArtritis" value="no" onclick="ocultar('capaTratamientoArtritis');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoArtritis">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoArtritis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoArtritis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionArtritis"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoArtritis -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosArtritis"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaArtritis -->
+
+    <div id="capaUlcerasOrales">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Úlceras orales</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoUlcerasOrales" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoUlcerasOrales" value="si" onclick="mostrar('capaTratamientoUlcerasOrales');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoUlcerasOrales" value="no" onclick="ocultar('capaTratamientoUlcerasOrales');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoUlcerasOrales">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoUlcerasOrales" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoUlcerasOrales" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionUlcerasOrales"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoUlcerasOrales -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosUlcerasOrales"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaUlcerasOrales -->
+
+    <div id="capaAsma">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Asma</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoAsma" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoAsma" value="si" onclick="mostrar('capaTratamientoAsma');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoAsma" value="no" onclick="ocultar('capaTratamientoAsma');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoAsma">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoAsma" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoAsma" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionAsma"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoAsma -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosAsma"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaAsma -->
+
+    <div id="capaDiabetes">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Diabetes</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoDiabetes" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoDiabetes" value="si" onclick="mostrar('capaTratamientoDiabetes');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoDiabetes" value="no" onclick="ocultar('capaTratamientoDiabetes');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoDiabetes">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoDiabetes" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoDiabetes" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionDiabetes"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoDiabetes -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosDiabetes"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaDiabetes -->
+
+    <div id="capaHemorragias">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Hemorragias</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoHemorragias" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoHemorragias" value="si" onclick="mostrar('capaTratamientoHemorragias');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoHemorragias" value="no" onclick="ocultar('capaTratamientoHemorragias');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoHemorragias">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoHemorragias" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoHemorragias" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionHemorragias"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoHemorragias -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosHemorragias"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaHemorragias -->
+
+    <div id="capaProblemasEndocrinos">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Problemas endocrinos</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoProblemasEndocrinos" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoProblemasEndocrinos" value="si" onclick="mostrar('capaTratamientoProblemasEndocrinos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoProblemasEndocrinos" value="no" onclick="ocultar('capaTratamientoProblemasEndocrinos');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoProblemasEndocrinos">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoProblemasEndocrinos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoProblemasEndocrinos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionProblemasEndocrinos"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoProblemasEndocrinos -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosProblemasEndocrinos"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaProblemasEndocrinos -->
+
+    <div id="capaFiebreReumatica">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Fiebre reumática</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoFiebreReumatica" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoFiebreReumatica" value="si" onclick="mostrar('capaTratamientoFiebreReumatica');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoFiebreReumatica" value="no" onclick="ocultar('capaTratamientoFiebreReumatica');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoFiebreReumatica">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoFiebreReumatica" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoFiebreReumatica" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionFiebreReumatica"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoFiebreReumatica -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosFiebreReumatica"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaFiebreReumatica -->
+
+    <div id="capaCancer">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Cáncer</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoCancer" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoCancer" value="si" onclick="mostrar('capaTratamientoCancer');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoCancer" value="no" onclick="ocultar('capaTratamientoCancer');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoCancer">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoCancer" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoCancer" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionCancer"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoCancer -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosCancer"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaCancer -->
+
+    <div id="capaProblemasPsicologicos">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Problemas psicológicos</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoProblemasPsicologicos" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoProblemasPsicologicos" value="si" onclick="mostrar('capaTratamientoProblemasPsicologicos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoProblemasPSicologicos" value="no" onclick="ocultar('capaTratamientoProblemasPsicologicos');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoProblemasPsicologicos">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoProblemasPsicologicos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoProblemasPsicologicos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionProblemasPsicologicos"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoProblemasPsicologicos -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosProblemasPsicologicos"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaProblemasPsicologicos -->
+
+    <div id="capaProblemasTiroideos">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Problemas tiroideos</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoProblemasTiroideos" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoProblemasTiroideos" value="si" onclick="mostrar('capaTratamientoProblemasTiroideos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoProblemasTiroideos" value="no" onclick="ocultar('capaTratamientoProblemasTiroideos');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoProblemasTiroideos">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoProblemasTiroideos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoProblemasTiroideos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionProblemasTiroideos"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoProblemasTiroideos -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosProblemasTiroideos"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaProblemasTiroideos -->
+
+    <div id="capaProblemasCardiacos">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Problemas cardíacos</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoProblemasCardiacos" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoProblemasCardiacos" value="si" onclick="mostrar('capaTratamientoProblemasCardiacos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoProblemasCardiacos" value="no" onclick="ocultar('capaTratamientoProblemasCardiacos');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoProblemasCardiacos">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoProblemasCardiacos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoProblemasCardiacos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionProblemasCardiacos"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoProblemasCardiacos -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosProblemasCardiacos"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaProblemasCardiacos -->
+
+    <div id="capaEpilepsia">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Epilepsia</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoEpilepsia" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoEpilepsia" value="si" onclick="mostrar('capaTratamientoEpilepsia');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoEpilepsia" value="no" onclick="ocultar('capaTratamientoEpilepsia');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoEpilepsia">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoEpilepsia" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoEpilepsia" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionEpilepsia"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoEpilepsia -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosEpilepsia"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaEpilepsia -->
+
+    <div id="capaTuberculosis">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Tuberculosis</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoTuberculosis" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoTuberculosis" value="si" onclick="mostrar('capaTratamientoTuberculosis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoTuberculosis" value="no" onclick="ocultar('capaTratamientoTuberculosis');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoTuberculosis">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoTuberculosis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoTuberculosis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionTuberculosis"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoTuberculosis -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosTuberculosis"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaTuberculosis -->
+
+    <div id="capaOsteoporosis">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Osteoporosis</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoOsteoporosis" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoOsteoporosis" value="si" onclick="mostrar('capaTratamientoOsteoporosis');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoOsteoporosis" value="no" onclick="ocultar('capaTratamientoOsteoporosis');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoOsteoporosis">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoOsteoporosis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoOsteoporosis" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionOsteoporosis"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoOsteoporosis -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosOsteoporosis"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaOsteoporosis -->
+
+    <div id="capaHipertension">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Hipertensión</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoHipertension" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoHipertension" value="si" onclick="mostrar('capaTratamientoHipertension');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoHipertension" value="no" onclick="ocultar('capaTratamientoHipertension');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoHipertension">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoHipertension" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoHipertension" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionHipertension"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoHipertension -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosHipertension"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaHipertension -->
+
+    <div id="capaProblemasPsiquiatricos">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Problemas psiquiátricos</span>
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6  col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <span>Fecha del diagnóstico</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <input type="date" class="form-control" id="fechaDiagnosticoProblemasPsiquiatricos" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tratamiento</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                    <input type="radio" name="tratamientoProblemasPsiquiatricos" value="si" onclick="mostrar('capaTratamientoProblemasPsiquiatricos');" />
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                    <input type="radio" name="tratamientoProblemasPsiquiatricos" value="no" onclick="ocultar('capaTratamientoProblemasPsiquiatricos');" />
+                </div>
+            </div>
+        </div>
+
+        <div id="capaTratamientoProblemasPsiquiatricos">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Inicio</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="inicioTratamientoProblemasPsiquiatricos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Hasta</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <input type="date" class="form-control" id="hastaTratamientoProblemasPsiquiatricos" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Medicación</span>
+                        <textarea class="form-control" id="medicacionProblemasPsiquiatricos"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaTratamientoProblemasPsiquiatricos -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Comentarios</span>
+                    <textarea class="form-control" id="comentariosProblemasPsiquiatricos"></textarea>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaProblemasPsiquiatricos -->
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="antecedentesTraumatologicos">Antecedentes traumatológicos</label>  
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="verde">No</span>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span>Fractura</span>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name="fractura" onclick="mostrarConClase('at');" />
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="no" name="fractura" onclick="ocultarConClase('at');" />
+            </div>
+        </div>
+
+        <div class="at">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <span>Fecha</span>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <input type="date" class="form-control" id="fechaFractura" />
+            </div>
+        </div>
+    </div>
+
+    <div class="at">
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Sitio</span>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Cadera</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="cadera" name="cadera" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Tobillo</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="tobillo" name="tobillo" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Fémur</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="femur" name="femur" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Muñeca</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="muneca" name="muneca" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Antebrazo</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="antebrazo" name="antebrazo" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Vértebra</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="vertebra" name="vertebra" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Columna</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="columna" name="columna" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Otra</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="otraFractura" name="otraFractura" id="otraFractura" onclick="otraFacturaCheck();" />
+                </div>
+            </div>
+
+            <div id="otraFracturaCapa">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span>Cuál?</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="text" id="otraFracturaComentarios" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Causa de la fractura</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Accidente de automovil</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="radio" value="accidenteAutomovil" name="causaFractura" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Caída leve</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="radio" value="caidaLeve" name="causaFractura" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Caída fuerte</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="radio" value="caidaFuerte" name="causaFractura" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                    <span>Recuperación post fractura a los</span>
+                </div>
+                <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                    <div class='input-group'>
+                        <input type="number" class="form-control" id="recuperacionPostFractura" />
+                        <span class='input-group-addon'>años</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Incapacidad total (No camina)</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="incapacidadTotal" />
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span>Días</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="radio" value="dias" name="unidadIncapacidadTotal" />
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span>Meses</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="radio" value="meses" name="unidadIncapacidadTotal" />
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span>Años</span>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <input type="radio" value="anios" name="unidadIncapacidadTotal" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+    </div> <!-- final div class='at'-->
+
+    <div class="row">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="otrosAntecedentes">Otros antecedentes</label>
+            <textarea class="form-control" id="otrosAntecedentesTraumatologicos"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+    <div id="antecedentesG">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <label for="antecedentesGinecologicos">Antecedentes ginecológicos</label>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Menarquia (edad)</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="menarquia" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Menopausia (año)</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="menopausia" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Histerectomia (año)</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="histerectomia" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Embarazos</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="embarazos" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Partos</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="partos" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Abortos</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="abortos" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Hijos vivos</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="hijosVivos" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Ciclos</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="ciclos" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>UR</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="ur" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Infertilidad</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span class="rojo">Si</span>
+                        <input type="radio" value="si" name="infertilidad" />
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span class="verde">No</span>
+                        <input type="radio" value="no" name="infertilidad" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Lactancia meses/hijo</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="text" class="form-control" id="lactancia" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Total lactancia</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="input-group">
+                        <input type="text" id="totalLactancia" class="form-control" />
+                        <span class="input-group-addon">meses</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Edades de los hijos</span>
+                    <textarea class="form-control" maxlength="4" id="edadDeLosHijos" placeholder="edad hijo 1                                                                                                                                                        edad hijo 2                                                                                                                                                          edad hijo 3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="habitos">Hábitos</label>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="verde">No</span>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="verde">No</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span>Tabaquísmo</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name="tabaquismo" onclick="mostrar('fumaDesdeFrecuencia');" />
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="no" name="tabaquismo" onclick="ocultar('fumaDesdeFrecuencia');" />
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span>Fumador pasivo</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name="fumadorPasivo" />
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="no" name="fumadorPasivo" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id='fumaDesdeFrecuencia'>
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span>Fuma desde</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="input-group">
+                    <input type="text" id="fumaDesde" class="form-control">
+                    <span class="input-group-addon">años</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span>Frecuencia</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <input type="text" class="form-control" id="frecuenciaTabaquismo" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <span class='verde'>No</span>
+            </div>
+        </div>
+
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                <span>Licor</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name='licor' onclick="mostrarConClase('capaLicor');" />
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <input type="radio" value='no' name='licor' onclick="ocultarConClase('capaLicor');" />
+            </div>
+        </div>
+
+        <div class='capaLicor'>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Frecuencia</span>
+                </div>
+                <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                    <input type='text' class="form-control" id="frecuenciaLicor" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='capaLicor'>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Bebida</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="capaLicor">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Cerveza</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="cerveza" name="cerveza" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Vino</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="vino" name="vino" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Ron</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="ron" name="ron" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Whiskey</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="whiskey" name="whiskey" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Aguardiente</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type="checkbox" value="aguardiente" name="aguardiente" />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Otros</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <input type='text' class="form-contorol" id='otrosLicores' />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <span class='verde'>No</span>
+            </div>
+        </div>
+
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                <span>Café</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name='cafe' onclick="mostrar('capaCafe');" />
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <input type="radio" value='no' name='cafe' onclick="ocultar('capaCafe');" />
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+        </div>
+    </div>
+
+    <div id="capaCafe">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Frecuencia</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <select id="frecuenciaCafe" class="form-control" onchange="muestraOcultaElemento('frecuenciaCafe', 'capaOtroCafe', 'otro')">
+                        <option value="1xdia">1 taza/día</option>
+                        <option value="2xdia">2 taza/día</option>
+                        <option value="3xdia">3 taza/día</option>
+                        <option value="4xdia">4 taza/día</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="capaOtroCafe">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type="text" class="form-control" id="otroCafe" placeholder="Otro..." />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Inicio</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inicioCafe" />
+                        <span class="input-group-addon">edad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaCafe -->
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <span class='verde'>No</span>
+            </div>
+        </div>
+
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                <span>Leche y derivados</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name='lecheDerivados' onclick="mostrar('capaLecheDerivados');" />
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <input type="radio" value='no' name='lecheDerivados' onclick="ocultar('capaLecheDerivados');" />
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+        </div>
+    </div>
+
+    <div id="capaLecheDerivados">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Frecuencia</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <select id="frecuenciaLecheDerivados" class="form-control" onchange="muestraOcultaElemento('frecuenciaLecheDerivados', 'capaOtroLecheDerivado', 'otro')">
+                        <option value="1xdia">1 taza/día</option>
+                        <option value="2xdia">2 taza/día</option>
+                        <option value="3xdia">3 taza/día</option>
+                        <option value="4xdia">4 taza/día</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="capaOtroLecheDerivado">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <input type="text" class="form-control" id="otroLecheDerivado" placeholder="Otro..." />
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Inicio</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inicioLecheDerivado" />
+                        <span class="input-group-addon">edad</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- final capaLecheDerivados -->
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <span class='verde'>No</span>
+            </div>
+        </div>
+
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                <span>Frutas frescas</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name='frutasFrescas' onclick="mostrar('capaFrutasFrescas');" />
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <input type="radio" value='no' name='frutasFrescas' onclick="ocultar('capaFrutasFrescas');" />
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+        </div>
+    </div>
+
+    <div id="capaFrutasFrescas">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Qué clases?</span>
+                    <textarea class="form-control" id="queClasesFrutasFrescas"></textarea>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <span>Porciones/día</span>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="porcionesFrutasFrescas" />
+                    <span class="input-group-addon">gr</span>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <span class='verde'>No</span>
+            </div>
+        </div>
+
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                <span>Realiza ejercicio?</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name='realizaEjercicio' onclick="mostrar('capaFrecuenciaEjercicio');" />
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <input type="radio" value='no' name='realizaEjercicio' onclick="ocultar('capaFrecuenciaEjercicio');" />
+            </div>
+        </div>
+
+        <div id="capaFrecuenciaEjercicio">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <span>Frecuencia</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <select id="frecuenciaEjercicio" class="form-control">
+                        <option value="esporadico">Esporádico</option>
+                        <option value="menosDeUnaVezPorSemana">Menos de una vez por semana</option>
+                        <option value="unaVezPorSemana">Una vez por semana</option>
+                        <option value="2-3PorSemana">2-3 veces por semana</option>
+                        <option value="4-6PorSemana">4-6 veces por semana</option>
+                        <option value="diario">Diario</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <!-- //////////////////    PESCADOS    \\\\\\\\\\\\\\\\\\\\\ -->
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <span class="rojo">Si</span>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <span class='verde'>No</span>
+            </div>
+        </div>
+
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                <span>Pescados</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <input type="radio" value="si" name='pescados' onclick="mostrar('capaPescados');" />
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+                <input type="radio" value='no' name='pescados' onclick="ocultar('capaPescados');" />
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+        </div>
+    </div>
+
+    <div id="capaPescados">
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm- col-xs-6">
+                    <span>Río</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" value="si" name="pescadoRio" onclick="mostrar('capaPescadosRioFrecuencia');" />
+                </div>
+                <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
+                    <input type="radio" value="no" name="pescadoRio" onclick="ocultar('capaPescadosRioFrecuencia');" />
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+        </div>
+
+        <div id="capaPescadosRioFrecuencia">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 co-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Qué clases?</span>
+                        <textarea class="form-control" id="clasePescadoRio"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span>Veces</span>
+                        <input type="text" class="form-control" id="vecesPescadoRio" />
+
+                        <div class="row">
+                            &nbsp;
+                        </div>
+
+                        <span>Desde</span>
+                        <input type='date' class="form-control" id='desdePescadoRio' />
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <span>Por</span>
+                        <select id="frecuenciaPescadoRio" class="form-control">
+                            <option value="semana">Semana</option>
+                            <option value="mes">Mes</option>
+                        </select>
+
+                        <div class="row">
+                            &nbsp;
+                        </div>
+
+                        <span>Hasta</span>
+                        <input type='date' class='form-control' id='hastaPescadoRio' />
+                    </div>
+                </div>
+            </div>
+        </div> <!-- final capaPescadoRioFrecuencia -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="rojo">Si</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <span class="verde">No</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm- col-xs-6">
+                    <span>Mar</span>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <input type="radio" value="si" name="pescadoMar" onclick="mostrar('capaTipoPescadoMar');" />
+                </div>
+                <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
+                    <input type="radio" value="no" name="pescadoMar" onclick="ocultar('capaTipoPescadoMar');" />
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            </div>
+        </div>
+
+        <div id='capaTipoPescadoMar'>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <span class="rojo">Si</span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <span class="verde">No</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-lg-6 col-md-6 col-sm- col-xs-6">
+                        <span>Blanco</span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <input type="radio" value="si" name="blanco" onclick="mostrar('capaPescadosMarBlanco');" />
+                    </div>
+                    <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
+                        <input type="radio" value="no" name="blanco" onclick="ocultar('capaPescadosMarBlanco');" />
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                </div>
+            </div>
+
+            <div id="capaPescadosMarBlanco">
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 co-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Qué clases?</span>
+                            <textarea class="form-control" id="clasePescadoMarBlanco"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <span>Veces</span>
+                            <input type="text" class="form-control" id="vecesPescadoMarBlanco" />
+
+                            <div class="row">
+                                &nbsp;
+                            </div>
+
+                            <span>Desde</span>
+                            <input type='date' class="form-control" id='desdePescadoMarBlanco' />
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <span>Por</span>
+                            <select id="frecuenciaPescadoMarBlanco" class="form-control">
+                                <option value="semana">Semana</option>
+                                <option value="mes">Mes</option>
+                            </select>
+
+                            <div class="row">
+                                &nbsp;
+                            </div>
+
+                            <span>Hasta</span>
+                            <input type='date' class='form-control' id='hastaPescadoMarBlanco' />
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- final capaPescadoMarBlanco -->
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <span class="rojo">Si</span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <span class="verde">No</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="col-lg-6 col-md-6 col-sm- col-xs-6">
+                        <span>Azules</span>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                        <input type="radio" value="si" name="azules" onclick="mostrar('capaPescadosMarAzules');" />
+                    </div>
+                    <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
+                        <input type="radio" value="no" name="azules" onclick="ocultar('capaPescadosMarAzules');" />
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                </div>
+            </div>
+
+            <div id="capaPescadosMarAzules">
+                <div class="row">
+                    &nbsp;
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 co-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Qué clases?</span>
+                            <textarea class="form-control" id="clasePescadoMarAzules"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <span>Veces</span>
+                            <input type="text" class="form-control" id="vecesPescadoMarAzules" />
+
+                            <div class="row">
+                                &nbsp;
+                            </div>
+
+                            <span>Desde</span>
+                            <input type='date' class="form-control" id='desdePescadoMarAzules' />
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <span>Por</span>
+                            <select id="frecuenciaPescadoMarAzules" class="form-control">
+                                <option value="semana">Semana</option>
+                                <option value="mes">Mes</option>
+                            </select>
+
+                            <div class="row">
+                                &nbsp;
+                            </div>
+
+                            <span>Hasta</span>
+                            <input type='date' class='form-control' id='hastaPescadoMarAzules' />
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- final capaPescadoMarAzules -->
+
+        </div> <!-- final capaTipoPescadoMar -->
+
+    </div> <!-- final capaPescados -->
+    <div class="row">
+        &nbsp;
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Antecedentes quirurgicos</label>
+        </div>        
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <textarea class="form-control" id="antecedentesQuirurgicos"></textarea>
+            </div> 
+        </div>        
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <span>Otros tratamientos</span>
+                <textarea class="form-control" id="otrosTratamientosAntecedentesQuirurgicos"></textarea>
+            </div> 
+        </div>        
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <span>Comentarios</span>
+                <textarea class="form-control" id="comentariosAntecedentesQuirurgicos"></textarea>
+            </div> 
+        </div>        
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label>Antecedentes familiares</label>
+        </div>
+
+    </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <table id="tablaAntecedentesFamiliares" class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><span >Padre</span></th>
+                        <th><span >Madre</span></th>
+                        <th><span >Hijo</span></th>
+                        <th><span >Tío (p)</span></th>
+                        <th><span >Tío (m)</span></th>
+                        <th><span >Hnos</span></th>
+                        <th><span >Abuelo (p)</span></th>
+                        <th><span >Abuelo (m)</span></th>
+                        <th><span >Ninguno</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span >Diabetes</span></td>
+                        <td><input type="checkbox"  name="diabetesPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="diabetesNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Obesidad</span></td>
+                        <td><input type="checkbox"  name="obesidadPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="obesidadNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Colesterol</span></td>
+                        <td><input type="checkbox"  name="colesterolPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="colesterolNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Triglicéridos</span></td>
+                        <td><input type="checkbox"  name="trigliceridosPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="trigliceridosNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Infartos</span></td>
+                        <td><input type="checkbox"  name="infartosPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="infartosNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Hipertensión</span></td>
+                        <td><input type="checkbox"  name="hipertensionPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="hipertensionNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Cáncer</span></td>
+                        <td><input type="checkbox"  name="cancerPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="cancerNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Osteoporosis</span></td>
+                        <td><input type="checkbox"  name="osteoporosisPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="osteoporosisNinguno" value="normal"></td>
+                    </tr>
+                    <tr>
+                        <td><span >Otros</span></td>
+                        <td><input type="checkbox"  name="otrosPadre" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosMadre" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosHijo" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosTioP" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosTioM" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosHnos" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosAbueloP" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosAbueloM" value="normal"></td>
+                        <td><input type="checkbox"  name="otrosNinguno" value="normal"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div> <!-- final capa ananmnesis -->

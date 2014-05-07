@@ -1,0 +1,23 @@
+#filesDatosBasicos{
+    display: block;
+}
+
+
+#fotoPrincipalDatosBasicos {
+    width: 64px;
+    height: 64px;
+}
+
+#inputImagen {
+    display: none;
+}
+.error{
+    border-color:#F00;
+}
+
+input[type="text"][name="iniciales"] {
+    text-transform: capitalize;
+}
+#alertaMedica{
+    color:#F00;
+}

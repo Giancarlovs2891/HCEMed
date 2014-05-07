@@ -1,0 +1,87 @@
+#capaBajoMedicacion, #capaAlergia, #capaAnemia, #capaAsma, #capaArtritis, #capaCancer, #capaDiabetes, #capaEnfermedadRenal,
+#capaEpilepsia, #capaFiebreReumatica, #capaHemorragias, #capaHepatitis, #capaHerpes, #capaHipertension, #capaOsteoporosis,
+#capaProblemasCardiacos, #capaProblemasEndocrinos, #capaProblemasPsicologicos, #capaProblemasPsiquiatricos,
+#capaProblemasTiroideos, #capaTuberculosis, #capaVIH, #capaUlcerasOrales, #otraFracturaCapa, #capaTratamientoAlergia,
+#capaTratamientoHepatitis, #capaTratamientoVIH, #capaTratamientoAnemia, #capaTratamientoHerpes, #capaTratamientoEnfermedadRenal,
+#capaTratamientoArtritis, #capaTratamientoUlcerasOrales, #capaTratamientoAsma, #capaTratamientoDiabetes, #capaTratamientoHemorragias,
+#capaTratamientoProblemasEndocrinos, #capaTratamientoFiebreReumatica, #capaTratamientoCancer, #capaTratamientoProblemasPsicologicos,
+#capaTratamientoProblemasTiroideos, #capaTratamientoProblemasCardiacos, #capaTratamientoEpilepsia, #capaTratamientoTuberculosis,
+#capaTratamientoOsteoporosis, #capaTratamientoHipertension, #capaTratamientoProblemasPsiquiatricos, #antecedentesPatologicos, .at,
+#fumaDesdeFrecuencia, .capaLicor, #capaCafe, #capaOtroCafe, #capaLecheDerivados, #capaFrutasFrescas, #capaFrecuenciaEjercicio,
+#capaPescados, #capaPescadosRioFrecuencia, #capaTipoPescadoMar, #capaPescadosMarBlanco, #capaPescadosMarAzules {
+    display: none;
+}
+
+.inputSelect input{
+    position:relative;
+    float:left;
+    width:67.7%;
+    height:100%;
+    padding:0px;
+    border-style:none;
+    border-right-style:solid;
+    border-width:1px;
+    border-color:#AAA;
+    margin:0px;
+    text-align:right;
+    padding-right:2%;
+}
+.inputSelect select{
+    position:relative;
+    float:left;
+    width:30%;
+    height:100%;
+    padding:0px;
+    border-style:none;
+    margin:0px;
+}
+
+input[type="radio"][value="si"]:checked {
+    background-image: url("../../../../img/radiobgsi.png");
+}
+
+input[type="radio"][value="no"]:checked {
+    background-image: url("../../../../img/radiobgno.png");   
+}
+
+input[type="radio"]:checked {
+    background-image: url("../../../../img/radiobgsi.png");
+}
+
+input[type="checkbox"]:checked {
+    background-image: url("../../../../img/radiobgsi.png");
+}
+
+tr td input[type="checkbox"]{
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -moz-appearance: none;
+    color: red !important;
+    padding: 0px !important;
+    border-style: none !important;
+    border-width: 0px !important;
+    border-color: #BFBFBF !important;
+    margin-top: 1px !important;
+    margin-bottom:1px !important;
+    margin-left:1px !important;
+    margin-right:0px !important;
+}
+input[type="checkbox"][value="normal"]:checked {
+    background-image: url("../../../../img/chulotablarojo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+}
+.margen{
+    padding-bottom: 3px !important;
+    padding-left:  1px !important;
+    padding-right:  3px !important;
+    padding-top:  1px !important;
+}
+tbody tr th{
+    text-align: center; 
+    width: 90px;
+}

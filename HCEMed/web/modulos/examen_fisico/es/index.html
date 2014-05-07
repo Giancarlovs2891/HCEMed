@@ -1,0 +1,578 @@
+<div id="capaExamenFisico">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h4>Signos vitales</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>TA</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="tensionArterial">
+                <span class="input-group-addon">mmHg</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>Peso</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="peso">
+                <span class="input-group-addon">kg</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>Cintura</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="cintura">
+                <span class="input-group-addon">cm</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>Pulso</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="pulso">
+                <span class="input-group-addon">lpm</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>Talla</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="talla">
+                <span class="input-group-addon">cm</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>Cadera</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="cadera">
+                <span class="input-group-addon">cm</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-xs">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>Frecuencia respiratoria</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="frecuenciaRespiratoria">
+                <span class="input-group-addon">rpm</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>BMI</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="bmi">
+                <span class="input-group-addon">kg/m2</span>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-xs-12 col-sm-4">
+            <span>Indice cintura/cadera</span>
+            <div class="input-group">
+                <input type="text" class="form-control txtNumeros" id="indiceCintCad">
+                <span class="input-group-addon">cm</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <h4>Revisión por sistema</h4>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <span class="verde">Normal</span>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <span class="rojo">Alterado</span>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <span class="negro">No evaluado</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Piel</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input  type="radio" name="piel" value="normal" onclick="ocultar('pielComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="piel" value="alterado"  onclick="mostrar('pielComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input id="12" type="radio" name="piel" value="no_evaluado" checked="" onclick="ocultar('pielComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Ojos</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="ojos" value="normal" onclick="ocultar('ojosComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="ojos" value="alterado" onclick="mostrar('ojosComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="ojos" value="no_evaluado" checked="" onclick="ocultar('ojosComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Oídos, nariz y garganta</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="oidosNarizGarganta" value="normal" onclick="ocultar('oidosNarizGargantaComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="oidosNarizGarganta" value="alterado" onclick="mostrar('oidosNarizGargantaComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="oidosNarizGarganta" value="no_evaluado" checked="" onclick="ocultar('oidosNarizGargantaComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Cuello</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="cuello" value="normal" onclick="ocultar('cuelloComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="cuello" value="alterado" onclick="mostrar('cuelloComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="cuello" value="no_evaluado" checked="" onclick="ocultar('cuelloComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Tórax</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="torax" value="normal" onclick="ocultar('toraxComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="torax" value="alterado" onclick="mostrar('toraxComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="torax" value="no_evaluado" checked="" onclick="ocultar('toraxComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Cardiovascular</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="cardiovascular" value="normal" onclick="ocultar('cardiovascularComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="cardiovascular" value="alterado" onclick="mostrar('cardiovascularComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="cardiovascular" value="no_evaluado" checked="" onclick="ocultar('cardiovascularComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Respiratorios</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="respiratorios" value="normal" onclick="ocultar('respiratoriosComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="respiratorios" value="alterado" onclick="mostrar('respiratoriosComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="respiratorios" value="no_evaluado" checked="" onclick="ocultar('respiratoriosComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Abdomen</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="abdomen" value="normal" onclick="ocultar('abdomenComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="abdomen" value="alterado" onclick="mostrar('abdomenComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="abdomen" value="no_evaluado" checked="" onclick="ocultar('abdomenComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Genitourinario</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="genitourinario" value="normal" onclick="ocultar('genitourinarioComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="genitourinario" value="alterado" onclick="mostrar('genitourinarioComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="genitourinario" value="no_evaluado" checked="" onclick="ocultar('genitourinarioComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Extremidades</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="extremidades" value="normal" onclick="ocultar('extremidadesComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="extremidades" value="alterado" onclick="mostrar('extremidadesComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="extremidades" value="no_evaluado" checked="" onclick="ocultar('extremidadesComentario');">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Sistema nervioso central</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="sistemaNerviosoCentral" value="normal" onclick="ocultar('sistemaNerviosoCentralComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="sistemaNerviosoCentral" value="alterado" onclick="mostrar('sistemaNerviosoCentralComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="sistemaNerviosoCentral" value="no_evaluado" checked="" onclick="ocultar('sistemaNerviosoCentralComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Adenopatías</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="adenopatias" value="normal" onclick="ocultar('adenopatiasComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="adenopatias" value="alterado"  onclick="mostrar('adenopatiasComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="adenopatias" value="no_evaluado" checked="" onclick="ocultar('adenopatiasComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+            <span>Otros</span>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="otros" value="normal" onclick="ocultar('otrosComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="otros" value="alterado" onclick="mostrar('otrosComentario');">
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+                <input type="radio" name="otros" value="no_evaluado" checked="" onclick="ocultar('otrosComentario');">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="pielComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Piel (Comentarios)</span>
+            <textarea class="form-control" id="pielComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="ojosComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Ojos (Comentarios)</span>
+            <textarea class="form-control" id="ojosComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="oidosNarizGargantaComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Ojos, nariz y garganta (Comentarios)</span>
+            <textarea class="form-control" id="oidosNarizGargantaComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="cuelloComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Cuello (Comentarios)</span>
+            <textarea class="form-control" id="cuelloComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="toraxComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Tórax (Comentarios)</span>
+            <textarea class="form-control" id="toraxComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="cardiovascularComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Cardiovascular (Comentarios)</span>
+            <textarea class="form-control" id="cardiovascularComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="respiratoriosComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Respiratorios (Comentarios)</span>
+            <textarea class="form-control" id="respiratoriosComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="abdomenComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Abdomen (Comentarios)</span>
+            <textarea class="form-control" id="abdomenComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="genitourinarioComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Genitourinario (Comentarios)</span>
+            <textarea class="form-control" id="genitourinarioComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="extremidadesComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Extremidades (Comentarios)</span>
+            <textarea class="form-control" id="extremidadesComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="sistemaNerviosoCentralComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Sistema nervioso central (Comentarios)</span>
+            <textarea class="form-control" id="sistemaNerviosoCentralComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="adenopatiasComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Adenopatias (Comentarios)</span>
+            <textarea class="form-control" id="adenopatiasComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row oculto" id="otrosComentario">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Otros (Comentarios)</span>
+            <textarea class="form-control" id="otrosComentarioEf"></textarea>
+            &nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Comentarios</span>
+            <textarea class="form-control" id="comentariosEf"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span>Condición</span>
+            <textarea class="form-control" id="condicionEf"></textarea>
+        </div>
+    </div>
+</div>

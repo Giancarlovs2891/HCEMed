@@ -1,0 +1,57 @@
+.oculto, #escala, #capaNoCicatricial, #capaCicatricial, #capaHipertrofiaDerecha, #capaHipertrofiaIziquierda{
+    display: none;
+}
+
+input[type="radio"][value="si"]:checked {
+    background-image: url("../../../../img/radiobgno.png");
+}
+
+input[type="radio"][value="no"]:checked {
+    background-image: url("../../../../img/radiobgsi.png");
+}
+
+input[type="radio"]:checked {
+    background-image: url("../../../../img/radiobgno.png");
+}
+
+input[type="radio"][value="no"]:checked {
+}
+
+.contraste {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border: 1px solid #D8D8D8;
+    box-shadow: inset 0px 0px 10px #B8B8B8;
+    -webkit-box-shadow: inset 0px 0px 10px #B8B8B8;
+    -moz-box-shadow: inset 0px 0px 10px #B8B8B8;
+}
+
+.imagenSeleccionada {
+/*    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;*/
+    border: 10px solid #7FD3E5;
+}
+
+.imagenDeseleccionada {
+    border: none;
+}
+
+/*input[type="radio"].invertidoSi:checked {
+    background-image: url("../../../../img/radiobgno.png");
+}
+
+input[type="radio"].invertidoNo:checked {
+    background-image: url("../../../../img/radiobgsi.png");
+}*/
