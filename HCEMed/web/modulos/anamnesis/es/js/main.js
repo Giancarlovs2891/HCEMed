@@ -741,20 +741,39 @@ $(document).ready(function() {
 //            $("."+clase+" td:last-child input[type='checkbox']").prop("checked", true);
 
             var hijos = x.parentNode.parentNode.getElementsByTagName("td");
-
             for (var i = 1; i < hijos.length - 1; i++) {
                 hijos[i].getElementsByTagName("input")[0].checked = false;
             }
-
+            $("#comentariosTablaAntecedentesFamiliares").hide();
         }
     }
 
     function quitarCheckNinguno(x) {
         var hijos = x.parentNode.parentNode.getElementsByTagName("td");
+        var campos = 1;
+        var fila = hijos[0].getElementsByTagName("span")[0].innerHTML;
+        
+        if (fila == "Otros") {
+            campos = 0;
+        }
 
+        for (var i = 1; i < hijos.length - 1; i++) {
+            if (fila == "Otros") {
+                campos += hijos[i].getElementsByTagName("input")[0].checked;
+            }
+        }
+        if (campos == 0) {
+            $("#comentariosTablaAntecedentesFamiliares").hide();
+        }
 
-        hijos[hijos.length-1].getElementsByTagName("input")[0].checked = false;
+        hijos[0].getElementsByTagName("span")[0].tagName;
 
+        if ($(x).is(":checked")) {
+            if (hijos[0].innerHTML == "<span>Otros</span>") {
+                $("#comentariosTablaAntecedentesFamiliares").show();
+            }
+            hijos[hijos.length - 1].getElementsByTagName("input")[0].checked = false;
+        }
     }
 });
 

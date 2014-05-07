@@ -8,7 +8,7 @@
 #capaTratamientoProblemasTiroideos, #capaTratamientoProblemasCardiacos, #capaTratamientoEpilepsia, #capaTratamientoTuberculosis,
 #capaTratamientoOsteoporosis, #capaTratamientoHipertension, #capaTratamientoProblemasPsiquiatricos, #antecedentesPatologicos, .at,
 #fumaDesdeFrecuencia, .capaLicor, #capaCafe, #capaOtroCafe, #capaLecheDerivados, #capaFrutasFrescas, #capaFrecuenciaEjercicio,
-#capaPescados, #capaPescadosRioFrecuencia, #capaTipoPescadoMar, #capaPescadosMarBlanco, #capaPescadosMarAzules {
+#capaPescados, #capaPescadosRioFrecuencia, #capaTipoPescadoMar, #capaPescadosMarBlanco, #capaPescadosMarAzules, #comentariosTablaAntecedentesFamiliares {
     display: none;
 }
 
