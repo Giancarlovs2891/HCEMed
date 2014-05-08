@@ -20,8 +20,6 @@ function ajax(service, string, callback)
             var respuesta = xmlhttp.responseText;
             callback(respuesta);
             offLoader();
-        }else{
-            alert("Hubo un error comunicandose con el servidor, revise su conexion a la red");
         }
     }
 	
