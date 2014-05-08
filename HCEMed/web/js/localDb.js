@@ -17,7 +17,9 @@ function crearTabla(query) {
 
 function guardarTabla(nombreTabla, string, callback) {
     if(modoMedsio == "central"){
-        var servicio = "guardar"+nombreTabla;
+        var x = nombreTabla.split(" ");
+        nombreTabla = x[0];
+        var servicio = nombreTabla+"/guardar";
         
         ajax(servicio, string, callback);
     }else{
@@ -59,7 +61,9 @@ function guardarTabla(nombreTabla, string, callback) {
 
 function editarTabla(nombreTabla, string, callback) {
     if(modoMedsio == "central"){
-        var servicio = "editar"+nombreTabla;
+        var x = nombreTabla.split(" ");
+        nombreTabla = x[0];
+        var servicio = nombreTabla+"/editar";
         
         ajax(servicio, string, callback);
     }else{
@@ -106,7 +110,9 @@ function editarTabla(nombreTabla, string, callback) {
 
 function borrarTabla(nombreTabla, string, callback) {
     if(modoMedsio == "central"){
-        var servicio = "borrar"+nombreTabla;
+        var x = nombreTabla.split(" ");
+        nombreTabla = x[0];
+        var servicio = nombreTabla+"/borrar";
         
         ajax(servicio, string, callback);
     }else{
@@ -137,7 +143,9 @@ function borrarTabla(nombreTabla, string, callback) {
 
 function traerTabla(nombreTabla, string, callback) {
     if(modoMedsio == "central"){
-        var servicio = "traer"+nombreTabla;
+        var x = nombreTabla.split(" ");
+        nombreTabla = x[0];
+        var servicio = nombreTabla+"/traer";
         
         ajax(servicio, string, callback);
     }else{
@@ -189,7 +197,9 @@ function traerTabla(nombreTabla, string, callback) {
 
 function traerTodoTabla(nombreTabla, callback) {
     if(modoMedsio == "central"){
-        var servicio = "traerTodo"+nombreTabla;
+        var x = nombreTabla.split(" ");
+        nombreTabla = x[0];
+        var servicio = nombreTabla+"/listar";
         
         ajax(servicio, string, callback);
     }else{
