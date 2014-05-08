@@ -285,7 +285,7 @@ function vistaPrincipal(){
 	document.getElementById("listaPacientes").style.webkitTransform = "translate3d(-100%,0,0)";	
 	document.getElementById("mainBody").style.webkitTransform = "translate3d(0%,0,0)";
 
-	changeTitle("MEDS.IO"); 
+	changeTitle("HCE med"); 
 	changeLeftBtn('', 'vistaPacientes', 'ion-person-stalker');
 	//changeRightBtn('Guardar', 'inicio');
 

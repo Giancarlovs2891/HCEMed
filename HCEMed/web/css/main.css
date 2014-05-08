@@ -80,6 +80,11 @@ body{
     color:#FFF;
     padding-right:1%;
 }
+.rightHeader span{
+    background-color: #2D8AB0;
+    padding: 5px;
+    border-radius: 5px;
+}
 #header i{
     font-size:28px;
 }
