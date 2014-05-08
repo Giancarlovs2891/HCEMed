@@ -21,9 +21,6 @@ function ajax(service, string, callback)
             callback(respuesta);
             offLoader();
         }
-        if(xmlhttp.status==404){
-            alert("Hubo un error comunicandose con el servidor, revise su conexion a la red");
-        }
     }
 	
     xmlhttp.open("POST", dir ,true);
