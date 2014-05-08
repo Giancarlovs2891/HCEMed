@@ -200,6 +200,7 @@ function traerTodoTabla(nombreTabla, callback) {
         var x = nombreTabla.split(" ");
         nombreTabla = x[0];
         var servicio = nombreTabla+"/listar";
+        var string="";
         
         ajax(servicio, string, callback);
     }else{

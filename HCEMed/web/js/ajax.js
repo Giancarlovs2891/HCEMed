@@ -1,4 +1,4 @@
-var dirGeneral = "services.php?service=";
+var dirGeneral = "";
 
 function ajax(service, string, callback)
 {
