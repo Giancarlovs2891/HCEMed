@@ -7,7 +7,6 @@
 package com.saludtec.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,11 +19,9 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -58,11 +55,9 @@ public class Galeria implements Serializable {
     private String hora;
     @Column(name = "idUsuario")
     private Integer idUsuario;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<Galeria> galeriaList;
-    @JoinColumn(name = "idPaciente", referencedColumnName = "idFoto")
+    @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Galeria idPaciente;
+    private Pacientes idPaciente;
 
     public Galeria() {
     }
@@ -111,20 +106,11 @@ public class Galeria implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    @XmlTransient
-    public List<Galeria> getGaleriaList() {
-        return galeriaList;
-    }
-
-    public void setGaleriaList(List<Galeria> galeriaList) {
-        this.galeriaList = galeriaList;
-    }
-
-    public Galeria getIdPaciente() {
+    public Pacientes getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(Galeria idPaciente) {
+    public void setIdPaciente(Pacientes idPaciente) {
         this.idPaciente = idPaciente;
     }
 

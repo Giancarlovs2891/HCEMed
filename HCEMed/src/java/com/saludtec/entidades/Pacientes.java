@@ -71,6 +71,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion"),
     @NamedQuery(name = "Pacientes.findByIdUsuario", query = "SELECT p FROM Pacientes p WHERE p.idUsuario = :idUsuario")})
 public class Pacientes implements Serializable {
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Galeria> galeriaList;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -568,6 +570,15 @@ public class Pacientes implements Serializable {
     @Override
     public String toString() {
         return "com.saludtec.entidades.Pacientes[ idPaciente=" + idPaciente + " ]";
+    }
+
+    @XmlTransient
+    public List<Galeria> getGaleriaList() {
+        return galeriaList;
+    }
+
+    public void setGaleriaList(List<Galeria> galeriaList) {
+        this.galeriaList = galeriaList;
     }
     
 }

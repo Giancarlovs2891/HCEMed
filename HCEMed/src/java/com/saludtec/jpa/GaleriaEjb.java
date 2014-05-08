@@ -3,27 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.Galeria;
 import java.util.List;
 
 /**
  *
  * @author saintec
  */
-public interface PacientesEjb {
+public interface GaleriaEjb {
+    
+    Galeria crear(Galeria foto);
 
-    Pacientes crear(Pacientes paciente);
-
-    Pacientes editar(Pacientes paciente);
+    Galeria editar(Galeria foto);
 
     void eliminar(Integer id);
 
-    Pacientes traerPacientes(Integer id);
+    Galeria traerGaleria(Integer id);
 
-    List<Pacientes> listarPacientes();
-
-    List<Pacientes> listarPacientes(Pacientes like);
-
+    List<Galeria> listarGaleria(Integer id);
+    
 }

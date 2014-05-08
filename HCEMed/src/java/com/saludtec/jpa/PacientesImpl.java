@@ -65,13 +65,13 @@ public class PacientesImpl implements PacientesEjb {
     }
 
     @Override
-    public List<Pacientes> traerPacientes() {
+    public List<Pacientes> listarPacientes() {
         Query query = em.createNamedQuery("Pacientes.findAll");
         return query.getResultList();
     }
 
     @Override
-    public List<Pacientes> traerPacientes(Pacientes like) {
+    public List<Pacientes> listarPacientes(Pacientes like) {
         Query query =  em.createNamedQuery("Pacientes.like");
         query.setParameter("nombrePaciente", like.getNombrePaciente());
         query.setParameter("apellidoPaciente", like.getApellidoPaciente());

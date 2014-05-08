@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.saludtec.web;
 
 import com.saludtec.entidades.Pacientes;
@@ -23,10 +24,10 @@ import org.json.simple.JSONObject;
  *
  * @author saintec
  */
-@WebServlet(name = "PacientesWeb", urlPatterns = {"/Pacientes/*"})
-public class PacientesWeb extends HttpServlet {
-    
-    @EJB
+@WebServlet(name = "NewServlet", urlPatterns = {"/Pacientes/*"})
+public class PacienteWeb extends HttpServlet {
+
+   @EJB
     PacientesEjb ejb;
     JSONObject obj;
     JSONArray objArray;
@@ -238,7 +239,7 @@ public class PacientesWeb extends HttpServlet {
     }
     
     private JSONArray listarPacientes() {
-        List<Pacientes> pacientes = ejb.traerPacientes();
+        List<Pacientes> pacientes = ejb.listarPacientes();
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {
@@ -260,7 +261,7 @@ public class PacientesWeb extends HttpServlet {
         like.setNombrePaciente(request.getParameter("nombrePaciente"));
         like.setApellidoPaciente(request.getParameter("apellidoPaciente"));
         like.setIdentificacionPaciente(request.getParameter("identificacionPaciente"));
-        List<Pacientes> pacientes = ejb.traerPacientes(like);
+        List<Pacientes> pacientes = ejb.listarPacientes(like);
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {
@@ -272,7 +273,6 @@ public class PacientesWeb extends HttpServlet {
         }
         return objArray;
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
