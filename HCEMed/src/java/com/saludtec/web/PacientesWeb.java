@@ -11,8 +11,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.json.JsonArray;
-import javax.json.JsonObject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +23,7 @@ import org.json.simple.JSONObject;
  *
  * @author saintec
  */
-@WebServlet(name = "PacientesWeb", urlPatterns = {"/pacientes/*"})
+@WebServlet(name = "PacientesWeb", urlPatterns = {"/Pacientes/*"})
 public class PacientesWeb extends HttpServlet {
     
     @EJB
@@ -37,7 +35,7 @@ public class PacientesWeb extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String servicio = request.getRequestURI().replace("/HCEMed/pacientes/", "");
+            String servicio = request.getRequestURI().replace("/HCEMed/Pacientes/", "");
             switch (servicio) {
                 case "guardar":
                     guardarPaciente(request).writeJSONString(out);
