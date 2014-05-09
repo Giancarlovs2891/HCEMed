@@ -41,7 +41,8 @@ input[type="radio"][value="no"]:checked {
     -ms-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;*/
-    border: 10px solid #7FD3E5;
+    border: 1px solid #7FD3E5;
+    -webkit-box-shadow: 0px 0px 20px #7FD3E5;
 }
 
 .imagenDeseleccionada {
