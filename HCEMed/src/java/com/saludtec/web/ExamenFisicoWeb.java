@@ -114,7 +114,7 @@ public class ExamenFisicoWeb extends HttpServlet {
             obj.put("idFoto", examenFisico.getIdPaciente());
             objArray.add(obj);
         } else {
-            obj.put("error", "no se pudo guardar la categoria");
+            obj.put("error", "no se pudo guardar el examen fisico");
             objArray.add(obj);
         }
         return objArray;

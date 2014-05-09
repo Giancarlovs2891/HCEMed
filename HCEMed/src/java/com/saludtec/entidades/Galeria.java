@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.entidades;
 
 import java.io.Serializable;
@@ -32,11 +31,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Galeria.findAll", query = "SELECT g FROM Galeria g"),
+    @NamedQuery(name = "Galeria.findByIdPaciente", query = "SELECT g FROM Galeria g WHERE g.idPaciente = :idPaciente ORDER BY g.idFoto DESC"),
     @NamedQuery(name = "Galeria.findByIdFoto", query = "SELECT g FROM Galeria g WHERE g.idFoto = :idFoto"),
     @NamedQuery(name = "Galeria.findByFecha", query = "SELECT g FROM Galeria g WHERE g.fecha = :fecha"),
     @NamedQuery(name = "Galeria.findByHora", query = "SELECT g FROM Galeria g WHERE g.hora = :hora"),
     @NamedQuery(name = "Galeria.findByIdUsuario", query = "SELECT g FROM Galeria g WHERE g.idUsuario = :idUsuario")})
 public class Galeria implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -138,5 +139,5 @@ public class Galeria implements Serializable {
     public String toString() {
         return "com.saludtec.entidades.Galeria[ idFoto=" + idFoto + " ]";
     }
-    
+
 }

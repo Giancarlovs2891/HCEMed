@@ -31,6 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Pagos.findAll", query = "SELECT p FROM Pagos p"),
+    @NamedQuery(name = "Pagos.findByIdPlanTratamiento", query = "SELECT p FROM Pagos p WHERE p.idPlanTratamiento = :idPlanTratamiento ORDER BY p.idPago DESC"),
     @NamedQuery(name = "Pagos.findByIdPago", query = "SELECT p FROM Pagos p WHERE p.idPago = :idPago"),
     @NamedQuery(name = "Pagos.findByValorPago", query = "SELECT p FROM Pagos p WHERE p.valorPago = :valorPago"),
     @NamedQuery(name = "Pagos.findByFechaPago", query = "SELECT p FROM Pagos p WHERE p.fechaPago = :fechaPago"),
@@ -48,9 +49,8 @@ public class Pagos implements Serializable {
     @Size(max = 45)
     @Column(name = "fechaPago")
     private String fechaPago;
-    @Size(max = 45)
     @Column(name = "idUsuario")
-    private String idUsuario;
+    private Integer idUsuario;
     @JoinColumn(name = "idPlanTratamiento", referencedColumnName = "idPlanDeTratamiento")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private PlanesDeTratamiento idPlanTratamiento;
@@ -86,11 +86,11 @@ public class Pagos implements Serializable {
         this.fechaPago = fechaPago;
     }
 
-    public String getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 

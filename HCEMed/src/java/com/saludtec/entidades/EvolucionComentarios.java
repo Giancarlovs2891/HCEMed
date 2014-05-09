@@ -35,7 +35,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EvolucionComentarios.findByIdEvolucionComentario", query = "SELECT e FROM EvolucionComentarios e WHERE e.idEvolucionComentario = :idEvolucionComentario"),
     @NamedQuery(name = "EvolucionComentarios.findByFecha", query = "SELECT e FROM EvolucionComentarios e WHERE e.fecha = :fecha"),
     @NamedQuery(name = "EvolucionComentarios.findByHora", query = "SELECT e FROM EvolucionComentarios e WHERE e.hora = :hora"),
-    @NamedQuery(name = "EvolucionComentarios.findByIdUsuario", query = "SELECT e FROM EvolucionComentarios e WHERE e.idUsuario = :idUsuario")})
+    @NamedQuery(name = "EvolucionComentarios.findByIdUsuario", query = "SELECT e FROM EvolucionComentarios e WHERE e.idUsuario = :idUsuario"),
+    @NamedQuery(name = "EvolucionComentarios.findByIdPacienteAndFecha", query = "SELECT e FROM EvolucionComentarios e WHERE e.idPaciente = :idPaciente AND e.fecha = :fecha ORDER BY e.idEvolucionComentario DESC")})
 public class EvolucionComentarios implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -57,9 +58,8 @@ public class EvolucionComentarios implements Serializable {
     @Size(max = 45)
     @Column(name = "hora")
     private String hora;
-    @Size(max = 45)
     @Column(name = "idUsuario")
-    private String idUsuario;
+    private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
     private Pacientes idPaciente;
@@ -111,11 +111,11 @@ public class EvolucionComentarios implements Serializable {
         this.hora = hora;
     }
 
-    public String getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 

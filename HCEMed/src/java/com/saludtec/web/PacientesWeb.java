@@ -25,10 +25,10 @@ import org.json.simple.JSONObject;
  * @author saintec
  */
 @WebServlet(name = "NewServlet", urlPatterns = {"/Pacientes/*"})
-public class PacienteWeb extends HttpServlet {
+public class PacientesWeb extends HttpServlet {
 
    @EJB
-    PacientesEjb ejb;
+    PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;
     
@@ -110,7 +110,7 @@ public class PacienteWeb extends HttpServlet {
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
         paciente.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
-        paciente = ejb.crear(paciente);
+        paciente = ejbPacientes.crear(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -166,7 +166,7 @@ public class PacienteWeb extends HttpServlet {
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
         paciente.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
-        paciente = ejb.editar(paciente);
+        paciente = ejbPacientes.editar(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -180,14 +180,14 @@ public class PacienteWeb extends HttpServlet {
     }
     
     private JSONObject eliminarPaciente(HttpServletRequest request) {
-        ejb.eliminar(Integer.parseInt(request.getParameter("idPaciente")));
+        ejbPacientes.eliminar(Integer.parseInt(request.getParameter("idPaciente")));
         obj = new JSONObject();
         obj.put("menasaje", "eliminado");
         return obj;
     }
     
     private JSONArray traerPaciente(HttpServletRequest request) {
-        Pacientes paciente = ejb.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -235,7 +235,7 @@ public class PacienteWeb extends HttpServlet {
     }
     
     private JSONArray listarPacientes() {
-        List<Pacientes> pacientes = ejb.listar();
+        List<Pacientes> pacientes = ejbPacientes.listar();
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {
@@ -257,7 +257,7 @@ public class PacienteWeb extends HttpServlet {
         like.setNombrePaciente(request.getParameter("nombrePaciente"));
         like.setApellidoPaciente(request.getParameter("apellidoPaciente"));
         like.setIdentificacionPaciente(request.getParameter("identificacionPaciente"));
-        List<Pacientes> pacientes = ejb.listar(like);
+        List<Pacientes> pacientes = ejbPacientes.listar(like);
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {

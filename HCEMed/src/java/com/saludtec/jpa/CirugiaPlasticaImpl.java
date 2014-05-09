@@ -46,8 +46,11 @@ public class CirugiaPlasticaImpl implements CirugiaPlasticaEjb {
 
     @Override
     public CirugiaPlastica traerUltimo(Integer idPaciente) {
+        Query query = em.createNamedQuery("CirugiaPlastica.findByIdPaciente");
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
-        return paciente.getCirugiaPlasticaList().get(paciente.getAnamnesisList().size());
+        query.setParameter("idPaciente", paciente);
+        List<CirugiaPlastica> cirugiaPlastica = query.getResultList();
+        return cirugiaPlastica.get(0);
     }
 
 }

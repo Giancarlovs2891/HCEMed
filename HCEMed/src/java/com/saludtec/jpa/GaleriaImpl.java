@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -67,8 +68,19 @@ public class GaleriaImpl implements GaleriaEjb{
 
     @Override
     public List<Galeria> listar(Integer idPaciente) {
+        Query query = em.createNamedQuery("Galeria.findByIdPaciente");
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
-        return paciente.getGaleriaList();
+        query.setParameter("idPaciente", paciente);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Galeria> lis() {
+        Query query = em.createNamedQuery("Galeria.findprueba");
+        Pacientes paciente = em.find(Pacientes.class, 1);
+        query.setParameter("idPaciente", paciente);
+        return query.getResultList();
     }
     
 }
+    

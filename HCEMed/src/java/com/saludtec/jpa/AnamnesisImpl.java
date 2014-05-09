@@ -45,9 +45,12 @@ public class AnamnesisImpl implements AnamnesisEjb {
     }
 
     @Override
-    public Anamnesis traerUltimo(Integer idPaciente) {
+    public Anamnesis traerUltimo(Integer idPaciente) {        
+        Query query = em.createNamedQuery("Anamnesis.findByIdPaciente");
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
-        return paciente.getAnamnesisList().get(paciente.getAnamnesisList().size());
+        query.setParameter("idPaciente", paciente);
+        List<Anamnesis> anamnesis = query.getResultList();
+        return anamnesis.get(0);
     }
 
 }

@@ -86,10 +86,10 @@ public class GaleriaWeb extends HttpServlet {
         obj = new JSONObject();
         objArray = new JSONArray();
         if (galeria != null) {
-            obj.put("idFoto", galeria.getIdPaciente());
+            obj.put("idFoto", galeria.getIdFoto());
             objArray.add(obj);
         } else {
-            obj.put("error", "no se pudo guardar la categoria");
+            obj.put("error", "no se pudo guardar la foto");
             objArray.add(obj);
         }
         return objArray;
@@ -107,10 +107,10 @@ public class GaleriaWeb extends HttpServlet {
         obj = new JSONObject();
         objArray = new JSONArray();
         if (galeria != null) {
-            obj.put("mensaje", "Registro con id " + galeria.getIdPaciente() + " editado");
+            obj.put("mensaje", "Registro con id " + galeria.getIdFoto()+ " editado");
             objArray.add(obj);
         } else {
-            obj.put("error", "no se pudo editar la categoria");
+            obj.put("error", "no se pudo editar la foto");
             objArray.add(obj);
         }
         return objArray;

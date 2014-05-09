@@ -45,8 +45,11 @@ public class ExamenFisicoImpl implements ExamenFisicoEjb {
 
     @Override
     public ExamenFisico traerUltimo(Integer idPaciente) {
+        Query query = em.createNamedQuery("ExamenFisico.findByIdPaciente");
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
-        return paciente.getExamenFisicoList().get(paciente.getExamenFisicoList().size());
+        query.setParameter("idPaciente", paciente);
+        List<ExamenFisico> examenFisico = query.getResultList();
+        return examenFisico.get(0);
     }
 
 }

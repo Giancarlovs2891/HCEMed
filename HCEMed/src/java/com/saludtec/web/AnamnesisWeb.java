@@ -421,7 +421,7 @@ public class AnamnesisWeb extends HttpServlet {
             obj.put("idFoto", anamnesis.getIdPaciente());
             objArray.add(obj);
         } else {
-            obj.put("error", "no se pudo guardar la categoria");
+            obj.put("error", "no se pudo guardar anamnesis");
             objArray.add(obj);
         }
         return objArray;

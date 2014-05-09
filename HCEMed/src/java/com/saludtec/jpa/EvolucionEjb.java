@@ -6,25 +6,17 @@
 
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Galeria;
+import com.saludtec.entidades.Evolucion;
 import java.util.List;
 
 /**
  *
  * @author saintec
  */
-public interface GaleriaEjb {
+public interface EvolucionEjb {
     
-    Galeria crear(Galeria foto);
-
-    Galeria editar(Galeria foto);
-
-    void eliminar(Integer idFoto);
-
-    Galeria traer(Integer idFoto);
-
-    List<Galeria> listar(Integer idPaciente);
+    Evolucion crear(Evolucion evolucion);
     
-    List<Galeria> lis();
+    List<Evolucion> listar(Integer idPaciente);
     
 }
