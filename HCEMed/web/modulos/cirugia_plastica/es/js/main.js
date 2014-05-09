@@ -368,6 +368,7 @@ function guardarDiagnosticosCp() {
     guardarDiagnosticos("#diagnosticoAbdomen", "Cirugia plastica", "Abdomen");
     guardarDiagnosticos("#diagnosticoEspalda", "Cirugia plastica", "Espalda");
     guardarDiagnosticos("#diagnosticoExtremidadesInferiores", "Cirugia plastica", "Extremidades inferiores");
+    guardarDiagnosticos("#diagnosticoExtremidadesSuperiores", "Cirugia plastica", "Extremidades superiores");
     guardarDiagnosticos("#diagnosticoReconstructivaCabezaCuello", "Cirugia plastica", "Reconstructiva cabeza cuello");
     guardarDiagnosticos("#diagnosticoReconstructivaCorporal", "Cirugia plastica", "Reconstructiva corporal");
 }
