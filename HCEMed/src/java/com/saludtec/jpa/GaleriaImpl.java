@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 /**
  *
@@ -62,13 +61,13 @@ public class GaleriaImpl implements GaleriaEjb{
     }
 
     @Override
-    public Galeria traerGaleria(Integer id) {
-        return em.find(Galeria.class, id);
+    public Galeria traer(Integer idFoto) {
+        return em.find(Galeria.class, idFoto);
     }
 
     @Override
-    public List<Galeria> listarGaleria(Integer id) {
-        Pacientes paciente = em.find(Pacientes.class, id);
+    public List<Galeria> listar(Integer idPaciente) {
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
         return paciente.getGaleriaList();
     }
     

@@ -9,6 +9,7 @@ package com.saludtec.entidades;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -71,6 +72,16 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion"),
     @NamedQuery(name = "Pacientes.findByIdUsuario", query = "SELECT p FROM Pacientes p WHERE p.idUsuario = :idUsuario")})
 public class Pacientes implements Serializable {
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Diagnosticos> diagnosticosList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<PlanesDeTratamiento> planesDeTratamientoList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<EvolucionComentarios> evolucionComentariosList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Evolucion> evolucionList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Tratamientos> tratamientosList;
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
     private List<Galeria> galeriaList;
     private static final long serialVersionUID = 1L;
@@ -579,6 +590,51 @@ public class Pacientes implements Serializable {
 
     public void setGaleriaList(List<Galeria> galeriaList) {
         this.galeriaList = galeriaList;
+    }
+
+    @XmlTransient
+    public List<Diagnosticos> getDiagnosticosList() {
+        return diagnosticosList;
+    }
+
+    public void setDiagnosticosList(List<Diagnosticos> diagnosticosList) {
+        this.diagnosticosList = diagnosticosList;
+    }
+
+    @XmlTransient
+    public List<PlanesDeTratamiento> getPlanesDeTratamientoList() {
+        return planesDeTratamientoList;
+    }
+
+    public void setPlanesDeTratamientoList(List<PlanesDeTratamiento> planesDeTratamientoList) {
+        this.planesDeTratamientoList = planesDeTratamientoList;
+    }
+
+    @XmlTransient
+    public List<EvolucionComentarios> getEvolucionComentariosList() {
+        return evolucionComentariosList;
+    }
+
+    public void setEvolucionComentariosList(List<EvolucionComentarios> evolucionComentariosList) {
+        this.evolucionComentariosList = evolucionComentariosList;
+    }
+
+    @XmlTransient
+    public List<Evolucion> getEvolucionList() {
+        return evolucionList;
+    }
+
+    public void setEvolucionList(List<Evolucion> evolucionList) {
+        this.evolucionList = evolucionList;
+    }
+
+    @XmlTransient
+    public List<Tratamientos> getTratamientosList() {
+        return tratamientosList;
+    }
+
+    public void setTratamientosList(List<Tratamientos> tratamientosList) {
+        this.tratamientosList = tratamientosList;
     }
     
 }

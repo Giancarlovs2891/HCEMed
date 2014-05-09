@@ -45,11 +45,7 @@ public class PacienteWeb extends HttpServlet {
                 case "editar":
                     editarPaciente(request).writeJSONString(out);
                     break;
-                
-                case "eliminar":
-                    eliminarPaciente(request).writeJSONString(out);
-                    break;
-                
+                                
                 case "traer":
                     traerPaciente(request).writeJSONString(out);
                     break;
@@ -191,7 +187,7 @@ public class PacienteWeb extends HttpServlet {
     }
     
     private JSONArray traerPaciente(HttpServletRequest request) {
-        Pacientes paciente = ejb.traerPacientes(Integer.parseInt(request.getParameter("idPaciente")));
+        Pacientes paciente = ejb.traer(Integer.parseInt(request.getParameter("idPaciente")));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -239,7 +235,7 @@ public class PacienteWeb extends HttpServlet {
     }
     
     private JSONArray listarPacientes() {
-        List<Pacientes> pacientes = ejb.listarPacientes();
+        List<Pacientes> pacientes = ejb.listar();
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {
@@ -261,7 +257,7 @@ public class PacienteWeb extends HttpServlet {
         like.setNombrePaciente(request.getParameter("nombrePaciente"));
         like.setApellidoPaciente(request.getParameter("apellidoPaciente"));
         like.setIdentificacionPaciente(request.getParameter("identificacionPaciente"));
-        List<Pacientes> pacientes = ejb.listarPacientes(like);
+        List<Pacientes> pacientes = ejb.listar(like);
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {

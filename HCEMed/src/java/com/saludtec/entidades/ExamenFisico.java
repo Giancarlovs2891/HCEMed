@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "ExamenFisico")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ExamenFisico.findAll", query = "SELECT e FROM ExamenFisico e"),
+    @NamedQuery(name = "ExamenFisico.findAll", query = "SELECT e FROM ExamenFisico e ORDER BY e.idExamenFisico"),
     @NamedQuery(name = "ExamenFisico.findByIdExamenFisico", query = "SELECT e FROM ExamenFisico e WHERE e.idExamenFisico = :idExamenFisico"),
     @NamedQuery(name = "ExamenFisico.findByTensionArterial", query = "SELECT e FROM ExamenFisico e WHERE e.tensionArterial = :tensionArterial"),
     @NamedQuery(name = "ExamenFisico.findByPeso", query = "SELECT e FROM ExamenFisico e WHERE e.peso = :peso"),
@@ -55,7 +55,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ExamenFisico.findBySistemaNerviosoCentral", query = "SELECT e FROM ExamenFisico e WHERE e.sistemaNerviosoCentral = :sistemaNerviosoCentral"),
     @NamedQuery(name = "ExamenFisico.findByAdenopatias", query = "SELECT e FROM ExamenFisico e WHERE e.adenopatias = :adenopatias"),
     @NamedQuery(name = "ExamenFisico.findByOtros", query = "SELECT e FROM ExamenFisico e WHERE e.otros = :otros"),
-    @NamedQuery(name = "ExamenFisico.findByFechaCreacionEf", query = "SELECT e FROM ExamenFisico e WHERE e.fechaCreacionEf = :fechaCreacionEf"),
+    @NamedQuery(name = "ExamenFisico.findByFechaCreacionEf", query = "SELECT e FROM ExamenFisico e WHERE e.fechaCreacionEf = :fechaCreacionEf ORDER BY e.idExamenFisico"),
     @NamedQuery(name = "ExamenFisico.findByHoraCreacionEf", query = "SELECT e FROM ExamenFisico e WHERE e.horaCreacionEf = :horaCreacionEf"),
     @NamedQuery(name = "ExamenFisico.findByIdUsuario", query = "SELECT e FROM ExamenFisico e WHERE e.idUsuario = :idUsuario")})
 public class ExamenFisico implements Serializable {

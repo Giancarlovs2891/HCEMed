@@ -19,10 +19,10 @@ public interface GaleriaEjb {
 
     Galeria editar(Galeria foto);
 
-    void eliminar(Integer id);
+    void eliminar(Integer idFoto);
 
-    Galeria traerGaleria(Integer id);
+    Galeria traer(Integer idFoto);
 
-    List<Galeria> listarGaleria(Integer id);
+    List<Galeria> listar(Integer idPaciente);
     
 }

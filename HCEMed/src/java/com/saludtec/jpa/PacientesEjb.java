@@ -18,12 +18,12 @@ public interface PacientesEjb {
 
     Pacientes editar(Pacientes paciente);
 
-    void eliminar(Integer id);
+    void eliminar(Integer idPaciente);
 
-    Pacientes traerPacientes(Integer id);
+    Pacientes traer(Integer idPaciente);
 
-    List<Pacientes> listarPacientes();
+    List<Pacientes> listar();
 
-    List<Pacientes> listarPacientes(Pacientes like);
+    List<Pacientes> listar(Pacientes like);
 
 }

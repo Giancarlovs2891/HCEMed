@@ -47,10 +47,10 @@ public class PacientesImpl implements PacientesEjb {
     }
 
     @Override
-    public void eliminar(Integer id) {
+    public void eliminar(Integer idPaciente) {
         Pacientes paciente;
         try {
-            paciente = em.find(Pacientes.class, id);
+            paciente = em.find(Pacientes.class, idPaciente);
             if (paciente != null) {
                 em.remove(paciente);
             }
@@ -60,18 +60,18 @@ public class PacientesImpl implements PacientesEjb {
     }
 
     @Override
-    public Pacientes traerPacientes(Integer id) {
-        return em.find(Pacientes.class, id);
+    public Pacientes traer(Integer idPaciente) {
+        return em.find(Pacientes.class, idPaciente);
     }
 
     @Override
-    public List<Pacientes> listarPacientes() {
+    public List<Pacientes> listar() {
         Query query = em.createNamedQuery("Pacientes.findAll");
         return query.getResultList();
     }
 
     @Override
-    public List<Pacientes> listarPacientes(Pacientes like) {
+    public List<Pacientes> listar(Pacientes like) {
         Query query =  em.createNamedQuery("Pacientes.like");
         query.setParameter("nombrePaciente", like.getNombrePaciente());
         query.setParameter("apellidoPaciente", like.getApellidoPaciente());

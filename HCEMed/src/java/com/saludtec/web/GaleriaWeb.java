@@ -9,6 +9,7 @@ package com.saludtec.web;
 import com.saludtec.entidades.Galeria;
 import com.saludtec.entidades.Pacientes;
 import com.saludtec.jpa.GaleriaEjb;
+import com.saludtec.jpa.PacientesEjb;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -29,7 +30,8 @@ import org.json.simple.JSONObject;
 public class GaleriaWeb extends HttpServlet {
 
     @EJB
-    GaleriaEjb ejb;
+    GaleriaEjb ejbGaleria;
+    PacientesEjb ejbPaciente;
     JSONObject obj;
     JSONArray objArray;
     
@@ -80,7 +82,7 @@ public class GaleriaWeb extends HttpServlet {
         galeria.setFecha(request.getParameter("nombreReferido"));
         galeria.setHora(request.getParameter("fechaCreacion"));
         galeria.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
-        galeria = ejb.crear(galeria);
+        galeria = ejbGaleria.crear(galeria);
         obj = new JSONObject();
         objArray = new JSONArray();
         if (galeria != null) {
@@ -95,14 +97,13 @@ public class GaleriaWeb extends HttpServlet {
     
     private JSONArray editarGaleria(HttpServletRequest request) {
         Galeria galeria = new Galeria();
-        Pacientes paciente = new Pacientes();
-        paciente.setIdPaciente(Integer.parseInt(request.getParameter("idPaciente")));
+        Pacientes paciente = ejbPaciente.traer(Integer.parseInt(request.getParameter("idPaciente")));
         galeria.setIdPaciente(paciente);
         galeria.setFoto(request.getParameter("parentescoEmergencia"));
         galeria.setFecha(request.getParameter("nombreReferido"));
         galeria.setHora(request.getParameter("fechaCreacion"));
         galeria.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
-        galeria = ejb.editar(galeria);
+        galeria = ejbGaleria.editar(galeria);
         obj = new JSONObject();
         objArray = new JSONArray();
         if (galeria != null) {
@@ -116,14 +117,14 @@ public class GaleriaWeb extends HttpServlet {
     }
     
     private JSONObject eliminarGaleria(HttpServletRequest request) {
-        ejb.eliminar(Integer.parseInt(request.getParameter("idFoto")));
+        ejbGaleria.eliminar(Integer.parseInt(request.getParameter("idFoto")));
         obj = new JSONObject();
         obj.put("menasaje", "eliminado");
         return obj;
     }
     
     private JSONArray traerGaleria(HttpServletRequest request) {
-        Galeria galeria = ejb.traerGaleria(Integer.parseInt(request.getParameter("idFoto")));
+        Galeria galeria = ejbGaleria.traer(Integer.parseInt(request.getParameter("idFoto")));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (galeria != null) {
@@ -135,7 +136,7 @@ public class GaleriaWeb extends HttpServlet {
     }
     
     private JSONArray listarGaleria(HttpServletRequest request) {
-        List<Galeria> galerias = ejb.listarGaleria(Integer.parseInt(request.getParameter("idPaciente")));
+        List<Galeria> galerias = ejbGaleria.listar(Integer.parseInt(request.getParameter("idPaciente")));
         objArray = new JSONArray();
         if (galerias != null) {
             for (Galeria galeria : galerias) {
