@@ -1,6 +1,6 @@
 var idPacienteSeleccionado = "NaN";
 var sexoPacienteSeleccionado ="NaN";
-var modoMedsio = "central";    //"local" o "central"
+var modoMedsio = "local";    //"local" o "central"
 var supLang = ["es"];
 var fechaEvolucionGeneral = '';
 
