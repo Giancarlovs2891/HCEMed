@@ -311,11 +311,11 @@ function habilitarCamposCp() {
     var imagenes = document.getElementById("capaAlopecia").getElementsByTagName('img');
     var sexo = getPatientSex();
     for (var i = 0; i < imagenes.length; i++) {
-        if (sexo == "m") {
+        if (sexo === "m") {
             imagenes[i].setAttribute("onclick", "gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre')");
         }
         else {
-            imagenes[i].setAttribute("onclick", "gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre')");
+            imagenes[i].setAttribute("onclick", "gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer')");
         }
     }
 }
