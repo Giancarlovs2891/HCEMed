@@ -1,4 +1,4 @@
-var dirGeneral = "HCEMed/";
+var dirGeneral = "";
 
 function ajax(service, string, callback)
 {
