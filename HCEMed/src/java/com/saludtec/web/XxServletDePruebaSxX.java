@@ -7,9 +7,13 @@ package com.saludtec.web;
 
 import com.saludtec.entidades.Galeria;
 import com.saludtec.jpa.GaleriaEjb;
+import com.saludtec.jpa.UsuariosEjb;
+import com.saludtec.utilidades.EncriptacionMD5;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 public class XxServletDePruebaSxX extends HttpServlet {
 
     @EJB
-    GaleriaEjb ejb;
+    GaleriaEjb ejbGaleria;
+    UsuariosEjb ejbUsuarios;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -39,9 +44,10 @@ public class XxServletDePruebaSxX extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("das");
-            List<Galeria> g = ejb.lis();
-            out.println(g);
+            out.println(request.getParameter("c"));
+            out.println(EncriptacionMD5.encriptar(request.getParameter("c")));
+        } catch (Exception ex) {
+            Logger.getLogger(XxServletDePruebaSxX.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
