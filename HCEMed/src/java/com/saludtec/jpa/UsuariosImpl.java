@@ -45,10 +45,7 @@ public class UsuariosImpl implements UsuariosEjb {
 
     @Override
     public Usuarios traer(Integer idUsuario) {
-        Query query = em.createNamedQuery("Usuarios.findByIdUsuario");
-        query.setParameter("idUsuario", idUsuario);
-        List<Usuarios> usuario =query.getResultList();
-        return usuario.get(0);
+        return em.find(Usuarios.class, idUsuario);
     }
 
 }

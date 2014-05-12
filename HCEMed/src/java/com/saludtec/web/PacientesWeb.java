@@ -75,9 +75,6 @@ public class PacientesWeb extends HttpServlet {
 
     private JSONArray guardarPaciente(HttpServletRequest request) {
         Pacientes paciente = new Pacientes();
-        Integer idUsuario = Integer.parseInt(request.getSession().getAttribute("usuario").toString());
-        System.err.println("USUARIO EN PACEINTESSS "+Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
-        Usuarios usuario = ejbUsuarios.traer((Integer) request.getSession().getAttribute("usuario"));
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
         paciente.setNombrePaciente(request.getParameter("nombrePaciente"));
@@ -115,7 +112,7 @@ public class PacientesWeb extends HttpServlet {
         paciente.setNombreReferido(request.getParameter("nombreReferido"));
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
-        paciente.setIdUsuario(usuario);
+        paciente.setIdUsuario(ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString())));
         paciente = ejbPacientes.crear(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
@@ -133,7 +130,6 @@ public class PacientesWeb extends HttpServlet {
 
     private JSONArray editarPaciente(HttpServletRequest request) {
         Pacientes paciente = new Pacientes();
-        Usuarios usuario =  ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         paciente.setIdPaciente(Integer.parseInt(request.getParameter("idPaciente")));
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
@@ -172,7 +168,7 @@ public class PacientesWeb extends HttpServlet {
         paciente.setNombreReferido(request.getParameter("nombreReferido"));
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
-        paciente.setIdUsuario(usuario);
+        paciente.setIdUsuario(ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString())));
         paciente = ejbPacientes.editar(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
