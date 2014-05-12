@@ -1,6 +1,6 @@
 var idPacienteSeleccionado = "NaN";
 var sexoPacienteSeleccionado ="NaN";
-var modoMedsio = "local";    //"local" o "central"
+var modoMedsio = "central";    //"local" o "central"
 var supLang = ["es"];
 var fechaEvolucionGeneral = '';
 
@@ -200,7 +200,16 @@ function toggleGaleriaPortable(){
     }
 }
 
-
+function login(){
+    var servicio="login";
+    var string = "usuario="+document.getElementById("usuario").value+"&contrasena="+document.getElementById("contrasena").value;
+    
+    ajax(servicio, string, login2);
+    
+    function login2(x){
+        alert(x);
+    }
+}
 function fechaActual(){
     var d = new Date();
     var dia = d.getDate();
