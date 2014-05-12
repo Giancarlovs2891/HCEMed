@@ -13,19 +13,23 @@ tabla += "antecedentesFamiliares, ";
 tabla += "tratamientosPrevios, ";
 tabla += "cortes, ";
 tabla += "color, ";
+tabla += "comentarioOtroColor, ";
 tabla += "espesorCabello, ";
 tabla += "estructura, ";
+tabla += "otraEstructura, ";
 tabla += "poros, ";
 tabla += "espesorCueroCabelludo, ";
 tabla += "flexibilidadCueroCabelludo, ";
 tabla += "cicatrices, ";
 tabla += "pullTest, ";
 tabla += "componentesPsiquicos, ";
+tabla += "otroComponentePsiquico, ";
 tabla += "densidadZonaFrontal, ";
 tabla += "densidadZonaOccipital, ";
 tabla += "densidadZonaTemporal, ";
 tabla += "densidadZonaParietal, ";
 tabla += "perdidaZona, ";
+tabla += "otraPerdidaZona, ";
 tabla += "tipoAlopeciaNoCicatricial, ";
 tabla += "otroTipoDeAlopeciaNoCicatricial, ";
 tabla += "tipoAlopeciaCicatricial, ";
@@ -74,14 +78,21 @@ tabla += "hipertrofiaVolumenMamarioDerecho, ";
 tabla += "volumenMamarioIzquierdo, ";
 tabla += "hipertrofiaVolumenMamarioIzquierdo, ";
 tabla += "formaMamariaDerecha, ";
+tabla += "otroFormaMamariaDerecha, ";
 tabla += "formaMamariaIzquierda, ";
+tabla += "otroFormaMamariaIzquierda, ";
 tabla += "ptosisMamaria, ";
 tabla += "clasificacionPtosisRegnoult, ";
 tabla += "tipoPielDerecha, ";
+tabla += "otroTipoDePielDerecha, ";
 tabla += "tipoPielIzquierda, ";
+tabla += "otroTipoDePielIzquierda, ";
 tabla += "sensibilidadPezonDerecho, ";
+tabla += "otraSensibilidadDerechaPezon, ";
 tabla += "sensibilidadPezonIzquierdo, ";
-tabla += "diametroComplejoAreola, ";
+tabla += "otraSensibilidadIzquierdaPezon, ";
+tabla += "diametroComplejoAreolaDerecho, ";
+tabla += "diametroComplejoAreolaIzquierdo, ";
 tabla += "diagramaPosicionDerecho, ";
 tabla += "baseMamariaDerecho, ";
 tabla += "medidaToraxDerecho, ";
@@ -97,6 +108,7 @@ tabla += "ginecomastia, ";
 tabla += "clasificacionWiesman, ";
 tabla += "antecedentesGinecomastia, ";
 tabla += "tipoGinecomastia, ";
+tabla += "otroTipoGinecomastia, ";
 tabla += "comentariosTipoGinecomastia, ";
 tabla += "pectorales, ";
 tabla += "otrosDiagnosticosGinecomastia, ";
@@ -158,6 +170,50 @@ tabla += "planTratamientoReconstructivaCorporal, ";
 tabla += "fechaCreacionCp, ";
 tabla += "horaCreacionCp";
 tabla += ")";
+
+var tabla2 = "CREATE TABLE IF NOT EXISTS ExamenFisico (";
+tabla2 += "idExamenFisico INTEGER PRIMARY KEY AUTOINCREMENT, ";
+tabla2 += "idPaciente, ";
+tabla2 += "tensionArterial, ";
+tabla2 += "peso, ";
+tabla2 += "cintura, ";
+tabla2 += "pulso, ";
+tabla2 += "talla, ";
+tabla2 += "cadera, ";
+tabla2 += "frecuenciaRespiratoria, ";
+tabla2+= "bmi, ";
+tabla2 += "indiceCintCad, ";
+tabla2 += "piel, ";
+tabla2 += "pielComentarioEf, ";
+tabla2 += "ojos, ";
+tabla2 += "ojosComentarioEf, ";
+tabla2 += "oidosNarizGarganta, ";
+tabla2 += "oidosNarizGargantaComentarioEf, ";
+tabla2 += "cuello, ";
+tabla2 += "cuelloComentarioEf, ";
+tabla2 += "torax, ";
+tabla2 += "toraxComentarioEf, ";
+tabla2 += "cardiovascular, ";
+tabla2 += "cardiovascularComentarioEf, ";
+tabla2 += "respiratorios, ";
+tabla2 += "respiratoriosComentarioEf, ";
+tabla2 += "abdomen, ";
+tabla2 += "abdomenComentarioEf, ";
+tabla2 += "genitourinario, ";
+tabla2 += "genitourinarioComentarioEf, ";
+tabla2 += "extremidades, ";
+tabla2 += "extremidadesComentarioEf, ";
+tabla2 += "sistemaNerviosoCentral, ";
+tabla2 += "sistemaNerviosoCentralComentarioEf, ";
+tabla2 += "adenopatias, ";
+tabla2 += "adenopatiasComentarioEf, ";
+tabla2 += "otros, ";
+tabla2 += "otrosComentarioEf, ";
+tabla2 += "comentariosEf, ";
+tabla2 += "condicionEf, ";
+tabla2 += "fechaCreacionEf, ";
+tabla2 += "horaCreacionEf";
+tabla2 += ")";
 start();
 
 function start() {
@@ -165,6 +221,7 @@ function start() {
     var storage = getModoMedsio();
     if (storage == "local") {
         crearTabla(tabla);
+        crearTabla(tabla2);
     } else {
 
     }
@@ -309,7 +366,6 @@ function ocultarEc(id) {
 }
 
 function mostrarImgAlopecia() {
-    alert(getPatientSex());
     if (getPatientSex() == "m") {
         mostrar("imagenesAlopeciaHombre");
         ocultar("imagenesAlopeciaMujer");
