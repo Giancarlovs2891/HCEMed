@@ -6,6 +6,7 @@
 package com.saludtec.web;
 
 import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.Usuarios;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.UsuariosEjb;
 import java.io.IOException;
@@ -73,6 +74,7 @@ public class PacientesWeb extends HttpServlet {
 
     private JSONArray guardarPaciente(HttpServletRequest request) {
         Pacientes paciente = new Pacientes();
+        Usuarios usuario = ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
         paciente.setNombrePaciente(request.getParameter("nombrePaciente"));
@@ -110,7 +112,7 @@ public class PacientesWeb extends HttpServlet {
         paciente.setNombreReferido(request.getParameter("nombreReferido"));
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
-        paciente.setIdUsuario(ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString())));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        paciente.setIdUsuario(usuario);
         paciente = ejbPacientes.crear(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
@@ -128,6 +130,7 @@ public class PacientesWeb extends HttpServlet {
 
     private JSONArray editarPaciente(HttpServletRequest request) {
         Pacientes paciente = new Pacientes();
+        Usuarios usuario = ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         paciente.setIdPaciente(Integer.parseInt(request.getParameter("idPaciente")));
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
@@ -166,7 +169,7 @@ public class PacientesWeb extends HttpServlet {
         paciente.setNombreReferido(request.getParameter("nombreReferido"));
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
-        paciente.setIdUsuario(ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString())));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        paciente.setIdUsuario(usuario);
         paciente = ejbPacientes.editar(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
@@ -252,7 +255,7 @@ public class PacientesWeb extends HttpServlet {
         }
         return objArray;
     }
-    
+
     private JSONArray listarPacientesUsuario(HttpServletRequest request) {
         List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         objArray = new JSONArray();
