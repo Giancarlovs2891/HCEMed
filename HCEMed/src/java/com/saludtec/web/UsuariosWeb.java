@@ -44,7 +44,7 @@ public class UsuariosWeb extends HttpServlet {
                 case "login":
                     login(request).writeJSONString(out);
                     break;
-                    
+
                 case "isLogin":
                     verificarSesion(request).writeJSONString(out);
                     break;
@@ -71,23 +71,13 @@ public class UsuariosWeb extends HttpServlet {
         }
         return objArray;
     }
-    
-    private JSONArray verificarSesion(HttpServletRequest request){
+
+    private JSONArray verificarSesion(HttpServletRequest request) {
         if (request.getSession().getAttribute("usuario") != null) {
-            List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
             objArray = new JSONArray();
-            if (pacientes != null) {
-                for (Pacientes paciente : pacientes) {
-                    obj = new JSONObject();
-                    obj.put("idPaciente", paciente.getIdPaciente());
-                    obj.put("foto", paciente.getFoto());
-                    obj.put("nombrePaciente", paciente.getNombrePaciente());
-                    obj.put("apellidoPaciente", paciente.getApellidoPaciente());
-                    obj.put("tipoIdentificacionPaciente", paciente.getTipoIdentificacionPaciente());
-                    obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());
-                    objArray.add(obj);
-                }
-            }
+            obj = new JSONObject();
+            obj.put("Exito", "1");
+            objArray.add(obj);
         }
         return objArray;
     }
