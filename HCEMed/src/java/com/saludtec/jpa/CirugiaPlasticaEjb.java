@@ -6,10 +6,18 @@
 
 package com.saludtec.jpa;
 
+import com.saludtec.entidades.CirugiaPlastica;
+
 /**
  *
  * @author saintec
  */
-public class Prueba {
+public interface CirugiaPlasticaEjb {
+    
+    CirugiaPlastica crear(CirugiaPlastica cirugiaPlastica);
+
+    CirugiaPlastica traer(String fecha);
+
+    CirugiaPlastica traerUltimo(Integer idPaciente);
     
 }

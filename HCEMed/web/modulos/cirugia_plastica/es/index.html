@@ -240,7 +240,7 @@ and open the template in the editor.
                             <span class="">Color</span>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
-                            <select name="" id="color" class="form-control">
+                            <select name="" id="color" class="form-control" onchange="muestraOcultaElemento('color', 'otroColor', 'otro');">
                                 <option value="cano">Cano</option>
                                 <option value="castano">Castaño</option>
                                 <option value="negro">Negro</option>
@@ -249,8 +249,11 @@ and open the template in the editor.
                                 <option value="otro">Otro</option>
                             </select>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 
+                        <div id="otroColor" class="oculto">
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                <textarea class="form-control" id="comentarioOtroColor"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -305,7 +308,7 @@ and open the template in the editor.
                             <span class="">Estructura</span>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
-                            <select name="" id="estructura" class="form-control">
+                            <select name="" id="estructura" class="form-control" onchange="muestraOcultaElemento('estructura', 'capaOtraEstructura', 'otros');">
                                 <option value="crespo">Crespo</option>
                                 <option value="ensortijado">Ensortijado</option>
                                 <option value="lacio">Lacio</option>
@@ -313,8 +316,11 @@ and open the template in the editor.
                                 <option value="otros">Otros</option>
                             </select>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
 
+                        <div id="capaOtraEstructura" class="oculto">
+                            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
+                                <textarea class="form-control" id="otraEstructura"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -411,15 +417,18 @@ and open the template in the editor.
                             <span class="">Flexibilidad del cuero cabelludo</span>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
-                            <select id="flexibilidadCueroCabelludo" class="form-control">
+                            <select id="flexibilidadCueroCabelludo" class="form-control" onchange="muestraOcultaElemento('flexibilidadCueroCabelludo', 'capaFlexibilidadCueroCabelludo', 'nula');">
                                 <option value="excelente">Excelente</option>
                                 <option value="bueno">Bueno</option>
                                 <option value="normal">Normal</option>
                                 <option value="nula">Nula</option>
                             </select>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
 
+                        <div id="capaFlexibilidadCueroCabelludo" class="oculto">
+                            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
+                                <textarea class="form-control" id="otraFlexibilidadCueroCabelludo"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -508,7 +517,7 @@ and open the template in the editor.
                             <span class="">Componentes psíquicos</span>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
-                            <select name="" id="componentesPsiquicos" class="form-control">
+                            <select name="" id="componentesPsiquicos" class="form-control" onchange="muestraOcultaElemento('componentesPsiquicos', 'capaComponentesPsiquicos', 'otros');">
                                 <option value="stress">Stress</option>
                                 <option value="faltaDeSueno">Falta de sueño</option>
                                 <option value="depresion">Depresión</option>
@@ -516,8 +525,11 @@ and open the template in the editor.
                                 <option value="otros">Otros</option>
                             </select>
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
 
+                        <div id="capaComponentesPsiquicos" class="oculto">
+                            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4">
+                                <textarea class="form-control" id="otroComponentePsiquico"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -731,7 +743,7 @@ and open the template in the editor.
                             <span class="">Perdida zona</span>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                            <select id="perdidaZona" class="form-control">
+                            <select id="perdidaZona" class="form-control" onchange="muestraOcultaElemento('perdidaZona', 'capaPerdidaZona', 'otra');">
                                 <option value="total">Total</option>
                                 <option value="difusa">Difusa</option>
                                 <option value="frontal">Frontal</option>
@@ -743,8 +755,11 @@ and open the template in the editor.
                                 <option value="otra">Otra</option>
                             </select>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
+                        <div id="capaPerdidaZona" class="oculto">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <textarea class="form-control" id="otraPerdidaZona"></textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -833,17 +848,17 @@ and open the template in the editor.
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado1m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                                    <img src="modulos/cirugia_plastica/img/grado1.png" id="grado1m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado2m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                            <img src="modulos/cirugia_plastica/img/grado2.png" id="grado2m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado3m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                            <img src="modulos/cirugia_plastica/img/grado2a.png" id="grado3m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
                         </div>
                     </div>
 
@@ -855,38 +870,82 @@ and open the template in the editor.
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado4m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                                    <img src="modulos/cirugia_plastica/img/grado3.png" id="grado4m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado5m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                            <img src="modulos/cirugia_plastica/img/grado3vertex.png" id="grado5m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://3.bp.blogspot.com/-Y6FTJrDh4ls/TvGvLhyT6vI/AAAAAAAABcg/ojc9B7g93Zw/s200/android_platform.png" id="grado6m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                            <img src="modulos/cirugia_plastica/img/grado3a.png" id="grado6m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <img src="modulos/cirugia_plastica/img/grado4.png" id="grado4m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/grado5.png" id="grado5m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/grado4a.png" id="grado6m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <img src="modulos/cirugia_plastica/img/grado6.png" id="grado4m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/grado7.png" id="grado5m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/grado5a.png" id="grado6m" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre');" />
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="imagenesAlopeciaMujer">
                     <input type="text" id="gradoDeAlopeciaMujer" class="oculto" />
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado1f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                                    <img src="modulos/cirugia_plastica/img/grado1m.png" id="grado1f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado2f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                            <img src="modulos/cirugia_plastica/img/grado2m.png" id="grado2f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado3f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                            <img src="modulos/cirugia_plastica/img/grado3m.png" id="grado3f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
                         </div>
                     </div>
 
@@ -898,17 +957,17 @@ and open the template in the editor.
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado4f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                                    <img src="modulos/cirugia_plastica/img/grado4m.png" id="grado4f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado5f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                            <img src="modulos/cirugia_plastica/img/grado5m.png" id="grado5f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <img src="http://www.gmkfreelogos.com/logos/A/img/apple-12.gif" id="grado6f" class="img-responsive" onclick="gradoAlopecia(this, 'imagenesAlopeciaMujer', 'gradoDeAlopeciaMujer');" />
+                            
                         </div>
                     </div>
                 </div>
@@ -1602,7 +1661,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <select id="formaMamariaDerecha" class="form-control">
+                        <select id="formaMamariaDerecha" class="form-control" onchange="muestraOcultaElemento('formaMamariaDerecha', 'capaOtroFormaMamariaDerecha', 'otros');">
                             <option value="normal">Normal</option>
                             <option value="tuberosa">Tuberosa</option>
                             <option value="asimetrica">Asimétrica</option>
@@ -1611,6 +1670,16 @@ and open the template in the editor.
                             <option value="proyeccionReducida">Proyección reducida</option>
                             <option value="otros">Otros</option>
                         </select>
+                        <div id="capaOtroFormaMamariaDerecha" class="oculto">
+                            <div class="row">
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="otroFormaMamariaDerecha"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="visible-sm visible-xs">
                         &nbsp;
@@ -1623,7 +1692,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <select id="formaMamariaIzquierda" class="form-control">
+                        <select id="formaMamariaIzquierda" class="form-control" onchange="muestraOcultaElemento('formaMamariaIzquierda', 'capaOtroFormaMamariaIzquierda', 'otros');">
                             <option value="normal">Normal</option>
                             <option value="tuberosa">Tuberosa</option>
                             <option value="asimetrica">Asimétrica</option>
@@ -1632,6 +1701,16 @@ and open the template in the editor.
                             <option value="proyeccionReducida">Proyección reducida</option>
                             <option value="otros">Otros</option>
                         </select>
+                        <div id="capaOtroFormaMamariaIzquierda" class="oculto">
+                            <div class="row">
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="otroFormaMamariaIzquierda"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1708,12 +1787,22 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <select id="tipoPielDerecha" class="form-control">
+                        <select id="tipoPielDerecha" class="form-control" onchange="muestraOcultaElemento('tipoPielDerecha', 'capaOtroTipoDePielDerecha', 'otros');">
                             <option value="tonificada">Tonificada</option>
                             <option value="estriada">Estriada</option>
                             <option value="laxa">Laxa</option>
                             <option value="otros">Otros</option>
                         </select>
+                        <div id="capaOtroTipoDePielDerecha" class="oculto">
+                            <div class="row">
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="otroTipoDePielDerecha"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="visible-sm visible-xs">
                         &nbsp;
@@ -1726,12 +1815,22 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <select id="tipoPielIzquierda" class="form-control">
+                        <select id="tipoPielIzquierda" class="form-control" onchange="muestraOcultaElemento('tipoPielIzquierda', 'capaOtroTipoDePielIzquierda', 'otros');">
                             <option value="tonificada">Tonificada</option>
                             <option value="estriada">Estriada</option>
                             <option value="laxa">Laxa</option>
                             <option value="otros">Otros</option>
                         </select>
+                        <div id="capaOtroTipoDePielIzquierda" class="oculto">
+                            <div class="row">
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="otroTipoDePielIzquierda"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1760,13 +1859,23 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <select id="sensibilidadPezonDerecho" class="form-control">
+                        <select id="sensibilidadPezonDerecho" class="form-control" onchange="muestraOcultaElemento('sensibilidadPezonDerecho', 'capaOtraSensibilidadDerechaPezon', 'otros');">
                             <option value="nula">Nula</option>
                             <option value="disminuida">Disminuida</option>
                             <option value="normal">Normal</option>
                             <option value="aumentada">Aumentada</option>
                             <option value="otros">Otros</option>
                         </select>
+                        <div id="capaOtraSensibilidadDerechaPezon" class="oculto">
+                            <div class="row">
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="otraSensibilidadDerechaPezon"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="visible-sm visible-xs">
                         &nbsp;
@@ -1779,13 +1888,23 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <select id="sensibilidadPezonIzquierdo" class="form-control">
+                        <select id="sensibilidadPezonIzquierdo" class="form-control" onchange="muestraOcultaElemento('sensibilidadPezonIzquierdo', 'capaOtraSensibilidadIzquierdaPezon', 'otros');">
                             <option value="nula">Nula</option>
                             <option value="disminuida">Disminuida</option>
                             <option value="normal">Normal</option>
                             <option value="aumentada">Aumentada</option>
                             <option value="otros">Otros</option>
                         </select>
+                        <div id="capaOtraSensibilidadIzquierdaPezon" class="oculto">
+                            <div class="row">
+                                <div class="row">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <textarea class="form-control" id="otraSensibilidadIzquierdaPezon"></textarea>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1796,16 +1915,25 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                            <span>Diametro complejo areola pezón</span>
+                            <span>Diametro complejo areola pezón derecho</span>
                         </div>
                         <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="diametroComplejoAreola">
+                                <input type="text" class="form-control" id="diametroComplejoAreolaDerecho">
                                 <span class="input-group-addon">cm</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                            <span>Diametro complejo areola pezón izquierdo</span>
+                        </div>
+                        <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="diametroComplejoAreolaIzquierdo">
+                                <span class="input-group-addon">cm</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -1816,7 +1944,7 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <span>Volumen mamario</span>
+                            <span>Diagrama pezón</span>
                         </div>
                     </div>
                 </div>
@@ -1933,10 +2061,12 @@ and open the template in the editor.
                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <span>Medida del tórax</span>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="medidaToraxIzquierdo">
-                                    <span class="input-group-addon">pulgadas</span>
+                                <div class="hidden-lg hidden-md hidden-sm hidden-xs">
+                                    <span>Medida del tórax</span>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="medidaToraxIzquierdo">
+                                        <span class="input-group-addon">pulgadas</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1979,6 +2109,19 @@ and open the template in the editor.
                     <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <textarea class="form-control" id="otrosDiagnosticosMamarios"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    &nbsp;
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <span>Pronóstico</span>
+                            <textarea class="form-control" id="pronosticoMamario"></textarea>
                         </div>
                     </div>
                 </div>
@@ -2177,6 +2320,19 @@ and open the template in the editor.
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <span>Pronóstico</span>
+                                <textarea class="form-control" id="pronosticoGinecomastia"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        &nbsp;
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <span>Plan de tratamiento</span>
                                 </div>
@@ -2325,6 +2481,19 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Pronóstico</span>
+                        <textarea class="form-control" id="pronosticoAbdomen"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <span>Plan de tratamiento</span>
                     </div>
                 </div>
@@ -2337,6 +2506,46 @@ and open the template in the editor.
                 </div>
             </div>
         </div> <!-- final capa abdomen -->
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <!--<span>Abdomen</span>-->
+                    <!-- <img src="modulos/cirugia_plastica/img/abdomen_cintura.png" /> --> <small>Valoración genitourinaria</small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="verde">Si</span>
+                    <input type="radio" name="valoracionGenitourinaria" value="si" onclick="mostrar('capaValoracionGenitourinaria');">
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <span class="rojo">No</span>
+                    <input type="radio" name="valoracionGenitourinaria" value="no" onclick="ocultar('capaValoracionGenitourinaria');">
+                </div>
+            </div>
+        </div>
+
+        <div id="capaValoracionGenitourinaria" class="oculto">
+            <div class="row">
+                &nbsp;
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Comentarios</span>
+                        <textarea class="form-control" id="comentariosValoracionGenitourinaria"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="row">
                 &nbsp;
@@ -2395,6 +2604,19 @@ and open the template in the editor.
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <textarea class="form-control" id="diagnosticoEspalda"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Pronóstico</span>
+                        <textarea class="form-control" id="pronosticoEspalda"></textarea>
                     </div>
                 </div>
             </div>
@@ -2706,6 +2928,45 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Diagnóstico</span>
+                        <textarea class="form-control" id="diagnosticoExtremidadesSuperiores"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Pronóstico</span>
+                        <textarea class="form-control" id="pronosticoExtremidadesSuperiores"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Plan de tratamiento</span>
+                        <textarea class="form-control" id="planTratamientoExtremidadesSuperiores"></textarea>
+                    </div>
+                </div>
+            </div>
         </div> <!-- final capaExtremidadesSuperiores -->
 
         <div class="row">
@@ -2769,6 +3030,20 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                &nbsp;
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span>Pronóstico</span>
+                        <textarea class="form-control" id="pronosticoExtremidadesInferiores"></textarea>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 &nbsp;
             </div>
@@ -2848,6 +3123,20 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Pronóstico</span>
+                    <textarea class="form-control" id="pronosticoReconstructivaCabezaCuello"></textarea>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             &nbsp;
         </div>
@@ -2926,6 +3215,20 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            &nbsp;
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <span>Pronóstico</span>
+                    <textarea class="form-control" id="pronosticoReconstructivaCorporal"></textarea>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             &nbsp;
         </div>

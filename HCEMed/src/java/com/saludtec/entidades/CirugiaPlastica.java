@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.entidades;
 
 import java.io.Serializable;
@@ -31,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "CirugiaPlastica")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CirugiaPlastica.findAll", query = "SELECT c FROM CirugiaPlastica c"),
+    @NamedQuery(name = "CirugiaPlastica.findAll", query = "SELECT c FROM CirugiaPlastica c ORDER BY c.idCirugiaPlastica"),
+    @NamedQuery(name = "CirugiaPlastica.findByIdPaciente", query = "SELECT c FROM CirugiaPlastica c WHERE c.idPaciente = :idPaciente ORDER BY c.idCirugiaPlastica DESC"),
     @NamedQuery(name = "CirugiaPlastica.findByIdCirugiaPlastica", query = "SELECT c FROM CirugiaPlastica c WHERE c.idCirugiaPlastica = :idCirugiaPlastica"),
     @NamedQuery(name = "CirugiaPlastica.findByEsteticaCabezaCuello", query = "SELECT c FROM CirugiaPlastica c WHERE c.esteticaCabezaCuello = :esteticaCabezaCuello"),
     @NamedQuery(name = "CirugiaPlastica.findByAlopecia", query = "SELECT c FROM CirugiaPlastica c WHERE c.alopecia = :alopecia"),
@@ -118,10 +118,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "CirugiaPlastica.findByExtremidadesInferiores", query = "SELECT c FROM CirugiaPlastica c WHERE c.extremidadesInferiores = :extremidadesInferiores"),
     @NamedQuery(name = "CirugiaPlastica.findByReconstructivaCabezaCuello", query = "SELECT c FROM CirugiaPlastica c WHERE c.reconstructivaCabezaCuello = :reconstructivaCabezaCuello"),
     @NamedQuery(name = "CirugiaPlastica.findByReconstructivaCorporal", query = "SELECT c FROM CirugiaPlastica c WHERE c.reconstructivaCorporal = :reconstructivaCorporal"),
-    @NamedQuery(name = "CirugiaPlastica.findByFechaCreacionCp", query = "SELECT c FROM CirugiaPlastica c WHERE c.fechaCreacionCp = :fechaCreacionCp"),
+    @NamedQuery(name = "CirugiaPlastica.findByFechaCreacionCp", query = "SELECT c FROM CirugiaPlastica c WHERE c.fechaCreacionCp = :fechaCreacionCp ORDER BY c.idCirugiaPlastica"),
     @NamedQuery(name = "CirugiaPlastica.findByHoraCreacionCp", query = "SELECT c FROM CirugiaPlastica c WHERE c.horaCreacionCp = :horaCreacionCp"),
     @NamedQuery(name = "CirugiaPlastica.findByIdUsuario", query = "SELECT c FROM CirugiaPlastica c WHERE c.idUsuario = :idUsuario")})
 public class CirugiaPlastica implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -1650,5 +1651,5 @@ public class CirugiaPlastica implements Serializable {
     public String toString() {
         return "com.saludtec.entidades.CirugiaPlastica[ idCirugiaPlastica=" + idCirugiaPlastica + " ]";
     }
-    
+
 }

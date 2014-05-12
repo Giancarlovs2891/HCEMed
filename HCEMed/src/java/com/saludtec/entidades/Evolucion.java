@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.saludtec.entidades;
 
 import java.io.Serializable;
@@ -27,60 +28,51 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author saintec
  */
 @Entity
-@Table(name = "Galeria")
+@Table(name = "Evolucion")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Galeria.findAll", query = "SELECT g FROM Galeria g"),
-    @NamedQuery(name = "Galeria.findByIdPaciente", query = "SELECT g FROM Galeria g WHERE g.idPaciente = :idPaciente ORDER BY g.idFoto DESC"),
-    @NamedQuery(name = "Galeria.findByIdFoto", query = "SELECT g FROM Galeria g WHERE g.idFoto = :idFoto"),
-    @NamedQuery(name = "Galeria.findByFecha", query = "SELECT g FROM Galeria g WHERE g.fecha = :fecha"),
-    @NamedQuery(name = "Galeria.findByHora", query = "SELECT g FROM Galeria g WHERE g.hora = :hora"),
-    @NamedQuery(name = "Galeria.findByIdUsuario", query = "SELECT g FROM Galeria g WHERE g.idUsuario = :idUsuario")})
-public class Galeria implements Serializable {
-
+    @NamedQuery(name = "Evolucion.findAll", query = "SELECT e FROM Evolucion e"),
+    @NamedQuery(name = "Evolucion.findByIdPaciente", query = "SELECT e FROM Evolucion e WHERE e.idPaciente = :idPaciente ORDER BY e.idEvolucion DESC"),
+    @NamedQuery(name = "Evolucion.findByIdEvolucion", query = "SELECT e FROM Evolucion e WHERE e.idEvolucion = :idEvolucion"),
+    @NamedQuery(name = "Evolucion.findByFecha", query = "SELECT e FROM Evolucion e WHERE e.fecha = :fecha"),
+    @NamedQuery(name = "Evolucion.findByHora", query = "SELECT e FROM Evolucion e WHERE e.hora = :hora"),
+    @NamedQuery(name = "Evolucion.findByIdUsuario", query = "SELECT e FROM Evolucion e WHERE e.idUsuario = :idUsuario")})
+public class Evolucion implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idFoto")
-    private Integer idFoto;
-    @Lob
-    @Size(max = 2147483647)
-    @Column(name = "foto")
-    private String foto;
+    @Column(name = "idEvolucion")
+    private Integer idEvolucion;
     @Size(max = 45)
     @Column(name = "fecha")
     private String fecha;
     @Size(max = 45)
     @Column(name = "hora")
     private String hora;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "evolucion")
+    private String evolucion;
     @Column(name = "idUsuario")
     private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
     private Pacientes idPaciente;
 
-    public Galeria() {
+    public Evolucion() {
     }
 
-    public Galeria(Integer idFoto) {
-        this.idFoto = idFoto;
+    public Evolucion(Integer idEvolucion) {
+        this.idEvolucion = idEvolucion;
     }
 
-    public Integer getIdFoto() {
-        return idFoto;
+    public Integer getIdEvolucion() {
+        return idEvolucion;
     }
 
-    public void setIdFoto(Integer idFoto) {
-        this.idFoto = idFoto;
-    }
-
-    public String getFoto() {
-        return foto;
-    }
-
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setIdEvolucion(Integer idEvolucion) {
+        this.idEvolucion = idEvolucion;
     }
 
     public String getFecha() {
@@ -97,6 +89,14 @@ public class Galeria implements Serializable {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    public String getEvolucion() {
+        return evolucion;
+    }
+
+    public void setEvolucion(String evolucion) {
+        this.evolucion = evolucion;
     }
 
     public Integer getIdUsuario() {
@@ -118,18 +118,18 @@ public class Galeria implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idFoto != null ? idFoto.hashCode() : 0);
+        hash += (idEvolucion != null ? idEvolucion.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Galeria)) {
+        if (!(object instanceof Evolucion)) {
             return false;
         }
-        Galeria other = (Galeria) object;
-        if ((this.idFoto == null && other.idFoto != null) || (this.idFoto != null && !this.idFoto.equals(other.idFoto))) {
+        Evolucion other = (Evolucion) object;
+        if ((this.idEvolucion == null && other.idEvolucion != null) || (this.idEvolucion != null && !this.idEvolucion.equals(other.idEvolucion))) {
             return false;
         }
         return true;
@@ -137,7 +137,7 @@ public class Galeria implements Serializable {
 
     @Override
     public String toString() {
-        return "com.saludtec.entidades.Galeria[ idFoto=" + idFoto + " ]";
+        return "com.saludtec.entidades.Evolucion[ idEvolucion=" + idEvolucion + " ]";
     }
-
+    
 }

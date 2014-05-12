@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.saludtec.web;
 
 import com.saludtec.entidades.Pacientes;
@@ -23,11 +24,11 @@ import org.json.simple.JSONObject;
  *
  * @author saintec
  */
-@WebServlet(name = "PacientesWeb", urlPatterns = {"/Pacientes/*"})
+@WebServlet(name = "NewServlet", urlPatterns = {"/Pacientes/*"})
 public class PacientesWeb extends HttpServlet {
-    
-    @EJB
-    PacientesEjb ejb;
+
+   @EJB
+    PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;
     
@@ -44,11 +45,7 @@ public class PacientesWeb extends HttpServlet {
                 case "editar":
                     editarPaciente(request).writeJSONString(out);
                     break;
-                
-                case "eliminar":
-                    eliminarPaciente(request).writeJSONString(out);
-                    break;
-                
+                                
                 case "traer":
                     traerPaciente(request).writeJSONString(out);
                     break;
@@ -113,7 +110,7 @@ public class PacientesWeb extends HttpServlet {
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
         paciente.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
-        paciente = ejb.crear(paciente);
+        paciente = ejbPacientes.crear(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -169,7 +166,7 @@ public class PacientesWeb extends HttpServlet {
         paciente.setFechaCreacion(request.getParameter("fechaCreacion"));
         paciente.setHoraCreacion(request.getParameter("horaCreacion"));
         paciente.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
-        paciente = ejb.editar(paciente);
+        paciente = ejbPacientes.editar(paciente);
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -183,14 +180,14 @@ public class PacientesWeb extends HttpServlet {
     }
     
     private JSONObject eliminarPaciente(HttpServletRequest request) {
-        ejb.eliminar(Integer.parseInt(request.getParameter("idPaciente")));
+        ejbPacientes.eliminar(Integer.parseInt(request.getParameter("idPaciente")));
         obj = new JSONObject();
         obj.put("menasaje", "eliminado");
         return obj;
     }
     
     private JSONArray traerPaciente(HttpServletRequest request) {
-        Pacientes paciente = ejb.traerPacientes(Integer.parseInt(request.getParameter("idPaciente")));
+        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -238,7 +235,7 @@ public class PacientesWeb extends HttpServlet {
     }
     
     private JSONArray listarPacientes() {
-        List<Pacientes> pacientes = ejb.traerPacientes();
+        List<Pacientes> pacientes = ejbPacientes.listar();
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {
@@ -260,7 +257,7 @@ public class PacientesWeb extends HttpServlet {
         like.setNombrePaciente(request.getParameter("nombrePaciente"));
         like.setApellidoPaciente(request.getParameter("apellidoPaciente"));
         like.setIdentificacionPaciente(request.getParameter("identificacionPaciente"));
-        List<Pacientes> pacientes = ejb.traerPacientes(like);
+        List<Pacientes> pacientes = ejbPacientes.listar(like);
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {
@@ -272,7 +269,6 @@ public class PacientesWeb extends HttpServlet {
         }
         return objArray;
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
