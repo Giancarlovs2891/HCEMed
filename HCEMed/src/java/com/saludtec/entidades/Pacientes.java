@@ -7,23 +7,21 @@
 package com.saludtec.entidades;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -69,21 +67,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pacientes.findByParentescoEmergencia", query = "SELECT p FROM Pacientes p WHERE p.parentescoEmergencia = :parentescoEmergencia"),
     @NamedQuery(name = "Pacientes.findByNombreReferido", query = "SELECT p FROM Pacientes p WHERE p.nombreReferido = :nombreReferido"),
     @NamedQuery(name = "Pacientes.findByFechaCreacion", query = "SELECT p FROM Pacientes p WHERE p.fechaCreacion = :fechaCreacion"),
-    @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion"),
-    @NamedQuery(name = "Pacientes.findByIdUsuario", query = "SELECT p FROM Pacientes p WHERE p.idUsuario = :idUsuario")})
+    @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion")})
 public class Pacientes implements Serializable {
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<Diagnosticos> diagnosticosList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<PlanesDeTratamiento> planesDeTratamientoList;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<EvolucionComentarios> evolucionComentariosList;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<Evolucion> evolucionList;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<Tratamientos> tratamientosList;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<Galeria> galeriaList;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -203,14 +188,9 @@ public class Pacientes implements Serializable {
     @Size(max = 45)
     @Column(name = "horaCreacion")
     private String horaCreacion;
-    @Column(name = "idUsuario")
-    private Integer idUsuario;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<ExamenFisico> examenFisicoList;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<CirugiaPlastica> cirugiaPlasticaList;
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<Anamnesis> anamnesisList;
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Usuarios idUsuario;
 
     public Pacientes() {
     }
@@ -523,39 +503,12 @@ public class Pacientes implements Serializable {
         this.horaCreacion = horaCreacion;
     }
 
-    public Integer getIdUsuario() {
+    public Usuarios getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(Usuarios idUsuario) {
         this.idUsuario = idUsuario;
-    }
-
-    @XmlTransient
-    public List<ExamenFisico> getExamenFisicoList() {
-        return examenFisicoList;
-    }
-
-    public void setExamenFisicoList(List<ExamenFisico> examenFisicoList) {
-        this.examenFisicoList = examenFisicoList;
-    }
-
-    @XmlTransient
-    public List<CirugiaPlastica> getCirugiaPlasticaList() {
-        return cirugiaPlasticaList;
-    }
-
-    public void setCirugiaPlasticaList(List<CirugiaPlastica> cirugiaPlasticaList) {
-        this.cirugiaPlasticaList = cirugiaPlasticaList;
-    }
-
-    @XmlTransient
-    public List<Anamnesis> getAnamnesisList() {
-        return anamnesisList;
-    }
-
-    public void setAnamnesisList(List<Anamnesis> anamnesisList) {
-        this.anamnesisList = anamnesisList;
     }
 
     @Override
@@ -581,60 +534,6 @@ public class Pacientes implements Serializable {
     @Override
     public String toString() {
         return "com.saludtec.entidades.Pacientes[ idPaciente=" + idPaciente + " ]";
-    }
-
-    @XmlTransient
-    public List<Galeria> getGaleriaList() {
-        return galeriaList;
-    }
-
-    public void setGaleriaList(List<Galeria> galeriaList) {
-        this.galeriaList = galeriaList;
-    }
-
-    @XmlTransient
-    public List<Diagnosticos> getDiagnosticosList() {
-        return diagnosticosList;
-    }
-
-    public void setDiagnosticosList(List<Diagnosticos> diagnosticosList) {
-        this.diagnosticosList = diagnosticosList;
-    }
-
-    @XmlTransient
-    public List<PlanesDeTratamiento> getPlanesDeTratamientoList() {
-        return planesDeTratamientoList;
-    }
-
-    public void setPlanesDeTratamientoList(List<PlanesDeTratamiento> planesDeTratamientoList) {
-        this.planesDeTratamientoList = planesDeTratamientoList;
-    }
-
-    @XmlTransient
-    public List<EvolucionComentarios> getEvolucionComentariosList() {
-        return evolucionComentariosList;
-    }
-
-    public void setEvolucionComentariosList(List<EvolucionComentarios> evolucionComentariosList) {
-        this.evolucionComentariosList = evolucionComentariosList;
-    }
-
-    @XmlTransient
-    public List<Evolucion> getEvolucionList() {
-        return evolucionList;
-    }
-
-    public void setEvolucionList(List<Evolucion> evolucionList) {
-        this.evolucionList = evolucionList;
-    }
-
-    @XmlTransient
-    public List<Tratamientos> getTratamientosList() {
-        return tratamientosList;
-    }
-
-    public void setTratamientosList(List<Tratamientos> tratamientosList) {
-        this.tratamientosList = tratamientosList;
     }
     
 }
