@@ -44,6 +44,10 @@ public class UsuariosWeb extends HttpServlet {
                 case "login":
                     login(request).writeJSONString(out);
                     break;
+                    
+                case "isLogin":
+                    verificarSesion(request).writeJSONString(out);
+                    break;
 
                 default:
                     obj = new JSONObject();
@@ -60,7 +64,17 @@ public class UsuariosWeb extends HttpServlet {
         Usuarios usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
         if (usuario != null) {
             request.getSession().setAttribute("usuario", usuario.getIdUsuario());
-            List<Pacientes> pacientes = ejbPacientes.listar(usuario.getIdUsuario());
+            objArray = new JSONArray();
+            obj = new JSONObject();
+            obj.put("Exito", "1");
+            objArray.add(obj);
+        }
+        return objArray;
+    }
+    
+    private JSONArray verificarSesion(HttpServletRequest request){
+        if (request.getSession().getAttribute("usuario") != null) {
+            List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
             objArray = new JSONArray();
             if (pacientes != null) {
                 for (Pacientes paciente : pacientes) {
