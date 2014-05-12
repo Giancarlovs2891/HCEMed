@@ -207,7 +207,8 @@ function login(){
     ajax(servicio, string, login2);
     
     function login2(x){
-        alert(x);
+        inicioMedsio();
+        document.getElementById("loginScreen").style.display = "none";
     }
 }
 function fechaActual(){
