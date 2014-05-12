@@ -90,6 +90,7 @@ tabla += "baseMamariaIzquierdo, ";
 tabla += "medidaToraxIzquierdo, ";
 tabla += "diagnosticoMamario, ";
 tabla += "otrosDiagnosticosMamarios, ";
+tabla += "pronosticoMamario, ";
 tabla += "planTratamientoMamario, ";
 //HOMBRES--------------->
 tabla += "ginecomastia, ";
@@ -99,17 +100,23 @@ tabla += "tipoGinecomastia, ";
 tabla += "comentariosTipoGinecomastia, ";
 tabla += "pectorales, ";
 tabla += "otrosDiagnosticosGinecomastia, ";
+tabla += "pronosticoGinecomastia, ";
 tabla += "planTratamientoGinecomastia, ";
 //ABDOMEN----------------->
 tabla += "abdomen, ";
 tabla += "clasificacionMatarasso, ";
 tabla += "comentariosAbdomen, ";
 tabla += "diagnosticoAbdomen, ";
+tabla += "pronosticoAbdomen, ";
 tabla += "planTratamientoAbdomen, ";
+//VALORACION GENITOURINARIA--------------->
+tabla += "valoracionGenitourinaria, ";
+tabla += "comentariosValoracionGenitourinaria, ";
 //ESPALDA--------------------->
 tabla += "espalda, ";
 tabla += "comentariosEspalda, ";
 tabla += "diagnosticoEspalda, ";
+tabla += "pronosticoEspalda, ";
 tabla += "planTratamientoEspalda, ";
 //GLUTEOS---------------------->
 tabla += "gluteos, ";
@@ -127,20 +134,26 @@ tabla += "depositoGrasaGeneralizadaModeradaLaxitud, ";
 tabla += "obesidadGeneralizadaSeveraLaxitud, ";
 tabla += "minimaGrasaSubcutaneaExtensaLaxitud, ";
 tabla += "comentariosExtremidadesSuperiores, ";
+tabla += "diagnosticoExtremidadesSuperiores, ";
+tabla += "pronosticoExtremidadesSuperiores, ";
+tabla += "planTratamientoExtremidadesSuperiores, ";
 //EXTREMIDADES INFERIORES------------------------>
 tabla += "extremidadesInferiores, ";
 tabla += "comentariosExtremidadesInferiores, ";
 tabla += "diagnosticoExtremidadesInferiores, ";
+tabla += "pronosticoExtremidadesInferiores, ";
 tabla += "planTratamientoExtremidadesInferiores, ";
 //-----------------RECONSTRUCTIVA CABEZA CUELLO----------------->
 tabla += "reconstructivaCabezaCuello, ";
 tabla += "comentariosReconstructivaCabezaCuello, ";
 tabla += "diagnosticoReconstructivaCabezaCuello, ";
+tabla += "pronosticoReconstructivaCabezaCuello, ";
 tabla += "planTratamientoReconstructivaCabezaCuello, ";
 //-----------------RECONSTRUCTIVA CORPORAL-------------------->
 tabla += "reconstructivaCorporal, ";
 tabla += "comentariosReconstructivaCorporal, ";
 tabla += "diagnosticoReconstructivaCorporal, ";
+tabla += "pronosticoReconstructivaCorporal, ";
 tabla += "planTratamientoReconstructivaCorporal, ";
 tabla += "fechaCreacionCp, ";
 tabla += "horaCreacionCp";
