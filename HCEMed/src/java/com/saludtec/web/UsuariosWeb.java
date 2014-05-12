@@ -44,7 +44,7 @@ public class UsuariosWeb extends HttpServlet {
                 case "login":
                     login(request).writeJSONString(out);
                     break;
-                
+
                 case "logout":
                     logout(request).writeJSONString(out);
                     break;
@@ -66,16 +66,21 @@ public class UsuariosWeb extends HttpServlet {
 
     private JSONArray login(HttpServletRequest request) {
         Usuarios usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
+        objArray = new JSONArray();
         if (usuario != null) {
             request.getSession().setAttribute("usuario", usuario.getIdUsuario());
-            objArray = new JSONArray();
             obj = new JSONObject();
             obj.put("Exito", "1");
             objArray.add(obj);
+        } else {
+            obj = new JSONObject();
+            obj.put("Error", "datos incorrectos");
+            objArray.add(obj);
         }
+
         return objArray;
     }
-    
+
     private JSONArray logout(HttpServletRequest request) {
         if (request.getSession().getAttribute("usuario") != null) {
             request.getSession().setAttribute("usuario", null);
@@ -88,10 +93,14 @@ public class UsuariosWeb extends HttpServlet {
     }
 
     private JSONArray verificarSesion(HttpServletRequest request) {
+        objArray = new JSONArray();
         if (request.getSession().getAttribute("usuario") != null) {
-            objArray = new JSONArray();
             obj = new JSONObject();
             obj.put("Exito", "1");
+            objArray.add(obj);
+        } else {
+            obj = new JSONObject();
+            obj.put("Error", "usuario no loegueado");
             objArray.add(obj);
         }
         return objArray;
