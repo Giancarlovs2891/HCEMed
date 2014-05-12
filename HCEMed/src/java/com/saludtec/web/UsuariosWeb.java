@@ -59,7 +59,7 @@ public class UsuariosWeb extends HttpServlet {
         Usuarios usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
         if (usuario != null) {
             request.getSession().setAttribute("usuario", usuario.getIdUsuario());
-            List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
+            List<Pacientes> pacientes = ejbPacientes.listar(usuario.getIdUsuario());
             objArray = new JSONArray();
             if (pacientes != null) {
                 for (Pacientes paciente : pacientes) {
