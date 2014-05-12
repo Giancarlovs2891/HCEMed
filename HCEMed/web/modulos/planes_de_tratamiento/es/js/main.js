@@ -266,6 +266,10 @@ function agregarPago(x){
        alert("Debe agregar un valor primero.");
        return;
    }
+   if(pago < 0){
+       alert("Debe agregar un valor positivo.");
+       return;
+   }
    pago = parseInt(pago);
    var fecha = fechaActual();
    

@@ -172,6 +172,7 @@ function guardarEvolucion(){
     var hora = horaActual();
     var idPaciente = getPatientId();
     var comentario = document.getElementById("nuevaEvolucion").value;
+    comentario = comentario.replace(/\n\r?/g, '<br />');
     var firma = canvas.toDataURL('jpg');
     firma = encodeURIComponent(firma);
     
