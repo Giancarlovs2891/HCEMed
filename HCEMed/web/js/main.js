@@ -236,6 +236,18 @@ function login3(x){
     }
 
 }
+function logOut(){
+    var service = "Usuarios/logout";
+    var string = "";
+    
+    ajax(service, string, logOut2);
+    
+    function logOut2(x){
+        document.getElementById("loginScreen").style.display = "block"; 
+        document.getElementById("usuario").value = "";
+        document.getElementById("contrasena").value = ""; 
+    }
+}
 function fechaActual(){
     var d = new Date();
     var dia = d.getDate();
