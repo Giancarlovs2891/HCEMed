@@ -203,7 +203,7 @@ function isLogin(){
    var servicio="Usuarios/isLogin";
     var string = "";
     
-    ajax(servicio, string, login2); 
+    ajax(servicio, string, login3); 
 }
 function login(){
     var servicio="Usuarios/login";
@@ -224,7 +224,18 @@ function login2(x){
             alert("Error a ingresar, verifique sus credenciales.");
         }
         
+}
+function login3(x){
+    var obj = JSON.parse(x);
+
+    if(obj[0].Exito == "1"){
+       inicioMedsio();
+        document.getElementById("loginScreen").style.display = "none"; 
+        document.getElementById("usuario").value = "";
+        document.getElementById("contrasena").value = "";
     }
+
+}
 function fechaActual(){
     var d = new Date();
     var dia = d.getDate();
