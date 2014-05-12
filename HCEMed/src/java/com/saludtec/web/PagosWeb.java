@@ -30,6 +30,7 @@ public class PagosWeb extends HttpServlet {
 
     @EJB
     PagosEjb ejbPagos;
+    @EJB
     PlanesDeTratamientoEjb ejbPlanesDeTratamiento;
     JSONObject obj;
     JSONArray objArray;

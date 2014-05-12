@@ -29,6 +29,7 @@ public class AnamnesisWeb extends HttpServlet {
 
     @EJB
     AnamnesisEjb ejbAnamnesis;
+    @EJB
     PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;

@@ -30,6 +30,7 @@ public class EvolucionComentariosWeb extends HttpServlet {
 
     @EJB
     EvolucionComentariosEjb ejbEvolucionComentario;
+    @EJB
     PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;

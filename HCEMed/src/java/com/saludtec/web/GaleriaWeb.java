@@ -31,6 +31,7 @@ public class GaleriaWeb extends HttpServlet {
 
     @EJB
     GaleriaEjb ejbGaleria;
+    @EJB
     PacientesEjb ejbPaciente;
     JSONObject obj;
     JSONArray objArray;

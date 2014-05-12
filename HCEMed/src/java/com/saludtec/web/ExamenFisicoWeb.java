@@ -29,6 +29,7 @@ public class ExamenFisicoWeb extends HttpServlet {
 
     @EJB
     ExamenFisicoEjb ejbExamenFisico;
+    @EJB
     PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;

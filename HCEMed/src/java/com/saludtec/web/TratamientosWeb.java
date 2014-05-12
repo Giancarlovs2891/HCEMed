@@ -30,6 +30,7 @@ public class TratamientosWeb extends HttpServlet {
 
     @EJB
     TratamientosEjb ejbTratamientos;
+    @EJB
     PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;
@@ -65,7 +66,7 @@ public class TratamientosWeb extends HttpServlet {
     }
 
     private JSONArray guardarTratamiento(HttpServletRequest request) {
-        Tratamientos    tratamiento = new Tratamientos();
+        Tratamientos tratamiento = new Tratamientos();
         Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         tratamiento.setIdPaciente(paciente);
         tratamiento.setDesTratamiento(request.getParameter("desTratamiento"));
@@ -91,7 +92,7 @@ public class TratamientosWeb extends HttpServlet {
         obj.put("menasaje", "eliminado");
         return obj;
     }
-    
+
     private JSONArray listarTratamientosPaciente(HttpServletRequest request) {
         List<Tratamientos> tratamientos = ejbTratamientos.listar(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
         objArray = new JSONArray();
@@ -108,7 +109,7 @@ public class TratamientosWeb extends HttpServlet {
         }
         return objArray;
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

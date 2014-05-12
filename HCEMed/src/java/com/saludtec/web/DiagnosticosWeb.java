@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.web;
 
 import com.saludtec.entidades.Diagnosticos;
@@ -31,6 +30,7 @@ public class DiagnosticosWeb extends HttpServlet {
 
     @EJB
     DiagnosticosEjb ejbEvolucionComentario;
+    @EJB
     PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;

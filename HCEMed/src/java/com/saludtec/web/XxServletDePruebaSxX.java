@@ -28,13 +28,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author saintec
  */
-@WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
+@WebServlet(name = "XxServletDePruebaSxX", urlPatterns = {"/NewServlets"})
 public class XxServletDePruebaSxX extends HttpServlet {
 
     @EJB
-    GaleriaEjb ejbGaleria;
     UsuariosEjb ejbUsuarios;
-    PacientesEjb ejbPacientes;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.

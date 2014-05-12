@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.web;
 
 import com.saludtec.entidades.Evolucion;
@@ -29,8 +28,9 @@ import org.json.simple.JSONObject;
 @WebServlet(name = "EvolucionWeb", urlPatterns = {"/Evolucion/*"})
 public class EvolucionWeb extends HttpServlet {
 
-   @EJB
+    @EJB
     EvolucionEjb ejbEvolucion;
+    @EJB
     PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;
@@ -62,7 +62,7 @@ public class EvolucionWeb extends HttpServlet {
 
     private JSONArray guardarEvolucion(HttpServletRequest request) {
         Evolucion evolucion = new Evolucion();
-        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente"))); 
+        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         evolucion.setIdPaciente(paciente);
         evolucion.setFecha(request.getParameter("fecha"));
         evolucion.setHora(request.getParameter("hora"));
