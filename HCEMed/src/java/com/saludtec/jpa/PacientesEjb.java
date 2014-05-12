@@ -25,5 +25,7 @@ public interface PacientesEjb {
     List<Pacientes> listar();
 
     List<Pacientes> listar(Pacientes like);
+    
+    List<Pacientes> listar(Integer idUsuario);
 
 }

@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Pacientes.findAll", query = "SELECT p FROM Pacientes p"),
     @NamedQuery(name = "Pacientes.findByIdPaciente", query = "SELECT p FROM Pacientes p WHERE p.idPaciente = :idPaciente"),
+    @NamedQuery(name = "Pacientes.findByIdUsuario", query = "SELECT p FROM Pacientes p WHERE p.idUsuario = :idUsuario ORDER BY p.apellidoPaciente, p.apellidoPaciente ASC"),
     @NamedQuery(name = "Pacientes.findByNombrePaciente", query = "SELECT p FROM Pacientes p WHERE p.nombrePaciente = :nombrePaciente"),
     @NamedQuery(name = "Pacientes.findByApellidoPaciente", query = "SELECT p FROM Pacientes p WHERE p.apellidoPaciente = :apellidoPaciente"),
     @NamedQuery(name = "Pacientes.findByFechaNacimientoPaciente", query = "SELECT p FROM Pacientes p WHERE p.fechaNacimientoPaciente = :fechaNacimientoPaciente"),

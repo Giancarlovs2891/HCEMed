@@ -6,6 +6,7 @@
 package com.saludtec.jpa;
 
 import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.Usuarios;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -72,10 +73,18 @@ public class PacientesImpl implements PacientesEjb {
 
     @Override
     public List<Pacientes> listar(Pacientes like) {
-        Query query =  em.createNamedQuery("Pacientes.like");
+        Query query = em.createNamedQuery("Pacientes.like");
         query.setParameter("nombrePaciente", like.getNombrePaciente());
         query.setParameter("apellidoPaciente", like.getApellidoPaciente());
         query.setParameter("identificacionPaciente", like.getIdentificacionPaciente());
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Pacientes> listar(Integer idUsuario) {
+        Query query = em.createNamedQuery("Pacientes.findByIdUsuario");
+        Usuarios usuario = em.find(Usuarios.class, idUsuario);
+        query.setParameter("idUsuario", usuario);
         return query.getResultList();
     }
 

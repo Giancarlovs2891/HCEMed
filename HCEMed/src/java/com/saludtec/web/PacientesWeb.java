@@ -52,7 +52,7 @@ public class PacientesWeb extends HttpServlet {
                     break;
 
                 case "listar":
-                    listarPacientes().writeJSONString(out);
+                    listarPacientesUsuario(request).writeJSONString(out);
                     break;
 
                 case "like":
@@ -237,6 +237,24 @@ public class PacientesWeb extends HttpServlet {
 
     private JSONArray listarPacientes() {
         List<Pacientes> pacientes = ejbPacientes.listar();
+        objArray = new JSONArray();
+        if (pacientes != null) {
+            for (Pacientes paciente : pacientes) {
+                obj = new JSONObject();
+                obj.put("idPaciente", paciente.getIdPaciente());
+                obj.put("foto", paciente.getFoto());
+                obj.put("nombrePaciente", paciente.getNombrePaciente());
+                obj.put("apellidoPaciente", paciente.getApellidoPaciente());
+                obj.put("tipoIdentificacionPaciente", paciente.getTipoIdentificacionPaciente());
+                obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());
+                objArray.add(obj);
+            }
+        }
+        return objArray;
+    }
+    
+    private JSONArray listarPacientesUsuario(HttpServletRequest request) {
+        List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         objArray = new JSONArray();
         if (pacientes != null) {
             for (Pacientes paciente : pacientes) {

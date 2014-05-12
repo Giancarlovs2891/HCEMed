@@ -7,6 +7,7 @@ package com.saludtec.web;
 
 import com.saludtec.entidades.Pacientes;
 import com.saludtec.entidades.Usuarios;
+import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.UsuariosEjb;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,6 +30,7 @@ public class UsuariosWeb extends HttpServlet {
 
     @EJB
     UsuariosEjb ejbUsuarios;
+    PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;
 
@@ -57,49 +59,17 @@ public class UsuariosWeb extends HttpServlet {
         Usuarios usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
         if (usuario != null) {
             request.getSession().setAttribute("usuario", usuario.getIdUsuario());
-            List<Pacientes> pacientes = usuario.getPacientesList();
+            List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
             objArray = new JSONArray();
             if (pacientes != null) {
                 for (Pacientes paciente : pacientes) {
                     obj = new JSONObject();
                     obj.put("idPaciente", paciente.getIdPaciente());
                     obj.put("foto", paciente.getFoto());
-                    obj.put("alertaMedica", paciente.getAlertaMedica());
                     obj.put("nombrePaciente", paciente.getNombrePaciente());
                     obj.put("apellidoPaciente", paciente.getApellidoPaciente());
-                    obj.put("fechaNacimientoPaciente", paciente.getFechaNacimientoPaciente());
                     obj.put("tipoIdentificacionPaciente", paciente.getTipoIdentificacionPaciente());
                     obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());
-                    obj.put("estadoPaciente", paciente.getEstadoPaciente());
-                    obj.put("estadoCivilPaciente", paciente.getEstadoCivilPaciente());
-                    obj.put("sexoPaciente", paciente.getSexoPaciente());
-                    obj.put("razaPaciente", paciente.getRazaPaciente());
-                    obj.put("ocupacionPaciente", paciente.getOcupacionPaciente());
-                    obj.put("telefonoPaciente", paciente.getTelefonoPaciente());
-                    obj.put("celularPaciente", paciente.getCelularPaciente());
-                    obj.put("emailPaciente", paciente.getEmailPaciente());
-                    obj.put("paisPaciente", paciente.getPaisPaciente());
-                    obj.put("departamentoPaciente", paciente.getDepartamentoPaciente());
-                    obj.put("ciudadPaciente", paciente.getCiudadPaciente());
-                    obj.put("nacionalidadPaciente", paciente.getNacionalidadPaciente());
-                    obj.put("direccionPaciente", paciente.getDireccionPaciente());
-                    obj.put("zonaResidencialPaciente", paciente.getZonaResidencialPaciente());
-                    obj.put("codigoPostalPaciente", paciente.getCodigoPostalPaciente());
-                    obj.put("estratoPaciente", paciente.getEstratoPaciente());
-                    obj.put("companiaSeguroPaciente", paciente.getCompaniaSeguroPaciente());
-                    obj.put("tipoVinculacionPaciente", paciente.getTipoVinculacionPaciente());
-                    obj.put("nombreRepresentante", paciente.getNombreRepresentante());
-                    obj.put("apellidoRepresentante", paciente.getApellidoRepresentante());
-                    obj.put("tipoIdentificacionRepresentante", paciente.getTipoIdentificacionRepresentante());
-                    obj.put("getIdentificacionRepresentante", paciente.getIdentificacionRepresentante());
-                    obj.put("telefonoRepresentante", paciente.getTelefonoRepresentante());
-                    obj.put("parentescoRepresentante", paciente.getParentescoRepresentante());
-                    obj.put("nombreEmergencia", paciente.getNombreEmergencia());
-                    obj.put("telefonoEmergencia", paciente.getTelefonoEmergencia());
-                    obj.put("parentescoEmergencia", paciente.getParentescoEmergencia());
-                    obj.put("nombreReferido", paciente.getNombreReferido());
-                    obj.put("fechaCreacion", paciente.getFechaCreacion());
-                    obj.put("horaCreacion", paciente.getHoraCreacion());
                     objArray.add(obj);
                 }
             }
