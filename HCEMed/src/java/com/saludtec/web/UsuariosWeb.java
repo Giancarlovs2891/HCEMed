@@ -12,6 +12,8 @@ import com.saludtec.jpa.UsuariosEjb;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +44,11 @@ public class UsuariosWeb extends HttpServlet {
             String servicio = request.getRequestURI().replace("/HCEMed/Usuarios/", "");
             switch (servicio) {
                 case "login":
-                    login(request).writeJSONString(out);
+                    try {
+                        login(request).writeJSONString(out);
+                    } catch (Exception ex) {
+                        Logger.getLogger(UsuariosWeb.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     break;
 
                 case "logout":
@@ -64,7 +70,7 @@ public class UsuariosWeb extends HttpServlet {
         }
     }
 
-    private JSONArray login(HttpServletRequest request) {
+    private JSONArray login(HttpServletRequest request) throws Exception {
         Usuarios usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
         objArray = new JSONArray();
         if (usuario != null) {

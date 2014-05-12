@@ -8,7 +8,7 @@ import java.security.MessageDigest;
  */
 public class EncriptacionMD5 {
 
-    public static String encriptar(String password) throws Exception {
+    public static String encriptar(String password) throws Exception{
 
         MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(password.getBytes());

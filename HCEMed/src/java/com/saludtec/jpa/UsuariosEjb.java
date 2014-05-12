@@ -14,7 +14,7 @@ import com.saludtec.entidades.Usuarios;
  */
 public interface UsuariosEjb {
     
-    Usuarios login(String user, String pass);
+    Usuarios login(String user, String pass)throws Exception;
     
     Usuarios traer(Integer idUsuario);
 }
