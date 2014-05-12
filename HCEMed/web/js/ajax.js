@@ -1,4 +1,4 @@
-var dirGeneral = "http://192.168.1.14:8090/HCEMed/";
+var dirGeneral = "http://localhost:8090/HCEMed/";
 
 function ajax(service, string, callback)
 {
@@ -19,7 +19,7 @@ function ajax(service, string, callback)
         {
             var respuesta = xmlhttp.responseText;
             callback(respuesta);
-            offLoader();
+            //offLoader();
         }
     }
 	
