@@ -46,9 +46,9 @@ public class XxServletDePruebaSxXxxxxx extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-                            out.println(ejbPacientes.traer(1));
-                
-            
+            Integer q=1;
+            out.println(ejbUsuarios.traer(q).getApellidoUsuario());
+
         } catch (Exception ex) {
             Logger.getLogger(XxServletDePruebaSxXxxxxx.class.getName()).log(Level.SEVERE, null, ex);
         }
