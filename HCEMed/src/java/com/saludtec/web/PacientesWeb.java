@@ -74,6 +74,7 @@ public class PacientesWeb extends HttpServlet {
 
     private JSONArray guardarPaciente(HttpServletRequest request) {
         Pacientes paciente = new Pacientes();
+        System.err.println("USUARIO EN PACEINTESSS "+Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         Usuarios usuario = ejbUsuarios.traer(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
