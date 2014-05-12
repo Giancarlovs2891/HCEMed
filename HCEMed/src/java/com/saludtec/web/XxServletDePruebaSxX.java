@@ -44,8 +44,10 @@ public class XxServletDePruebaSxX extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println(request.getParameter("c"));
-            out.println(EncriptacionMD5.encriptar(request.getParameter("c")));
+            
+                out.println("Asddadasd");
+                
+            
         } catch (Exception ex) {
             Logger.getLogger(XxServletDePruebaSxX.class.getName()).log(Level.SEVERE, null, ex);
         }
