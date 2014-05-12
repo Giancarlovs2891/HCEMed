@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author saintec
  */
 @WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
-public class XxServletDePruebaSxX extends HttpServlet {
+public class XxServletDePruebaSxXxx extends HttpServlet {
 
     @EJB
     GaleriaEjb ejbGaleria;
@@ -45,11 +45,11 @@ public class XxServletDePruebaSxX extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-                out.println("Asddadasd");
+                out.println(ejbUsuarios.traer(1));
                 
             
         } catch (Exception ex) {
-            Logger.getLogger(XxServletDePruebaSxX.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XxServletDePruebaSxXxx.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

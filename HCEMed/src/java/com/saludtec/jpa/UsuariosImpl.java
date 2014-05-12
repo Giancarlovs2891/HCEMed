@@ -45,8 +45,10 @@ public class UsuariosImpl implements UsuariosEjb {
 
     @Override
     public Usuarios traer(Integer idUsuario) {
-        System.err.println("79804237980243789432879432978 ------- "+idUsuario);
-        return em.find(Usuarios.class, idUsuario);
+        Query query = em.createNamedQuery("Usuarios.findByIdUsuario");
+        query.setParameter("idUsuario", idUsuario);
+        List<Usuarios> usuario =query.getResultList();
+        return usuario.get(0);
     }
 
 }
