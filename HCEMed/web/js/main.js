@@ -201,7 +201,7 @@ function toggleGaleriaPortable(){
 }
 
 function login(){
-    var servicio="Usuarios/login";
+    var servicio="HCEMed/Usuarios/login";
     var string = "usuario="+document.getElementById("usuario").value+"&contrasena="+document.getElementById("contrasena").value;
     
     ajax(servicio, string, login2);
