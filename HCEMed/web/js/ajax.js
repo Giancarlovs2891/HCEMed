@@ -1,4 +1,4 @@
-var dirGeneral = "http://localhost:8090/HCEMed/";
+var dirGeneral = "/";
 
 function ajax(service, string, callback)
 {
