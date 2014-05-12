@@ -199,18 +199,32 @@ function toggleGaleriaPortable(){
         galeriaPortableSw=0;
     }
 }
-
+function isLogin(){
+   var servicio="Usuarios/isLogin";
+    var string = "";
+    
+    ajax(servicio, string, login2); 
+}
 function login(){
-    var servicio="HCEMed/Usuarios/login";
+    var servicio="Usuarios/login";
     var string = "usuario="+document.getElementById("usuario").value+"&contrasena="+document.getElementById("contrasena").value;
     
     ajax(servicio, string, login2);
-    
-    function login2(x){
-        inicioMedsio();
-        document.getElementById("loginScreen").style.display = "none";
-    }
 }
+
+function login2(x){
+        var obj = JSON.parse(x);
+        
+        if(obj[0].Exito == "1"){
+           inicioMedsio();
+            document.getElementById("loginScreen").style.display = "none"; 
+            document.getElementById("usuario").value = "";
+            document.getElementById("contrasena").value = "";
+        }else{
+            alert("Error a ingresar, verifique sus credenciales.");
+        }
+        
+    }
 function fechaActual(){
     var d = new Date();
     var dia = d.getDate();
