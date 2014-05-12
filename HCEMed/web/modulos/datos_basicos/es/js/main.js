@@ -65,7 +65,7 @@ function cargarPacienteInicio(x) {
     $("#fotoPrincipalDatosBasicos").attr("src", foto);
     $("#fotoMenuDatosBasicos").attr("src", foto);
  
-    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = obj[0].nombrePaciente+" "+obj[0].apellidoPaciente+" - "+obj[0].sexoPaciente;
+    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = obj[0].nombrePaciente+" "+obj[0].apellidoPaciente+" - "+obj[0].sexoPaciente.toUpperCase();
     document.getElementById("alertaMedicaGeneralMedsio").innerHTML = obj[0].alertaMedica;
     sexoPacienteSeleccionado = obj[0].sexoPaciente;
     changeRightBtn("Editar", "habilitarEdicion", "");
@@ -112,7 +112,7 @@ function cargarPaciente(x) {
     $("#nombreReferido").val(obj[0].nombreReferido);
     $("#fotoPrincipalDatosBasicos").attr("src", foto);
 
-    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = obj[0].nombrePaciente+" "+obj[0].apellidoPaciente+" - "+obj[0].sexoPaciente;
+    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = obj[0].nombrePaciente+" "+obj[0].apellidoPaciente+" - "+obj[0].sexoPaciente.toUpperCase();
     document.getElementById("alertaMedicaGeneralMedsio").innerHTML = obj[0].alertaMedica;
     
     sexoPacienteSeleccionado = obj[0].sexoPaciente;
@@ -167,7 +167,7 @@ function guardarPaciente() {
 
     guardarTabla('Pacientes', string, guardarSuccess);
     
-    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = nombrePaciente+" "+apellidoPaciente+" - "+sexoPaciente;
+    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = nombrePaciente+" "+apellidoPaciente+" - "+sexoPaciente.toUpperCase();
     document.getElementById("alertaMedicaGeneralMedsio").innerHTML = alertaMedica;
 }
 
@@ -262,7 +262,7 @@ function editarPaciente() {
         string = "foto="+foto+"&"+string;
     }
     editarTabla('Pacientes', string, editarSuccess);
-    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = nombrePaciente+" "+apellidoPaciente+" - "+sexoPaciente;
+    document.getElementById("nombrePacienteGeneralMedsio").innerHTML = nombrePaciente+" "+apellidoPaciente+" - "+sexoPaciente.toUpperCase();
     document.getElementById("alertaMedicaGeneralMedsio").innerHTML = alertaMedica;
 }
 

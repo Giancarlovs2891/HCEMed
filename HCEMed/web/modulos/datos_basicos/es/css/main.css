@@ -4,10 +4,16 @@
 
 
 #fotoPrincipalDatosBasicos {
-    width: 64px;
-    height: 64px;
+    width: 150px;
+    height: 150px;
 }
 
+@media screen and (max-width: 767px) {/*Celulares hasta el Note3 tanto en landscape como en portrait*/
+    #fotoPrincipalDatosBasicos {
+    width: 70px;
+    height: 70px;
+    }
+}
 #inputImagen {
     display: none;
 }

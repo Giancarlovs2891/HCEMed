@@ -1,4 +1,4 @@
-var dirGeneral = "";
+var dirGeneral = "http://192.168.1.14:8090/HCEMed/";
 
 function ajax(service, string, callback)
 {

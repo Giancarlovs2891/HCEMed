@@ -33,7 +33,7 @@ body{
     -moz-box-pack:start;
     -ms-box-pack:start;
     -webkit-box-pack:start;
-    width:9%;
+    width:19%;
     height:100%;
     color:#FFF;
     padding-left:1%;
@@ -41,7 +41,7 @@ body{
 #header h1{
     position:relative;
     float:left;
-    width:80%;
+    width:60%;
     height:100%;
     color:#FFF;
     font-size:16px;
@@ -75,14 +75,20 @@ body{
     -moz-box-pack:end;
     -ms-box-pack:end;
     -webkit-box-pack:end;
-    width:9%;
+    width:19%;
     height:100%;
     color:#FFF;
     padding-right:1%;
 }
 .rightHeader span{
+    padding: 5px;
+    border-radius: 5px;
+}
+.rightHeader i{
     background-color: #2D8AB0;
     padding: 5px;
+    padding-top:2px;
+    padding-bottom:2px;
     border-radius: 5px;
 }
 #header i{

@@ -12,8 +12,15 @@ function changeSubTitle(newTitle){
 }
 
 function changeRightBtn(text, funcion, icon){
-		var boton= '<span onclick="'+funcion+'();" ontouch="'+funcion+'();"><i class="icon '+icon+'"></i>'+text+'</span>';
-		document.getElementById("rightbtn").innerHTML = boton;
+     if(icon == "" && text == ""){
+         var boton= '<span onclick="'+funcion+'();" style="display:none;" ontouch="'+funcion+'();"><i class="icon '+icon+'" style="display=none;"></i>'+text+'</span>';
+     }else if(icon == "" && text != ""){
+         var boton= '<span onclick="'+funcion+'();"ontouch="'+funcion+'();" style="background-color: #2D8AB0;"><i class="icon '+icon+'" style="display=none;"></i>'+text+'</span>';
+     }else{
+        var boton= '<span onclick="'+funcion+'();" ontouch="'+funcion+'();"><i class="icon '+icon+'"></i>'+text+'</span>'; 
+     }
+     
+        document.getElementById("rightbtn").innerHTML = boton;
 }
 
 function changeLeftBtn(text, funcion, icon){
@@ -291,7 +298,7 @@ function vistaPrincipal(){
 
 	document.getElementById("subHeader").innerHTML = '<div class="leftSubHeader" id="leftSubbtn"><i  class="icon ion-navicon-round" onclick="toggleMenu();"></i></div>';
 	document.getElementById("subHeader").innerHTML += '<h1 id="mainSubTitle">Datos Basicos</h1>';
-	document.getElementById("subHeader").innerHTML += '<div class="rightSubHeader" id="rightSubbtn"><i class="icon ion-camera" onclick="toggleGaleriaPortable();"></i></div>';
+	document.getElementById("subHeader").innerHTML += '<div class="rightSubHeader" id="rightSubbtn"><i class="icon ion-image" onclick="toggleGaleriaPortable();"></i></div>';
 
 	document.addEventListener('webkitTransitionEnd', cambiaAVistaPrincipal);
 

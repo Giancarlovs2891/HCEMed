@@ -15,6 +15,7 @@ function fechaActuall() {
         datosCompletos = 1;
     }
     else {
+         $("#representante :text").css("border", "0px solid red");
         datosCompletos = 0;
     }
 }
