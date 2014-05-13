@@ -37,7 +37,7 @@ public class ExamenFisicoImpl implements ExamenFisicoEjb {
 
     @Override
     public ExamenFisico traer(Integer idPaciente,String fecha) {
-        Query query = em.createNamedQuery("ExamenFisico.findByFechaCreacionEf");
+        Query query = em.createNamedQuery("ExamenFisico.findByIdPacienteAndFecha");
         query.setParameter("fecha", fecha);
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
