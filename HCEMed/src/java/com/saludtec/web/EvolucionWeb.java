@@ -106,8 +106,8 @@ public class EvolucionWeb extends HttpServlet {
         if (evoluciones != null) {
             for (Evolucion evolucion : evoluciones) {
                 arrayJson += "{";
-                arrayJson += "\"idEvolucion\":" + evolucion.getIdEvolucion() + "\",";
-                arrayJson += "\"idPaciente\":" + evolucion.getIdPaciente().getIdPaciente() + "\",";
+                arrayJson += "\"idEvolucion\":" + evolucion.getIdEvolucion() + ",";
+                arrayJson += "\"idPaciente\":" + evolucion.getIdPaciente().getIdPaciente() + ",";
                 arrayJson += "\"nombreModulo\":\"" + evolucion.getNombreModulo() + "\",";
                 arrayJson += "\"fecha\":\"" + evolucion.getFecha() + "\",";
                 arrayJson += "\"hora\":\"" + evolucion.getHora() + "\",";
