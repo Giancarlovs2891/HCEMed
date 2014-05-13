@@ -27,14 +27,14 @@ import org.json.simple.JSONObject;
  */
 @WebServlet(name = "EvolucionWeb", urlPatterns = {"/Evolucion/*"})
 public class EvolucionWeb extends HttpServlet {
-
+    
     @EJB
     EvolucionEjb ejbEvolucion;
     @EJB
     PacientesEjb ejbPacientes;
     JSONObject obj;
     JSONArray objArray;
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,11 +44,11 @@ public class EvolucionWeb extends HttpServlet {
                 case "guardar":
                     guardarEvolucion(request).writeJSONString(out);
                     break;
-
+                
                 case "listar":
-                    listarEvolucion(request).writeJSONString(out);
+                    out.println(listarEvolucion(request));
                     break;
-
+                
                 default:
                     obj = new JSONObject();
                     objArray = new JSONArray();
@@ -59,7 +59,7 @@ public class EvolucionWeb extends HttpServlet {
             }
         }
     }
-
+    
     private JSONArray guardarEvolucion(HttpServletRequest request) {
         Evolucion evolucion = new Evolucion();
         Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
@@ -81,8 +81,8 @@ public class EvolucionWeb extends HttpServlet {
         }
         return objArray;
     }
-
-    private JSONArray listarEvolucion(HttpServletRequest request) {
+    
+    private JSONArray listarEvolucion1(HttpServletRequest request) {
         List<Evolucion> evoluciones = ejbEvolucion.listar(Integer.parseInt(request.getParameter("idPaciente")));
         objArray = new JSONArray();
         if (evoluciones != null) {
@@ -98,6 +98,26 @@ public class EvolucionWeb extends HttpServlet {
             }
         }
         return objArray;
+    }
+
+    private String listarEvolucion(HttpServletRequest request) {
+        List<Evolucion> evoluciones = ejbEvolucion.listar(Integer.parseInt(request.getParameter("idPaciente")));
+        String arrayJson = "[";
+        if (evoluciones != null) {
+            for (Evolucion evolucion : evoluciones) {
+                arrayJson += "{";
+                arrayJson += "\"idEvolucion\":" + evolucion.getIdEvolucion() + "\"";
+                arrayJson += "\"idPaciente\":" + evolucion.getIdPaciente().getIdPaciente() + "\"";
+                arrayJson += "\"nombreModulo\":\"" + evolucion.getNombreModulo() + "\"";
+                arrayJson += "\"fecha\":\"" + evolucion.getFecha() + "\"";
+                arrayJson += "\"hora\":\"" + evolucion.getHora() + "\"";
+                arrayJson += "\"evolucion\":\"" + evolucion.getEvolucion() + "\"";
+                arrayJson += "},";
+            }
+        }
+        arrayJson += "]";
+        arrayJson = arrayJson.replaceAll("},]", "}]");
+        return arrayJson;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
