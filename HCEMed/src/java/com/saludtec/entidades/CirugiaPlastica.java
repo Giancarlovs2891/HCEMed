@@ -556,7 +556,7 @@ public class CirugiaPlastica implements Serializable {
     @Column(name = "fechaCreacionCp")
     private String fechaCreacionCp;
     @Size(max = 45)
-    @Column(name = "horaCreacionCp\"")
+    @Column(name = "horaCreacionCp")
     private String horaCreacionCp;
     @Column(name = "idUsuario")
     private Integer idUsuario;

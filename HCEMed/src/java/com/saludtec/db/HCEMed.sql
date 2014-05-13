@@ -456,7 +456,7 @@ CREATE TABLE  IF NOT EXISTS `HCEMed`.`CirugiaPlastica` (
   `diagnosticoReconstructivaCorporal` longtext COLLATE utf8_spanish_ci,
   `planTratamientoReconstructivaCorporal` longtext COLLATE utf8_spanish_ci,
   `fechaCreacionCp` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `horaCreacionCp"` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `horaCreacionCp` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
   `comentarioOtroColor` longtext COLLATE utf8_spanish_ci,
   `otraEstructura` longtext COLLATE utf8_spanish_ci,
