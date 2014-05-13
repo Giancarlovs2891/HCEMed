@@ -26,7 +26,7 @@ import org.json.simple.JSONObject;
  *
  * @author saintec
  */
-@WebServlet(name = "DescripcionPlanDeTratamientoWeb", urlPatterns = {"/DescripcionPlanDeTratamiento/*"})
+@WebServlet(name = "DescripcionPlanDeTratamientoWeb", urlPatterns = {"/descripcionPlanDeTratamiento/*"})
 public class DescripcionPlanDeTratamientoWeb extends HttpServlet {
 
     @EJB
