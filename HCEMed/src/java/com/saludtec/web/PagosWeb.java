@@ -62,9 +62,9 @@ public class PagosWeb extends HttpServlet {
 
     private JSONArray guardarPago(HttpServletRequest request) {
         Pagos pago = new Pagos();
-        PlanesDeTratamiento planTratamiento = ejbPlanesDeTratamiento.traer(Integer.parseInt(request.getParameter("idPlanTratamiento")));        
-        pago.setValorPago(request.getParameter("fechaPlanTratamiento"));
-        pago.setFechaPago(request.getParameter("impuestoPlanTratamiento"));
+        PlanesDeTratamiento planTratamiento = ejbPlanesDeTratamiento.traer(Integer.parseInt(request.getParameter("idPlanTratamiento")));
+        pago.setValorPago(request.getParameter("valorPago"));
+        pago.setFechaPago(request.getParameter("fechaPago"));
         pago.setIdPlanTratamiento(planTratamiento);
         pago.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         pago = ejbPagos.crear(pago);
