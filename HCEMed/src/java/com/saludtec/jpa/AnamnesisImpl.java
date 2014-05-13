@@ -43,7 +43,7 @@ public class AnamnesisImpl implements AnamnesisEjb {
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         List<Anamnesis> anamnesis = query.getResultList();
-        return anamnesis.get(anamnesis.size());
+        return anamnesis.get(0);
     }
 
     @Override

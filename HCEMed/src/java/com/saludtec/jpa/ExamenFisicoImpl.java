@@ -42,7 +42,7 @@ public class ExamenFisicoImpl implements ExamenFisicoEjb {
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         List<ExamenFisico> examenFisico = query.getResultList();
-        return examenFisico.get(examenFisico.size());
+        return examenFisico.get(0);
     }
 
     @Override
