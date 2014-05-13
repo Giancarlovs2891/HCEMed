@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.web;
 
 import com.saludtec.entidades.Galeria;
@@ -35,7 +34,7 @@ public class GaleriaWeb extends HttpServlet {
     PacientesEjb ejbPaciente;
     JSONObject obj;
     JSONArray objArray;
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -45,23 +44,23 @@ public class GaleriaWeb extends HttpServlet {
                 case "guardar":
                     guardarGaleria(request).writeJSONString(out);
                     break;
-                
+
                 case "editar":
                     editarGaleria(request).writeJSONString(out);
                     break;
-                
+
                 case "eliminar":
                     eliminarGaleria(request).writeJSONString(out);
                     break;
-                
+
                 case "traer":
                     traerGaleria(request).writeJSONString(out);
                     break;
-                
+
                 case "listar":
                     listarGaleria(request).writeJSONString(out);
                     break;
-                
+
                 default:
                     obj = new JSONObject();
                     objArray = new JSONArray();
@@ -70,10 +69,10 @@ public class GaleriaWeb extends HttpServlet {
                     objArray.writeJSONString(out);
                     break;
             }
-            
+
         }
     }
-    
+
     private JSONArray guardarGaleria(HttpServletRequest request) {
         Galeria galeria = new Galeria();
         Pacientes paciente = new Pacientes();
@@ -95,7 +94,7 @@ public class GaleriaWeb extends HttpServlet {
         }
         return objArray;
     }
-    
+
     private JSONArray editarGaleria(HttpServletRequest request) {
         Galeria galeria = new Galeria();
         Pacientes paciente = ejbPaciente.traer(Integer.parseInt(request.getParameter("idPaciente")));
@@ -108,7 +107,7 @@ public class GaleriaWeb extends HttpServlet {
         obj = new JSONObject();
         objArray = new JSONArray();
         if (galeria != null) {
-            obj.put("mensaje", "Registro con id " + galeria.getIdFoto()+ " editado");
+            obj.put("mensaje", "Registro con id " + galeria.getIdFoto() + " editado");
             objArray.add(obj);
         } else {
             obj.put("error", "no se pudo editar la foto");
@@ -116,32 +115,36 @@ public class GaleriaWeb extends HttpServlet {
         }
         return objArray;
     }
-    
+
     private JSONObject eliminarGaleria(HttpServletRequest request) {
         ejbGaleria.eliminar(Integer.parseInt(request.getParameter("idFoto")));
         obj = new JSONObject();
         obj.put("menasaje", "eliminado");
         return obj;
     }
-    
+
     private JSONArray traerGaleria(HttpServletRequest request) {
         Galeria galeria = ejbGaleria.traer(Integer.parseInt(request.getParameter("idFoto")));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (galeria != null) {
-            obj.put("idPaciente", galeria.getIdPaciente());
-            
+            obj.put("idFoto", galeria.getIdFoto());
+            obj.put("idPaciente", galeria.getIdPaciente().getIdPaciente());
+            obj.put("foto", galeria.getFoto());
+            obj.put("fecha", galeria.getFecha());
+            obj.put("hora", galeria.getHora());
             objArray.add(obj);
         }
         return objArray;
     }
-    
+
     private JSONArray listarGaleria(HttpServletRequest request) {
         List<Galeria> galerias = ejbGaleria.listar(Integer.parseInt(request.getParameter("idPaciente")));
         objArray = new JSONArray();
         if (galerias != null) {
             for (Galeria galeria : galerias) {
                 obj = new JSONObject();
+                obj.put("idFoto", galeria.getIdFoto());
                 obj.put("idPaciente", galeria.getIdPaciente().getIdPaciente());
                 obj.put("foto", galeria.getFoto());
                 obj.put("fecha", galeria.getFecha());
@@ -151,8 +154,6 @@ public class GaleriaWeb extends HttpServlet {
         }
         return objArray;
     }
-    
-
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
