@@ -28,6 +28,7 @@ function start() {
 function cargarPacienteInicio(x) {
     var obj = JSON.parse(x);
     var foto = decodeURIComponent(obj[0].foto);
+    
     $("#alertaMedica").val(obj[0].alertaMedica);
     $("#nombrePaciente").val(obj[0].nombrePaciente);
     $("#apellidoPaciente").val(obj[0].apellidoPaciente);
