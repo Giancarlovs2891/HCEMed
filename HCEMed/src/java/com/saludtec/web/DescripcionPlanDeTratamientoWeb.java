@@ -40,7 +40,7 @@ public class DescripcionPlanDeTratamientoWeb extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String servicio = request.getRequestURI().replace("/HCEMed/DescripcionPlanDeTratamiento/", "");
+            String servicio = request.getRequestURI().replace("/HCEMed/descripcionPlanDeTratamiento/", "");
             switch (servicio) {
                 case "guardar":
                     guardarDescripcionPlanDeTratamiento(request).writeJSONString(out);
