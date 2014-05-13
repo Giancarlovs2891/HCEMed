@@ -142,7 +142,7 @@ public class GaleriaWeb extends HttpServlet {
         if (galerias != null) {
             for (Galeria galeria : galerias) {
                 obj = new JSONObject();
-                obj.put("idPaciente", galeria.getIdPaciente());
+                obj.put("idPaciente", galeria.getIdPaciente().getIdPaciente());
                 obj.put("foto", galeria.getFoto());
                 obj.put("fecha", galeria.getFecha());
                 obj.put("hora", galeria.getHora());
