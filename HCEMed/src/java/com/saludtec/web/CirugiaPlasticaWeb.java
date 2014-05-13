@@ -255,7 +255,7 @@ public class CirugiaPlasticaWeb extends HttpServlet {
         objArray = new JSONArray();
         if (cirugiaPlastica != null) {
             obj.put("idCirugiaPlastica", cirugiaPlastica.getIdCirugiaPlastica());
-            obj.put("idPaciente", cirugiaPlastica.getIdPaciente());
+            obj.put("idPaciente", cirugiaPlastica.getIdPaciente().getIdPaciente());
 //-----------------ESTETICA CABEZA CUELLO----------------->//-----------------ESTETICA CABEZA CUELLO----------------->
             obj.put("esteticaCabezaCuello", cirugiaPlastica.getEsteticaCabezaCuello());
 //ALOPECIA----->//ALOPECIA----->
@@ -435,7 +435,7 @@ public class CirugiaPlasticaWeb extends HttpServlet {
         objArray = new JSONArray();
         if (cirugiaPlastica != null) {
             obj.put("idCirugiaPlastica", cirugiaPlastica.getIdCirugiaPlastica());
-            obj.put("idPaciente", cirugiaPlastica.getIdPaciente());
+            obj.put("idPaciente", cirugiaPlastica.getIdPaciente().getIdPaciente());
 //-----------------ESTETICA CABEZA CUELLO----------------->//-----------------ESTETICA CABEZA CUELLO----------------->
             obj.put("esteticaCabezaCuello", cirugiaPlastica.getEsteticaCabezaCuello());
 //ALOPECIA----->//ALOPECIA----->
