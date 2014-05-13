@@ -41,7 +41,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "PlanesDeTratamiento.findByImpuestoPlanTratamiento", query = "SELECT p FROM PlanesDeTratamiento p WHERE p.impuestoPlanTratamiento = :impuestoPlanTratamiento"),
     @NamedQuery(name = "PlanesDeTratamiento.findByValorPlanTratamiento", query = "SELECT p FROM PlanesDeTratamiento p WHERE p.valorPlanTratamiento = :valorPlanTratamiento"),
     @NamedQuery(name = "PlanesDeTratamiento.findByPagadoPlanTratamiento", query = "SELECT p FROM PlanesDeTratamiento p WHERE p.pagadoPlanTratamiento = :pagadoPlanTratamiento"),
-    @NamedQuery(name = "PlanesDeTratamiento.findByIdUsuario", query = "SELECT p FROM PlanesDeTratamiento p WHERE p.idUsuario = :idUsuario")})
+    @NamedQuery(name = "PlanesDeTratamiento.findByIdUsuario", query = "SELECT p FROM PlanesDeTratamiento p WHERE p.idUsuario = :idUsuario"),    
+    @NamedQuery(name = "PlanesDeTratamiento.findByIdPacienteAndFecha", query = "SELECT p FROM PlanesDeTratamiento p WHERE p.idPaciente = :idPaciente AND p.fechaPlanTratamiento = :fecha ORDER BY p.idPlanDeTratamiento DESC")})
 public class PlanesDeTratamiento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

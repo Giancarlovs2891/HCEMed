@@ -59,5 +59,14 @@ public class PlanesDeTratamientoImpl implements PlanesDeTratamientoEjb {
         query.setParameter("idPaciente", paciente);
         return query.getResultList();
     }
+    
+    @Override
+    public List<PlanesDeTratamiento> listar(Integer idPaciente, String fecha) {
+        Query query = em.createNamedQuery("PlanesDeTratamiento.findByIdPacienteAndFecha");
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        query.setParameter("idPaciente", paciente);
+        query.setParameter("fecha", fecha);
+        return query.getResultList();
+    }
 
 }

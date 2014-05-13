@@ -140,6 +140,24 @@ public class PlanesDeTratamientoWeb extends HttpServlet {
         }
         return objArray;
     }
+    
+    private JSONArray listarPlanesDeTratamientoFecha(HttpServletRequest request) {
+        List<PlanesDeTratamiento> planTratamientos = ejbPlanesDeTratamiento.listar(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
+        objArray = new JSONArray();
+        if (planTratamientos != null) {
+            for (PlanesDeTratamiento planTratamiento : planTratamientos) {
+                obj = new JSONObject();
+                obj.put("idPlanDeTratamiento", planTratamiento.getIdPlanDeTratamiento());
+                obj.put("idPaciente", planTratamiento.getIdPaciente().getIdPaciente());
+                obj.put("fechaPlanTratamiento", planTratamiento.getFechaPlanTratamiento());
+                obj.put("impuestoPlanTratamiento", planTratamiento.getImpuestoPlanTratamiento());
+                obj.put("valorPlanTratamiento", planTratamiento.getValorPlanTratamiento());
+                obj.put("pagadoPlanTratamiento", planTratamiento.getPagadoPlanTratamiento());
+                objArray.add(obj);
+            }
+        }
+        return objArray;
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

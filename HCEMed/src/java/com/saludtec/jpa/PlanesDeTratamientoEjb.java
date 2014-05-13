@@ -23,4 +23,6 @@ public interface PlanesDeTratamientoEjb {
     
     List<PlanesDeTratamiento> listar(Integer idPaciente);
     
+    List<PlanesDeTratamiento> listar(Integer idPaciente, String fecha);
+    
 }
