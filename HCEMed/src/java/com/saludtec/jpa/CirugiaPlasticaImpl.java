@@ -49,8 +49,12 @@ public class CirugiaPlasticaImpl implements CirugiaPlasticaEjb {
         Query query = em.createNamedQuery("CirugiaPlastica.findByIdPaciente");
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
-        List<CirugiaPlastica> cirugiaPlastica = query.getResultList();
-        return cirugiaPlastica.get(0);
+        List<CirugiaPlastica> cirugiaPlasticaList= query.getResultList();
+        CirugiaPlastica cirugiaPlastica = null;
+        if(cirugiaPlasticaList.size()>0){
+            cirugiaPlastica = cirugiaPlasticaList.get(0);
+        }        
+        return cirugiaPlastica;
     }
 
 }

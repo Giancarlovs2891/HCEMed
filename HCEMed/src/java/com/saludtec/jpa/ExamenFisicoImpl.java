@@ -48,8 +48,12 @@ public class ExamenFisicoImpl implements ExamenFisicoEjb {
         Query query = em.createNamedQuery("ExamenFisico.findByIdPaciente");
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
-        List<ExamenFisico> examenFisico = query.getResultList();
-        return examenFisico.get(0);
+        List<ExamenFisico> examenFisicoList = query.getResultList();
+        ExamenFisico examenFisico = null;
+        if(examenFisicoList.size()>0){
+            examenFisico=examenFisicoList.get(0);
+        }
+        return examenFisico;
     }
 
 }
