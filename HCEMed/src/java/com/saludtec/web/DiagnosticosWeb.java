@@ -74,7 +74,7 @@ public class DiagnosticosWeb extends HttpServlet {
         obj = new JSONObject();
         objArray = new JSONArray();
         if (diagnostico != null) {
-            obj.put("idEvolucion", diagnostico.getIdDiagnostico());
+            obj.put("idDiagnostico", diagnostico.getIdDiagnostico());
             objArray.add(obj);
         } else {
             obj.put("error", "no se pudo guardar el diangnostico");
