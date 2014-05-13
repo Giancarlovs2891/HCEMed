@@ -63,7 +63,7 @@ public class DescripcionPlanDeTratamientoWeb extends HttpServlet {
 
     private JSONArray guardarDescripcionPlanDeTratamiento(HttpServletRequest request) {
         DescripcionPlanDeTratamiento descripcionPlanTratamiento = new DescripcionPlanDeTratamiento();
-        PlanesDeTratamiento planTratamiento = ejbPlanTratamiento.traer(Integer.parseInt(request.getParameter("idPlanDeTratamiento"))); 
+        PlanesDeTratamiento planTratamiento = ejbPlanTratamiento.traer(Integer.parseInt(request.getParameter("idPlanTratamiento"))); 
         descripcionPlanTratamiento.setIdPlanTratamiento(planTratamiento);
         descripcionPlanTratamiento.setTextoDescripcionPlanTratamiento(request.getParameter("textoDescripcionPlanTratamiento"));
         descripcionPlanTratamiento.setValorDescripcionPlanTratamiento(request.getParameter("valorDescripcionPlanTratamiento"));
