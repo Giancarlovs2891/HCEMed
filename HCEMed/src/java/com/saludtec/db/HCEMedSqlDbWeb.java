@@ -538,10 +538,60 @@ public class HCEMedSqlDbWeb extends HttpServlet {
             out.println(ejb.crear(cirugiaPlastica, "Cirugia plastica") + "<br>");
             
             //TABLA EXAMEN FISICO
-            String examenFisico = "CREATE TABLE IF NOT EXISTS `ExamenFisico` ( `idExamenFisico` int(11) AUTO_INCREMENT, `idPaciente` int(11) DEFAULT NULL, `tensionArterial` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `peso` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `cintura` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `pulso` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `talla` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `cadera` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `frecuenciaRespiratoria` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `bmi` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `indiceCintCad` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `piel` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `pielComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `ojos` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `ojosComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `oidosNarizGarganta` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `oidosNarizGargantaComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `cuello` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `cuelloComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `torax` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `toraxComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `cardiovascular` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `cardiovascularComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `respiratorios` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `respiratoriosComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `abdomen` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `abdomenComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `genitourinario` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `genitourinarioComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `extremidades` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `extremidadesComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `sistemaNerviosoCentral` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `sistemaNerviosoCentralComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `adenopatias` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `adenopatiasComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `otros` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `otrosComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `comentariosEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `condicionEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, `fechaCreacionEf` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `horaCreacionEf` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `idUsuario` int(11) DEFAULT NULL,  PRIMARY KEY (`idExamenFisico`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;";
+            String examenFisico = "CREATE TABLE IF NOT EXISTS `ExamenFisico` ( `idExamenFisico` int(11) AUTO_INCREMENT, "
+                    + "`idPaciente` int(11) DEFAULT NULL, "
+                    + "`tensionArterial` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`peso` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`cintura` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`pulso` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`talla` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`cadera` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`frecuenciaRespiratoria` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`bmi` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`indiceCintCad` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`piel` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`pielComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`ojos` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`ojosComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`oidosNarizGarganta` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`oidosNarizGargantaComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`cuello` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`cuelloComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`torax` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`toraxComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`cardiovascular` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`cardiovascularComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`respiratorios` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`respiratoriosComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`abdomen` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`abdomenComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`genitourinario` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`genitourinarioComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`extremidades` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`extremidadesComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`sistemaNerviosoCentral` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`sistemaNerviosoCentralComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`adenopatias` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`adenopatiasComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`otros` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`otrosComentarioEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`comentariosEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`condicionEf` longtext COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`fechaCreacionEf` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`horaCreacionEf` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`idUsuario` int(11) DEFAULT NULL,  "
+                    + "PRIMARY KEY (`idExamenFisico`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;";
+            
             out.println(ejb.crear(examenFisico, "Examen fisico") + "<br>");
+            
             //TABLA GALERIA
-            String galeria = "CREATE TABLE IF NOT EXISTS `Galeria` ( `idFoto` int(11) NOT NULL AUTO_INCREMENT, `idPaciente` int(11) DEFAULT NULL, `foto` longtext COLLATE utf8_spanish_ci, `fecha` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `hora` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, `idUsuario` int(11) DEFAULT NULL, PRIMARY KEY (`idFoto`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;";
+            String galeria = "CREATE TABLE IF NOT EXISTS `Galeria` ( `idFoto` int(11) NOT NULL AUTO_INCREMENT, "
+                    + "`idPaciente` int(11) DEFAULT NULL, "
+                    + "`foto` longtext COLLATE utf8_spanish_ci, "
+                    + "`fecha` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`hora` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL, "
+                    + "`idUsuario` int(11) DEFAULT NULL, "
+                    + "PRIMARY KEY (`idFoto`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;";
             out.println(ejb.crear(galeria, "Galeria") + "<br>");
 
         } catch (EJBException e) {
