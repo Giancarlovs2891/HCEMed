@@ -55,6 +55,10 @@ public class PlanesDeTratamientoWeb extends HttpServlet {
                 case "listar":
                     listarPlanesDeTratamientoPaciente(request).writeJSONString(out);
                     break;
+                    
+                case "listarFecha":
+                    listarPlanesDeTratamientoFecha(request).writeJSONString(out);
+                    break;
 
                 default:
                     obj = new JSONObject();
