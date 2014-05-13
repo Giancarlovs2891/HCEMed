@@ -5,24 +5,16 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.Galeria;
-import com.saludtec.entidades.Pacientes;
-import com.saludtec.entidades.Usuarios;
-import com.saludtec.jpa.GaleriaEjb;
-import com.saludtec.jpa.PacientesEjb;
-import com.saludtec.jpa.UsuariosEjb;
-import com.saludtec.utilidades.EncriptacionMD5;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 /**
  *
@@ -31,8 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "XxServletDePruebaSxX", urlPatterns = {"/NewServlets"})
 public class XxServletDePruebaSxX extends HttpServlet {
 
-    @EJB
-    UsuariosEjb ejbUsuarios;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -46,9 +36,7 @@ public class XxServletDePruebaSxX extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            Usuarios p = ejbUsuarios.traer(1);
-            out.println(p.getApellidoUsuario());
-
+            out.println(request.getContextPath()+"<br>");
         } catch (Exception ex) {
             Logger.getLogger(XxServletDePruebaSxX.class.getName()).log(Level.SEVERE, null, ex);
         }
