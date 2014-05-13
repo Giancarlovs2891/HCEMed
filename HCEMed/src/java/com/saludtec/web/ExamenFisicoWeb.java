@@ -173,7 +173,7 @@ public class ExamenFisicoWeb extends HttpServlet {
     }
 
     private JSONArray traerExamenFisicoFecha(HttpServletRequest request) {
-        ExamenFisico examenFisico = ejbExamenFisico.traer(request.getParameter("fecha"));
+        ExamenFisico examenFisico = ejbExamenFisico.traer(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (examenFisico != null) {

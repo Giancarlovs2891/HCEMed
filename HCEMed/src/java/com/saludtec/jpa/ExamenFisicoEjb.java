@@ -15,7 +15,7 @@ public interface ExamenFisicoEjb {
 
     ExamenFisico crear(ExamenFisico examenFisico);
 
-    ExamenFisico traer(String fecha);
+    ExamenFisico traer(Integer idPaciente, String fecha);
 
     ExamenFisico traerUltimo(Integer idPaciente);
 
