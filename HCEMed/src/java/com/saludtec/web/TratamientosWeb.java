@@ -49,6 +49,10 @@ public class TratamientosWeb extends HttpServlet {
                     eliminarTratamiento(request).writeJSONString(out);
                     break;
 
+                case "traerFecha":
+                    listarTratamientosFecha(request).writeJSONString(out);
+                    break;
+
                 case "listar":
                     listarTratamientosPaciente(request).writeJSONString(out);
                     break;
@@ -106,6 +110,21 @@ public class TratamientosWeb extends HttpServlet {
                 obj.put("horaTratamiento", tratamiento.getHoraTratamiento());
                 objArray.add(obj);
             }
+        }
+        return objArray;
+    }
+
+    private JSONArray listarTratamientosFecha(HttpServletRequest request) {
+        Tratamientos tratamiento = ejbTratamientos.traer(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
+        objArray = new JSONArray();
+        if (tratamiento != null) {
+            obj = new JSONObject();
+            obj.put("idTratamiento", tratamiento.getIdTratamiento());
+            obj.put("idPaciente", tratamiento.getIdPaciente().getIdPaciente());
+            obj.put("desTratamiento", tratamiento.getDesTratamiento());
+            obj.put("fechaTratamiento", tratamiento.getFechaTratamiento());
+            obj.put("horaTratamiento", tratamiento.getHoraTratamiento());
+            objArray.add(obj);
         }
         return objArray;
     }

@@ -47,6 +47,16 @@ public class TratamientosImpl implements TratamientosEjb {
             Logger.getLogger(GaleriaImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @Override
+    public Tratamientos traer(Integer idPaciente,String fecha) {
+        Query query = em.createNamedQuery("Tratamientos.findByIdPacienteAndFecha");
+        query.setParameter("fecha", fecha);
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        query.setParameter("idPaciente", paciente);
+        List<Tratamientos> tratamiento = query.getResultList();
+        return tratamiento.get(tratamiento.size()-1);
+    }
 
     @Override
     public List<Tratamientos> listar(Integer idPaciente, String fecha) {
