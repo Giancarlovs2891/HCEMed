@@ -87,7 +87,7 @@ public class PagosWeb extends HttpServlet {
             for (Pagos pago : pagos) {
                 obj = new JSONObject();
                 obj.put("idPago", pago.getIdPago());
-                obj.put("valorPago", pago.getValorPago());
+                obj.put("valorPago", pago.getValorPago()); 
                 obj.put("fechaPago", pago.getFechaPago());
                 obj.put("idPlanTratamiento", pago.getIdPlanTratamiento().getIdPlanDeTratamiento());
                 objArray.add(obj);
