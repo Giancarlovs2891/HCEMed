@@ -227,7 +227,14 @@ function start() {
     }
     mostrarImgAlopecia();
     changeSubTitle("Cirugía Plastica");
+    if(modoMedsio == "local"){
     traerTodoTabla("CirugiaPlastica WHERE idPaciente='" + getPatientId() + "' ORDER BY idCirugiaPlastica DESC LIMIT 0,1", cargarCamposCirugiaPlastica);
+    }else{
+        var service = "CirugiaPlastica/traerUltimo";
+        var string= "idPaciente="+getPatientId();
+        
+        ajax(service, string, cargarCamposCirugiaPlastica);
+    }
 }
 
 function guardarCirugiaPlastica() {

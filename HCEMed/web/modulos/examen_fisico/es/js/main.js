@@ -55,9 +55,16 @@ function start() {
     $("#bmi, #indiceCintCad").prop("disabled", true);
 }
 function ultimoExamenFisico() {
+    if(modoMedsio == "local"){
     var sql = "SELECT * FROM ExamenFisico WHERE idPaciente='" + getPatientId() + "' ORDER BY idExamenFisico DESC LIMIT 0,1";
 //    var sql = "SELECT * FROM ExamenFisico WHERE idPaciente='6' ORDER BY idExamenFisico DESC LIMIT 0,1";
     crearSql(sql, definirCamposExamenFisico);
+    }else{
+        var service = "ExamenFisico/traerUltimo";
+        var string = "idPaciente="+getPatientId();
+        
+        ajax(service, string, definirCamposExamenFisico);
+    }
 }
 
 

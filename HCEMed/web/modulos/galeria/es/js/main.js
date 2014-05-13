@@ -123,7 +123,8 @@ function traerFoto(id, funcion) {
 }
 function listarFotos(){
 	var idPaciente = getPatientId();
-	crearSql('SELECT * FROM Galeria WHERE idPaciente="'+idPaciente+'"', listarFotosSuccess);
+	
+        traerTabla("Galeria", "idPaciente="+idPaciente, listarFotosSuccess);
 }
 function listarFotosSuccess(x){
 	var obj = JSON.parse(x);

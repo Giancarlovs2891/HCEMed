@@ -19,7 +19,7 @@ function start() {
     else {
         changeRightBtn("Editar", "habilitarEdicion", "");
         var query = "SELECT * FROM Pacientes WHERE idPaciente = '" + idPaciente + "'";
-        crearSql(query, cargarPacienteInicio);
+        traerTabla("Pacientes", "idPaciente="+idPaciente, cargarPacienteInicio);
     }
     changeSubTitle("Datos Basicos");
 }
@@ -198,8 +198,15 @@ function guardarSuccess() {
     $("input, textarea").prop("disabled", true);
     $("select").prop("disabled", true);
     changeRightBtn("Editar", "habilitarEdicion", "");
-    var query = "SELECT idPaciente FROM Pacientes WHERE identificacionPaciente = '" + identificacionPaciente + "'";
-    crearSql(query, guardarSuccess2);
+    if(modoMedsio == "local"){
+        var query = "SELECT idPaciente FROM Pacientes WHERE identificacionPaciente = '" + identificacionPaciente + "'";
+        crearSql(query, guardarSuccess2);
+    }else{
+        var service = "Pacientes/traerIdentificacion";
+        var string = "identificacionPaciente="+identificacionPaciente;
+        
+        ajax(service, string, guardarSuccess2);
+    }
 }
 
 function guardarSuccess2(x) {
@@ -258,9 +265,9 @@ function editarPaciente() {
 
     sexoPacienteSeleccionado = $("#sexoPaciente").val();
     var string = 'alertaMedica=' + alertaMedica + '&nombrePaciente=' + nombrePaciente + '&apellidoPaciente=' + apellidoPaciente + '&fechaNacimientoPaciente=' + fechaNacimientoPaciente + '&tipoIdentificacionPaciente=' + tipoIdentificacionPaciente + '&identificacionPaciente=' + identificacionPaciente + '&estadoPaciente=' + estadoPaciente + '&estadoCivilPaciente=' + estadoCivilPaciente + '&sexoPaciente=' + sexoPaciente + '&razaPaciente=' + razaPaciente + '&ocupacionPaciente=' + ocupacionPaciente + '&telefonoPaciente=' + telefonoPaciente + '&celularPaciente=' + celularPaciente + '&emailPaciente=' + emailPaciente + '&paisPaciente=' + paisPaciente + '&departamentoPaciente=' + departamentoPaciente + '&ciudadPaciente=' + ciudadPaciente + '&nacionalidadPaciente=' + nacionalidadPaciente + '&direccionPaciente=' + direccionPaciente + '&zonaResidencialPaciente=' + zonaResidencialPaciente + '&codigoPostalPaciente=' + codigoPostalPaciente + '&estratoPaciente=' + estratoPaciente + '&companiaSeguroPaciente=' + companiaSeguroPaciente + '&tipoVinculacionPaciente=' + tipoVinculacionPaciente + '&nombreRepresentante=' + nombreRepresentante + '&apellidoRepresentante=' + apellidoRepresentante + '&tipoIdentificacionRepresentante=' + tipoIdentificacionRepresentante + '&identificacionRepresentante=' + identificacionRepresentante + '&telefonoRepresentante=' + telefonoRepresentante + '&parentescoRepresentante=' + parentescoRepresentante + '&nombreEmergencia=' + nombreEmergencia + '&telefonoEmergencia=' + telefonoEmergencia + '&parentescoEmergencia=' + parentescoEmergencia + '&nombreReferido=' + nombreReferido + '&fechaCreacion=' + diaCreacion + '&horaCreacion=' + horaCreacion + '&idPaciente=' + idPacienteSeleccionado;
-    if(foto != ""){
+    var foto = encodeURIComponent(document.getElementById("fotoPrincipalDatosBasicos").src);
         string = "foto="+foto+"&"+string;
-    }
+    
     editarTabla('Pacientes', string, editarSuccess);
     document.getElementById("nombrePacienteGeneralMedsio").innerHTML = nombrePaciente+" "+apellidoPaciente+" - "+sexoPaciente.toUpperCase();
     document.getElementById("alertaMedicaGeneralMedsio").innerHTML = alertaMedica;
