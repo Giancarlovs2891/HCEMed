@@ -86,10 +86,10 @@ public class PagosWeb extends HttpServlet {
         if (pagos != null) {
             for (Pagos pago : pagos) {
                 obj = new JSONObject();
-                obj.put("idPlanDeTratamiento", pago.getIdPago());
-                obj.put("fechaPlanTratamiento", pago.getValorPago());
-                obj.put("impuestoPlanTratamiento", pago.getFechaPago());
-                obj.put("valorPlanTratamiento", pago.getIdPlanTratamiento().getIdPlanDeTratamiento());
+                obj.put("idPago", pago.getIdPago());
+                obj.put("valorPago", pago.getValorPago());
+                obj.put("fechaPago", pago.getFechaPago());
+                obj.put("idPlanTratamiento", pago.getIdPlanTratamiento().getIdPlanDeTratamiento());
                 objArray.add(obj);
             }
         }
