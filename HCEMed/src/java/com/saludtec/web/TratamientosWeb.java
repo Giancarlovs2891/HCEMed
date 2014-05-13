@@ -101,9 +101,9 @@ public class TratamientosWeb extends HttpServlet {
                 obj = new JSONObject();
                 obj.put("idTratamiento", tratamiento.getIdTratamiento());
                 obj.put("idPaciente", tratamiento.getIdPaciente().getIdPaciente());
-                obj.put("foto", tratamiento.getDesTratamiento());
-                obj.put("nombrePaciente", tratamiento.getFechaTratamiento());
-                obj.put("apellidoPaciente", tratamiento.getHoraTratamiento());
+                obj.put("desTratamiento", tratamiento.getDesTratamiento());
+                obj.put("fechaTratamiento", tratamiento.getFechaTratamiento());
+                obj.put("horaTratamiento", tratamiento.getHoraTratamiento());
                 objArray.add(obj);
             }
         }
