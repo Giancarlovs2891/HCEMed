@@ -787,7 +787,7 @@ public class AnamnesisWeb extends HttpServlet {
     }
 
     private JSONArray traerAnamnesisFecha(HttpServletRequest request) {
-        Anamnesis anamnesis = ejbAnamnesis.traer(request.getParameter("fecha"));
+        Anamnesis anamnesis = ejbAnamnesis.traer(Integer.parseInt(request.getParameter("idPaciente")),request.getParameter("fecha"));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (anamnesis != null) {

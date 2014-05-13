@@ -15,7 +15,7 @@ public interface AnamnesisEjb {
 
     Anamnesis crear(Anamnesis anamnesis);
 
-    Anamnesis traer(String fecha);
+    Anamnesis traer(Integer idPaciente, String fecha);
 
     Anamnesis traerUltimo(Integer idPaciente);
 

@@ -37,9 +37,11 @@ public class AnamnesisImpl implements AnamnesisEjb {
     }
 
     @Override
-    public Anamnesis traer(String fecha) {
-        Query query = em.createNamedQuery("ExamenFisico.findByFechaCreacionEf");
-        query.setParameter("fechaCreacionEf", fecha);
+    public Anamnesis traer(Integer idPaciente, String fecha) {
+        Query query = em.createNamedQuery("ExamenFisico.findByIdPacienteAndFecha");
+        query.setParameter("fecha", fecha);
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        query.setParameter("idPaciente", paciente);
         List<Anamnesis> anamnesis = query.getResultList();
         return anamnesis.get(anamnesis.size());
     }
