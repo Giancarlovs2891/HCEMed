@@ -88,10 +88,10 @@ public class EvolucionComentariosWeb extends HttpServlet {
         if (evolucionComentarios != null) {
             for (EvolucionComentarios evolucionComentario : evolucionComentarios) {
                 obj = new JSONObject();
-                obj.put("idEvolucion", evolucionComentario.getIdEvolucionComentario());
+                obj.put("idEvolucionComentario", evolucionComentario.getIdEvolucionComentario());
                 obj.put("idPaciente", evolucionComentario.getIdPaciente().getIdPaciente());
                 obj.put("firma", evolucionComentario.getFirma());
-                obj.put("evolucion", evolucionComentario.getComentario());
+                obj.put("comentario", evolucionComentario.getComentario());
                 obj.put("fecha", evolucionComentario.getFecha());
                 obj.put("hora", evolucionComentario.getHora());
                 objArray.add(obj);
