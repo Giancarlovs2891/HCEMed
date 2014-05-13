@@ -112,7 +112,7 @@ public class ExamenFisicoWeb extends HttpServlet {
         obj = new JSONObject();
         objArray = new JSONArray();
         if (examenFisico != null) {
-            obj.put("idFoto", examenFisico.getIdPaciente());
+            obj.put("idExamenFisico", examenFisico.getIdExamenFisico());
             objArray.add(obj);
         } else {
             obj.put("error", "no se pudo guardar el examen fisico");

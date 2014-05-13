@@ -7,6 +7,7 @@
 package com.saludtec.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +20,11 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -70,6 +73,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Pacientes.findByFechaCreacion", query = "SELECT p FROM Pacientes p WHERE p.fechaCreacion = :fechaCreacion"),
     @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion")})
 public class Pacientes implements Serializable {
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<CirugiaPlastica> cirugiaPlasticaList;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -535,6 +540,15 @@ public class Pacientes implements Serializable {
     @Override
     public String toString() {
         return "com.saludtec.entidades.Pacientes[ idPaciente=" + idPaciente + " ]";
+    }
+
+    @XmlTransient
+    public List<CirugiaPlastica> getCirugiaPlasticaList() {
+        return cirugiaPlasticaList;
+    }
+
+    public void setCirugiaPlasticaList(List<CirugiaPlastica> cirugiaPlasticaList) {
+        this.cirugiaPlasticaList = cirugiaPlasticaList;
     }
     
 }

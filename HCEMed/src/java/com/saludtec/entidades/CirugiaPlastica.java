@@ -118,7 +118,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "CirugiaPlastica.findByExtremidadesInferiores", query = "SELECT c FROM CirugiaPlastica c WHERE c.extremidadesInferiores = :extremidadesInferiores"),
     @NamedQuery(name = "CirugiaPlastica.findByReconstructivaCabezaCuello", query = "SELECT c FROM CirugiaPlastica c WHERE c.reconstructivaCabezaCuello = :reconstructivaCabezaCuello"),
     @NamedQuery(name = "CirugiaPlastica.findByReconstructivaCorporal", query = "SELECT c FROM CirugiaPlastica c WHERE c.reconstructivaCorporal = :reconstructivaCorporal"),
-    @NamedQuery(name = "CirugiaPlastica.findByFechaCreacionCp", query = "SELECT c FROM CirugiaPlastica c WHERE c.fechaCreacionCp = :fechaCreacionCp ORDER BY c.idCirugiaPlastica"),
+    @NamedQuery(name = "CirugiaPlastica.findByFechaCreacionCp", query = "SELECT c FROM CirugiaPlastica c WHERE c.fechaCreacionCp = :fechaCreacionCp"),
     @NamedQuery(name = "CirugiaPlastica.findByHoraCreacionCp", query = "SELECT c FROM CirugiaPlastica c WHERE c.horaCreacionCp = :horaCreacionCp"),
     @NamedQuery(name = "CirugiaPlastica.findByIdUsuario", query = "SELECT c FROM CirugiaPlastica c WHERE c.idUsuario = :idUsuario")})
 public class CirugiaPlastica implements Serializable {
@@ -560,6 +560,106 @@ public class CirugiaPlastica implements Serializable {
     private String horaCreacionCp;
     @Column(name = "idUsuario")
     private Integer idUsuario;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "comentarioOtroColor")
+    private String comentarioOtroColor;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otraEstructura")
+    private String otraEstructura;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otroComponentePsiquico")
+    private String otroComponentePsiquico;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otraPerdidaZona")
+    private String otraPerdidaZona;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otroFormaMamariaDerecha")
+    private String otroFormaMamariaDerecha;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otroFormaMamariaIzquierda")
+    private String otroFormaMamariaIzquierda;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otroTipoDePielDerecha")
+    private String otroTipoDePielDerecha;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otroTipoDePielIzquierda")
+    private String otroTipoDePielIzquierda;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otraSensibilidadDerechaPezon")
+    private String otraSensibilidadDerechaPezon;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otraSensibilidadIzquierdaPezon")
+    private String otraSensibilidadIzquierdaPezon;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "diametroComplejoAreolaDerecho")
+    private String diametroComplejoAreolaDerecho;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "diametroComplejoAreolaIzquierdo")
+    private String diametroComplejoAreolaIzquierdo;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoMamario")
+    private String pronosticoMamario;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoAbdomen")
+    private String pronosticoAbdomen;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "valoracionGenitourinaria")
+    private String valoracionGenitourinaria;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "comentariosValoracionGenitourinaria")
+    private String comentariosValoracionGenitourinaria;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoEspalda")
+    private String pronosticoEspalda;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "diagnosticoExtremidadesSuperiores")
+    private String diagnosticoExtremidadesSuperiores;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoExtremidadesSuperiores")
+    private String pronosticoExtremidadesSuperiores;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "planTratamientoExtremidadesSuperiores")
+    private String planTratamientoExtremidadesSuperiores;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoExtremidadesInferiores")
+    private String pronosticoExtremidadesInferiores;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoReconstructivaCabezaCuello")
+    private String pronosticoReconstructivaCabezaCuello;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoReconstructivaCorporal")
+    private String pronosticoReconstructivaCorporal;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otroTipoGinecomastia")
+    private String otroTipoGinecomastia;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "pronosticoGinecomastia")
+    private String pronosticoGinecomastia;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
     private Pacientes idPaciente;
@@ -1617,6 +1717,206 @@ public class CirugiaPlastica implements Serializable {
 
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getComentarioOtroColor() {
+        return comentarioOtroColor;
+    }
+
+    public void setComentarioOtroColor(String comentarioOtroColor) {
+        this.comentarioOtroColor = comentarioOtroColor;
+    }
+
+    public String getOtraEstructura() {
+        return otraEstructura;
+    }
+
+    public void setOtraEstructura(String otraEstructura) {
+        this.otraEstructura = otraEstructura;
+    }
+
+    public String getOtroComponentePsiquico() {
+        return otroComponentePsiquico;
+    }
+
+    public void setOtroComponentePsiquico(String otroComponentePsiquico) {
+        this.otroComponentePsiquico = otroComponentePsiquico;
+    }
+
+    public String getOtraPerdidaZona() {
+        return otraPerdidaZona;
+    }
+
+    public void setOtraPerdidaZona(String otraPerdidaZona) {
+        this.otraPerdidaZona = otraPerdidaZona;
+    }
+
+    public String getOtroFormaMamariaDerecha() {
+        return otroFormaMamariaDerecha;
+    }
+
+    public void setOtroFormaMamariaDerecha(String otroFormaMamariaDerecha) {
+        this.otroFormaMamariaDerecha = otroFormaMamariaDerecha;
+    }
+
+    public String getOtroFormaMamariaIzquierda() {
+        return otroFormaMamariaIzquierda;
+    }
+
+    public void setOtroFormaMamariaIzquierda(String otroFormaMamariaIzquierda) {
+        this.otroFormaMamariaIzquierda = otroFormaMamariaIzquierda;
+    }
+
+    public String getOtroTipoDePielDerecha() {
+        return otroTipoDePielDerecha;
+    }
+
+    public void setOtroTipoDePielDerecha(String otroTipoDePielDerecha) {
+        this.otroTipoDePielDerecha = otroTipoDePielDerecha;
+    }
+
+    public String getOtroTipoDePielIzquierda() {
+        return otroTipoDePielIzquierda;
+    }
+
+    public void setOtroTipoDePielIzquierda(String otroTipoDePielIzquierda) {
+        this.otroTipoDePielIzquierda = otroTipoDePielIzquierda;
+    }
+
+    public String getOtraSensibilidadDerechaPezon() {
+        return otraSensibilidadDerechaPezon;
+    }
+
+    public void setOtraSensibilidadDerechaPezon(String otraSensibilidadDerechaPezon) {
+        this.otraSensibilidadDerechaPezon = otraSensibilidadDerechaPezon;
+    }
+
+    public String getOtraSensibilidadIzquierdaPezon() {
+        return otraSensibilidadIzquierdaPezon;
+    }
+
+    public void setOtraSensibilidadIzquierdaPezon(String otraSensibilidadIzquierdaPezon) {
+        this.otraSensibilidadIzquierdaPezon = otraSensibilidadIzquierdaPezon;
+    }
+
+    public String getDiametroComplejoAreolaDerecho() {
+        return diametroComplejoAreolaDerecho;
+    }
+
+    public void setDiametroComplejoAreolaDerecho(String diametroComplejoAreolaDerecho) {
+        this.diametroComplejoAreolaDerecho = diametroComplejoAreolaDerecho;
+    }
+
+    public String getDiametroComplejoAreolaIzquierdo() {
+        return diametroComplejoAreolaIzquierdo;
+    }
+
+    public void setDiametroComplejoAreolaIzquierdo(String diametroComplejoAreolaIzquierdo) {
+        this.diametroComplejoAreolaIzquierdo = diametroComplejoAreolaIzquierdo;
+    }
+
+    public String getPronosticoMamario() {
+        return pronosticoMamario;
+    }
+
+    public void setPronosticoMamario(String pronosticoMamario) {
+        this.pronosticoMamario = pronosticoMamario;
+    }
+
+    public String getPronosticoAbdomen() {
+        return pronosticoAbdomen;
+    }
+
+    public void setPronosticoAbdomen(String pronosticoAbdomen) {
+        this.pronosticoAbdomen = pronosticoAbdomen;
+    }
+
+    public String getValoracionGenitourinaria() {
+        return valoracionGenitourinaria;
+    }
+
+    public void setValoracionGenitourinaria(String valoracionGenitourinaria) {
+        this.valoracionGenitourinaria = valoracionGenitourinaria;
+    }
+
+    public String getComentariosValoracionGenitourinaria() {
+        return comentariosValoracionGenitourinaria;
+    }
+
+    public void setComentariosValoracionGenitourinaria(String comentariosValoracionGenitourinaria) {
+        this.comentariosValoracionGenitourinaria = comentariosValoracionGenitourinaria;
+    }
+
+    public String getPronosticoEspalda() {
+        return pronosticoEspalda;
+    }
+
+    public void setPronosticoEspalda(String pronosticoEspalda) {
+        this.pronosticoEspalda = pronosticoEspalda;
+    }
+
+    public String getDiagnosticoExtremidadesSuperiores() {
+        return diagnosticoExtremidadesSuperiores;
+    }
+
+    public void setDiagnosticoExtremidadesSuperiores(String diagnosticoExtremidadesSuperiores) {
+        this.diagnosticoExtremidadesSuperiores = diagnosticoExtremidadesSuperiores;
+    }
+
+    public String getPronosticoExtremidadesSuperiores() {
+        return pronosticoExtremidadesSuperiores;
+    }
+
+    public void setPronosticoExtremidadesSuperiores(String pronosticoExtremidadesSuperiores) {
+        this.pronosticoExtremidadesSuperiores = pronosticoExtremidadesSuperiores;
+    }
+
+    public String getPlanTratamientoExtremidadesSuperiores() {
+        return planTratamientoExtremidadesSuperiores;
+    }
+
+    public void setPlanTratamientoExtremidadesSuperiores(String planTratamientoExtremidadesSuperiores) {
+        this.planTratamientoExtremidadesSuperiores = planTratamientoExtremidadesSuperiores;
+    }
+
+    public String getPronosticoExtremidadesInferiores() {
+        return pronosticoExtremidadesInferiores;
+    }
+
+    public void setPronosticoExtremidadesInferiores(String pronosticoExtremidadesInferiores) {
+        this.pronosticoExtremidadesInferiores = pronosticoExtremidadesInferiores;
+    }
+
+    public String getPronosticoReconstructivaCabezaCuello() {
+        return pronosticoReconstructivaCabezaCuello;
+    }
+
+    public void setPronosticoReconstructivaCabezaCuello(String pronosticoReconstructivaCabezaCuello) {
+        this.pronosticoReconstructivaCabezaCuello = pronosticoReconstructivaCabezaCuello;
+    }
+
+    public String getPronosticoReconstructivaCorporal() {
+        return pronosticoReconstructivaCorporal;
+    }
+
+    public void setPronosticoReconstructivaCorporal(String pronosticoReconstructivaCorporal) {
+        this.pronosticoReconstructivaCorporal = pronosticoReconstructivaCorporal;
+    }
+
+    public String getOtroTipoGinecomastia() {
+        return otroTipoGinecomastia;
+    }
+
+    public void setOtroTipoGinecomastia(String otroTipoGinecomastia) {
+        this.otroTipoGinecomastia = otroTipoGinecomastia;
+    }
+
+    public String getPronosticoGinecomastia() {
+        return pronosticoGinecomastia;
+    }
+
+    public void setPronosticoGinecomastia(String pronosticoGinecomastia) {
+        this.pronosticoGinecomastia = pronosticoGinecomastia;
     }
 
     public Pacientes getIdPaciente() {
