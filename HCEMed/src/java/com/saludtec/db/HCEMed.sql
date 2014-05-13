@@ -510,6 +510,7 @@ CREATE TABLE  IF NOT EXISTS `HCEMed`.`Diagnosticos` (
 CREATE TABLE  IF NOT EXISTS `HCEMed`.`Evolucion` (
   `idEvolucion` int(11) NOT NULL AUTO_INCREMENT,
   `idPaciente` int(11) DEFAULT NULL,
+  `nombreModulo` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `hora` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `evolucion` longtext COLLATE utf8_spanish_ci,

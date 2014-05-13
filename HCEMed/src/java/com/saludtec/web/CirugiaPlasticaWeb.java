@@ -235,7 +235,7 @@ public class CirugiaPlasticaWeb extends HttpServlet {
         cirugiaPlastica.setPlanTratamientoReconstructivaCorporal(request.getParameter("planTratamientoReconstructivaCorporal"));
         cirugiaPlastica.setFechaCreacionCp(request.getParameter("fechaCreacionCp"));
         cirugiaPlastica.setHoraCreacionCp(request.getParameter("horaCreacionCp"));
-        cirugiaPlastica.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        cirugiaPlastica.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         cirugiaPlastica = ejbCirugiaPlastica.crear(cirugiaPlastica);
         obj = new JSONObject();
         objArray = new JSONArray();

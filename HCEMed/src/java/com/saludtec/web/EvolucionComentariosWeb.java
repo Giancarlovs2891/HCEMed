@@ -68,7 +68,7 @@ public class EvolucionComentariosWeb extends HttpServlet {
         evolucionComentario.setComentario(request.getParameter("comentario"));
         evolucionComentario.setFecha(request.getParameter("fecha"));
         evolucionComentario.setHora(request.getParameter("hora"));
-        evolucionComentario.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        evolucionComentario.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         evolucionComentario = ejbEvolucionComentario.crear(evolucionComentario);
         obj = new JSONObject();
         objArray = new JSONArray();

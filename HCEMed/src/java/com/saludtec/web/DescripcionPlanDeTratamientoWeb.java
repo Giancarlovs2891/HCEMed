@@ -67,7 +67,7 @@ public class DescripcionPlanDeTratamientoWeb extends HttpServlet {
         descripcionPlanTratamiento.setIdPlanTratamiento(planTratamiento);
         descripcionPlanTratamiento.setTextoDescripcionPlanTratamiento(request.getParameter("textoDescripcionPlanTratamiento"));
         descripcionPlanTratamiento.setValorDescripcionPlanTratamiento(request.getParameter("valorDescripcionPlanTratamiento"));
-        descripcionPlanTratamiento.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        descripcionPlanTratamiento.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         descripcionPlanTratamiento = ejbDescripcionPlanTratamiento.crear(descripcionPlanTratamiento);
         obj = new JSONObject();
         objArray = new JSONArray();

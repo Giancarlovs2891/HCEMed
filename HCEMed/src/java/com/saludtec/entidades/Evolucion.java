@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Evolucion.findAll", query = "SELECT e FROM Evolucion e"),
     @NamedQuery(name = "Evolucion.findByIdPaciente", query = "SELECT e FROM Evolucion e WHERE e.idPaciente = :idPaciente ORDER BY e.idEvolucion DESC"),
     @NamedQuery(name = "Evolucion.findByIdEvolucion", query = "SELECT e FROM Evolucion e WHERE e.idEvolucion = :idEvolucion"),
+    @NamedQuery(name = "Evolucion.findByNombreModulo", query = "SELECT e FROM Evolucion e WHERE e.nombreModulo = :nombreModulo"),
     @NamedQuery(name = "Evolucion.findByFecha", query = "SELECT e FROM Evolucion e WHERE e.fecha = :fecha"),
     @NamedQuery(name = "Evolucion.findByHora", query = "SELECT e FROM Evolucion e WHERE e.hora = :hora"),
     @NamedQuery(name = "Evolucion.findByIdUsuario", query = "SELECT e FROM Evolucion e WHERE e.idUsuario = :idUsuario")})
@@ -44,6 +45,9 @@ public class Evolucion implements Serializable {
     @Basic(optional = false)
     @Column(name = "idEvolucion")
     private Integer idEvolucion;
+    @Size(max = 100)
+    @Column(name = "nombreModulo")
+    private String nombreModulo;
     @Size(max = 45)
     @Column(name = "fecha")
     private String fecha;
@@ -73,6 +77,14 @@ public class Evolucion implements Serializable {
 
     public void setIdEvolucion(Integer idEvolucion) {
         this.idEvolucion = idEvolucion;
+    }
+
+    public String getNombreModulo() {
+        return nombreModulo;
+    }
+
+    public void setNombreModulo(String nombreModulo) {
+        this.nombreModulo = nombreModulo;
     }
 
     public String getFecha() {

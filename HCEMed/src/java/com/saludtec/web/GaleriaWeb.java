@@ -81,7 +81,7 @@ public class GaleriaWeb extends HttpServlet {
         galeria.setFoto(request.getParameter("foto"));
         galeria.setFecha(request.getParameter("fecha"));
         galeria.setHora(request.getParameter("hora"));
-        galeria.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        galeria.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         galeria = ejbGaleria.crear(galeria);
         obj = new JSONObject();
         objArray = new JSONArray();
@@ -102,7 +102,7 @@ public class GaleriaWeb extends HttpServlet {
         galeria.setFoto(request.getParameter("foto"));
         galeria.setFecha(request.getParameter("fecha"));
         galeria.setHora(request.getParameter("hora"));
-        galeria.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        galeria.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         galeria = ejbGaleria.editar(galeria);
         obj = new JSONObject();
         objArray = new JSONArray();

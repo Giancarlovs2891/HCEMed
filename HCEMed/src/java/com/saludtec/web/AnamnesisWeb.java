@@ -414,7 +414,7 @@ public class AnamnesisWeb extends HttpServlet {
 //CREACION//CREACION
         anamnesis.setFechaCreacionAn(request.getParameter("fechaCreacionAn"));
         anamnesis.setHoraCreacionAn(request.getParameter("horaCreacionAn"));
-        anamnesis.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        anamnesis.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         anamnesis = ejbAnamnesis.crear(anamnesis);
         obj = new JSONObject();
         objArray = new JSONArray();

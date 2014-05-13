@@ -66,7 +66,7 @@ public class PagosWeb extends HttpServlet {
         pago.setValorPago(request.getParameter("valorPago"));
         pago.setFechaPago(request.getParameter("fechaPago"));
         pago.setIdPlanTratamiento(planTratamiento);
-        pago.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        pago.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         pago = ejbPagos.crear(pago);
         obj = new JSONObject();
         objArray = new JSONArray();

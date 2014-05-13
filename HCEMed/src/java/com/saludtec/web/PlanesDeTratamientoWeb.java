@@ -80,7 +80,7 @@ public class PlanesDeTratamientoWeb extends HttpServlet {
         planTratamiento.setImpuestoPlanTratamiento(request.getParameter("impuestoPlanTratamiento"));
         planTratamiento.setValorPlanTratamiento(request.getParameter("valorPlanTratamiento"));
         planTratamiento.setPagadoPlanTratamiento(request.getParameter("pagadoPlanTratamiento"));
-        planTratamiento.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        planTratamiento.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         planTratamiento = ejbPlanesDeTratamiento.crear(planTratamiento);
         obj = new JSONObject();
         objArray = new JSONArray();
@@ -97,7 +97,7 @@ public class PlanesDeTratamientoWeb extends HttpServlet {
     private JSONArray editarPlanTratamiento(HttpServletRequest request) {
         PlanesDeTratamiento planTratamiento = ejbPlanesDeTratamiento.traer(Integer.parseInt(request.getParameter("idPlanDeTratamiento")));
         planTratamiento.setPagadoPlanTratamiento(request.getParameter("pagadoPlanTratamiento"));
-        planTratamiento.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        planTratamiento.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         planTratamiento = ejbPlanesDeTratamiento.editar(planTratamiento);
         obj = new JSONObject();
         objArray = new JSONArray();

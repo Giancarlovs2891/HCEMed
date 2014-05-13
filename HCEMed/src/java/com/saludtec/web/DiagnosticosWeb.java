@@ -69,7 +69,7 @@ public class DiagnosticosWeb extends HttpServlet {
         diagnostico.setDiagnostico(request.getParameter("diagnostico"));
         diagnostico.setFecha(request.getParameter("fecha"));
         diagnostico.setHora(request.getParameter("hora"));
-        diagnostico.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        diagnostico.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         diagnostico = ejbEvolucionComentario.crear(diagnostico);
         obj = new JSONObject();
         objArray = new JSONArray();

@@ -72,7 +72,7 @@ public class TratamientosWeb extends HttpServlet {
         tratamiento.setDesTratamiento(request.getParameter("desTratamiento"));
         tratamiento.setFechaTratamiento(request.getParameter("fechaTratamiento"));
         tratamiento.setHoraTratamiento(request.getParameter("horaTratamiento"));
-        tratamiento.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        tratamiento.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         tratamiento = ejbTratamientos.crear(tratamiento);
         obj = new JSONObject();
         objArray = new JSONArray();

@@ -64,10 +64,11 @@ public class EvolucionWeb extends HttpServlet {
         Evolucion evolucion = new Evolucion();
         Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         evolucion.setIdPaciente(paciente);
+        evolucion.setNombreModulo(request.getParameter("nombreModulo"));
         evolucion.setFecha(request.getParameter("fecha"));
         evolucion.setHora(request.getParameter("hora"));
         evolucion.setEvolucion(request.getParameter("evolucion"));
-        evolucion.setIdUsuario(1);//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
+        evolucion.setIdUsuario(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));//RECORDAR QUE ESTE VALOR ESTA QUEMADO Y HAY QUE CAMBIARLO CUANDO SE CREE LA TABLA USUARIOS
         evolucion = ejbEvolucion.crear(evolucion);
         obj = new JSONObject();
         objArray = new JSONArray();
@@ -89,6 +90,7 @@ public class EvolucionWeb extends HttpServlet {
                 obj = new JSONObject();
                 obj.put("idEvolucion", evolucion.getIdEvolucion());
                 obj.put("idPaciente", evolucion.getIdPaciente().getIdPaciente());
+                obj.put("nombreModulo", evolucion.getNombreModulo());
                 obj.put("fecha", evolucion.getFecha());
                 obj.put("hora", evolucion.getHora());
                 obj.put("evolucion", evolucion.getEvolucion());
