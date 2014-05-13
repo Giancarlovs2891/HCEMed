@@ -430,7 +430,7 @@ public class CirugiaPlasticaWeb extends HttpServlet {
     }
 
     private JSONArray traerCirugiaPlasticaFecha(HttpServletRequest request) {
-        CirugiaPlastica cirugiaPlastica = ejbCirugiaPlastica.traer(request.getParameter("fecha"));
+        CirugiaPlastica cirugiaPlastica = ejbCirugiaPlastica.traer(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (cirugiaPlastica != null) {

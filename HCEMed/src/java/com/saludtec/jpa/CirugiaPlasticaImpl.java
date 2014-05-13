@@ -37,9 +37,11 @@ public class CirugiaPlasticaImpl implements CirugiaPlasticaEjb {
     }
 
     @Override
-    public CirugiaPlastica traer(String fecha) {
-        Query query = em.createNamedQuery("ExamenFisico.findByFechaCreacionEf");
-        query.setParameter("fechaCreacionEf", fecha);
+    public CirugiaPlastica traer(Integer idPaciente, String fecha) {
+        Query query = em.createNamedQuery("CirugiaPlastica.findByIdPacienteAndFecha");
+        query.setParameter("fecha", fecha);
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        query.setParameter("idPaciente", paciente);
         List<CirugiaPlastica> cirugiaPlastica = query.getResultList();
         return cirugiaPlastica.get(cirugiaPlastica.size());
     }
