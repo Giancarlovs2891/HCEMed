@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.entidades;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Pacientes.findAll", query = "SELECT p FROM Pacientes p"),
     @NamedQuery(name = "Pacientes.findByIdPaciente", query = "SELECT p FROM Pacientes p WHERE p.idPaciente = :idPaciente"),
-    @NamedQuery(name = "Pacientes.findByIdUsuario", query = "SELECT p FROM Pacientes p WHERE p.idUsuario = :idUsuario"),
+    @NamedQuery(name = "Pacientes.findByIdUsuario", query = "SELECT p FROM Pacientes p WHERE p.idUsuario = :idUsuario ORDER BY p.apellidoPaciente, p.nombrePaciente p.identificacionPaciente ASC"),
     @NamedQuery(name = "Pacientes.findByNombrePaciente", query = "SELECT p FROM Pacientes p WHERE p.nombrePaciente = :nombrePaciente"),
     @NamedQuery(name = "Pacientes.findByApellidoPaciente", query = "SELECT p FROM Pacientes p WHERE p.apellidoPaciente = :apellidoPaciente"),
     @NamedQuery(name = "Pacientes.findByFechaNacimientoPaciente", query = "SELECT p FROM Pacientes p WHERE p.fechaNacimientoPaciente = :fechaNacimientoPaciente"),
@@ -71,10 +71,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pacientes.findByParentescoEmergencia", query = "SELECT p FROM Pacientes p WHERE p.parentescoEmergencia = :parentescoEmergencia"),
     @NamedQuery(name = "Pacientes.findByNombreReferido", query = "SELECT p FROM Pacientes p WHERE p.nombreReferido = :nombreReferido"),
     @NamedQuery(name = "Pacientes.findByFechaCreacion", query = "SELECT p FROM Pacientes p WHERE p.fechaCreacion = :fechaCreacion"),
-    @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion")})
+    @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion"),
+    @NamedQuery(name = "Pacientes.like", query = "SELECT p FROM Pacientes p WHERE p.nombrePaciente LIKE :nombrePaciente OR p.apellidoPaciente LIKE :apellidoPaciente OR p.identificacionPaciente LIKE :identificacionPaciente ORDER BY p.apellidoPaciente, p.nombrePaciente, p.identificacionPaciente ASC")})
 public class Pacientes implements Serializable {
-    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<CirugiaPlastica> cirugiaPlasticaList;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -194,9 +194,27 @@ public class Pacientes implements Serializable {
     @Size(max = 45)
     @Column(name = "horaCreacion")
     private String horaCreacion;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<PlanesDeTratamiento> planesDeTratamientoList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Diagnosticos> diagnosticosList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Galeria> galeriaList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<EvolucionComentarios> evolucionComentariosList;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuarios idUsuario;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<ExamenFisico> examenFisicoList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<CirugiaPlastica> cirugiaPlasticaList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Evolucion> evolucionList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Anamnesis> anamnesisList;
+    @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
+    private List<Tratamientos> tratamientosList;
 
     public Pacientes() {
     }
@@ -509,12 +527,93 @@ public class Pacientes implements Serializable {
         this.horaCreacion = horaCreacion;
     }
 
+    @XmlTransient
+    public List<PlanesDeTratamiento> getPlanesDeTratamientoList() {
+        return planesDeTratamientoList;
+    }
+
+    public void setPlanesDeTratamientoList(List<PlanesDeTratamiento> planesDeTratamientoList) {
+        this.planesDeTratamientoList = planesDeTratamientoList;
+    }
+
+    @XmlTransient
+    public List<Diagnosticos> getDiagnosticosList() {
+        return diagnosticosList;
+    }
+
+    public void setDiagnosticosList(List<Diagnosticos> diagnosticosList) {
+        this.diagnosticosList = diagnosticosList;
+    }
+
+    @XmlTransient
+    public List<Galeria> getGaleriaList() {
+        return galeriaList;
+    }
+
+    public void setGaleriaList(List<Galeria> galeriaList) {
+        this.galeriaList = galeriaList;
+    }
+
+    @XmlTransient
+    public List<EvolucionComentarios> getEvolucionComentariosList() {
+        return evolucionComentariosList;
+    }
+
+    public void setEvolucionComentariosList(List<EvolucionComentarios> evolucionComentariosList) {
+        this.evolucionComentariosList = evolucionComentariosList;
+    }
+
     public Usuarios getIdUsuario() {
         return idUsuario;
     }
 
     public void setIdUsuario(Usuarios idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    @XmlTransient
+    public List<ExamenFisico> getExamenFisicoList() {
+        return examenFisicoList;
+    }
+
+    public void setExamenFisicoList(List<ExamenFisico> examenFisicoList) {
+        this.examenFisicoList = examenFisicoList;
+    }
+
+    @XmlTransient
+    public List<CirugiaPlastica> getCirugiaPlasticaList() {
+        return cirugiaPlasticaList;
+    }
+
+    public void setCirugiaPlasticaList(List<CirugiaPlastica> cirugiaPlasticaList) {
+        this.cirugiaPlasticaList = cirugiaPlasticaList;
+    }
+
+    @XmlTransient
+    public List<Evolucion> getEvolucionList() {
+        return evolucionList;
+    }
+
+    public void setEvolucionList(List<Evolucion> evolucionList) {
+        this.evolucionList = evolucionList;
+    }
+
+    @XmlTransient
+    public List<Anamnesis> getAnamnesisList() {
+        return anamnesisList;
+    }
+
+    public void setAnamnesisList(List<Anamnesis> anamnesisList) {
+        this.anamnesisList = anamnesisList;
+    }
+
+    @XmlTransient
+    public List<Tratamientos> getTratamientosList() {
+        return tratamientosList;
+    }
+
+    public void setTratamientosList(List<Tratamientos> tratamientosList) {
+        this.tratamientosList = tratamientosList;
     }
 
     @Override
@@ -542,13 +641,4 @@ public class Pacientes implements Serializable {
         return "com.saludtec.entidades.Pacientes[ idPaciente=" + idPaciente + " ]";
     }
 
-    @XmlTransient
-    public List<CirugiaPlastica> getCirugiaPlasticaList() {
-        return cirugiaPlasticaList;
-    }
-
-    public void setCirugiaPlasticaList(List<CirugiaPlastica> cirugiaPlasticaList) {
-        this.cirugiaPlasticaList = cirugiaPlasticaList;
-    }
-    
 }

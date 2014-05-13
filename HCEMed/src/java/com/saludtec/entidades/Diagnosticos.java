@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.entidades;
 
 import java.io.Serializable;
@@ -40,6 +39,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Diagnosticos.findByIdUsuario", query = "SELECT d FROM Diagnosticos d WHERE d.idUsuario = :idUsuario"),
     @NamedQuery(name = "Diagnosticos.findByIdPacienteAndFecha", query = "SELECT d FROM Diagnosticos d WHERE d.idPaciente = :idPaciente AND d.fecha = :fecha ORDER BY d.idDiagnostico ASC")})
 public class Diagnosticos implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -163,5 +163,5 @@ public class Diagnosticos implements Serializable {
     public String toString() {
         return "com.saludtec.entidades.Diagnosticos[ idDiagnostico=" + idDiagnostico + " ]";
     }
-    
+
 }

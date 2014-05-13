@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.entidades;
 
 import java.io.Serializable;
@@ -39,6 +38,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuarios.findByContrasenaLogin", query = "SELECT u FROM Usuarios u WHERE u.contrasenaLogin = :contrasenaLogin"),
     @NamedQuery(name = "Usuarios.findByLogin", query = "SELECT u FROM Usuarios u WHERE u.usuarioLogin = :usuarioLogin AND u.contrasenaLogin = :contrasenaLogin")})
 public class Usuarios implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -140,5 +140,5 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "com.saludtec.entidades.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
-    
+
 }
