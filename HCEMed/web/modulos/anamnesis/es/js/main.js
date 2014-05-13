@@ -359,7 +359,14 @@ function start() {
 
     }
     changeSubTitle("Anamnesis");
-    traerTodoTabla("Anamnesis WHERE idPaciente='" + getPatientId() + "' ORDER BY idAnamnesis DESC LIMIT 0,1", cargarCamposAnamnesis);
+    if(modoMedsio == "local"){
+        traerTodoTabla("Anamnesis WHERE idPaciente='" + getPatientId() + "' ORDER BY idAnamnesis DESC LIMIT 0,1", cargarCamposAnamnesis);
+    }else{
+        var service = "Anamnesis/traerUltimo"
+        var string = "idPaciente="+getPatientId();
+        
+        ajax(service, string, cargarCamposAnamnesis);
+    }
     ocultarGinecologia();
 
 }
