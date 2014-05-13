@@ -112,7 +112,7 @@ function borrarTabla(nombreTabla, string, callback) {
     if(modoMedsio == "central"){
         var x = nombreTabla.split(" ");
         nombreTabla = x[0];
-        var servicio = nombreTabla+"/borrar";
+        var servicio = nombreTabla+"/eliminar";
         
         ajax(servicio, string, callback);
     }else{

@@ -67,15 +67,24 @@ start();
 function start(){
     changeSubTitle("Costos");
     changeRightBtn("Guardar", "guardarPlanDeTratamiento", "");
-    crearTabla('CREATE TABLE IF NOT EXISTS Tratamientos (idTratamiento INTEGER PRIMARY KEY AUTOINCREMENT, desTratamiento, fechaTratamiento, horaTratamiento, idPaciente)');
-    crearTabla('CREATE TABLE IF NOT EXISTS PlanesDeTratamiento (idPlanTratamiento INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente, fechaPlanTratamiento, impuestoPlanTratamiento, valorPlanTratamiento, pagadoPlanTratamiento)');
-    crearTabla('CREATE TABLE IF NOT EXISTS descripcionPlanDeTratamiento (idDescripcionPlanTratamiento INTEGER PRIMARY KEY AUTOINCREMENT, idPlanTratamiento, textoDescripcionPlanTratamiento, valorDescripcionPlanTratamiento)');
-    crearTabla('CREATE TABLE IF NOT EXISTS Pagos (idPago INTEGER PRIMARY KEY AUTOINCREMENT, valorPago, fechaPago, idPlanTratamiento)');
+    if(modoMedsio == "local"){
+        crearTabla('CREATE TABLE IF NOT EXISTS Tratamientos (idTratamiento INTEGER PRIMARY KEY AUTOINCREMENT, desTratamiento, fechaTratamiento, horaTratamiento, idPaciente)');
+        crearTabla('CREATE TABLE IF NOT EXISTS PlanesDeTratamiento (idPlanDeTratamiento INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente, fechaPlanTratamiento, impuestoPlanTratamiento, valorPlanTratamiento, pagadoPlanTratamiento)');
+        crearTabla('CREATE TABLE IF NOT EXISTS descripcionPlanDeTratamiento (idDescripcionPlanTratamiento INTEGER PRIMARY KEY AUTOINCREMENT, idPlanTratamiento, textoDescripcionPlanTratamiento, valorDescripcionPlanTratamiento)');
+        crearTabla('CREATE TABLE IF NOT EXISTS Pagos (idPago INTEGER PRIMARY KEY AUTOINCREMENT, valorPago, fechaPago, idPlanTratamiento)');
+    }
     
     listarTratamientosActivos();
     var hoy = fechaActual();
     var idPaciente = getPatientId();
-    crearSql('SELECT * FROM Tratamientos WHERE fechaTratamiento="'+hoy+'" AND idPaciente="'+idPaciente+'"', traerCostosSuccess);
+    if(modoMedsio == "local"){
+        crearSql('SELECT * FROM Tratamientos WHERE fechaTratamiento="'+hoy+'" AND idPaciente="'+idPaciente+'"', traerCostosSuccess);
+    }else{
+        var service = "Tratamientos/listar"
+        var string = "fecha="+hoy+"&idPaciente="+idPaciente;
+        
+        ajax(service, string, traerCostosSuccess);
+    }
     
 }
 function traerCostosSuccess(x){
@@ -137,11 +146,18 @@ function guardarPlanDeTratamiento(){
     
     function guardarPlanDeTratamiento2(x){
         var string = 'fechaPlanTratamiento='+hoy;
+        if(modoMedsio == "local"){
         crearSql('SELECT * FROM PlanesDeTratamiento WHERE fechaPlanTratamiento="'+hoy+'"', guardarPlanDeTratamiento3);
+        }else{
+             var service = "PlanesDeTratamiento/listarFecha"
+            var string = "idPaciente="+idPaciente+"&fecha="+hoy;
+
+            ajax(service, string, guardarPlanDeTratamiento3);
+        }
         
         function guardarPlanDeTratamiento3(y){
             var obj = JSON.parse(y);
-            var idTratamiento = obj[obj.length-1].idPlanTratamiento;
+            var idTratamiento = obj[obj.length-1].idPlanDeTratamiento;
             
             var descripciones = document.getElementById("costosDesc").getElementsByClassName("paddingRow");
             var i=0;
@@ -175,8 +191,15 @@ function listarTratamientosActivos(){
     html += '<div  class="row"><div  class="col-xs-6 col-xs-offset-1"></div><div  class="col-xs-2"><h5 id="totalCargos"></h5></div><div  class="col-xs-2"><h5 id="totalAbonos"></h5></div></div>';
     
     var idPaciente = getPatientId();
-    var sql = 'SELECT * FROM PlanesDeTratamiento WHERE idPaciente="'+idPaciente+'"';
-    crearSql(sql, listarTratamientosActivos2);
+    if(modoMedsio == "local"){
+        var sql = 'SELECT * FROM PlanesDeTratamiento WHERE idPaciente="'+idPaciente+'"';
+        crearSql(sql, listarTratamientosActivos2);
+    }else{
+        var service = "PlanesDeTratamiento/listar"
+        var string = "idPaciente="+idPaciente;
+        
+        ajax(service, string, listarTratamientosActivos2);
+    }
     var totalDebe = 0;
     totalDebe = parseInt(totalDebe);
     var totalPagado = 0;
@@ -189,7 +212,7 @@ function listarTratamientosActivos(){
                totalDebe += debe;
                var pagado = parseInt(obj[i].pagadoPlanTratamiento);
                totalPagado += pagado;
-               html += '<div  class="row paddingRow" onclick="verDetalleTratamiento('+obj[i].idPlanTratamiento+');">';
+               html += '<div  class="row paddingRow" onclick="verDetalleTratamiento('+obj[i].idPlanDeTratamiento+');">';
                html += '<div  class="col-xs-6 col-xs-offset-1 costosRow">';
                html += '<p>'+obj[i].fechaPlanTratamiento+'</p>';
                html += '</div>';
@@ -210,8 +233,15 @@ function listarTratamientosActivos(){
 }
 function verDetalleTratamiento(x){
     var html = "";
-    var sql = 'SELECT * FROM PlanesDeTratamiento WHERE idPlanTratamiento='+x;
-    crearSql(sql, verDetalleTratamiento2);
+    if(modoMedsio == "local"){
+        var sql = 'SELECT * FROM PlanesDeTratamiento WHERE idPlanDeTratamiento='+x;
+        crearSql(sql, verDetalleTratamiento2);
+    }else{
+        var service="PlanesDeTratamiento/traer";
+        var string = "idPlanDeTratamiento="+x;
+        
+        ajax(service, string, verDetalleTratamiento2);
+    }
     
     function verDetalleTratamiento2(y){
         var obj = JSON.parse(y);
@@ -226,8 +256,15 @@ function verDetalleTratamiento(x){
         html += '<div class="col-xs-2"><h5 id="totalAbonoTratamiento">$ '+obj[0].pagadoPlanTratamiento+'</h5></div></div>';
         html += '<div class="row paddingRow"><div class="col-xs-11 col-xs-offset-1"><h2>Procedimientos</h2></div></div>';
         
-        var sql = 'SELECT * FROM descripcionPlanDeTratamiento WHERE idPlanTratamiento="'+x+'"';
-        crearSql(sql, verDetalleTratamiento3);
+        if(modoMedsio == "local"){
+            var sql = 'SELECT * FROM descripcionPlanDeTratamiento WHERE idPlanTratamiento="'+x+'"';
+            crearSql(sql, verDetalleTratamiento3);
+        }else{
+            var service = "descripcionPlanDeTratamiento/listar";
+            var string = "idPlanTratamiento="+x;
+            
+            ajax(service, string, verDetalleTratamiento3);
+        }
         
         function verDetalleTratamiento3(z){
             var obj2 = JSON.parse(z);
@@ -243,8 +280,15 @@ function verDetalleTratamiento(x){
             
             html += '<div class="row paddingRow"><div class="col-xs-11 col-xs-offset-1"><h2>Pagos</h2></div></div>';
             
-            var sql = 'SELECT * FROM Pagos WHERE idPlanTratamiento="'+x+'"';
-            crearSql(sql, verDetalleTratamiento4);
+            if(modoMedsio == "local"){
+                var sql = 'SELECT * FROM Pagos WHERE idPlanTratamiento="'+x+'"';
+                crearSql(sql, verDetalleTratamiento4);
+            }else{
+                var service = "Pagos/listar"
+                var string = "idPlanTratamiento="+x;
+                
+                ajax(service, string, verDetalleTratamiento4);
+            }
             
             function verDetalleTratamiento4(t){
                 var obj3 = JSON.parse(t);
@@ -278,7 +322,7 @@ function agregarPago(x){
    guardarTabla('Pagos', string, agregarPago2);
    
    function agregarPago2(y){
-       traerTabla('PlanesDeTratamiento', 'idPlanTratamiento='+x, agregarPago3);
+       traerTabla('PlanesDeTratamiento', 'idPlanDeTratamiento='+x, agregarPago3);
        
        function agregarPago3(z){
            var obj = JSON.parse(z);
@@ -287,7 +331,7 @@ function agregarPago(x){
            pagado = parseInt(pagado);
            pagado += pago;
            
-           var string = "pagadoPlanTratamiento="+pagado+"&idPlanTratamiento="+x;
+           var string = "pagadoPlanTratamiento="+pagado+"&idPlanDeTratamiento="+x;
            editarTabla('PlanesDeTratamiento', string, agregarPago4);
            
            function agregarPago4(t){

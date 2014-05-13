@@ -1,5 +1,12 @@
 function getHistory(fecha) {
-    traerTodoTabla("ExamenFisico WHERE idPaciente='" + getPatientId() + "' AND fechaCreacionEf='" + fecha + "'  ORDER BY idExamenFisico DESC LIMIT 0,1", definirCamposExamenFisicoEvo);
+    if(modoMedsio == "local"){
+        traerTodoTabla("ExamenFisico WHERE idPaciente='" + getPatientId() + "' AND fechaCreacionEf='" + fecha + "'  ORDER BY idExamenFisico DESC LIMIT 0,1", definirCamposExamenFisicoEvo);
+    }else{
+        var service = "ExamenFisico/traerFecha"
+        var string = "idPaciente="+getPatientId()+"&fecha="+fecha;
+        
+        ajax(service, string, definirCamposExamenFisicoEvo);
+    }
 }
 
 function definirCamposExamenFisicoEvo(json) {

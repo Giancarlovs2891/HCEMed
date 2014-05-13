@@ -1,5 +1,12 @@
 function getHistory(fecha) {
-    traerTodoTabla("CirugiaPlastica WHERE idPaciente='" + getPatientId() + "' AND fechaCreacionCp='" + fecha + "'  ORDER BY idCirugiaPlastica DESC LIMIT 0,1", cargarCamposCirugiaPlasticaEvo);
+    if(modoMedsio == "local"){
+        traerTodoTabla("CirugiaPlastica WHERE idPaciente='" + getPatientId() + "' AND fechaCreacionCp='" + fecha + "'  ORDER BY idCirugiaPlastica DESC LIMIT 0,1", cargarCamposCirugiaPlasticaEvo);
+    }else{
+        var service = "CirugiaPlastica/traerFecha"
+        var string = "idPaciente="+getPatientId()+"&fecha="+fecha;
+        
+        ajax(service, string, cargarCamposCirugiaPlasticaEvo);
+    }
 }
 
 function cargarCamposCirugiaPlasticaEvo(json) {
@@ -75,7 +82,14 @@ function cargarCamposCirugiaPlasticaEvo(json) {
 }
 
 function icc() {
-    crearSql("SELECT indiceCintCad FROM ExamenFisico WHERE idPaciente='" + getPatientId() + "' ORDER BY idExamenFisico DESC LIMIT 0,1", iccEsteticaCorporal);
+    if(modoMedsio == "local"){
+        crearSql("SELECT indiceCintCad FROM ExamenFisico WHERE idPaciente='" + getPatientId() + "' ORDER BY idExamenFisico DESC LIMIT 0,1", iccEsteticaCorporal);
+    }else{
+        var service = "ExamenFisico/traerUltimo";
+        var string = "idPaciente="+getPatientId();
+        
+        ajax(service, string, iccEsteticaCorporal);
+    }
 }
 function iccEsteticaCorporal(json) {
     var obj = JSON.parse(json);

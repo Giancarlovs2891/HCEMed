@@ -521,7 +521,15 @@ function loadDatosBasicos(id){
 function loadGaleriaPortable(x){
     if(x == "NaN"){return;}
     document.getElementById("galeriaPortable").innerHTML = "";
-    crearSql('SELECT * FROM Galeria WHERE idPaciente="'+x+'"', traerGaleriaSuccess);
+    if(modoMedsio == "local"){
+        crearSql('SELECT * FROM Galeria WHERE idPaciente="'+x+'"', traerGaleriaSuccess);
+    }
+    else{
+       var service= "Galeria/listar";
+        var string = "idPaciente="+x;
+
+        ajax(service, string, traerGaleriaSuccess); 
+    }
 }
 function traerGaleriaSuccess(x){
     var obj = JSON.parse(x);
@@ -596,7 +604,14 @@ function desplegarFoto(x){
 }
 
 function nextFoto(x){
-    crearSql('SELECT * FROM Galeria WHERE idPaciente="'+idPacienteSeleccionado+'"', nextFoto2);
+    if(modoMedsio == "local"){
+        crearSql('SELECT * FROM Galeria WHERE idPaciente="'+idPacienteSeleccionado+'"', nextFoto2);
+     }else{
+        var service= "Galeria/listar";
+        var string = "idPaciente="+idPacienteSeleccionado;
+
+        ajax(service, string, nextFoto2);
+    }
     
     function nextFoto2(y){
         var obj = JSON.parse(y);
@@ -641,7 +656,14 @@ function nextFoto(x){
 }
 
 function previousFoto(x){
-     crearSql('SELECT * FROM Galeria WHERE idPaciente="'+idPacienteSeleccionado+'"', previousFoto2);
+    if(modoMedsio == "local"){
+        crearSql('SELECT * FROM Galeria WHERE idPaciente="'+idPacienteSeleccionado+'"', previousFoto2);
+     }else{
+        var service= "Galeria/listar";
+        var string = "idPaciente="+idPacienteSeleccionado;
+
+        ajax(service, string, previousFoto2);
+    }
     
     function previousFoto2(y){
         var obj = JSON.parse(y);

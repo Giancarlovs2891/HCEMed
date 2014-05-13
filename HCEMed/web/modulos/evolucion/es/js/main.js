@@ -66,7 +66,9 @@
 start();
 var jsonGeneral ="";
 function start(){
-    crearTabla('CREATE TABLE IF NOT EXISTS EvolucionComentarios (idEvolucionComentario INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente INTEGER, firma LONGTEXT, comentario, fecha DATE, hora TIME)');
+    if(modoMedsio == "local"){
+        crearTabla('CREATE TABLE IF NOT EXISTS EvolucionComentarios (idEvolucionComentario INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente INTEGER, firma LONGTEXT, comentario, fecha DATE, hora TIME)');
+    }
     changeSubTitle("Evolucion");
     changeRightBtn("Guardar", "guardarEvolucion", "");
     definirModulosActivos();
@@ -93,8 +95,15 @@ function definirModulosActivos(){
 
 function definirNumeroEvoluciones(modulo, moduloDB){
     var idPaciente = getPatientId();
-    var query = "SELECT * FROM Evolucion WHERE idPaciente = '"+idPaciente+"' ORDER BY fecha";
-    crearSql(query, definirNumeroEvolucionesSuccess);
+    if(modoMedsio == "local"){
+        var query = "SELECT * FROM Evolucion WHERE idPaciente = '"+idPaciente+"' ORDER BY fecha";
+        crearSql(query, definirNumeroEvolucionesSuccess);
+    }else{
+        var service = "Evolucion/listar";
+        var string = "idPaciente="+idPaciente;
+        
+        ajax(service, string, definirNumeroEvolucionesSuccess);
+    }
     
     function definirNumeroEvolucionesSuccess(x){
         jsonGeneral = x;
@@ -122,7 +131,11 @@ function pintarEvoluciones(modulo, moduloDB, fechas){
             if(modulo[j] == "datos_basicos" || modulo[j] == "evolucion" || modulo[j] == "galeria"){
             
             }else{
-                var busquedaJson = '"nombreModulo" : "'+moduloDB[j]+'" , "fecha" : "'+fechas[i]+'"';
+                if(modoMedsio == "local"){
+                    var busquedaJson = '"nombreModulo" : "'+moduloDB[j]+'" , "fecha" : "'+fechas[i]+'"';
+                }else{
+                    var busquedaJson = '"nombreModulo":"'+moduloDB[j]+'","fecha":"'+fechas[i]+'"';
+                }
                 var existe = jsonGeneral.indexOf(busquedaJson);
                 if(existe == -1){
                     html += '<a href="javascript:void(0);" onclick=""><li><img src="modulos/'+modulo[j]+'/img/menu.png" /></li></a>';
@@ -136,9 +149,15 @@ function pintarEvoluciones(modulo, moduloDB, fechas){
         if(fechas[i] == hoy){
             html += '<textarea id="nuevaEvolucion"></textarea><canvas id="firmaEvolucion"></canvas><a href="javascript:void(0);" id="clearCanvas" onclick="clearCanvas();">Borrar Firma</a>';
         }
+        if(modoMedsio == "local"){
+            var query = "SELECT * FROM EvolucionComentarios WHERE idPaciente = '"+idPacienteSeleccionado+"' AND fecha = '"+fechas[i]+"' ORDER BY idEvolucionComentario DESC";
+            crearSql(query, pintarEvoluciones2);
+        }else{
+            var service = "EvolucionComentarios/listar";
+            var string = "idPaciente="+idPacienteSeleccionado+"&fecha="+fechas[i];
         
-        var query = "SELECT * FROM EvolucionComentarios WHERE idPaciente = '"+idPacienteSeleccionado+"' AND fecha = '"+fechas[i]+"' ORDER BY idEvolucionComentario DESC";
-        crearSql(query, pintarEvoluciones2);
+        ajax(service, string, pintarEvoluciones2);
+        }
         
         function pintarEvoluciones2(z){
             var obj3 = JSON.parse(z);
