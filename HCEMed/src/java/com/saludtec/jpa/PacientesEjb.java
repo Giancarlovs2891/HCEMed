@@ -21,6 +21,8 @@ public interface PacientesEjb {
     void eliminar(Integer idPaciente);
 
     Pacientes traer(Integer idPaciente);
+    
+    Pacientes traer(String identificacionPaciente);
 
     List<Pacientes> listar();
 

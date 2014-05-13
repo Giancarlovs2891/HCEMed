@@ -52,6 +52,10 @@ public class PacientesWeb extends HttpServlet {
                 case "traer":
                     traerPaciente(request).writeJSONString(out);
                     break;
+                    
+                case "traerIdentificacion":
+                    traerPacienteIdentificacion(request).writeJSONString(out);
+                    break;
 
                 case "listar":
                     listarPacientesUsuario(request).writeJSONString(out);
@@ -230,6 +234,24 @@ public class PacientesWeb extends HttpServlet {
             obj.put("telefonoEmergencia", paciente.getTelefonoEmergencia());
             obj.put("parentescoEmergencia", paciente.getParentescoEmergencia());
             obj.put("nombreReferido", paciente.getNombreReferido());
+            obj.put("fechaCreacion", paciente.getFechaCreacion());
+            obj.put("horaCreacion", paciente.getHoraCreacion());
+            objArray.add(obj);
+        }
+        return objArray;
+    }
+    
+     private JSONArray traerPacienteIdentificacion(HttpServletRequest request) {
+        Pacientes paciente = ejbPacientes.traer(request.getParameter("identificacionPaciente"));
+        obj = new JSONObject();
+        objArray = new JSONArray();
+        if (paciente != null) {
+            obj.put("idPaciente", paciente.getIdPaciente());
+            obj.put("nombrePaciente", paciente.getNombrePaciente());
+            obj.put("apellidoPaciente", paciente.getApellidoPaciente());
+            obj.put("tipoIdentificacionPaciente", paciente.getTipoIdentificacionPaciente());
+            obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());            
+            obj.put("sexoPaciente", paciente.getSexoPaciente());            
             obj.put("fechaCreacion", paciente.getFechaCreacion());
             obj.put("horaCreacion", paciente.getHoraCreacion());
             objArray.add(obj);

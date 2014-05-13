@@ -64,6 +64,14 @@ public class PacientesImpl implements PacientesEjb {
     public Pacientes traer(Integer idPaciente) {
         return em.find(Pacientes.class, idPaciente);
     }
+    
+    @Override
+    public Pacientes traer(String identificacionPaciente) {
+        Query query = em.createNamedQuery("Pacientes.findByIdentificacionPaciente");
+        query.setParameter("identificacionPaciente", identificacionPaciente);
+        List<Pacientes> paciente = query.getResultList();
+        return paciente.get(0);
+    }
 
     @Override
     public List<Pacientes> listar() {
@@ -87,5 +95,7 @@ public class PacientesImpl implements PacientesEjb {
         query.setParameter("idUsuario", usuario);
         return query.getResultList();
     }
+    
+    
 
 }
