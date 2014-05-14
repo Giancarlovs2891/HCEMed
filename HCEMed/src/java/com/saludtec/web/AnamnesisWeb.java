@@ -411,6 +411,7 @@ public class AnamnesisWeb extends HttpServlet {
         anamnesis.setOtrosAbueloP(request.getParameter("otrosAbueloP"));
         anamnesis.setOtrosAbueloM(request.getParameter("otrosAbueloM"));
         anamnesis.setOtrosNinguno(request.getParameter("otrosNinguno"));
+        anamnesis.setOtrosComentariosTablaAntecedentesFamiliares(request.getParameter("otrosComentariosTablaAntecedentesFamiliares"));
 //CREACION//CREACION
         anamnesis.setFechaCreacionAn(request.getParameter("fechaCreacionAn"));
         anamnesis.setHoraCreacionAn(request.getParameter("horaCreacionAn"));
@@ -778,6 +779,7 @@ public class AnamnesisWeb extends HttpServlet {
             obj.put("otrosAbueloP", anamnesis.getOtrosAbueloP());
             obj.put("otrosAbueloM", anamnesis.getOtrosAbueloM());
             obj.put("otrosNinguno", anamnesis.getOtrosNinguno());
+            obj.put("otrosComentariosTablaAntecedentesFamiliares", anamnesis.getOtrosComentariosTablaAntecedentesFamiliares());
 //CREACION//CREACION//CREACION
             obj.put("fechaCreacionAn", anamnesis.getFechaCreacionAn());
             obj.put("horaCreacionAn", anamnesis.getHoraCreacionAn());
@@ -1136,6 +1138,7 @@ public class AnamnesisWeb extends HttpServlet {
             obj.put("otrosAbueloP", anamnesis.getOtrosAbueloP());
             obj.put("otrosAbueloM", anamnesis.getOtrosAbueloM());
             obj.put("otrosNinguno", anamnesis.getOtrosNinguno());
+            obj.put("otrosComentariosTablaAntecedentesFamiliares", anamnesis.getOtrosComentariosTablaAntecedentesFamiliares());
 //CREACION//CREACION//CREACION
             obj.put("fechaCreacionAn", anamnesis.getFechaCreacionAn());
             obj.put("horaCreacionAn", anamnesis.getHoraCreacionAn());

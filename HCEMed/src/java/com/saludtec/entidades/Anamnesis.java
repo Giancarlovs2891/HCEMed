@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.saludtec.entidades;
 
 import java.io.Serializable;
@@ -32,9 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Anamnesis.findAll", query = "SELECT a FROM Anamnesis a"),
-    @NamedQuery(name = "Anamnesis.findByIdPaciente", query = "SELECT a FROM Anamnesis a WHERE a.idPaciente = :idPaciente ORDER BY a.idAnamnesis DESC"),  
-    @NamedQuery(name = "Anamnesis.findByIdPacienteAndFecha", query = "SELECT a FROM Anamnesis a WHERE a.idPaciente = :idPaciente AND a.fechaCreacionAn = :fecha ORDER BY a.idAnamnesis DESC"),  
-    
+    @NamedQuery(name = "Anamnesis.findByIdPaciente", query = "SELECT a FROM Anamnesis a WHERE a.idPaciente = :idPaciente ORDER BY a.idAnamnesis DESC"),
+    @NamedQuery(name = "Anamnesis.findByIdPacienteAndFecha", query = "SELECT a FROM Anamnesis a WHERE a.idPaciente = :idPaciente AND a.fechaCreacionAn = :fecha ORDER BY a.idAnamnesis DESC"),
     @NamedQuery(name = "Anamnesis.findByIdAnamnesis", query = "SELECT a FROM Anamnesis a WHERE a.idAnamnesis = :idAnamnesis"),
     @NamedQuery(name = "Anamnesis.findByMotivoConsulta", query = "SELECT a FROM Anamnesis a WHERE a.motivoConsulta = :motivoConsulta"),
     @NamedQuery(name = "Anamnesis.findByHistoriaEnfermedadActual", query = "SELECT a FROM Anamnesis a WHERE a.historiaEnfermedadActual = :historiaEnfermedadActual"),
@@ -305,6 +303,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Anamnesis.findByHoraCreacionAn", query = "SELECT a FROM Anamnesis a WHERE a.horaCreacionAn = :horaCreacionAn"),
     @NamedQuery(name = "Anamnesis.findByIdUsuario", query = "SELECT a FROM Anamnesis a WHERE a.idUsuario = :idUsuario")})
 public class Anamnesis implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -1310,6 +1309,10 @@ public class Anamnesis implements Serializable {
     @Size(max = 45)
     @Column(name = "otrosNinguno")
     private String otrosNinguno;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "otrosComentariosTablaAntecedentesFamiliares")
+    private String otrosComentariosTablaAntecedentesFamiliares;
     @Size(max = 45)
     @Column(name = "fechaCreacionAn")
     private String fechaCreacionAn;
@@ -3865,6 +3868,14 @@ public class Anamnesis implements Serializable {
         this.otrosNinguno = otrosNinguno;
     }
 
+    public String getOtrosComentariosTablaAntecedentesFamiliares() {
+        return otrosComentariosTablaAntecedentesFamiliares;
+    }
+
+    public void setOtrosComentariosTablaAntecedentesFamiliares(String otrosComentariosTablaAntecedentesFamiliares) {
+        this.otrosComentariosTablaAntecedentesFamiliares = otrosComentariosTablaAntecedentesFamiliares;
+    }
+
     public String getFechaCreacionAn() {
         return fechaCreacionAn;
     }
@@ -3921,5 +3932,5 @@ public class Anamnesis implements Serializable {
     public String toString() {
         return "com.saludtec.entidades.Anamnesis[ idAnamnesis=" + idAnamnesis + " ]";
     }
-    
+
 }
