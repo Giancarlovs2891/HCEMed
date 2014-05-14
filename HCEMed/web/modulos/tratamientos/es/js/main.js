@@ -65,6 +65,8 @@
 //RECUERDEN QUE DEBEN CAMBIAR EL MENU EN EL INDEX.HTML 
 start();
 function start(){
+    cargarEstadoPrevio("tratamientos",cargarEstadoPacienteNuevoPlanDeTratamiento);
+    iniciarGuardadoTemporal();
     changeSubTitle("Plan de Tratamiento");
     changeRightBtn("", "", "");
     if(modoMedsio == "local"){
@@ -222,8 +224,18 @@ function guardarEvolucionTr() {
     function nadaTr() {
     }
 }
-
-
+function cargarEstadoPacienteNuevoPlanDeTratamiento(json){
+    var Json = decodeURIComponent(json);
+    if(Json != ""){
+        $("div#medsioContent").loadJSON(eval(Json));
+        document.getElementById("nombreTratamiento").focus();
+        document.getElementById("nombreTratamiento").onkeyup();
+        
+    }
+}
+function guardarDesdeMas(){
+    document.getElementById("nombreTratamiento").onchange();
+}
 
 
 

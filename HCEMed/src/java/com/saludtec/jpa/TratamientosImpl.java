@@ -51,7 +51,7 @@ public class TratamientosImpl implements TratamientosEjb {
     @Override
     public Tratamientos traer(Integer idPaciente,String fecha) {
         Query query = em.createNamedQuery("Tratamientos.findByIdPacienteAndFecha");
-        query.setParameter("fecha", fecha);
+        query.setParameter("fechaTratamiento", fecha);
         Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         List<Tratamientos> tratamiento = query.getResultList();

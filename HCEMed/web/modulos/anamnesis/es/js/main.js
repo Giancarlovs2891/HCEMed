@@ -347,7 +347,8 @@ tabla += "otrosAbueloM, ";
 tabla += "otrosNinguno, ";
 //CREACION
 tabla += "fechaCreacionAn, ";
-tabla += "horaCreacionAn";
+tabla += "horaCreacionAn, ";
+tabla += "otrosComentariosTablaAntecedentesFamiliares";
 tabla += ")";
 start();
 function start() {
@@ -643,14 +644,560 @@ function cargarCamposAnamnesis(json) {
 
         deshabilitarCamposAn();
         changeRightBtn("Editar", "habilitarCamposAn", "");
+        cargarEstadoPrevio("anamnesis",cargarEstadoPacienteCargadoAnamnesis);
     } else {
+        iniciarGuardadoTemporal();
         $('input[type="radio"][value="no"]').prop("checked", true);
         habilitarCamposAn();
+        cargarEstadoPrevio("anamnesis",cargarEstadoPacienteNuevoAnamnesis);
         changeRightBtn("Guardar", "guardarAnamnesis", "");
     }
 }
+function cargarEstadoPacienteNuevoAnamnesis(json){
+    var Json = decodeURIComponent(json);
+    //$("div#medsioContent").loadJSON(eval(Json));
+    var obj = JSON.parse(Json);
+    $("#fechaDiagnosticoAlergia").val(obj[0].fechaDiagnosticoAlergia);
+        $("#inicioTratamientoAlergia").val(obj[0].inicioTratamientoAlergia);
+        $("#hastaTratamientoAlergia").val(obj[0].hastaTratamientoAlergia);
+        $("#fechaDiagnosticoHepatitis").val(obj[0].fechaDiagnosticoHepatitis);
+        $("#inicioTratamientoHepatitis").val(obj[0].inicioTratamientoHepatitis);
+        $("#hastaTratamientoHepatitis").val(obj[0].hastaTratamientoHepatitis);
+        $("#fechaDiagnosticoVih").val(obj[0].fechaDiagnosticoVih);
+        $("#inicioTratamientoVih").val(obj[0].inicioTratamientoVih);
+        $("#hastaTratamientoVih").val(obj[0].hastaTratamientoVih);
+        $("#fechaDiagnosticoAnemia").val(obj[0].fechaDiagnosticoAnemia);
+        $("#inicioTratamientoAnemia").val(obj[0].inicioTratamientoAnemia);
+        $("#hastaTratamientoAnemia").val(obj[0].hastaTratamientoAnemia);
+        $("#fechaDiagnosticoHerpes").val(obj[0].fechaDiagnosticoHerpes);
+        $("#inicioTratamientoHerpes").val(obj[0].inicioTratamientoHerpes);
+        $("#hastaTratamientoHerpes").val(obj[0].hastaTratamientoHerpes);
+        $("#fechaDiagnosticoEnfermedadRenal").val(obj[0].fechaDiagnosticoEnfermedadRenal);
+        $("#inicioTratamientoEnfermedadRenal").val(obj[0].inicioTratamientoEnfermedadRenal);
+        $("#hastaTratamientoEnfermedadRenal").val(obj[0].hastaTratamientoEnfermedadRenal);
+        $("#fechaDiagnosticoArtritis").val(obj[0].fechaDiagnosticoArtritis);
+        $("#inicioTratamientoArtritis").val(obj[0].inicioTratamientoArtritis);
+        $("#hastaTratamientoArtritis").val(obj[0].hastaTratamientoArtritis);
+        $("#fechaDiagnosticoUlcerasOrales").val(obj[0].fechaDiagnosticoUlcerasOrales);
+        $("#inicioTratamientoUlcerasOrales").val(obj[0].inicioTratamientoUlcerasOrales);
+        $("#hastaTratamientoUlcerasOrales").val(obj[0].hastaTratamientoUlcerasOrales);
+        $("#fechaDiagnosticoAsma").val(obj[0].fechaDiagnosticoAsma);
+        $("#inicioTratamientoAsma").val(obj[0].inicioTratamientoAsma);
+        $("#hastaTratamientoAsma").val(obj[0].hastaTratamientoAsma);
+        $("#fechaDiagnosticoDiabetes").val(obj[0].fechaDiagnosticoDiabetes);
+        $("#inicioTratamientoDiabetes").val(obj[0].inicioTratamientoDiabetes);
+        $("#hastaTratamientoDiabetes").val(obj[0].hastaTratamientoDiabetes);
+        $("#fechaDiagnosticoHemorragias").val(obj[0].fechaDiagnosticoHemorragias);
+        $("#inicioTratamientoHemorragias").val(obj[0].inicioTratamientoHemorragias);
+        $("#hastaTratamientoHemorragias").val(obj[0].hastaTratamientoHemorragias);
+        $("#fechaDiagnosticoProblemasEndocrinos").val(obj[0].fechaDiagnosticoProblemasEndocrinos);
+        $("#inicioTratamientoProblemasEndocrinos").val(obj[0].inicioTratamientoProblemasEndocrinos);
+        $("#hastaTratamientoProblemasEndocrinos").val(obj[0].hastaTratamientoProblemasEndocrinos);
+        $("#fechaDiagnosticoFiebreReumatica").val(obj[0].fechaDiagnosticoFiebreReumatica);
+        $("#inicioTratamientoFiebreReumatica").val(obj[0].inicioTratamientoFiebreReumatica);
+        $("#hastaTratamientoFiebreReumatica").val(obj[0].hastaTratamientoFiebreReumatica);
+        $("#fechaDiagnosticoCancer").val(obj[0].fechaDiagnosticoCancer);
+        $("#inicioTratamientoCancer").val(obj[0].inicioTratamientoCancer);
+        $("#hastaTratamientoCancer").val(obj[0].hastaTratamientoCancer);
+        $("#fechaDiagnosticoProblemasPsicologicos").val(obj[0].fechaDiagnosticoProblemasPsicologicos);
+        $("#inicioTratamientoProblemasPsicologicos").val(obj[0].inicioTratamientoProblemasPsicologicos);
+        $("#hastaTratamientoProblemasPsicologicos").val(obj[0].hastaTratamientoProblemasPsicologicos);
+        $("#fechaDiagnosticoProblemasTiroideos").val(obj[0].fechaDiagnosticoProblemasTiroideos);
+        $("#inicioTratamientoProblemasTiroideos").val(obj[0].inicioTratamientoProblemasTiroideos);
+        $("#hastaTratamientoProblemasTiroideos").val(obj[0].hastaTratamientoProblemasTiroideos);
+        $("#fechaDiagnosticoProblemasCardiacos").val(obj[0].fechaDiagnosticoProblemasCardiacos);
+        $("#inicioTratamientoProblemasCardiacos").val(obj[0].inicioTratamientoProblemasCardiacos);
+        $("#hastaTratamientoProblemasCardiacos").val(obj[0].hastaTratamientoProblemasCardiacos);
+        $("#fechaDiagnosticoEpilepsia").val(obj[0].fechaDiagnosticoEpilepsia);
+        $("#inicioTratamientoEpilepsia").val(obj[0].inicioTratamientoEpilepsia);
+        $("#hastaTratamientoEpilepsia").val(obj[0].hastaTratamientoEpilepsia);
+        $("#fechaDiagnosticoTuberculosis").val(obj[0].fechaDiagnosticoTuberculosis);
+        $("#inicioTratamientoTuberculosis").val(obj[0].inicioTratamientoTuberculosis);
+        $("#hastaTratamientoTuberculosis").val(obj[0].hastaTratamientoTuberculosis);
+        $("#fechaDiagnosticoOsteoporosis").val(obj[0].fechaDiagnosticoOsteoporosis);
+        $("#inicioTratamientoOsteoporosis").val(obj[0].inicioTratamientoOsteoporosis);
+        $("#hastaTratamientoOsteoporosis").val(obj[0].hastaTratamientoOsteoporosis);
+        $("#fechaDiagnosticoHipertension").val(obj[0].fechaDiagnosticoHipertension);
+        $("#inicioTratamientoHipertension").val(obj[0].inicioTratamientoHipertension);
+        $("#hastaTratamientoHipertension").val(obj[0].hastaTratamientoHipertension);
+        $("#fechaDiagnosticoProblemasPsiquiatricos").val(obj[0].fechaDiagnosticoProblemasPsiquiatricos);
+        $("#inicioTratamientoProblemasPsiquiatricos").val(obj[0].inicioTratamientoProblemasPsiquiatricos);
+        $("#hastaTratamientoProblemasPsiquiatricos").val(obj[0].hastaTratamientoProblemasPsiquiatricos);
 
+        $("div#anamnesisContenedor").loadJSON(eval(Json));
+
+        definirChecksAn("bajoMedicacion", obj[0].bajoMedicacion, "capaBajoMedicacion");
+        //ALERGIA
+        definirChecksAn("alergia", obj[0].alergia, "capaAlergia");
+        definirChecksAn("tratamientoAlergia", obj[0].tratamientoAlergia, "capaTratamientoAlergia");
+        //HEPATITIS
+        definirChecksAn("hepatitis", obj[0].hepatitis, "capaHepatitis");
+        definirChecksAn("tratamientoHepatitis", obj[0].tratamientoHepatitis, "capaTratamientoHepatitis");
+        //VIH
+        definirChecksAn("vih", obj[0].vih, "capaVih");
+        definirChecksAn("tratamientoVih", obj[0].tratamientoVih, "capaTratamientoVih");
+        //ANEMIA
+        definirChecksAn("anemia", obj[0].anemia, "capaAnemia");
+        definirChecksAn("tratamientoAnemia", obj[0].tratamientoAnemia, "capaTratamientoAnemia");
+        //HERPES
+        definirChecksAn("herpes", obj[0].herpes, "capaHerpes");
+        definirChecksAn("tratamientoHerpes", obj[0].tratamientoHerpes, "capaTratamientoHerpes");
+        //ENFERMEDAD RENAL
+        definirChecksAn("enfermedadRenal", obj[0].enfermedadRenal, "capaEnfermedadRenal");
+        definirChecksAn("tratamientoEnfermedadRenal", obj[0].tratamientoEnfermedadRenal, "capaTratamientoEnfermedadRenal");
+        //ARTRITIS
+        definirChecksAn("artritis", obj[0].artritis, "capaArtritis");
+        definirChecksAn("tratamientoArtritis", obj[0].tratamientoArtritis, "capaTratamientoArtritis");
+        //ULCERAS ORALES
+        definirChecksAn("ulceraOrales", obj[0].ulceraOrales, "capaUlcerasOrales");
+        definirChecksAn("tratamientoUlcerasOrales", obj[0].tratamientoUlcerasOrales, "capaTratamientoUlcerasOrales");
+        //ASMA
+        definirChecksAn("asma", obj[0].asma, "capaAsma");
+        definirChecksAn("tratamientoAsma", obj[0].tratamientoAsma, "capaTratamientoAsma");
+        //DIABETES
+        definirChecksAn("diabetes", obj[0].diabetes, "capaDiabetes");
+        definirChecksAn("tratamientoDiabetes", obj[0].tratamientoDiabetes, "capaTratamientoDiabetes");
+        //HEMORRAGIAS
+        definirChecksAn("hemorragias", obj[0].hemorragias, "capaHemorragias");
+        definirChecksAn("tratamientoHemorragias", obj[0].tratamientoHemorragias, "capaTratamientoHemorragias");
+        //PROBLEMAS ENDOCRINOS
+        definirChecksAn("problemasEndocrinos", obj[0].problemasEndocrinos, "capaProblemasEndocrinos");
+        definirChecksAn("tratamientoProblemasEndocrinos", obj[0].tratamientoProblemasEndocrinos, "capaTratamientoProblemasEndocrinos");
+        //FIEBRE REUMATICA
+        definirChecksAn("fiebreReumatica", obj[0].fiebreReumatica, "capaFiebreReumatica");
+        definirChecksAn("tratamientoFiebreReumatica", obj[0].tratamientoFiebreReumatica, "capaTratamientoFiebreReumatica");
+        //CANCER
+        definirChecksAn("cancer", obj[0].cancer, "capaCancer");
+        definirChecksAn("tratamientoCancer", obj[0].tratamientoCancer, "capaTratamientoCancer");
+        //PROBLEMAS PSICOLOGICOS
+        definirChecksAn("problemasPsicologicos", obj[0].problemasPsicologicos, "capaProblemasPsicologicos");
+        definirChecksAn("tratamientoProblemasPsicologicos", obj[0].tratamientoProblemasPsicologicos, "capaTratamientoProblemasPsicologicos");
+        //PROBLEMAS TIROIDEOS
+        definirChecksAn("problemasTiroideos", obj[0].problemasTiroideos, "capaProblemasTiroideos");
+        definirChecksAn("tratamientoProblemasTiroideos", obj[0].tratamientoProblemasTiroideos, "capaTratamientoProblemasTiroideos");
+        //PROBLEMAS CARDIACOS
+        definirChecksAn("problemasCardiacos", obj[0].problemasCardiacos, "capaProblemasCardiacos");
+        definirChecksAn("tratamientoProblemasCardiacos", obj[0].tratamientoProblemasCardiacos, "capaTratamientoProblemasCardiacos");
+        //EPILEPSIAS
+        definirChecksAn("epilepsia", obj[0].epilepsia, "capaEpilepsia");
+        definirChecksAn("tratamientoEpilepsia", obj[0].tratamientoEpilepsia, "capaTratamientoEpilepsia");
+        //TUBERCULOSIS
+        definirChecksAn("tuberculosis", obj[0].tuberculosis, "capaTuberculosis");
+        definirChecksAn("tratamientoTuberculosis", obj[0].tratamientoTuberculosis, "capaTratamientoTuberculosis");
+        //OSTEOPOROSIS
+        definirChecksAn("osteoporosis", obj[0].osteoporosis, "capaOsteoporosis");
+        definirChecksAn("tratamientoOsteoporosis", obj[0].tratamientoOsteoporosis, "capaTratamientoOsteoporosis");
+        //HIPERTENSION
+        definirChecksAn("hipertension", obj[0].hipertension, "capaHipertension");
+        definirChecksAn("tratamientoHipertension", obj[0].tratamientoHipertension, "capaTratamientoHipertension");
+        //PROBLEMAS PSIQUIATRICOS
+        definirChecksAn("problemasPsiquiatricos", obj[0].problemasPsiquiatricos, "capaProblemasPsiquiatricos");
+        definirChecksAn("tratamientoProblemasPsiquiatricos", obj[0].tratamientoProblemasPsiquiatricos, "capaTratamientoProblemasPsiquiatricos");
+
+        //ANTECEDENTES TRAUMATOLOGICOS
+        if ($("[name=fractura][value=si]").is(":checked")) {
+            mostrarConClase("at");
+        }
+        checksAt("cadera", obj[0].cadera);
+        checksAt("tobillo", obj[0].tobillo);
+        checksAt("femur", obj[0].femur);
+        checksAt("muneca", obj[0].muneca);
+        checksAt("antebrazo", obj[0].antebrazo);
+        checksAt("vertebra", obj[0].vertebra);
+        checksAt("columna", obj[0].columna);
+        checksAt("otraFractura", obj[0].otraFractura);
+        definirChecksAn("otraFractura", obj[0].otraFractura, "otraFracturaCapa");
+        //ANTECEDENTES GINECOLOGICOS
+        $("#edadDeLosHijos").val(obj[0].edadDeLosHijos.split(",").join("\n"));
+        ocultarGinecologia();
+
+        //HABITOS
+        //TABAQUISMO
+        definirChecksAn("tabaquismo", obj[0].tabaquismo, "fumaDesdeFrecuencia");
+        //LICOR
+        definirChecksAn("licor", obj[0].licor, "capaLicor");
+        //CAFE
+        definirChecksAn("cafe", obj[0].cafe, "capaCafe");
+        //LECHE DERIVADOS
+        definirChecksAn("lecheDerivados", obj[0].lecheDerivados, "capaLecheDerivados");
+        //FRUTAS FRESCAS
+        definirChecksAn("frutasFrescas", obj[0].frutasFrescas, "capaFrutasFrescas");
+        //REALIZA EHJERCICIO
+        definirChecksAn("realizaEjercicio", obj[0].realizaEjercicio, "capaFrecuenciaEjercicio");
+        //PESCADOS
+        definirChecksAn("pescados", obj[0].pescados, "capaPescados");
+        definirChecksAn("pescadoRio", obj[0].pescadoRio, "capaPescadosRioFrecuencia");
+        definirChecksAn("pescadoMar", obj[0].pescadoMar, "capaTipoPescadoMar");
+        definirChecksAn("blanco", obj[0].blanco, "capaPescadosMarBlanco");
+        definirChecksAn("azules", obj[0].azules, "capaPescadosMarAzules");
+
+        //ANTECEDENTES FAMILIARES
+        //DIABETES
+        checksAt("diabetesPadre", obj[0].diabetesPadre);
+        checksAt("diabetesMadre", obj[0].diabetesMadre);
+        checksAt("diabetesHijo", obj[0].diabetesHijo);
+        checksAt("diabetesTioP", obj[0].diabetesTioP);
+        checksAt("diabetesTioM", obj[0].diabetesTioM);
+        checksAt("diabetesHnos", obj[0].diabetesHnos);
+        checksAt("diabetesAbueloP", obj[0].diabetesAbueloP);
+        checksAt("diabetesAbueloM", obj[0].diabetesAbueloM);
+        checksAt("diabetesNinguno", obj[0].diabetesNinguno);
+        //OBESIDAD
+        checksAt("obesidadPadre", obj[0].obesidadPadre);
+        checksAt("obesidadMadre", obj[0].obesidadMadre);
+        checksAt("obesidadHijo", obj[0].obesidadHijo);
+        checksAt("obesidadTioP", obj[0].obesidadTioP);
+        checksAt("obesidadTioM", obj[0].obesidadTioM);
+        checksAt("obesidadHnos", obj[0].obesidadHnos);
+        checksAt("obesidadAbueloP", obj[0].obesidadAbueloP);
+        checksAt("obesidadAbueloM", obj[0].obesidadAbueloM);
+        checksAt("obesidadNinguno", obj[0].obesidadNinguno);
+        //COLESTEROL
+        checksAt("colesterolPadre", obj[0].colesterolPadre);
+        checksAt("colesterolMadre", obj[0].colesterolMadre);
+        checksAt("colesterolHijo", obj[0].colesterolHijo);
+        checksAt("colesterolTioP", obj[0].colesterolTioP);
+        checksAt("colesterolTioM", obj[0].colesterolTioM);
+        checksAt("colesterolHnos", obj[0].colesterolHnos);
+        checksAt("colesterolAbueloP", obj[0].colesterolAbueloP);
+        checksAt("colesterolAbueloM", obj[0].colesterolAbueloM);
+        checksAt("colesterolNinguno", obj[0].colesterolNinguno);
+        //TRIGLICERIDOS
+        checksAt("trigliceridosPadre", obj[0].trigliceridosPadre);
+        checksAt("trigliceridosMadre", obj[0].trigliceridosMadre);
+        checksAt("trigliceridosHijo", obj[0].trigliceridosHijo);
+        checksAt("trigliceridosTioP", obj[0].trigliceridosTioP);
+        checksAt("trigliceridosTioM", obj[0].trigliceridosTioM);
+        checksAt("trigliceridosHnos", obj[0].trigliceridosHnos);
+        checksAt("trigliceridosAbueloP", obj[0].trigliceridosAbueloP);
+        checksAt("trigliceridosAbueloM", obj[0].trigliceridosAbueloM);
+        checksAt("trigliceridosNinguno", obj[0].trigliceridosNinguno);
+        //INFARTOS
+        checksAt("infartosPadre", obj[0].infartosPadre);
+        checksAt("infartosMadre", obj[0].infartosMadre);
+        checksAt("infartosHijo", obj[0].infartosHijo);
+        checksAt("infartosTioP", obj[0].infartosTioP);
+        checksAt("infartosTioM", obj[0].infartosTioM);
+        checksAt("infartosHnos", obj[0].infartosHnos);
+        checksAt("infartosAbueloP", obj[0].infartosAbueloP);
+        checksAt("infartosAbueloM", obj[0].infartosAbueloM);
+        checksAt("infartosNinguno", obj[0].infartosNinguno);
+        //HIPERTENSION
+        checksAt("hipertensionPadre", obj[0].hipertensionPadre);
+        checksAt("hipertensionMadre", obj[0].hipertensionMadre);
+        checksAt("hipertensionHijo", obj[0].hipertensionHijo);
+        checksAt("hipertensionTioP", obj[0].hipertensionTioP);
+        checksAt("hipertensionTioM", obj[0].hipertensionTioM);
+        checksAt("hipertensionHnos", obj[0].hipertensionHnos);
+        checksAt("hipertensionAbueloP", obj[0].hipertensionAbueloP);
+        checksAt("hipertensionAbueloM", obj[0].hipertensionAbueloM);
+        checksAt("hipertensionNinguno", obj[0].hipertensionNinguno);
+        //CANCER
+        checksAt("cancerPadre", obj[0].cancerPadre);
+        checksAt("cancerMadre", obj[0].cancerMadre);
+        checksAt("cancerHijo", obj[0].cancerHijo);
+        checksAt("cancerTioP", obj[0].cancerTioP);
+        checksAt("cancerTioM", obj[0].cancerTioM);
+        checksAt("cancerHnos", obj[0].cancerHnos);
+        checksAt("cancerAbueloP", obj[0].cancerAbueloP);
+        checksAt("cancerAbueloM", obj[0].cancerAbueloM);
+        checksAt("cancerNinguno", obj[0].cancerNinguno);
+        //OSTEOPOROSIS
+        checksAt("osteoporosisPadre", obj[0].osteoporosisPadre);
+        checksAt("osteoporosisMadre", obj[0].osteoporosisMadre);
+        checksAt("osteoporosisHijo", obj[0].osteoporosisHijo);
+        checksAt("osteoporosisTioP", obj[0].osteoporosisTioP);
+        checksAt("osteoporosisTioM", obj[0].osteoporosisTioM);
+        checksAt("osteoporosisHnos", obj[0].osteoporosisHnos);
+        checksAt("osteoporosisAbueloP", obj[0].osteoporosisAbueloP);
+        checksAt("osteoporosisAbueloM", obj[0].osteoporosisAbueloM);
+        checksAt("osteoporosisNinguno", obj[0].osteoporosisNinguno);
+        //OTROS
+        checksAt("otrosPadre", obj[0].otrosPadre);
+        checksAt("otrosMadre", obj[0].otrosMadre);
+        checksAt("otrosHijo", obj[0].otrosHijo);
+        checksAt("otrosTioP", obj[0].otrosTioP);
+        checksAt("otrosTioM", obj[0].otrosTioM);
+        checksAt("otrosHnos", obj[0].otrosHnos);
+        checksAt("otrosAbueloP", obj[0].otrosAbueloP);
+        checksAt("otrosAbueloM", obj[0].otrosAbueloM);
+        checksAt("otrosNinguno", obj[0].otrosNinguno);
+     
+}
+function cargarEstadoPacienteCargadoAnamnesis(json){
+    var Json = decodeURIComponent(json);
+    if(Json != ""){
+        var obj = JSON.parse(Json);
+       habilitarCamposAn(); 
+       $("#fechaDiagnosticoAlergia").val(obj[0].fechaDiagnosticoAlergia);
+        $("#inicioTratamientoAlergia").val(obj[0].inicioTratamientoAlergia);
+        $("#hastaTratamientoAlergia").val(obj[0].hastaTratamientoAlergia);
+        $("#fechaDiagnosticoHepatitis").val(obj[0].fechaDiagnosticoHepatitis);
+        $("#inicioTratamientoHepatitis").val(obj[0].inicioTratamientoHepatitis);
+        $("#hastaTratamientoHepatitis").val(obj[0].hastaTratamientoHepatitis);
+        $("#fechaDiagnosticoVih").val(obj[0].fechaDiagnosticoVih);
+        $("#inicioTratamientoVih").val(obj[0].inicioTratamientoVih);
+        $("#hastaTratamientoVih").val(obj[0].hastaTratamientoVih);
+        $("#fechaDiagnosticoAnemia").val(obj[0].fechaDiagnosticoAnemia);
+        $("#inicioTratamientoAnemia").val(obj[0].inicioTratamientoAnemia);
+        $("#hastaTratamientoAnemia").val(obj[0].hastaTratamientoAnemia);
+        $("#fechaDiagnosticoHerpes").val(obj[0].fechaDiagnosticoHerpes);
+        $("#inicioTratamientoHerpes").val(obj[0].inicioTratamientoHerpes);
+        $("#hastaTratamientoHerpes").val(obj[0].hastaTratamientoHerpes);
+        $("#fechaDiagnosticoEnfermedadRenal").val(obj[0].fechaDiagnosticoEnfermedadRenal);
+        $("#inicioTratamientoEnfermedadRenal").val(obj[0].inicioTratamientoEnfermedadRenal);
+        $("#hastaTratamientoEnfermedadRenal").val(obj[0].hastaTratamientoEnfermedadRenal);
+        $("#fechaDiagnosticoArtritis").val(obj[0].fechaDiagnosticoArtritis);
+        $("#inicioTratamientoArtritis").val(obj[0].inicioTratamientoArtritis);
+        $("#hastaTratamientoArtritis").val(obj[0].hastaTratamientoArtritis);
+        $("#fechaDiagnosticoUlcerasOrales").val(obj[0].fechaDiagnosticoUlcerasOrales);
+        $("#inicioTratamientoUlcerasOrales").val(obj[0].inicioTratamientoUlcerasOrales);
+        $("#hastaTratamientoUlcerasOrales").val(obj[0].hastaTratamientoUlcerasOrales);
+        $("#fechaDiagnosticoAsma").val(obj[0].fechaDiagnosticoAsma);
+        $("#inicioTratamientoAsma").val(obj[0].inicioTratamientoAsma);
+        $("#hastaTratamientoAsma").val(obj[0].hastaTratamientoAsma);
+        $("#fechaDiagnosticoDiabetes").val(obj[0].fechaDiagnosticoDiabetes);
+        $("#inicioTratamientoDiabetes").val(obj[0].inicioTratamientoDiabetes);
+        $("#hastaTratamientoDiabetes").val(obj[0].hastaTratamientoDiabetes);
+        $("#fechaDiagnosticoHemorragias").val(obj[0].fechaDiagnosticoHemorragias);
+        $("#inicioTratamientoHemorragias").val(obj[0].inicioTratamientoHemorragias);
+        $("#hastaTratamientoHemorragias").val(obj[0].hastaTratamientoHemorragias);
+        $("#fechaDiagnosticoProblemasEndocrinos").val(obj[0].fechaDiagnosticoProblemasEndocrinos);
+        $("#inicioTratamientoProblemasEndocrinos").val(obj[0].inicioTratamientoProblemasEndocrinos);
+        $("#hastaTratamientoProblemasEndocrinos").val(obj[0].hastaTratamientoProblemasEndocrinos);
+        $("#fechaDiagnosticoFiebreReumatica").val(obj[0].fechaDiagnosticoFiebreReumatica);
+        $("#inicioTratamientoFiebreReumatica").val(obj[0].inicioTratamientoFiebreReumatica);
+        $("#hastaTratamientoFiebreReumatica").val(obj[0].hastaTratamientoFiebreReumatica);
+        $("#fechaDiagnosticoCancer").val(obj[0].fechaDiagnosticoCancer);
+        $("#inicioTratamientoCancer").val(obj[0].inicioTratamientoCancer);
+        $("#hastaTratamientoCancer").val(obj[0].hastaTratamientoCancer);
+        $("#fechaDiagnosticoProblemasPsicologicos").val(obj[0].fechaDiagnosticoProblemasPsicologicos);
+        $("#inicioTratamientoProblemasPsicologicos").val(obj[0].inicioTratamientoProblemasPsicologicos);
+        $("#hastaTratamientoProblemasPsicologicos").val(obj[0].hastaTratamientoProblemasPsicologicos);
+        $("#fechaDiagnosticoProblemasTiroideos").val(obj[0].fechaDiagnosticoProblemasTiroideos);
+        $("#inicioTratamientoProblemasTiroideos").val(obj[0].inicioTratamientoProblemasTiroideos);
+        $("#hastaTratamientoProblemasTiroideos").val(obj[0].hastaTratamientoProblemasTiroideos);
+        $("#fechaDiagnosticoProblemasCardiacos").val(obj[0].fechaDiagnosticoProblemasCardiacos);
+        $("#inicioTratamientoProblemasCardiacos").val(obj[0].inicioTratamientoProblemasCardiacos);
+        $("#hastaTratamientoProblemasCardiacos").val(obj[0].hastaTratamientoProblemasCardiacos);
+        $("#fechaDiagnosticoEpilepsia").val(obj[0].fechaDiagnosticoEpilepsia);
+        $("#inicioTratamientoEpilepsia").val(obj[0].inicioTratamientoEpilepsia);
+        $("#hastaTratamientoEpilepsia").val(obj[0].hastaTratamientoEpilepsia);
+        $("#fechaDiagnosticoTuberculosis").val(obj[0].fechaDiagnosticoTuberculosis);
+        $("#inicioTratamientoTuberculosis").val(obj[0].inicioTratamientoTuberculosis);
+        $("#hastaTratamientoTuberculosis").val(obj[0].hastaTratamientoTuberculosis);
+        $("#fechaDiagnosticoOsteoporosis").val(obj[0].fechaDiagnosticoOsteoporosis);
+        $("#inicioTratamientoOsteoporosis").val(obj[0].inicioTratamientoOsteoporosis);
+        $("#hastaTratamientoOsteoporosis").val(obj[0].hastaTratamientoOsteoporosis);
+        $("#fechaDiagnosticoHipertension").val(obj[0].fechaDiagnosticoHipertension);
+        $("#inicioTratamientoHipertension").val(obj[0].inicioTratamientoHipertension);
+        $("#hastaTratamientoHipertension").val(obj[0].hastaTratamientoHipertension);
+        $("#fechaDiagnosticoProblemasPsiquiatricos").val(obj[0].fechaDiagnosticoProblemasPsiquiatricos);
+        $("#inicioTratamientoProblemasPsiquiatricos").val(obj[0].inicioTratamientoProblemasPsiquiatricos);
+        $("#hastaTratamientoProblemasPsiquiatricos").val(obj[0].hastaTratamientoProblemasPsiquiatricos);
+
+        $("div#anamnesisContenedor").loadJSON(eval(Json));
+
+        definirChecksAn("bajoMedicacion", obj[0].bajoMedicacion, "capaBajoMedicacion");
+        //ALERGIA
+        definirChecksAn("alergia", obj[0].alergia, "capaAlergia");
+        definirChecksAn("tratamientoAlergia", obj[0].tratamientoAlergia, "capaTratamientoAlergia");
+        //HEPATITIS
+        definirChecksAn("hepatitis", obj[0].hepatitis, "capaHepatitis");
+        definirChecksAn("tratamientoHepatitis", obj[0].tratamientoHepatitis, "capaTratamientoHepatitis");
+        //VIH
+        definirChecksAn("vih", obj[0].vih, "capaVih");
+        definirChecksAn("tratamientoVih", obj[0].tratamientoVih, "capaTratamientoVih");
+        //ANEMIA
+        definirChecksAn("anemia", obj[0].anemia, "capaAnemia");
+        definirChecksAn("tratamientoAnemia", obj[0].tratamientoAnemia, "capaTratamientoAnemia");
+        //HERPES
+        definirChecksAn("herpes", obj[0].herpes, "capaHerpes");
+        definirChecksAn("tratamientoHerpes", obj[0].tratamientoHerpes, "capaTratamientoHerpes");
+        //ENFERMEDAD RENAL
+        definirChecksAn("enfermedadRenal", obj[0].enfermedadRenal, "capaEnfermedadRenal");
+        definirChecksAn("tratamientoEnfermedadRenal", obj[0].tratamientoEnfermedadRenal, "capaTratamientoEnfermedadRenal");
+        //ARTRITIS
+        definirChecksAn("artritis", obj[0].artritis, "capaArtritis");
+        definirChecksAn("tratamientoArtritis", obj[0].tratamientoArtritis, "capaTratamientoArtritis");
+        //ULCERAS ORALES
+        definirChecksAn("ulceraOrales", obj[0].ulceraOrales, "capaUlcerasOrales");
+        definirChecksAn("tratamientoUlcerasOrales", obj[0].tratamientoUlcerasOrales, "capaTratamientoUlcerasOrales");
+        //ASMA
+        definirChecksAn("asma", obj[0].asma, "capaAsma");
+        definirChecksAn("tratamientoAsma", obj[0].tratamientoAsma, "capaTratamientoAsma");
+        //DIABETES
+        definirChecksAn("diabetes", obj[0].diabetes, "capaDiabetes");
+        definirChecksAn("tratamientoDiabetes", obj[0].tratamientoDiabetes, "capaTratamientoDiabetes");
+        //HEMORRAGIAS
+        definirChecksAn("hemorragias", obj[0].hemorragias, "capaHemorragias");
+        definirChecksAn("tratamientoHemorragias", obj[0].tratamientoHemorragias, "capaTratamientoHemorragias");
+        //PROBLEMAS ENDOCRINOS
+        definirChecksAn("problemasEndocrinos", obj[0].problemasEndocrinos, "capaProblemasEndocrinos");
+        definirChecksAn("tratamientoProblemasEndocrinos", obj[0].tratamientoProblemasEndocrinos, "capaTratamientoProblemasEndocrinos");
+        //FIEBRE REUMATICA
+        definirChecksAn("fiebreReumatica", obj[0].fiebreReumatica, "capaFiebreReumatica");
+        definirChecksAn("tratamientoFiebreReumatica", obj[0].tratamientoFiebreReumatica, "capaTratamientoFiebreReumatica");
+        //CANCER
+        definirChecksAn("cancer", obj[0].cancer, "capaCancer");
+        definirChecksAn("tratamientoCancer", obj[0].tratamientoCancer, "capaTratamientoCancer");
+        //PROBLEMAS PSICOLOGICOS
+        definirChecksAn("problemasPsicologicos", obj[0].problemasPsicologicos, "capaProblemasPsicologicos");
+        definirChecksAn("tratamientoProblemasPsicologicos", obj[0].tratamientoProblemasPsicologicos, "capaTratamientoProblemasPsicologicos");
+        //PROBLEMAS TIROIDEOS
+        definirChecksAn("problemasTiroideos", obj[0].problemasTiroideos, "capaProblemasTiroideos");
+        definirChecksAn("tratamientoProblemasTiroideos", obj[0].tratamientoProblemasTiroideos, "capaTratamientoProblemasTiroideos");
+        //PROBLEMAS CARDIACOS
+        definirChecksAn("problemasCardiacos", obj[0].problemasCardiacos, "capaProblemasCardiacos");
+        definirChecksAn("tratamientoProblemasCardiacos", obj[0].tratamientoProblemasCardiacos, "capaTratamientoProblemasCardiacos");
+        //EPILEPSIAS
+        definirChecksAn("epilepsia", obj[0].epilepsia, "capaEpilepsia");
+        definirChecksAn("tratamientoEpilepsia", obj[0].tratamientoEpilepsia, "capaTratamientoEpilepsia");
+        //TUBERCULOSIS
+        definirChecksAn("tuberculosis", obj[0].tuberculosis, "capaTuberculosis");
+        definirChecksAn("tratamientoTuberculosis", obj[0].tratamientoTuberculosis, "capaTratamientoTuberculosis");
+        //OSTEOPOROSIS
+        definirChecksAn("osteoporosis", obj[0].osteoporosis, "capaOsteoporosis");
+        definirChecksAn("tratamientoOsteoporosis", obj[0].tratamientoOsteoporosis, "capaTratamientoOsteoporosis");
+        //HIPERTENSION
+        definirChecksAn("hipertension", obj[0].hipertension, "capaHipertension");
+        definirChecksAn("tratamientoHipertension", obj[0].tratamientoHipertension, "capaTratamientoHipertension");
+        //PROBLEMAS PSIQUIATRICOS
+        definirChecksAn("problemasPsiquiatricos", obj[0].problemasPsiquiatricos, "capaProblemasPsiquiatricos");
+        definirChecksAn("tratamientoProblemasPsiquiatricos", obj[0].tratamientoProblemasPsiquiatricos, "capaTratamientoProblemasPsiquiatricos");
+
+        //ANTECEDENTES TRAUMATOLOGICOS
+        if ($("[name=fractura][value=si]").is(":checked")) {
+            mostrarConClase("at");
+        }
+        checksAt("cadera", obj[0].cadera);
+        checksAt("tobillo", obj[0].tobillo);
+        checksAt("femur", obj[0].femur);
+        checksAt("muneca", obj[0].muneca);
+        checksAt("antebrazo", obj[0].antebrazo);
+        checksAt("vertebra", obj[0].vertebra);
+        checksAt("columna", obj[0].columna);
+        checksAt("otraFractura", obj[0].otraFractura);
+        definirChecksAn("otraFractura", obj[0].otraFractura, "otraFracturaCapa");
+        //ANTECEDENTES GINECOLOGICOS
+        $("#edadDeLosHijos").val(obj[0].edadDeLosHijos.split(",").join("\n"));
+        ocultarGinecologia();
+
+        //HABITOS
+        //TABAQUISMO
+        definirChecksAn("tabaquismo", obj[0].tabaquismo, "fumaDesdeFrecuencia");
+        //LICOR
+        definirChecksAn("licor", obj[0].licor, "capaLicor");
+        //CAFE
+        definirChecksAn("cafe", obj[0].cafe, "capaCafe");
+        //LECHE DERIVADOS
+        definirChecksAn("lecheDerivados", obj[0].lecheDerivados, "capaLecheDerivados");
+        //FRUTAS FRESCAS
+        definirChecksAn("frutasFrescas", obj[0].frutasFrescas, "capaFrutasFrescas");
+        //REALIZA EHJERCICIO
+        definirChecksAn("realizaEjercicio", obj[0].realizaEjercicio, "capaFrecuenciaEjercicio");
+        //PESCADOS
+        definirChecksAn("pescados", obj[0].pescados, "capaPescados");
+        definirChecksAn("pescadoRio", obj[0].pescadoRio, "capaPescadosRioFrecuencia");
+        definirChecksAn("pescadoMar", obj[0].pescadoMar, "capaTipoPescadoMar");
+        definirChecksAn("blanco", obj[0].blanco, "capaPescadosMarBlanco");
+        definirChecksAn("azules", obj[0].azules, "capaPescadosMarAzules");
+
+        //ANTECEDENTES FAMILIARES
+        //DIABETES
+        checksAt("diabetesPadre", obj[0].diabetesPadre);
+        checksAt("diabetesMadre", obj[0].diabetesMadre);
+        checksAt("diabetesHijo", obj[0].diabetesHijo);
+        checksAt("diabetesTioP", obj[0].diabetesTioP);
+        checksAt("diabetesTioM", obj[0].diabetesTioM);
+        checksAt("diabetesHnos", obj[0].diabetesHnos);
+        checksAt("diabetesAbueloP", obj[0].diabetesAbueloP);
+        checksAt("diabetesAbueloM", obj[0].diabetesAbueloM);
+        checksAt("diabetesNinguno", obj[0].diabetesNinguno);
+        //OBESIDAD
+        checksAt("obesidadPadre", obj[0].obesidadPadre);
+        checksAt("obesidadMadre", obj[0].obesidadMadre);
+        checksAt("obesidadHijo", obj[0].obesidadHijo);
+        checksAt("obesidadTioP", obj[0].obesidadTioP);
+        checksAt("obesidadTioM", obj[0].obesidadTioM);
+        checksAt("obesidadHnos", obj[0].obesidadHnos);
+        checksAt("obesidadAbueloP", obj[0].obesidadAbueloP);
+        checksAt("obesidadAbueloM", obj[0].obesidadAbueloM);
+        checksAt("obesidadNinguno", obj[0].obesidadNinguno);
+        //COLESTEROL
+        checksAt("colesterolPadre", obj[0].colesterolPadre);
+        checksAt("colesterolMadre", obj[0].colesterolMadre);
+        checksAt("colesterolHijo", obj[0].colesterolHijo);
+        checksAt("colesterolTioP", obj[0].colesterolTioP);
+        checksAt("colesterolTioM", obj[0].colesterolTioM);
+        checksAt("colesterolHnos", obj[0].colesterolHnos);
+        checksAt("colesterolAbueloP", obj[0].colesterolAbueloP);
+        checksAt("colesterolAbueloM", obj[0].colesterolAbueloM);
+        checksAt("colesterolNinguno", obj[0].colesterolNinguno);
+        //TRIGLICERIDOS
+        checksAt("trigliceridosPadre", obj[0].trigliceridosPadre);
+        checksAt("trigliceridosMadre", obj[0].trigliceridosMadre);
+        checksAt("trigliceridosHijo", obj[0].trigliceridosHijo);
+        checksAt("trigliceridosTioP", obj[0].trigliceridosTioP);
+        checksAt("trigliceridosTioM", obj[0].trigliceridosTioM);
+        checksAt("trigliceridosHnos", obj[0].trigliceridosHnos);
+        checksAt("trigliceridosAbueloP", obj[0].trigliceridosAbueloP);
+        checksAt("trigliceridosAbueloM", obj[0].trigliceridosAbueloM);
+        checksAt("trigliceridosNinguno", obj[0].trigliceridosNinguno);
+        //INFARTOS
+        checksAt("infartosPadre", obj[0].infartosPadre);
+        checksAt("infartosMadre", obj[0].infartosMadre);
+        checksAt("infartosHijo", obj[0].infartosHijo);
+        checksAt("infartosTioP", obj[0].infartosTioP);
+        checksAt("infartosTioM", obj[0].infartosTioM);
+        checksAt("infartosHnos", obj[0].infartosHnos);
+        checksAt("infartosAbueloP", obj[0].infartosAbueloP);
+        checksAt("infartosAbueloM", obj[0].infartosAbueloM);
+        checksAt("infartosNinguno", obj[0].infartosNinguno);
+        //HIPERTENSION
+        checksAt("hipertensionPadre", obj[0].hipertensionPadre);
+        checksAt("hipertensionMadre", obj[0].hipertensionMadre);
+        checksAt("hipertensionHijo", obj[0].hipertensionHijo);
+        checksAt("hipertensionTioP", obj[0].hipertensionTioP);
+        checksAt("hipertensionTioM", obj[0].hipertensionTioM);
+        checksAt("hipertensionHnos", obj[0].hipertensionHnos);
+        checksAt("hipertensionAbueloP", obj[0].hipertensionAbueloP);
+        checksAt("hipertensionAbueloM", obj[0].hipertensionAbueloM);
+        checksAt("hipertensionNinguno", obj[0].hipertensionNinguno);
+        //CANCER
+        checksAt("cancerPadre", obj[0].cancerPadre);
+        checksAt("cancerMadre", obj[0].cancerMadre);
+        checksAt("cancerHijo", obj[0].cancerHijo);
+        checksAt("cancerTioP", obj[0].cancerTioP);
+        checksAt("cancerTioM", obj[0].cancerTioM);
+        checksAt("cancerHnos", obj[0].cancerHnos);
+        checksAt("cancerAbueloP", obj[0].cancerAbueloP);
+        checksAt("cancerAbueloM", obj[0].cancerAbueloM);
+        checksAt("cancerNinguno", obj[0].cancerNinguno);
+        //OSTEOPOROSIS
+        checksAt("osteoporosisPadre", obj[0].osteoporosisPadre);
+        checksAt("osteoporosisMadre", obj[0].osteoporosisMadre);
+        checksAt("osteoporosisHijo", obj[0].osteoporosisHijo);
+        checksAt("osteoporosisTioP", obj[0].osteoporosisTioP);
+        checksAt("osteoporosisTioM", obj[0].osteoporosisTioM);
+        checksAt("osteoporosisHnos", obj[0].osteoporosisHnos);
+        checksAt("osteoporosisAbueloP", obj[0].osteoporosisAbueloP);
+        checksAt("osteoporosisAbueloM", obj[0].osteoporosisAbueloM);
+        checksAt("osteoporosisNinguno", obj[0].osteoporosisNinguno);
+        //OTROS
+        checksAt("otrosPadre", obj[0].otrosPadre);
+        checksAt("otrosMadre", obj[0].otrosMadre);
+        checksAt("otrosHijo", obj[0].otrosHijo);
+        checksAt("otrosTioP", obj[0].otrosTioP);
+        checksAt("otrosTioM", obj[0].otrosTioM);
+        checksAt("otrosHnos", obj[0].otrosHnos);
+        checksAt("otrosAbueloP", obj[0].otrosAbueloP);
+        checksAt("otrosAbueloM", obj[0].otrosAbueloM);
+        checksAt("otrosNinguno", obj[0].otrosNinguno);
+    }
+}
 function guardarAnamnesis() {
+    pararGuardadoTemporal();
     var stringAn = createString("anamnesisContenedor") + "&fechaCreacionAn=" + fechaActual() + "&horaCreacionAn=" + horaActual() + "&idPaciente=" + getPatientId();
     stringAn = stringAn.split("&edadDeLosHijos=" + $("#edadDeLosHijos").val()).join("") + "&edadDeLosHijos=" + $("#edadDeLosHijos").val().split("\n").join(",");
     guardarTabla("Anamnesis", stringAn, deshabilitarCamposAn);
@@ -660,6 +1207,7 @@ function guardarAnamnesis() {
 
 //UTILIDADES----------------------------------------------------------------------------->
 function habilitarCamposAn() {
+    iniciarGuardadoTemporal();
     $("input, textarea, select").prop("disabled", false);
     changeRightBtn("Guardar", "guardarAnamnesis", "");
 }

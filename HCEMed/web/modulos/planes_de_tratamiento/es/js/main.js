@@ -104,6 +104,8 @@ function traerCostosSuccess(x){
     document.getElementById("costosDesc").innerHTML = html;
     document.getElementById("total").value = 0;
     document.getElementById("tax").value = 0;
+    cargarEstadoPrevio("planes_de_tratamiento",cargarEstadoPacienteNuevoPlanesDeTratamiento);
+    
 }
 function quitarEsteProcedimiento(x){
     var filas = document.getElementById("costosDesc").getElementsByClassName("row paddingRow");
@@ -178,6 +180,7 @@ function guardarPlanDeTratamiento(){
                     }else{
                         listarTratamientosActivos();
                         guardarEvolucionCo();
+                        pararGuardadoTemporal();
                     }
                 }
                 
@@ -353,6 +356,26 @@ function guardarEvolucionCo() {
     guardarTabla("Evolucion", stringCostos, nadaCostos);
     function nadaCostos() {
     }
+}
+
+function cargarEstadoPacienteNuevoPlanesDeTratamiento(json){
+    iniciarGuardadoTemporal();
+    var Json = decodeURIComponent(json);
+    if(Json != ""){
+       
+        Json = Json.slice(2);
+        Json = Json.slice(0, -2);
+        Json = Json.replace(/"/g, '');
+        var objetos = Json.split(",");
+        
+        for(var i=0;i<objetos.length;i++){
+            var x = objetos[i].split(":");
+            document.getElementById(x[0]).value = x[1];
+        }
+        
+        
+    }
+    
 }
 
 

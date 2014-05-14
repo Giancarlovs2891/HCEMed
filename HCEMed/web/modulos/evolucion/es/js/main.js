@@ -179,6 +179,7 @@ function pintarEvoluciones(modulo, moduloDB, fechas){
                 canvas.isDrawingMode = true; 
                 canvas.freeDrawingBrush.color = "#000";
                 canvas.freeDrawingBrush.width = "1";
+                cargarEstadoPrevio("evolucion",cargarEstadoPacienteNuevoEvolucion);
             }
         }
         
@@ -187,6 +188,7 @@ function pintarEvoluciones(modulo, moduloDB, fechas){
 }
 
 function guardarEvolucion(){
+    pararGuardadoTemporal();
     var hoy = fechaActual();
     var hora = horaActual();
     var idPaciente = getPatientId();
@@ -241,6 +243,17 @@ function loadCssEvolucionFile(filename){
 }
 function clearCanvas(){
     canvas.clear();
+}
+function cargarEstadoPacienteNuevoEvolucion(json){
+    
+    var Json = decodeURIComponent(json);
+    if(Json != ""){
+       $("div#medsioContent").loadJSON(eval(Json));
+        
+        
+    }
+    iniciarGuardadoTemporal();
+    
 }
   
 

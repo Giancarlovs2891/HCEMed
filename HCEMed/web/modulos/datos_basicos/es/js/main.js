@@ -15,6 +15,8 @@ function start() {
   
     if (idPaciente == "NaN") {
         changeRightBtn("Guardar", "verificaPaciente", "");
+        iniciarGuardadoTemporal();
+        cargarEstadoPrevio("datos_basicos",cargarEstadoPacienteNuevo);
     }
     else {
         changeRightBtn("Editar", "habilitarEdicion", "");
@@ -23,7 +25,49 @@ function start() {
     }
     changeSubTitle("Datos Basicos");
 }
-
+function cargarEstadoPacienteNuevo(json){
+    var Json = decodeURIComponent(json);
+    
+    //$("div#medsioContent").loadJSON(eval(Json));
+    var obj = JSON.parse(Json);
+    $("#alertaMedica").val(obj[0].alertaMedica);
+    $("#nombrePaciente").val(obj[0].nombrePaciente);
+    $("#apellidoPaciente").val(obj[0].apellidoPaciente);
+    $("#fechaNacimientoPaciente").val(obj[0].fechaNacimientoPaciente);
+    $("#tipoIdentificacionPaciente").val(obj[0].tipoIdentificacionPaciente);
+    $("#identificacionPaciente").val(obj[0].identificacionPaciente);
+    $("#estadoPaciente").val(obj[0].estadoPaciente);
+    $("estadoCivilPaciente").val(obj[0].estadoCivilPaciente);
+    $("#sexoPaciente").val(obj[0].sexoPaciente);
+    $("#razaPaciente").val(obj[0].razaPaciente);
+    $("#ocupacionPaciente").val(obj[0].ocupacionPaciente);
+    $("#telefonoPaciente").val(obj[0].telefonoPaciente);
+    $("#celularPaciente").val(obj[0].celularPaciente);
+    $("#emailPaciente").val(obj[0].emailPaciente);
+    $("#paisPaciente").val(obj[0].paisPaciente);
+    $("#departamentoPaciente").val(obj[0].departamentoPaciente);
+    $("#ciudadPaciente").val(obj[0].ciudadPaciente);
+    $("#nacionalidadPaciente").val(obj[0].nacionalidadPaciente);
+    $("#direccionPaciente").val(obj[0].direccionPaciente);
+    $("#zonaResidencialPaciente").val(obj[0].zonaResidencialPaciente);
+    $("#codigoPostalPaciente").val(obj[0].codigoPostalPaciente);
+    $("#estratoPaciente").val(obj[0].estratoPaciente);
+    $("#companiaSeguroPaciente").val(obj[0].companiaSeguroPaciente);
+    $("#tipoVinculacionPaciente").val(obj[0].tipoVinculacionPaciente);
+    $("#nombreRepresentante").val(obj[0].nombreRepresentante);
+    $("#apellidoRepresentante").val(obj[0].apellidoRepresentante);
+    $("#tipoIdentificacionRepresentante").val(obj[0].tipoIdentificacionRepresentante);
+    $("#identificacionRepresentante").val(obj[0].identificacionRepresentante);
+    $("#telefonoRepresentante").val(obj[0].telefonoRepresentante);
+    $("#parentescoRepresentante").val(obj[0].parentescoRepresentante);
+    $("#nombreEmergencia").val(obj[0].nombreEmergencia);
+    $("#telefonoEmergencia").val(obj[0].telefonoEmergencia);
+    $("#parentescoEmergencia").val(obj[0].parentescoEmergencia);
+    $("#nombreReferido").val(obj[0].nombreReferido);
+    $("#fotoPrincipalDatosBasicos").attr("src", foto);
+    $("#fotoMenuDatosBasicos").attr("src", foto);
+   
+}
 
 function cargarPacienteInicio(x) {
     var obj = JSON.parse(x);
@@ -73,6 +117,51 @@ function cargarPacienteInicio(x) {
 
     $("input, textarea").prop("disabled", true);
     $("select").prop("disabled", true);
+    cargarEstadoPrevio("datos_basicos", cargarEstadoPacienteCargado);
+}
+function cargarEstadoPacienteCargado(json){
+   var Json = decodeURIComponent(json);
+   if(Json != ""){
+      var obj = JSON.parse(Json);
+    $("#alertaMedica").val(obj[0].alertaMedica);
+    $("#nombrePaciente").val(obj[0].nombrePaciente);
+    $("#apellidoPaciente").val(obj[0].apellidoPaciente);
+    $("#fechaNacimientoPaciente").val(obj[0].fechaNacimientoPaciente);
+    $("#tipoIdentificacionPaciente").val(obj[0].tipoIdentificacionPaciente);
+    $("#identificacionPaciente").val(obj[0].identificacionPaciente);
+    $("#estadoPaciente").val(obj[0].estadoPaciente);
+    $("estadoCivilPaciente").val(obj[0].estadoCivilPaciente);
+    $("#sexoPaciente").val(obj[0].sexoPaciente);
+    $("#razaPaciente").val(obj[0].razaPaciente);
+    $("#ocupacionPaciente").val(obj[0].ocupacionPaciente);
+    $("#telefonoPaciente").val(obj[0].telefonoPaciente);
+    $("#celularPaciente").val(obj[0].celularPaciente);
+    $("#emailPaciente").val(obj[0].emailPaciente);
+    $("#paisPaciente").val(obj[0].paisPaciente);
+    $("#departamentoPaciente").val(obj[0].departamentoPaciente);
+    $("#ciudadPaciente").val(obj[0].ciudadPaciente);
+    $("#nacionalidadPaciente").val(obj[0].nacionalidadPaciente);
+    $("#direccionPaciente").val(obj[0].direccionPaciente);
+    $("#zonaResidencialPaciente").val(obj[0].zonaResidencialPaciente);
+    $("#codigoPostalPaciente").val(obj[0].codigoPostalPaciente);
+    $("#estratoPaciente").val(obj[0].estratoPaciente);
+    $("#companiaSeguroPaciente").val(obj[0].companiaSeguroPaciente);
+    $("#tipoVinculacionPaciente").val(obj[0].tipoVinculacionPaciente);
+    $("#nombreRepresentante").val(obj[0].nombreRepresentante);
+    $("#apellidoRepresentante").val(obj[0].apellidoRepresentante);
+    $("#tipoIdentificacionRepresentante").val(obj[0].tipoIdentificacionRepresentante);
+    $("#identificacionRepresentante").val(obj[0].identificacionRepresentante);
+    $("#telefonoRepresentante").val(obj[0].telefonoRepresentante);
+    $("#parentescoRepresentante").val(obj[0].parentescoRepresentante);
+    $("#nombreEmergencia").val(obj[0].nombreEmergencia);
+    $("#telefonoEmergencia").val(obj[0].telefonoEmergencia);
+    $("#parentescoEmergencia").val(obj[0].parentescoEmergencia);
+    $("#nombreReferido").val(obj[0].nombreReferido);
+        
+       habilitarEdicion();
+       
+   }
+     
 }
 function cargarPaciente(x) {
     var obj = JSON.parse(x);
@@ -170,6 +259,8 @@ function guardarPaciente() {
     
     document.getElementById("nombrePacienteGeneralMedsio").innerHTML = nombrePaciente+" "+apellidoPaciente+" - "+sexoPaciente.toUpperCase();
     document.getElementById("alertaMedicaGeneralMedsio").innerHTML = alertaMedica;
+    pararGuardadoTemporal();
+    
 }
 
 function verificaPaciente() {
@@ -214,9 +305,13 @@ function guardarSuccess2(x) {
     var obj = JSON.parse(x);
     idPacienteSeleccionado = obj[0].idPaciente;
     sexoPacienteSeleccionado = obj[0].sexoPaciente;
+    pararGuardadoTemporal();
+    var queryEstado = "UPDATE estadoMedsio SET idPaciente = '"+idPacienteSeleccionado+"' WHERE idEstado = 1";
+    crearSql(queryEstado, estado2);
 }
 
 function habilitarEdicion() {
+    iniciarGuardadoTemporal();
     $("input").prop("disabled", false);
     $("textarea").prop("disabled", false);
     $("select").prop("disabled", false);
@@ -224,6 +319,7 @@ function habilitarEdicion() {
 }
 
 function editarPaciente() {
+    pararGuardadoTemporal();
     var diaCreacion = fechaActual();
     var horaCreacion = horaActual();
     var alertaMedica = $("#alertaMedica").val();

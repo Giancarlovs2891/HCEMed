@@ -1,6 +1,6 @@
 var idPacienteSeleccionado = "NaN";
 var sexoPacienteSeleccionado ="NaN";
-var modoMedsio = "central";    //"local" o "central"
+var modoMedsio = "local";    //"local" o "central"
 var supLang = ["es"];
 var fechaEvolucionGeneral = '';
 
@@ -47,6 +47,8 @@ function toggleMenu(){
 	}
 }
 function activateMenu(x){
+        pararGuardadoTemporal();
+        var id = x.getAttribute("id");
         if((id != "datos_basicos") && (idPacienteSeleccionado == "NaN")){
             return;
         }
@@ -57,7 +59,45 @@ function activateMenu(x){
 		lis[i].className="";
 	}
         
-        var id = x.getAttribute("id");
+        var queryEstado = 'UPDATE estadoMedsio SET nombreModulo = "'+id+'", JSONModulo = "" WHERE idEstado = 1';
+        crearSql(queryEstado, estado2);
+        
+	var li = document.getElementById(id).getElementsByTagName("LI");
+	li[0].className = "selected";
+
+	
+	var lang = getLang();
+	var dir = "modulos/"+id+"/"+lang+"/index.html";
+	var dirjs = "modulos/"+id+"/"+lang+"/js/main.js";
+        var dircss = "modulos/"+id+"/"+lang+"/css/main.css";
+
+	
+
+  	//document.getElementById("frame").setAttribute("src",dir);
+        
+        var xhr= new XMLHttpRequest();
+        xhr.open('GET', dir, true);
+        xhr.onreadystatechange= function() {
+            if (this.readyState!==4) return;
+            if (this.status!==200) return; // or whatever error handling you want
+            document.getElementById('medsioContent').innerHTML= this.responseText;
+            loadJsFile(dirjs);
+            loadCssFile(dircss);
+        };
+        xhr.send();
+}
+function activateMenuEstado(idModulo){
+        if((id != "datos_basicos") && (idPacienteSeleccionado == "NaN")){
+            return;
+        }
+        
+        var lis = document.getElementById("medsioMenu").getElementsByTagName("LI");
+
+	for(var i=0;i<lis.length;i++){
+		lis[i].className="";
+	}
+        
+        var id = idModulo;
         
 	var li = document.getElementById(id).getElementsByTagName("LI");
 	li[0].className = "selected";
@@ -189,6 +229,75 @@ return string;
 
 
 }
+var guardadoTemporal;
+function iniciarGuardadoTemporal(){
+    guardadoTemporal = window.setInterval(createJSON, 5*1000);
+}
+function pararGuardadoTemporal(){
+    clearInterval(guardadoTemporal);
+    var queryEstado = "UPDATE estadoMedsio SET JSONModulo = '' WHERE idEstado = 1";
+    crearSql(queryEstado, estado2);
+}
+function cargarEstadoPrevio(nombreModulo, callBack){
+     var queryEstado = "SELECT * FROM estadoMedsio WHERE idEstado = 1";
+        crearSql(queryEstado, getEstadoGuardado2);
+
+        function getEstadoGuardado2(x){
+            var obj = JSON.parse(x);
+            if(obj[0].nombreModulo == nombreModulo){
+                callBack(obj[0].JSONModulo);
+            }
+        }
+}
+function createJSON(){
+var global = document.getElementById("medsioContent");
+var string = "[{";
+
+var inputs = global.getElementsByTagName("input");
+var textareas = global.getElementsByTagName("textarea");
+var selects = global.getElementsByTagName("select");
+
+for(var i=0;i<inputs.length;i++){
+    var type = inputs[i].getAttribute("type");
+
+
+    if(type == "radio" || type == "checkbox"){
+        if(inputs[i].checked) {
+            string += '"'+inputs[i].getAttribute("name")+'":"'+inputs[i].value+'", ';
+        }
+    }else{
+        string += '"'+inputs[i].getAttribute("id")+'":"'+inputs[i].value+'", ';
+    }
+
+}
+
+for(var i=0;i<textareas.length;i++){
+    string += '"'+textareas[i].getAttribute("id")+'":"'+textareas[i].value+'", ';
+}
+
+for(var i=0;i<selects.length;i++){
+    var selectType = selects[i].getAttribute("multiple");
+
+    if(selectType == "multiple"){
+       for (var j = 0; j < selects[i].length; j++) {
+           if (selects[i][j].selected) {
+	       string += '"'+selects[i].getAttribute("id")+'":"'+selects[i][j].value+'", ';
+           }
+       }
+    }else{
+       string += '"'+selects[i].getAttribute("id")+'":"'+selects[i].value+'", ';
+    }
+    
+}
+string = string.slice(0, -2);
+string += "}]";
+string = encodeURIComponent(string);
+
+var queryEstado = "UPDATE estadoMedsio SET JSONModulo = '"+string+"' WHERE idEstado = 1";
+crearSql(queryEstado, estado2);
+}
+
+
 var galeriaPortableSw=1;
 function toggleGaleriaPortable(){
     if(galeriaPortableSw == 0){
@@ -200,18 +309,67 @@ function toggleGaleriaPortable(){
     }
 }
 function isLogin(){
+   if(modoMedsio == "local"){loginLocal();return;}
    var servicio="Usuarios/isLogin";
-    var string = "";
+   var string = "";
     
     ajax(servicio, string, login3); 
 }
 function login(){
+    if(modoMedsio == "central"){
     var servicio="Usuarios/login";
     var string = "usuario="+document.getElementById("usuario").value+"&contrasena="+document.getElementById("contrasena").value;
     
     ajax(servicio, string, login2);
+    }else{
+        var dir = "http://saintec.co/hcemed/services.php";
+        var email = document.getElementById("usuario").value;
+        var codigo = document.getElementById("contrasena").value;
+        var string = "servicio=activarApp&email="+email+"&codigo="+codigo;
+        
+        ajax(dir, string, comprobarCodigo);
+    }
 }
-
+function comprobarCodigo(x){
+    var obj = JSON.parse(x);
+    if(obj[0].estado == "activo"){
+        guardarTabla("Estado", "estado=activo&codigo="+document.getElementById("contrasena").value, loginLocal);
+    }else if(obj[0].etado == "usado"){
+        alert("Este codigo ya ha sido utilizado");
+        document.getElementById("contrasena").value = "";
+    }else if(obj[0].estado == "invalido"){
+        alert("Este codigo esta errado");
+        document.getElementById("contrasena").value = "";
+    }else if(obj[0].estado == "bloqueado"){
+        alert("Este codigo ha sido bloqueado");
+        document.getElementById("contrasena").value = "";
+    }else{
+        alert("Hubo un error, por favor intente nuevamente");
+    }
+}
+function revisarCodigo(){
+    traerTabla("Estado", "idEstado=1", revisarCodigo2);
+}
+function revisarCodigo2(x){
+    var obj=JSON.parse(x);
+    
+    var dir = "http://saintec.co/hcemed/services.php";
+    var string = "servicio=verificarEstado&codigo="+obj[0].codigo;
+        
+        ajax(dir, string, revisarCodigo3);
+}
+function revisarCodigo3(x){
+    var obj = JSON.parse(x);
+    
+    if(obj[0].estado == "bloqueado"){
+        editarTabla("Estado", "estado=bloqueado&idEstado=1", revisarCodigo4);
+    }
+}
+function revisarCodigo4(x){
+    alert("Este codigo ha sido bloqueado");
+    document.getElementById("loginScreen").style.display = "block"; 
+    
+}
 function login2(x){
         var obj = JSON.parse(x);
         
@@ -235,6 +393,22 @@ function login3(x){
         document.getElementById("contrasena").value = "";
     }
 
+}
+
+function loginLocal(){
+    traerTabla("Estado", "idEstado=1", loginLocal2);
+}
+function loginLocal2(x){
+    var obj = JSON.parse(x);
+    if(obj.length == 0){return;}
+    if(obj[0].estado == "activo"){
+        document.getElementById("loginScreen").style.display = "none"; 
+        document.getElementById("usuario").value = "";
+        document.getElementById("contrasena").value = "";
+        cargueTemporal();
+    }else if(obj[0].estado == "bloqueado"){
+        alert("Su aplicacion ha sido bloqueada, por favor comuniquese con su proveedor");
+    }
 }
 function logOut(){
     var service = "Usuarios/logout";
@@ -357,8 +531,11 @@ function vistaPrincipal(){
 	}
 
 function vistaPacientes(){
+        pararGuardadoTemporal();
         idPacienteSeleccionado = "NaN";
         sexoPacienteSeleccionado = "NaN";
+        var queryEstado = 'DELETE FROM estadoMedsio WHERE idEstado = 1';
+        crearSql(queryEstado, estado2);
 	if(estado == "vistaPacientes"){return;}
 
 	var estado = "vistaPacientes";
@@ -391,6 +568,8 @@ function vistaPacientes(){
 }
 
 crearDB('MEDSIO', '1.0', 'Base de Datos de Medsio', 5000000);
+crearTabla('CREATE TABLE IF NOT EXISTS Estado (idEstado INTEGER PRIMARY KEY AUTOINCREMENT, estado, codigo)');
+crearTabla('CREATE TABLE IF NOT EXISTS EstadoMedsio (idEstado INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente INTEGER, nombreModulo, JSONModulo LONG TEXT )');
 crearTabla('CREATE TABLE IF NOT EXISTS Galeria (idFoto INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente INTEGER, foto LONG TEXT, fecha DATE, hora TIME)');
 crearTabla('CREATE TABLE IF NOT EXISTS Pacientes (idPaciente INTEGER PRIMARY KEY AUTOINCREMENT, alertaMedica, nombrePaciente, foto, apellidoPaciente, fechaNacimientoPaciente, tipoIdentificacionPaciente, identificacionPaciente, estadoPaciente, estadoCivilPaciente, sexoPaciente, razaPaciente, ocupacionPaciente, telefonoPaciente, celularPaciente, emailPaciente, paisPaciente, departamentoPaciente, ciudadPaciente, nacionalidadPaciente, direccionPaciente, zonaResidencialPaciente, codigoPostalPaciente, estratoPaciente, companiaSeguroPaciente, tipoVinculacionPaciente, nombreRepresentante, apellidoRepresentante, tipoIdentificacionRepresentante, identificacionRepresentante, telefonoRepresentante, parentescoRepresentante, nombreEmergencia, telefonoEmergencia, parentescoEmergencia, nombreReferido, fechaCreacion, horaCreacion)');
 crearTabla('CREATE TABLE IF NOT EXISTS Evolucion (idEvolucion INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente INTEGER, nombreModulo, fecha DATE, hora TIME, evolucion TEXT)');
@@ -476,6 +655,19 @@ function buscarPaciente(x){
 
 function loadDatosBasicos(id){
         if(!id){id="NaN";}
+        var queryInicialEstado = 'SELECT * FROM estadoMedsio WHERE idEstado = 1';
+        crearSql(queryInicialEstado, existeEstadoInicial);
+        function existeEstadoInicial(x){
+            var obj = JSON.parse(x);
+            if(obj.length ==1){
+                var queryEstado = 'UPDATE estadoMedsio SET idPaciente = "'+id+'", nombreModulo = "datos_basicos" WHERE idEstado = 1';
+               crearSql(queryEstado, estado2);
+            }else{
+               var queryEstado = 'INSERT INTO estadoMedsio (idEstado, idPaciente, nombreModulo, JSONModulo) VALUES ("1", "'+id+'", "datos_basicos", "")';
+               crearSql(queryEstado, estado2); 
+            }
+         }
+        
         galeriaPortableSw=1;
         fotoCarreteSw=1;
         loadGaleriaPortable(id);
@@ -517,7 +709,7 @@ function loadDatosBasicos(id){
         };
         xhr.send();
 }
-
+function estado2(x){}
 function loadGaleriaPortable(x){
     if(x == "NaN"){return;}
     document.getElementById("galeriaPortable").innerHTML = "";
@@ -730,4 +922,70 @@ appCache.addEventListener('cached', function(event) {
 
 function scrollUp(){
     document.getElementById("MedsioContent").scrollTop = 0;
+}
+
+function cargueTemporal(){
+        var sql = "SELECT * FROM estadoMedsio WHERE idEstado = 1";
+        crearSql(sql, cargueTemporal2);
+        
+        function cargueTemporal2(x){
+            var obj = JSON.parse(x);
+            
+            if(obj.length == 1){
+                var moduloPrevio = obj[0].nombreModulo;
+                idPacienteSeleccionado = obj[0].idPaciente;
+                if(obj[0].idPaciente == "NaN"){
+                   cargueTemporal3("NaN");
+                }else{
+                    traerTabla("Pacientes", "idPaciente="+idPacienteSeleccionado, cargueTemporal3);
+                }
+                
+                function cargueTemporal3(y){
+                    if(y == "NaN"){
+                        sexoPacienteSeleccionado = "NaN";
+                    }else{
+                        var obj2 = JSON.parse(y);
+                        sexoPacienteSeleccionado = obj2[0].sexoPaciente;
+                        document.getElementById("fotoMenuDatosBasicos").src = decodeURIComponent(obj2[0].foto);
+                        document.getElementById("nombrePacienteGeneralMedsio").innerHTML = obj2[0].nombrePaciente+" "+obj2[0].apellidoPaciente+" - "+obj2[0].sexoPaciente.toUpperCase();
+                        document.getElementById("alertaMedicaGeneralMedsio").innerHTML = obj2[0].alertaMedica;
+                    }
+                    
+                    galeriaPortableSw=1;
+                    fotoCarreteSw=1;
+                    loadGaleriaPortable(idPacienteSeleccionado);
+                    document.getElementById("galeriaPortable").style.webkitTransform = "translate3d(0px,0,0)";
+
+
+                    vistaPrincipal();
+                    
+                    var lis = document.getElementById("medsioMenu").getElementsByTagName("LI");
+
+                    for(var i=0;i<lis.length;i++){
+                       lis[i].className="";
+                    }
+                    
+                    var li = document.getElementById(moduloPrevio).getElementsByTagName("LI");
+                    li[0].className = "selected";
+                    
+                    var lang = getLang();
+                    var dir = "modulos/"+moduloPrevio+"/"+lang+"/index.html";
+                    var dirjs = "modulos/"+moduloPrevio+"/"+lang+"/js/main.js";
+                    var dircss = "modulos/"+moduloPrevio+"/"+lang+"/css/main.css";
+
+                    loadJsFile(dirjs);
+                    loadCssFile(dircss);
+                    
+                    var xhr= new XMLHttpRequest();
+                    xhr.open('GET', dir, true);
+                    xhr.onreadystatechange= function() {
+                    if (this.readyState!==4) return;
+                    if (this.status!==200) return; // or whatever error handling you want
+                    document.getElementById('medsioContent').innerHTML= this.responseText;
+                    document.getElementById("medsioContent").scrollTop = 0;
+                    };
+                    xhr.send();
+                }
+            }
+        }
 }

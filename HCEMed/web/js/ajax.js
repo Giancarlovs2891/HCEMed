@@ -27,3 +27,4 @@ function ajax(service, string, callback)
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded; charset=utf-8");
     xmlhttp.send(string);
 }
+
