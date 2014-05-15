@@ -1391,5 +1391,3 @@ function guardarDiagnosticosAn() {
     guardarDiagnosticos("#comentariosHipertension", "Anamnesis", "Hipertension");
     guardarDiagnosticos("#comentariosProblemasPsiquiatricos", "Anamnesis", "Problemas psiquiatricos");
 }
-
-
