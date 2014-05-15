@@ -50,9 +50,7 @@
     z-index:5;  
 }
 #tratamientoDetalleCerrar{
-    position:absolute;
-    top:0px;
-    right:0px;
+    
     background-color:#7FD3E5;
     color:#FFF;
     padding:5px;

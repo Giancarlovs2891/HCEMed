@@ -28,8 +28,10 @@ function start() {
 function cargarEstadoPacienteNuevo(json){
     var Json = decodeURIComponent(json);
     
-    //$("div#medsioContent").loadJSON(eval(Json));
     var obj = JSON.parse(Json);
+    if(obj.length ==0){return;}
+    if(obj[0].inputImagen == ""){obj[0].inputImagen = "modulos/datos_basicos/img/fotoPerfil.png";}
+    $("#inputImagen").val(obj[0].inputImagen);
     $("#alertaMedica").val(obj[0].alertaMedica);
     $("#nombrePaciente").val(obj[0].nombrePaciente);
     $("#apellidoPaciente").val(obj[0].apellidoPaciente);
@@ -64,8 +66,8 @@ function cargarEstadoPacienteNuevo(json){
     $("#telefonoEmergencia").val(obj[0].telefonoEmergencia);
     $("#parentescoEmergencia").val(obj[0].parentescoEmergencia);
     $("#nombreReferido").val(obj[0].nombreReferido);
-    $("#fotoPrincipalDatosBasicos").attr("src", foto);
-    $("#fotoMenuDatosBasicos").attr("src", foto);
+    $("#fotoPrincipalDatosBasicos").attr("src", obj[0].inputImagen);
+    $("#fotoMenuDatosBasicos").attr("src", obj[0].inputImagen);
    
 }
 
@@ -107,6 +109,7 @@ function cargarPacienteInicio(x) {
     $("#telefonoEmergencia").val(obj[0].telefonoEmergencia);
     $("#parentescoEmergencia").val(obj[0].parentescoEmergencia);
     $("#nombreReferido").val(obj[0].nombreReferido);
+    $("#inputImagen").val(foto);
     $("#fotoPrincipalDatosBasicos").attr("src", foto);
     $("#fotoMenuDatosBasicos").attr("src", foto);
  
@@ -122,7 +125,9 @@ function cargarPacienteInicio(x) {
 function cargarEstadoPacienteCargado(json){
    var Json = decodeURIComponent(json);
    if(Json != ""){
-      var obj = JSON.parse(Json);
+    var obj = JSON.parse(Json);
+    if(obj[0].inputImagen == ""){obj[0].inputImagen = "modulos/datos_basicos/img/fotoPerfil.png";}
+    $("#inputImagen").val(obj[0].inputImagen);
     $("#alertaMedica").val(obj[0].alertaMedica);
     $("#nombrePaciente").val(obj[0].nombrePaciente);
     $("#apellidoPaciente").val(obj[0].apellidoPaciente);
@@ -157,6 +162,8 @@ function cargarEstadoPacienteCargado(json){
     $("#telefonoEmergencia").val(obj[0].telefonoEmergencia);
     $("#parentescoEmergencia").val(obj[0].parentescoEmergencia);
     $("#nombreReferido").val(obj[0].nombreReferido);
+    $("#fotoPrincipalDatosBasicos").attr("src", obj[0].inputImagen);
+    $("#fotoMenuDatosBasicos").attr("src", obj[0].inputImagen);
         
        habilitarEdicion();
        

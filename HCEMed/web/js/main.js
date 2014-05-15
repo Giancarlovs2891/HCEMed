@@ -240,12 +240,14 @@ function pararGuardadoTemporal(){
 }
 function cargarEstadoPrevio(nombreModulo, callBack){
      var queryEstado = "SELECT * FROM estadoMedsio WHERE idEstado = 1";
-        crearSql(queryEstado, getEstadoGuardado2);
+     crearSql(queryEstado, getEstadoGuardado2);
 
         function getEstadoGuardado2(x){
             var obj = JSON.parse(x);
-            if(obj[0].nombreModulo == nombreModulo){
-                callBack(obj[0].JSONModulo);
+            if(obj.length !=0){
+                if(obj[0].nombreModulo == nombreModulo){
+                    callBack(obj[0].JSONModulo);
+                }
             }
         }
 }
@@ -322,6 +324,12 @@ function login(){
     
     ajax(servicio, string, login2);
     }else{
+        var iOSLogin = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+        if (iOSLogin == "1" && !window.navigator.standalone){
+            alert("Debe instalar la aplicacion antes de ingresar el codigo, para hacer esto haga click en el boton localizado a la izquierda de la barra de navegacion y seleccione Añadir a la pantalla de inicio.");
+            return;
+        }
+        
         var dir = "http://saintec.co/hcemed/services.php";
         var email = document.getElementById("usuario").value;
         var codigo = document.getElementById("contrasena").value;
@@ -334,7 +342,7 @@ function comprobarCodigo(x){
     var obj = JSON.parse(x);
     if(obj[0].estado == "activo"){
         guardarTabla("Estado", "estado=activo&codigo="+document.getElementById("contrasena").value, loginLocal);
-    }else if(obj[0].etado == "usado"){
+    }else if(obj[0].estado == "usado"){
         alert("Este codigo ya ha sido utilizado");
         document.getElementById("contrasena").value = "";
     }else if(obj[0].estado == "invalido"){
@@ -411,10 +419,12 @@ function loginLocal2(x){
     }
 }
 function logOut(){
+    if(modoMedsio == "central"){
     var service = "Usuarios/logout";
     var string = "";
     
     ajax(service, string, logOut2);
+    }else{return;}
     
     function logOut2(x){
         document.getElementById("loginScreen").style.display = "block"; 

@@ -248,11 +248,12 @@ function verDetalleTratamiento(x){
     
     function verDetalleTratamiento2(y){
         var obj = JSON.parse(y);
-        html += '<a href="javascript:void(0);" onclick="cerrarTratamientoDetalle();" id="tratamientoDetalleCerrar">Cerrar</a>';
+        html += '';
         html += '<div class="row">';
-        html += '<div class="col-xs-6 col-xs-offset-1 costosTitle"><h5>Tratamiento '+obj[0].fechaPlanTratamiento+'</h5></div>';
+        html += '<div class="col-xs-6 costosTitle"><h5>Tratamiento '+obj[0].fechaPlanTratamiento+'</h5></div>';
         html += '<div class="col-xs-2 costosTitle"><h5>Costo Tratamiento</h5></div>';
-        html += '<div class="col-xs-2 costosTitle"><h5>Abono Tratamiento</h5></div></div>';
+        html += '<div class="col-xs-2 costosTitle"><h5>Abono Tratamiento</h5></div>';
+        html += '<div class="col-xs-1"><a href="javascript:void(0);" onclick="cerrarTratamientoDetalle();" id="tratamientoDetalleCerrar">Cerrar</a></div></div>';
         
         html += '<div class="row"><div class="col-xs-6 col-xs-offset-1"></div>';
         html += '<div class="col-xs-2"><h5 id="totalCargoTratamiento">$ '+obj[0].valorPlanTratamiento+'</h5></div>';

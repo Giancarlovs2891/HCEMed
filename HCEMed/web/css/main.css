@@ -319,6 +319,23 @@ ul#listaPacientes li.divider{
         overflow-y:auto;
     }
 @media screen and (max-width: 768px) {/*Celulares hasta el Note3 tanto en landscape como en portrait*/
+    #loginSquare{
+        position:absolute;
+        top:5%;
+        left:5%;
+        padding:10px;
+        margin-left:0%;
+        width:90%;
+        display:-ms-flexbox;
+        -ms-flex-align:start;
+        display:-moz-box;
+        -moz-box-align:start;
+        display:-webkit-box;
+        -webkit-box-align:start;
+        display:box;
+        box-align:start;
+        background-color:#FFF;
+    }
     .leftSubHeader{
         position:relative;
         float:left;
