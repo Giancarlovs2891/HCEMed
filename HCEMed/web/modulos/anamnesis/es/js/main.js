@@ -375,6 +375,7 @@ function start() {
 
 function cargarCamposAnamnesis(json) {
     var obj = JSON.parse(json);
+    muestraCampoOtrosTablaAt(json);
     if (obj.length > 0) {
         $("#fechaDiagnosticoAlergia").val(obj[0].fechaDiagnosticoAlergia);
         $("#inicioTratamientoAlergia").val(obj[0].inicioTratamientoAlergia);
@@ -1229,7 +1230,7 @@ function definirChecksAn(nombreCheck, valorCheck, campoParaMostrar) {
     }
 }
 function checksAt(checkAt, valorCheck) {
-    if (valorCheck == "null") {
+    if (valorCheck == null) {
         $("[name=" + checkAt + "]").attr("checked", false);
     } else {
         $("[name=" + checkAt + "]").attr("checked", true);
@@ -1337,6 +1338,13 @@ function ocultarGinecologia() {
         ocultar("antecedentesG");
     } else if (getPatientSex() == "f") {
         mostrar("antecedentesG");
+    }
+}
+
+function muestraCampoOtrosTablaAt (json) {
+    var obj = JSON.parse(json);
+    if (obj[0].otrosPadre != null || obj[0].otrosMadre != null || obj[0].otrosHijo != null || obj[0].otrosTioP != null || obj[0].otrosTioM != null || obj[0].otrosHmnos != null || obj[0].otrosAbueloP != null || obj[0].otrosAbueloM != null) {
+        $("#comentariosTablaAntecedentesFamiliares").show();
     }
 }
 
