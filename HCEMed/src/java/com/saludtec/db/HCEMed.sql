@@ -319,6 +319,7 @@ CREATE TABLE  IF NOT EXISTS `HCEMed`.`Anamnesis` (
   `otrosAbueloP` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `otrosAbueloM` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `otrosNinguno` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `otrosComentariosTablaAntecedentesFamiliares` longtext COLLATE utf8_spanish_ci DEFAULT NULL,
   `fechaCreacionAn` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `horaCreacionAn` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
