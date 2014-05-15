@@ -68,7 +68,9 @@ function start(){
         changeSubTitle("Galeria");
 	loadCssFile("modulos/galeria/es/css/main.css");
 	changeRightBtn("", "", "");
-	crearTabla('CREATE TABLE IF NOT EXISTS Galeria (idFoto INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente INTEGER, foto LONGTEXT, fecha DATE, hora TIME)');
+        if(modoMedsio == "local"){
+            crearTabla('CREATE TABLE IF NOT EXISTS Galeria (idFoto INTEGER PRIMARY KEY AUTOINCREMENT, idPaciente INTEGER, foto LONGTEXT, fecha DATE, hora TIME)');
+        }
 	listarFotos();
          var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod|Android|IEMobile|BlackBerry)/g) ? true : false );
         if (iOS == "1"){
@@ -123,8 +125,14 @@ function traerFoto(id, funcion) {
 }
 function listarFotos(){
 	var idPaciente = getPatientId();
-	
-        traerTabla("Galeria", "idPaciente="+idPaciente, listarFotosSuccess);
+	if(modoMedsio == "local"){
+            traerTabla("Galeria", "idPaciente="+idPaciente, listarFotosSuccess);
+        }else{
+            var service= "Galeria/listar";
+            var string = "idPaciente="+idPaciente;
+            
+            ajax(service, string, listarFotosSuccess);
+        }
 }
 function listarFotosSuccess(x){
 	var obj = JSON.parse(x);

@@ -1,9 +1,16 @@
 function getHistory(fecha) {
-    var sql = 'SELECT * FROM Tratamientos WHERE fechaTratamiento="'+fecha+'" AND idPaciente="'+getPatientId()+'"';
     document.getElementById("nombreTratamiento").setAttribute("disabled", true);
     document.getElementById("nombreTratamiento").setAttribute("onchange", "");
     document.getElementById("nombreTratamiento").setAttribute("onkeyup", "");
-    crearSql(sql, traerTratamientosSuccess);
+    if(modoMedsio == "local"){
+        var sql = 'SELECT * FROM Tratamientos WHERE fechaTratamiento="'+fecha+'" AND idPaciente="'+getPatientId()+'"';
+        crearSql(sql, traerTratamientosSuccess);
+    }else{
+        var service = "Tratamientos/traerFecha";
+         var string = "idPaciente="+getPatientId()+"&fecha="+fecha;
+        
+        ajax(service, string, traerTratamientosSuccess);
+    }
 
     function traerTratamientosSuccess(x){
         var obj = JSON.parse(x);
@@ -23,8 +30,17 @@ function getHistory(fecha) {
         document.getElementById("descripcionesTratamiento").innerHTML = html;
         var hoy = fechaActual();
         var idPaciente = getPatientId();
-        var sql = 'SELECT * FROM Diagnosticos WHERE fecha="'+hoy+'" AND idPaciente="'+idPaciente+'"';
-        crearSql(sql, traerTratamientosSuccess2);
+        
+        if(modoMedsio == "local"){
+            var sql = 'SELECT * FROM Diagnosticos WHERE fecha="'+fecha+'" AND idPaciente="'+idPaciente+'"';
+            crearSql(sql, traerTratamientosSuccess2);
+        }else{
+            var service = "Diagnosticos/listar";
+            var string = "fecha="+fecha+"&idPaciente="+idPaciente;
+                
+            ajax(service, string, traerTratamientosSuccess2);
+
+        }
 
         function traerTratamientosSuccess2(y){
             var obj2 = JSON.parse(y);

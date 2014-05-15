@@ -1,6 +1,13 @@
 
 function getHistory(fecha) {
-    traerTodoTabla("Anamnesis WHERE idPaciente='" + getPatientId() + "' AND fechaCreacionAn='" + fecha + "' ORDER BY idAnamnesis DESC LIMIT 0,1", cargarCamposAnamnesisEvolucion);
+    if(modoMedsio == "local"){
+        traerTodoTabla("Anamnesis WHERE idPaciente='" + getPatientId() + "' AND fechaCreacionAn='" + fecha + "' ORDER BY idAnamnesis DESC LIMIT 0,1", cargarCamposAnamnesisEvolucion);
+    }else{
+        var service = "Anamnesis/traerFecha"
+        var string = "idPaciente="+getPatientId()+"&fecha="+fecha;
+        
+        ajax(service, string, cargarCamposAnamnesisEvolucion);
+    }
     ocultarGinecologiaEvo();
 }
 

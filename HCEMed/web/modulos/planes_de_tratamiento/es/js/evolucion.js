@@ -1,6 +1,13 @@
 function getHistory(fecha) {
     listarTratamientosActivos();
-    crearSql('SELECT * FROM Tratamientos WHERE fechaTratamiento="'+fecha+'" AND idPaciente="'+getPatientId()+'"', traerCostosSuccess);
+    if(modoMedsio == "local"){
+        crearSql('SELECT * FROM Tratamientos WHERE fechaTratamiento="'+fecha+'" AND idPaciente="'+getPatientId()+'"', traerCostosSuccess);
+    }else{
+        var service = "Tratamientos/traerFecha";
+        var string = "idPaciente="+getPatientId()+"&fecha="+fecha;
+        
+        ajax(service, string, traerCostosSuccess);
+    }
     
     function traerCostosSuccess(x){
         var obj = JSON.parse(x);
@@ -27,8 +34,15 @@ function getHistory(fecha) {
     html += '<div  class="row"><div  class="col-xs-6 col-xs-offset-1"></div><div  class="col-xs-2"><h5 id="totalCargos"></h5></div><div  class="col-xs-2"><h5 id="totalAbonos"></h5></div></div>';
     
     var idPaciente = getPatientId();
-    var sql = 'SELECT * FROM PlanesDeTratamiento WHERE idPaciente="'+idPaciente+'"';
-    crearSql(sql, listarTratamientosActivos2);
+    if(modoMedsio == "local"){
+        var sql = 'SELECT * FROM PlanesDeTratamiento WHERE idPaciente="'+idPaciente+'"';
+        crearSql(sql, listarTratamientosActivos2);
+    }else{
+        var service = "PlanesDeTratamiento/listar"
+        var string = "idPaciente="+idPaciente;
+
+       ajax(service, string, listarTratamientosActivos2);
+    }
     var totalDebe = 0;
     totalDebe = parseInt(totalDebe);
     var totalPagado = 0;
