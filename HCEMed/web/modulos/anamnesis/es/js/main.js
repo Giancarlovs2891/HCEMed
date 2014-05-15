@@ -1341,7 +1341,7 @@ function ocultarGinecologia() {
     }
 }
 
-function muestraCampoOtrosTablaAt (json) {
+function muestraCampoOtrosTablaAt (json) {console.log();
     var obj = JSON.parse(json);
     if (obj[0].otrosPadre != null || obj[0].otrosMadre != null || obj[0].otrosHijo != null || obj[0].otrosTioP != null || obj[0].otrosTioM != null || obj[0].otrosHmnos != null || obj[0].otrosAbueloP != null || obj[0].otrosAbueloM != null) {
         $("#comentariosTablaAntecedentesFamiliares").show();
