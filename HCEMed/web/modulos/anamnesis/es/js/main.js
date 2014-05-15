@@ -1283,9 +1283,9 @@ $(document).ready(function() {
         quitarCheckNinguno(this);
     });
 
-    $("#tablaAntecedentesFamiliares tr td:last-child input[type='checkbox']").off("click");
+    $("#tablaAntecedentesFamiliares tr td:nth-child(2) input[type='checkbox']").off("click");
 
-    $("#tablaAntecedentesFamiliares tr td:last-child input[type='checkbox']").on("click", function() {
+    $("#tablaAntecedentesFamiliares tr td:nth-child(2) input[type='checkbox']").on("click", function() {
         chequearNinguno(this);
     });
 
@@ -1296,7 +1296,7 @@ $(document).ready(function() {
 //            $("."+clase+" td:last-child input[type='checkbox']").prop("checked", true);
 
             var hijos = x.parentNode.parentNode.getElementsByTagName("td");
-            for (var i = 1; i < hijos.length - 1; i++) {
+            for (var i = 2; i < hijos.length; i++) {
                 hijos[i].getElementsByTagName("input")[0].checked = false;
             }
             $("#comentariosTablaAntecedentesFamiliares").hide();
@@ -1312,7 +1312,7 @@ $(document).ready(function() {
             campos = 0;
         }
 
-        for (var i = 1; i < hijos.length - 1; i++) {
+        for (var i = 2; i < hijos.length; i++) {
             if (fila == "Otros") {
                 campos += hijos[i].getElementsByTagName("input")[0].checked;
             }
@@ -1324,10 +1324,10 @@ $(document).ready(function() {
         hijos[0].getElementsByTagName("span")[0].tagName;
 
         if ($(x).is(":checked")) {
-            if (hijos[0].innerHTML == "<span>Otros</span>") {
+            if (fila == "Otros") {
                 $("#comentariosTablaAntecedentesFamiliares").show();
             }
-            hijos[hijos.length - 1].getElementsByTagName("input")[0].checked = false;
+            hijos[1].getElementsByTagName("input")[0].checked = false;
         }
     }
 });

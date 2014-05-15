@@ -319,6 +319,7 @@ CREATE TABLE  IF NOT EXISTS `HCEMed`.`Anamnesis` (
   `otrosAbueloP` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `otrosAbueloM` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `otrosNinguno` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `otrosComentariosTablaAntecedentesFamiliares` longtext COLLATE utf8_spanish_ci DEFAULT NULL,
   `fechaCreacionAn` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `horaCreacionAn` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
@@ -689,42 +690,6 @@ ADD CONSTRAINT `fk_idPacienteCp`
   ON DELETE CASCADE
   ON UPDATE NO ACTION;
 
-ALTER TABLE `HCEMed`.`ExamenFisico` 
-ADD INDEX `fk_idPacienteEf_idx` (`idPaciente` ASC);
-ALTER TABLE `HCEMed`.`ExamenFisico` 
-ADD CONSTRAINT `fk_idPacienteEf`
-  FOREIGN KEY (`idPaciente`)
-  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
-  ON DELETE CASCADE
-  ON UPDATE NO ACTION;
-
-ALTER TABLE `HCEMed`.`Galeria` 
-ADD INDEX `fk_idPacienteGal_idx` (`idPaciente` ASC);
-ALTER TABLE `HCEMed`.`Galeria` 
-ADD CONSTRAINT `fk_idPacienteGal`
-  FOREIGN KEY (`idPaciente`)
-  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
-  ON DELETE CASCADE
-  ON UPDATE NO ACTION;
-
-ALTER TABLE `HCEMed`.`Tratamientos` 
-ADD INDEX `fk_idPacienteTrat_idx` (`idPaciente` ASC);
-ALTER TABLE `HCEMed`.`Tratamientos` 
-ADD CONSTRAINT `fk_idPacienteTrat`
-  FOREIGN KEY (`idPaciente`)
-  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
-  ON DELETE CASCADE
-  ON UPDATE NO ACTION;
-
-ALTER TABLE `HCEMed`.`PlanesDeTratamiento` 
-ADD INDEX `fk_idPacientePlanTrat_idx` (`idPaciente` ASC);
-ALTER TABLE `HCEMed`.`PlanesDeTratamiento` 
-ADD CONSTRAINT `fk_idPacientePlanTrat`
-  FOREIGN KEY (`idPaciente`)
-  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
-  ON DELETE CASCADE
-  ON UPDATE NO ACTION;
-
 ALTER TABLE `HCEMed`.`descripcionPlanDeTratamiento` 
 ADD INDEX `fk_idPlanTratDesc_idx` (`idPlanTratamiento` ASC);
 ALTER TABLE `HCEMed`.`descripcionPlanDeTratamiento` 
@@ -734,12 +699,12 @@ ADD CONSTRAINT `fk_idPlanTratDesc`
   ON DELETE CASCADE
   ON UPDATE NO ACTION;
 
-ALTER TABLE `HCEMed`.`Pagos` 
-ADD INDEX `fk_idPlanTratPago_idx` (`idPlanTratamiento` ASC);
-ALTER TABLE `HCEMed`.`Pagos` 
-ADD CONSTRAINT `fk_idPlanTratPago`
-  FOREIGN KEY (`idPlanTratamiento`)
-  REFERENCES `HCEMed`.`PlanesDeTratamiento` (`idPlanDeTratamiento`)
+ALTER TABLE `HCEMed`.`Diagnosticos` 
+ADD INDEX `fk_idPacienteDiag_idx` (`idPaciente` ASC);
+ALTER TABLE `HCEMed`.`Diagnosticos` 
+ADD CONSTRAINT `fk_idPacienteDiag`
+  FOREIGN KEY (`idPaciente`)
+  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
   ON DELETE CASCADE
   ON UPDATE NO ACTION;
 
@@ -761,10 +726,19 @@ ADD CONSTRAINT `fk_idPacienteEvoComm`
   ON DELETE CASCADE
   ON UPDATE NO ACTION;
 
-ALTER TABLE `HCEMed`.`Diagnosticos` 
-ADD INDEX `fk_idPacienteDiag_idx` (`idPaciente` ASC);
-ALTER TABLE `HCEMed`.`Diagnosticos` 
-ADD CONSTRAINT `fk_idPacienteDiag`
+ALTER TABLE `HCEMed`.`ExamenFisico` 
+ADD INDEX `fk_idPacienteEf_idx` (`idPaciente` ASC);
+ALTER TABLE `HCEMed`.`ExamenFisico` 
+ADD CONSTRAINT `fk_idPacienteEf`
+  FOREIGN KEY (`idPaciente`)
+  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
+  ON DELETE CASCADE
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `HCEMed`.`Galeria` 
+ADD INDEX `fk_idPacienteGal_idx` (`idPaciente` ASC);
+ALTER TABLE `HCEMed`.`Galeria` 
+ADD CONSTRAINT `fk_idPacienteGal`
   FOREIGN KEY (`idPaciente`)
   REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
   ON DELETE CASCADE
@@ -777,4 +751,31 @@ ADD CONSTRAINT `fk_idUsuarioPac`
   FOREIGN KEY (`idUsuario`)
   REFERENCES `HCEMed`.`Usuarios` (`idUsuario`)
   ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `HCEMed`.`Pagos` 
+ADD INDEX `fk_idPlanTratPago_idx` (`idPlanTratamiento` ASC);
+ALTER TABLE `HCEMed`.`Pagos` 
+ADD CONSTRAINT `fk_idPlanTratPago`
+  FOREIGN KEY (`idPlanTratamiento`)
+  REFERENCES `HCEMed`.`PlanesDeTratamiento` (`idPlanDeTratamiento`)
+  ON DELETE CASCADE
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `HCEMed`.`PlanesDeTratamiento` 
+ADD INDEX `fk_idPacientePlanTrat_idx` (`idPaciente` ASC);
+ALTER TABLE `HCEMed`.`PlanesDeTratamiento` 
+ADD CONSTRAINT `fk_idPacientePlanTrat`
+  FOREIGN KEY (`idPaciente`)
+  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
+  ON DELETE CASCADE
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `HCEMed`.`Tratamientos` 
+ADD INDEX `fk_idPacienteTrat_idx` (`idPaciente` ASC);
+ALTER TABLE `HCEMed`.`Tratamientos` 
+ADD CONSTRAINT `fk_idPacienteTrat`
+  FOREIGN KEY (`idPaciente`)
+  REFERENCES `HCEMed`.`Pacientes` (`idPaciente`)
+  ON DELETE CASCADE
   ON UPDATE NO ACTION;
