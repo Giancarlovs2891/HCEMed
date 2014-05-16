@@ -189,7 +189,7 @@ function guardarPlanDeTratamiento(){
     }
 }
 function listarTratamientosActivos(){
-    document.getElementById("listaDeTratamientos").innerHTML = "";
+    
     var html = '<div  class="row"><div  class="col-xs-6 col-xs-offset-1 costosTitle"><h5>Tratamientos Generados</h5></div><div  class="col-xs-2 costosTitle"><h5>Cargos</h5></div><div  class="col-xs-2 costosTitle"><h5>Abonos</h5></div></div>';
     html += '<div  class="row"><div  class="col-xs-6 col-xs-offset-1"></div><div  class="col-xs-2"><h5 id="totalCargos"></h5></div><div  class="col-xs-2"><h5 id="totalAbonos"></h5></div></div>';
     
@@ -367,6 +367,7 @@ function cargarEstadoPacienteNuevoPlanesDeTratamiento(json){
         Json = Json.slice(2);
         Json = Json.slice(0, -2);
         Json = Json.replace(/"/g, '');
+        Json = Json.replace(/ /g, '');
         var objetos = Json.split(",");
         
         for(var i=0;i<objetos.length;i++){

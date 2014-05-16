@@ -118,6 +118,7 @@ function activateMenuEstado(idModulo){
             if (this.readyState!==4) return;
             if (this.status!==200) return; // or whatever error handling you want
             document.getElementById('medsioContent').innerHTML= this.responseText;
+            ocument.getElementById('medsioContent').scrollTop = 0;
             loadJsFile(dirjs);
             loadCssFile(dircss);
         };
@@ -395,7 +396,7 @@ function login3(x){
     var obj = JSON.parse(x);
 
     if(obj[0].Exito == "1"){
-       inicioMedsio();
+        inicioMedsio();
         document.getElementById("loginScreen").style.display = "none"; 
         document.getElementById("usuario").value = "";
         document.getElementById("contrasena").value = "";
@@ -404,6 +405,7 @@ function login3(x){
 }
 
 function loginLocal(){
+    traerTodoTabla("Pacientes", inicioMedsio2);
     traerTabla("Estado", "idEstado=1", loginLocal2);
 }
 function loginLocal2(x){
@@ -414,6 +416,7 @@ function loginLocal2(x){
         document.getElementById("usuario").value = "";
         document.getElementById("contrasena").value = "";
         cargueTemporal();
+        inicioMedsio();
     }else if(obj[0].estado == "bloqueado"){
         alert("Su aplicacion ha sido bloqueada, por favor comuniquese con su proveedor");
     }
@@ -478,9 +481,11 @@ function inicioMedsio(){
     context = canvas.getContext("2d");
     video = document.getElementById("video");
     videoObj = {video: true, audio: false};
-     traerTodoTabla("Pacientes", inicioMedsio2);
+    traerTodoTabla("Pacientes", inicioMedsio2);
      
-     function inicioMedsio2(x){
+    
+}
+ function inicioMedsio2(x){
          var obj = JSON.parse(x);
          
          var directorio = "";
@@ -500,7 +505,6 @@ function inicioMedsio(){
          }
          document.getElementById("listaPacientes").innerHTML = directorio;
      }
-}
 
 var estado = "vistaPacientes";
 function inicio(){
