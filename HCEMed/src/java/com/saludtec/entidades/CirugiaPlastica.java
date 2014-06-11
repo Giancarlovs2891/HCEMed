@@ -357,6 +357,9 @@ public class CirugiaPlastica implements Serializable {
     @Column(name = "clasificacionPtosisRegnoult")
     private String clasificacionPtosisRegnoult;
     @Size(max = 45)
+    @Column(name = "gradoPtosisRegnault")
+    private String gradoPtosisRegnault;    
+    @Size(max = 45)
     @Column(name = "tipoPielDerecha")
     private String tipoPielDerecha;
     @Size(max = 45)
@@ -1239,6 +1242,15 @@ public class CirugiaPlastica implements Serializable {
     public void setClasificacionPtosisRegnoult(String clasificacionPtosisRegnoult) {
         this.clasificacionPtosisRegnoult = clasificacionPtosisRegnoult;
     }
+
+    public String getGradoPtosisRegnault() {
+        return gradoPtosisRegnault;
+    }
+
+    public void setGradoPtosisRegnault(String gradoPtosisRegnault) {
+        this.gradoPtosisRegnault = gradoPtosisRegnault;
+    }
+    
 
     public String getTipoPielDerecha() {
         return tipoPielDerecha;

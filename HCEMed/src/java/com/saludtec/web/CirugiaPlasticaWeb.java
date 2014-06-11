@@ -149,6 +149,7 @@ public class CirugiaPlasticaWeb extends HttpServlet {
         cirugiaPlastica.setOtroFormaMamariaIzquierda(request.getParameter("otroFormaMamariaIzquierda"));
         cirugiaPlastica.setPtosisMamaria(request.getParameter("ptosisMamaria"));
         cirugiaPlastica.setClasificacionPtosisRegnoult(request.getParameter("clasificacionPtosisRegnoult"));
+        cirugiaPlastica.setGradoPtosisRegnault(request.getParameter("gradoPtosisRegnault"));      
         cirugiaPlastica.setTipoPielDerecha(request.getParameter("tipoPielDerecha"));
         cirugiaPlastica.setOtroTipoDePielDerecha(request.getParameter("otroTipoDePielDerecha"));
         cirugiaPlastica.setTipoPielIzquierda(request.getParameter("tipoPielIzquierda"));
@@ -338,6 +339,7 @@ public class CirugiaPlasticaWeb extends HttpServlet {
             obj.put("otroFormaMamariaIzquierda", cirugiaPlastica.getOtroFormaMamariaIzquierda());
             obj.put("ptosisMamaria", cirugiaPlastica.getPtosisMamaria());
             obj.put("clasificacionPtosisRegnoult", cirugiaPlastica.getClasificacionPtosisRegnoult());
+            obj.put("gradoPtosisRegnault", cirugiaPlastica.getGradoPtosisRegnault());
             obj.put("tipoPielDerecha", cirugiaPlastica.getTipoPielDerecha());
             obj.put("otroTipoDePielDerecha", cirugiaPlastica.getOtroTipoDePielDerecha());
             obj.put("tipoPielIzquierda", cirugiaPlastica.getTipoPielIzquierda());
