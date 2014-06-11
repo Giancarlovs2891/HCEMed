@@ -928,8 +928,8 @@ function cargarEstadoPacienteNuevoAnamnesis(json){
 function cargarEstadoPacienteCargadoAnamnesis(json){
     var Json = decodeURIComponent(json);
     if(Json != ""){
-        var obj = JSON.parse(Json);
-       habilitarCamposAn(); 
+       var obj = JSON.parse(Json);
+       
        $("#fechaDiagnosticoAlergia").val(obj[0].fechaDiagnosticoAlergia);
         $("#inicioTratamientoAlergia").val(obj[0].inicioTratamientoAlergia);
         $("#hastaTratamientoAlergia").val(obj[0].hastaTratamientoAlergia);
@@ -1195,6 +1195,7 @@ function cargarEstadoPacienteCargadoAnamnesis(json){
         checksAt("otrosAbueloP", obj[0].otrosAbueloP);
         checksAt("otrosAbueloM", obj[0].otrosAbueloM);
         checksAt("otrosNinguno", obj[0].otrosNinguno);
+        habilitarCamposAn(); 
     }
 }
 function guardarAnamnesis() {
@@ -1230,11 +1231,12 @@ function definirChecksAn(nombreCheck, valorCheck, campoParaMostrar) {
     }
 }
 function checksAt(checkAt, valorCheck) {
-    if (valorCheck == null) {
+    if (valorCheck == "null" || !valorCheck) {
         $("[name=" + checkAt + "]").attr("checked", false);
     } else {
         $("[name=" + checkAt + "]").attr("checked", true);
     }
+    
 }
 
 function otraFacturaCheck() {
@@ -1343,6 +1345,7 @@ function ocultarGinecologia() {
 
 function muestraCampoOtrosTablaAt (json) {console.log();
     var obj = JSON.parse(json);
+    if(obj.length == 0){return;}
     if (obj[0].otrosPadre != null || obj[0].otrosMadre != null || obj[0].otrosHijo != null || obj[0].otrosTioP != null || obj[0].otrosTioM != null || obj[0].otrosHmnos != null || obj[0].otrosAbueloP != null || obj[0].otrosAbueloM != null) {
         $("#comentariosTablaAntecedentesFamiliares").show();
     }

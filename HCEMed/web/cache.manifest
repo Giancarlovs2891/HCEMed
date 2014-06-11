@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#MEDSIO version 1.0.4 Version Final Soporte Guardado Central jhlkjlhjgdkkldsdsdsjjkljfglkl;ksfkjh
+#MEDSIO version 1.0 Mayo 16,2014 Previo a la primera presentdfgacion en simposio
 
 #general
 index.html
@@ -213,3 +213,10 @@ js/fabric/src/shadow.class.js
 js/fabric/src/static_canvas.class.js
 
 js/fabric/dist/all.js
+
+##topografia_dermatologica--------------------------------
+modulos/topografia_dermatologica/img/menu.png
+modulos/topografia_dermatologica/es/css/main.css
+modulos/topografia_dermatologica/es/js/main.js
+modulos/topografia_dermatologica/es/js/evolucion.js
+modulos/topografia_dermatologica/es/index.html

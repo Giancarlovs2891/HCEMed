@@ -27,7 +27,7 @@ function start() {
 }
 function cargarEstadoPacienteNuevo(json){
     var Json = decodeURIComponent(json);
-    
+    if(Json == ""){return;}
     var obj = JSON.parse(Json);
     if(obj.length ==0){return;}
     if(obj[0].inputImagen == ""){obj[0].inputImagen = "modulos/datos_basicos/img/fotoPerfil.png";}
