@@ -83,6 +83,7 @@ tabla += "formaMamariaIzquierda, ";
 tabla += "otroFormaMamariaIzquierda, ";
 tabla += "ptosisMamaria, ";
 tabla += "clasificacionPtosisRegnoult, ";
+tabla += "gradoPtosisRegnault, ";
 tabla += "tipoPielDerecha, ";
 tabla += "otroTipoDePielDerecha, ";
 tabla += "tipoPielIzquierda, ";
@@ -181,7 +182,7 @@ tabla2 += "pulso, ";
 tabla2 += "talla, ";
 tabla2 += "cadera, ";
 tabla2 += "frecuenciaRespiratoria, ";
-tabla2+= "bmi, ";
+tabla2 += "bmi, ";
 tabla2 += "indiceCintCad, ";
 tabla2 += "piel, ";
 tabla2 += "pielComentarioEf, ";
@@ -204,7 +205,7 @@ tabla2 += "genitourinarioComentarioEf, ";
 tabla2 += "extremidades, ";
 tabla2 += "extremidadesComentarioEf, ";
 tabla2 += "sistemaNerviosoCentral, ";
-tabla2 += "sistemaNerviosoCentralComentarioEf, ";
+//tabla2 += "sistemaNerviosoCentralComentarioEf, ";
 tabla2 += "adenopatias, ";
 tabla2 += "adenopatiasComentarioEf, ";
 tabla2 += "otros, ";
@@ -216,23 +217,33 @@ tabla2 += "horaCreacionEf";
 tabla2 += ")";
 start();
 
+var tablap = "CREATE TABLE IF NOT EXISTS Prueba (id, campo1)";
 function start() {
 
     var storage = getModoMedsio();
     if (storage == "local") {
         crearTabla(tabla);
         crearTabla(tabla2);
+        crearTabla(tablap);
+        function alter(tx) {
+            tx.executeSql("ALTER TABLE CirugiaPlastica ADD COLUMN gradoPtosisRegnault");
+        }
+        db.transaction(alter);
+
     } else {
 
     }
+    function nada() {
+        console.log("alter");
+    }
     mostrarImgAlopecia();
     changeSubTitle("Cirugía Plastica");
-    if(modoMedsio == "local"){
-    traerTodoTabla("CirugiaPlastica WHERE idPaciente='" + getPatientId() + "' ORDER BY idCirugiaPlastica DESC LIMIT 0,1", cargarCamposCirugiaPlastica);
-    }else{
+    if (modoMedsio == "local") {
+        traerTodoTabla("CirugiaPlastica WHERE idPaciente='" + getPatientId() + "' ORDER BY idCirugiaPlastica DESC LIMIT 0,1", cargarCamposCirugiaPlastica);
+    } else {
         var service = "CirugiaPlastica/traerUltimo";
-        var string= "idPaciente="+getPatientId();
-        
+        var string = "idPaciente=" + getPatientId();
+
         ajax(service, string, cargarCamposCirugiaPlastica);
     }
 }
@@ -260,6 +271,7 @@ function cargarCamposCirugiaPlastica(json) {
             $("#" + obj[0].gradoDeAlopeciaHombre).addClass("imagenSeleccionada");
             $("#" + obj[0].gradoDeAlopeciaMujer).addClass("imagenSeleccionada");
         }
+
         mostrarImgAlopecia();
         //FACIAL
         definirChecks("facial", "si", obj[0].facial, "capaFacial");
@@ -277,6 +289,10 @@ function cargarCamposCirugiaPlastica(json) {
         //ESTETICA CORPORAL
         definirChecks("esteticaCorporal", "si", obj[0].esteticaCorporal, "capaEsteticaCorporal");
         definirChecks("regionToracicaAnterior", "si", obj[0].regionToracicaAnterior, "hombreMujer");
+        definirChecks("clasificacionPtosisRegnoult", "si", obj[0].clasificacionPtosisRegnoult, "capaImagenesPtosisRegnault");
+        if (obj[0].gradoPtosisRegnault != "") {
+            $("#" + obj[0].gradoPtosisRegnault).addClass("imagenSeleccionada");
+        }
         if (getPatientSex() == "m") {
             mostrar("hombre");
             ocultar("mujer");
@@ -311,90 +327,95 @@ function cargarCamposCirugiaPlastica(json) {
         //
         deshabilitarCamposCp();
         changeRightBtn("Editar", "habilitarCamposCp", "");
-        cargarEstadoPrevio("cirugia_plastica",cargarEstadoPacienteCargadoCirugiaPlastica);
+        cargarEstadoPrevio("cirugia_plastica", cargarEstadoPacienteCargadoCirugiaPlastica);
 
     } else {
         iniciarGuardadoTemporal();
         $('input[type="radio"][value="no"]').prop('checked', true);
         habilitarCamposCp();
-        cargarEstadoPrevio("cirugia_plastica",cargarEstadoPacienteNuevoCirugiaPlastica);
+        cargarEstadoPrevio("cirugia_plastica", cargarEstadoPacienteNuevoCirugiaPlastica);
         changeRightBtn("Guardar", "guardarCirugiaPlastica", "");
     }
 
 
 }
-function cargarEstadoPacienteNuevoCirugiaPlastica(json){
+function cargarEstadoPacienteNuevoCirugiaPlastica(json) {
     var Json = decodeURIComponent(json);
     //$("div#medsioContent").loadJSON(eval(Json));
     var obj = JSON.parse(Json);
-     $("div#cirugiaPlasticaContenedor").loadJSON(eval(Json));
+    $("div#cirugiaPlasticaContenedor").loadJSON(eval(Json));
 
-        //ESTETICA CABEZA CUELLO
-        definirChecks("esteticaCabezaCuello", "si", obj[0].esteticaCabezaCuello, "alopeciaFacial");
-        //ALOPECIA
-        definirChecks("alopecia", "si", obj[0].alopecia, "capaAlopecia");
-        definirSelects("tipoAlopeciaNoCicatricial", "otra", "otroTipoDeAlopeciaNoCicatricial");
-        definirSelects("tipoAlopeciaCicatricial", "otra", "otroTipoAlopeciaCicatricial");
-        if (obj[0].gradoDeAlopeciaHombre != "" || obj[0].gradoDeAlopeciaMujer != "") {
-            $("#" + obj[0].gradoDeAlopeciaHombre).addClass("imagenSeleccionada");
-            $("#" + obj[0].gradoDeAlopeciaMujer).addClass("imagenSeleccionada");
-        }
-        mostrarImgAlopecia();
-        //FACIAL
-        definirChecks("facial", "si", obj[0].facial, "capaFacial");
-        definirChecks("antropometriaFrente", "si", obj[0].antropometriaFrente, "capaComentarioAntropometriaF");
-        definirChecks("antropometriaPerfil", "si", obj[0].antropometriaPerfil, "capaComentarioAntropometriaP");
-        definirChecks("frente", "si", obj[0].frente, "capaComentarioFrente");
-        definirChecks("zonaPeriorbitaria", "si", obj[0].zonaPeriorbitaria, "capaComentarioZonaPeriorbitaria");
-        definirChecks("regionMalar", "si", obj[0].regionMalar, "capaComentarioRegionMalar");
-        definirChecks("regionMandibular", "si", obj[0].regionMandibular, "capaComentarioRegionMandibular");
-        definirChecks("auricular", "si", obj[0].auricular, "capaComentarioAuricular");
-        definirChecks("nasal", "si", obj[0].nasal, "capaComentarioNasal");
-        definirChecks("periBucal", "si", obj[0].periBucal, "capaComentarioPeriBucal");
-        definirChecks("mentoniana", "si", obj[0].mentoniana, "capaComentarioMentoniana");
-        definirChecks("cervical", "si", obj[0].cervical, "capaComentarioCervical");
-        //ESTETICA CORPORAL
-        definirChecks("esteticaCorporal", "si", obj[0].esteticaCorporal, "capaEsteticaCorporal");
-        definirChecks("regionToracicaAnterior", "si", obj[0].regionToracicaAnterior, "hombreMujer");
-        if (getPatientSex() == "m") {
-            mostrar("hombre");
-            ocultar("mujer");
-        } else if (getPatientSex() == "f") {
-            mostrar("mujer");
-            ocultar("hombre");
-            definirChecks("antecedentesMamarios", "si", obj[0].antecedentesMamarios, "comentariosAntecedentesMamarios");
-            definirChecks("mamografias", "si", obj[0].mamografias, "comentariosMamografias");
-            definirChecks("autoexamen", "si", obj[0].autoexamen, "comentariosAutoexamen");
-            definirSelects("volumenMamarioDerecho", "hipertrofia", "hipertrofiaVolumenMamarioDerecho");
-            definirSelects("volumenMamarioIzquierdo", "hipertrofia", "hipertrofiaVolumenMamarioIzquierdo");
-        }
-        //ABDOMEN
-        definirChecks("abdomen", "si", obj[0].abdomen, "capaAbdomen");
-        icc();
-        //ESPALDA
-        definirChecks("espalda", "si", obj[0].espalda, "capaEspalda");
-        //GLUTEOS
-        definirChecks("gluteos", "si", obj[0].gluteos, "capaGluteos");
-        //EXTREMIDADES SUPERIORES
-        definirChecks("extremidadesSuperiores", "si", obj[0].extremidadesSuperiores, "capaExtremidadesSuperiores");
-        definirChecks("depositoGrasaMinimoModeradoMinimaLaxitud", "si", obj[0].depositoGrasaMinimoModeradoMinimaLaxitud, "sugerenciaDepositoMinimoGrasa");
-        definirChecks("depositoGrasaGeneralizadaModeradaLaxitud", "si", obj[0].depositoGrasaGeneralizadaModeradaLaxitud, "sugerenciaDepositoGrasaGeneralizada");
-        definirChecks("obesidadGeneralizadaSeveraLaxitud", "si", obj[0].obesidadGeneralizadaSeveraLaxitud, "sugerenciaObesidadGeneralizada");
-        definirChecks("minimaGrasaSubcutaneaExtensaLaxitud", "si", obj[0].minimaGrasaSubcutaneaExtensaLaxitud, "sugerenciaMinimaGrasaSubcutanea");
-        //EXTREMIDADES INFERIORES
-        definirChecks("extremidadesInferiores", "si", obj[0].extremidadesInferiores, "capaExtremidadesInferiores");
-        //RECONSTRUCTIVA CABEZA CUELLO
-        definirChecks("reconstructivaCabezaCuello", "si", obj[0].reconstructivaCabezaCuello, "capaRcc");
-        //RECONSTRUCTIVA CORPORAL
-        definirChecks("reconstructivaCorporal", "si", obj[0].reconstructivaCorporal, "capaRc");
+    //ESTETICA CABEZA CUELLO
+    definirChecks("esteticaCabezaCuello", "si", obj[0].esteticaCabezaCuello, "alopeciaFacial");
+    //ALOPECIA
+    definirChecks("alopecia", "si", obj[0].alopecia, "capaAlopecia");
+    definirSelects("tipoAlopeciaNoCicatricial", "otra", "otroTipoDeAlopeciaNoCicatricial");
+    definirSelects("tipoAlopeciaCicatricial", "otra", "otroTipoAlopeciaCicatricial");
+    if (obj[0].gradoDeAlopeciaHombre != "" || obj[0].gradoDeAlopeciaMujer != "") {
+        $("#" + obj[0].gradoDeAlopeciaHombre).addClass("imagenSeleccionada");
+        $("#" + obj[0].gradoDeAlopeciaMujer).addClass("imagenSeleccionada");
+    }
+
+    mostrarImgAlopecia();
+    //FACIAL
+    definirChecks("facial", "si", obj[0].facial, "capaFacial");
+    definirChecks("antropometriaFrente", "si", obj[0].antropometriaFrente, "capaComentarioAntropometriaF");
+    definirChecks("antropometriaPerfil", "si", obj[0].antropometriaPerfil, "capaComentarioAntropometriaP");
+    definirChecks("frente", "si", obj[0].frente, "capaComentarioFrente");
+    definirChecks("zonaPeriorbitaria", "si", obj[0].zonaPeriorbitaria, "capaComentarioZonaPeriorbitaria");
+    definirChecks("regionMalar", "si", obj[0].regionMalar, "capaComentarioRegionMalar");
+    definirChecks("regionMandibular", "si", obj[0].regionMandibular, "capaComentarioRegionMandibular");
+    definirChecks("auricular", "si", obj[0].auricular, "capaComentarioAuricular");
+    definirChecks("nasal", "si", obj[0].nasal, "capaComentarioNasal");
+    definirChecks("periBucal", "si", obj[0].periBucal, "capaComentarioPeriBucal");
+    definirChecks("mentoniana", "si", obj[0].mentoniana, "capaComentarioMentoniana");
+    definirChecks("cervical", "si", obj[0].cervical, "capaComentarioCervical");
+    //ESTETICA CORPORAL
+    definirChecks("esteticaCorporal", "si", obj[0].esteticaCorporal, "capaEsteticaCorporal");
+    definirChecks("regionToracicaAnterior", "si", obj[0].regionToracicaAnterior, "hombreMujer");
+    definirChecks("clasificacionPtosisRegnoult", "si", obj[0].clasificacionPtosisRegnoult, "capaImagenesPtosisRegnault");
+    if (obj[0].gradoPtosisRegnault != "") {
+        $("#" + obj[0].gradoPtosisRegnault).addClass("imagenSeleccionada");
+    }
+    if (getPatientSex() == "m") {
+        mostrar("hombre");
+        ocultar("mujer");
+    } else if (getPatientSex() == "f") {
+        mostrar("mujer");
+        ocultar("hombre");
+        definirChecks("antecedentesMamarios", "si", obj[0].antecedentesMamarios, "comentariosAntecedentesMamarios");
+        definirChecks("mamografias", "si", obj[0].mamografias, "comentariosMamografias");
+        definirChecks("autoexamen", "si", obj[0].autoexamen, "comentariosAutoexamen");
+        definirSelects("volumenMamarioDerecho", "hipertrofia", "hipertrofiaVolumenMamarioDerecho");
+        definirSelects("volumenMamarioIzquierdo", "hipertrofia", "hipertrofiaVolumenMamarioIzquierdo");
+    }
+    //ABDOMEN
+    definirChecks("abdomen", "si", obj[0].abdomen, "capaAbdomen");
+    icc();
+    //ESPALDA
+    definirChecks("espalda", "si", obj[0].espalda, "capaEspalda");
+    //GLUTEOS
+    definirChecks("gluteos", "si", obj[0].gluteos, "capaGluteos");
+    //EXTREMIDADES SUPERIORES
+    definirChecks("extremidadesSuperiores", "si", obj[0].extremidadesSuperiores, "capaExtremidadesSuperiores");
+    definirChecks("depositoGrasaMinimoModeradoMinimaLaxitud", "si", obj[0].depositoGrasaMinimoModeradoMinimaLaxitud, "sugerenciaDepositoMinimoGrasa");
+    definirChecks("depositoGrasaGeneralizadaModeradaLaxitud", "si", obj[0].depositoGrasaGeneralizadaModeradaLaxitud, "sugerenciaDepositoGrasaGeneralizada");
+    definirChecks("obesidadGeneralizadaSeveraLaxitud", "si", obj[0].obesidadGeneralizadaSeveraLaxitud, "sugerenciaObesidadGeneralizada");
+    definirChecks("minimaGrasaSubcutaneaExtensaLaxitud", "si", obj[0].minimaGrasaSubcutaneaExtensaLaxitud, "sugerenciaMinimaGrasaSubcutanea");
+    //EXTREMIDADES INFERIORES
+    definirChecks("extremidadesInferiores", "si", obj[0].extremidadesInferiores, "capaExtremidadesInferiores");
+    //RECONSTRUCTIVA CABEZA CUELLO
+    definirChecks("reconstructivaCabezaCuello", "si", obj[0].reconstructivaCabezaCuello, "capaRcc");
+    //RECONSTRUCTIVA CORPORAL
+    definirChecks("reconstructivaCorporal", "si", obj[0].reconstructivaCorporal, "capaRc");
 }
-function cargarEstadoPacienteCargadoCirugiaPlastica(json){
+function cargarEstadoPacienteCargadoCirugiaPlastica(json) {
     var Json = decodeURIComponent(json);
-    if(Json != ""){
+    if (Json != "") {
         habilitarCamposCp();
         //$("div#medsioContent").loadJSON(eval(Json));
         var obj = JSON.parse(Json);
-     $("div#cirugiaPlasticaContenedor").loadJSON(eval(Json));
+        $("div#cirugiaPlasticaContenedor").loadJSON(eval(Json));
 
         //ESTETICA CABEZA CUELLO
         definirChecks("esteticaCabezaCuello", "si", obj[0].esteticaCabezaCuello, "alopeciaFacial");
@@ -457,12 +478,12 @@ function cargarEstadoPacienteCargadoCirugiaPlastica(json){
     }
 }
 function icc() {
-    if(modoMedsio == "local"){
+    if (modoMedsio == "local") {
         crearSql("SELECT indiceCintCad FROM ExamenFisico WHERE idPaciente='" + getPatientId() + "' ORDER BY idExamenFisico DESC LIMIT 0,1", iccEsteticaCorporal);
-    }else{
+    } else {
         var service = "ExamenFisico/traerUltimo";
-        var string = "idPaciente="+getPatientId();
-        
+        var string = "idPaciente=" + getPatientId();
+
         ajax(service, string, iccEsteticaCorporal);
     }
 }
@@ -529,7 +550,15 @@ function habilitarCamposCp() {
     $("input, textarea, select").prop("disabled", false);
     changeRightBtn("Guardar", "guardarCirugiaPlastica", "");
     var imagenes = document.getElementById("capaAlopecia").getElementsByTagName('img');
+    var imgSenos = document.getElementById("capaImagenesPtosisRegnault").getElementsByTagName('img');
     var sexo = getPatientSex();
+
+    for (var i = 0; i < imgSenos.length; i++) {
+        if (sexo === "f") {
+            imgSenos[i].setAttribute("onclick", "gradoAlopecia(this, 'capaImagenesPtosisRegnault', 'gradoPtosisRegnault')");
+        }
+    }
+
     for (var i = 0; i < imagenes.length; i++) {
         if (sexo === "m") {
             imagenes[i].setAttribute("onclick", "gradoAlopecia(this, 'imagenesAlopeciaHombre', 'gradoDeAlopeciaHombre')");
@@ -546,11 +575,16 @@ function deshabilitarCamposCp() {
     $("input, textarea, select").prop("disabled", true);
     changeRightBtn("Editar", "habilitarCamposCp", "");
     var imagenes = document.getElementById("capaAlopecia").getElementsByTagName('img');
+    var imgSenos = document.getElementById("capaImagenesPtosisRegnault").getElementsByTagName('img');
     for (var i = 0; i < imagenes.length; i++) {
 //        imagenes[i].onclick = function() {
 //            return false;
 //        };
         imagenes[i].setAttribute("onclick", "");
+    }
+
+    for (var i = 0; i < imgSenos.length; i++) {
+        imgSenos[i].setAttribute("onclick", "");
     }
 }
 function muestraOcultaEscala() {

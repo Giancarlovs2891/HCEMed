@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#MEDSIO version 1.0 Mayo 16,2014 Previo a la primera presentdfgacion en simposio
+#MEDSIO version 5.1 Mayo 16,2014 Previo a la primera presentdfgacion en simposio
 
 #general
 index.html
@@ -77,6 +77,12 @@ modulos/cirugia_plastica/img/region_toracica_anterior.png
 modulos/cirugia_plastica/img/radiobg.png
 modulos/cirugia_plastica/img/radiobgno.png
 modulos/cirugia_plastica/img/radiobgsi.png
+modulos/cirugia_plastica/img/caso_seno_normal.png
+modulos/cirugia_plastica/img/caso_seno_parenchymal_maldistribution_unusual_shape.png
+modulos/cirugia_plastica/img/2.png
+modulos/cirugia_plastica/img/caso_seno_ptosis_grade_01_mild_sagging.png
+modulos/cirugia_plastica/img/caso_seno_ptosis_grade_02_moderate_sagging.png
+modulos/cirugia_plastica/img/caso_seno_ptosis_grade_03_significant_sagging.png
 modulos/cirugia_plastica/es/css/main.css
 modulos/cirugia_plastica/es/js/main.js
 modulos/cirugia_plastica/es/js/evolucion.js

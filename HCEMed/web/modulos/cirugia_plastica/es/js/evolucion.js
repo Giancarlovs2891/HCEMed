@@ -13,66 +13,73 @@ function cargarCamposCirugiaPlasticaEvo(json) {
     var obj = JSON.parse(json);
     if (obj.length > 0) {
         $("div#cirugiaPlasticaContenedor").loadJSON(eval(json));
+
         //ESTETICA CABEZA CUELLO
-        definirChecksCpEvo("esteticaCabezaCuello", "si", obj[0].esteticaCabezaCuello, "alopeciaFacial");
+        definirChecks("esteticaCabezaCuello", "si", obj[0].esteticaCabezaCuello, "alopeciaFacial");
         //ALOPECIA
-        definirChecksCpEvo("alopecia", "si", obj[0].alopecia, "capaAlopecia");
-        definirSelectsCpEvo("tipoAlopeciaNoCicatricial", "otra", "otroTipoDeAlopeciaNoCicatricial");
-        definirSelectsCpEvo("tipoAlopeciaCicatricial", "otra", "otroTipoAlopeciaCicatricial");
-        if (obj[0].gradoDeAlopeciaHombre != "" || obj[0].gradoDeAlopeciaMujer !="") {
+        definirChecks("alopecia", "si", obj[0].alopecia, "capaAlopecia");
+        definirSelects("tipoAlopeciaNoCicatricial", "otra", "otroTipoDeAlopeciaNoCicatricial");
+        definirSelects("tipoAlopeciaCicatricial", "otra", "otroTipoAlopeciaCicatricial");
+        if (obj[0].gradoDeAlopeciaHombre != "" || obj[0].gradoDeAlopeciaMujer != "") {
             $("#" + obj[0].gradoDeAlopeciaHombre).addClass("imagenSeleccionada");
             $("#" + obj[0].gradoDeAlopeciaMujer).addClass("imagenSeleccionada");
         }
+
         mostrarImgAlopecia();
         //FACIAL
-        definirChecksCpEvo("facial", "si", obj[0].facial, "capaFacial");
-        definirChecksCpEvo("antropometriaFrente", "si", obj[0].antropometriaFrente, "capaComentarioAntropometriaF");
-        definirChecksCpEvo("antropometriaPerfil", "si", obj[0].antropometriaPerfil, "capaComentarioAntropometriaP");
-        definirChecksCpEvo("frente", "si", obj[0].frente, "capaComentarioFrente");
-        definirChecksCpEvo("zonaPeriorbitaria", "si", obj[0].zonaPeriorbitaria, "capaComentarioZonaPeriorbitaria");
-        definirChecksCpEvo("regionMalar", "si", obj[0].regionMalar, "capaComentarioRegionMalar");
-        definirChecksCpEvo("regionMandibular", "si", obj[0].regionMandibular, "capaComentarioRegionMandibular");
-        definirChecksCpEvo("auricular", "si", obj[0].auricular, "capaComentarioAuricular");
-        definirChecksCpEvo("nasal", "si", obj[0].nasal, "capaComentarioNasal");
-        definirChecksCpEvo("periBucal", "si", obj[0].periBucal, "capaComentarioPeriBucal");
-        definirChecksCpEvo("mentoniana", "si", obj[0].mentoniana, "capaComentarioMentoniana");
-        definirChecksCpEvo("cervical", "si", obj[0].cervical, "capaComentarioCervical");
+        definirChecks("facial", "si", obj[0].facial, "capaFacial");
+        definirChecks("antropometriaFrente", "si", obj[0].antropometriaFrente, "capaComentarioAntropometriaF");
+        definirChecks("antropometriaPerfil", "si", obj[0].antropometriaPerfil, "capaComentarioAntropometriaP");
+        definirChecks("frente", "si", obj[0].frente, "capaComentarioFrente");
+        definirChecks("zonaPeriorbitaria", "si", obj[0].zonaPeriorbitaria, "capaComentarioZonaPeriorbitaria");
+        definirChecks("regionMalar", "si", obj[0].regionMalar, "capaComentarioRegionMalar");
+        definirChecks("regionMandibular", "si", obj[0].regionMandibular, "capaComentarioRegionMandibular");
+        definirChecks("auricular", "si", obj[0].auricular, "capaComentarioAuricular");
+        definirChecks("nasal", "si", obj[0].nasal, "capaComentarioNasal");
+        definirChecks("periBucal", "si", obj[0].periBucal, "capaComentarioPeriBucal");
+        definirChecks("mentoniana", "si", obj[0].mentoniana, "capaComentarioMentoniana");
+        definirChecks("cervical", "si", obj[0].cervical, "capaComentarioCervical");
         //ESTETICA CORPORAL
-        definirChecksCpEvo("esteticaCorporal", "si", obj[0].esteticaCorporal, "capaEsteticaCorporal");
-        definirChecksCpEvo("regionToracicaAnterior", "si", obj[0].regionToracicaAnterior, "hombreMujer");
+        definirChecks("esteticaCorporal", "si", obj[0].esteticaCorporal, "capaEsteticaCorporal");
+        definirChecks("regionToracicaAnterior", "si", obj[0].regionToracicaAnterior, "hombreMujer");
+        definirChecks("clasificacionPtosisRegnoult", "si", obj[0].clasificacionPtosisRegnoult, "capaImagenesPtosisRegnault");
+        if (obj[0].gradoPtosisRegnault != "") {
+            $("#" + obj[0].gradoPtosisRegnault).addClass("imagenSeleccionada");
+        }
         if (getPatientSex() == "m") {
             mostrar("hombre");
             ocultar("mujer");
         } else if (getPatientSex() == "f") {
             mostrar("mujer");
             ocultar("hombre");
-            definirChecksCpEvo("antecedentesMamarios", "si", obj[0].antecedentesMamarios, "comentariosAntecedentesMamarios");
-            definirChecksCpEvo("mamografias", "si", obj[0].mamografias, "comentariosMamografias");
-            definirChecksCpEvo("autoexamen", "si", obj[0].autoexamen, "comentariosAutoexamen");
-            definirSelectsCpEvo("volumenMamarioDerecho", "hipertrofia", "hipertrofiaVolumenMamarioDerecho");
-            definirSelectsCpEvo("volumenMamarioIzquierdo", "hipertrofia", "hipertrofiaVolumenMamarioIzquierdo");
+            definirChecks("antecedentesMamarios", "si", obj[0].antecedentesMamarios, "comentariosAntecedentesMamarios");
+            definirChecks("mamografias", "si", obj[0].mamografias, "comentariosMamografias");
+            definirChecks("autoexamen", "si", obj[0].autoexamen, "comentariosAutoexamen");
+            definirSelects("volumenMamarioDerecho", "hipertrofia", "hipertrofiaVolumenMamarioDerecho");
+            definirSelects("volumenMamarioIzquierdo", "hipertrofia", "hipertrofiaVolumenMamarioIzquierdo");
         }
         //ABDOMEN
-        definirChecksCpEvo("abdomen", "si", obj[0].abdomen, "capaAbdomen");
+        definirChecks("abdomen", "si", obj[0].abdomen, "capaAbdomen");
         icc();
         //ESPALDA
-        definirChecksCpEvo("espalda", "si", obj[0].espalda, "capaEspalda");
+        definirChecks("espalda", "si", obj[0].espalda, "capaEspalda");
         //GLUTEOS
-        definirChecksCpEvo("gluteos", "si", obj[0].gluteos, "capaGluteos");
+        definirChecks("gluteos", "si", obj[0].gluteos, "capaGluteos");
         //EXTREMIDADES SUPERIORES
-        definirChecksCpEvo("extremidadesSuperiores", "si", obj[0].extremidadesSuperiores, "capaExtremidadesSuperiores");
-        definirChecksCpEvo("depositoGrasaMinimoModeradoMinimaLaxitud", "si", obj[0].depositoGrasaMinimoModeradoMinimaLaxitud, "sugerenciaDepositoMinimoGrasa");
-        definirChecksCpEvo("depositoGrasaGeneralizadaModeradaLaxitud", "si", obj[0].depositoGrasaGeneralizadaModeradaLaxitud, "sugerenciaDepositoGrasaGeneralizada");
-        definirChecksCpEvo("obesidadGeneralizadaSeveraLaxitud", "si", obj[0].obesidadGeneralizadaSeveraLaxitud, "sugerenciaObesidadGeneralizada");
-        definirChecksCpEvo("minimaGrasaSubcutaneaExtensaLaxitud", "si", obj[0].minimaGrasaSubcutaneaExtensaLaxitud, "sugerenciaMinimaGrasaSubcutanea")
+        definirChecks("extremidadesSuperiores", "si", obj[0].extremidadesSuperiores, "capaExtremidadesSuperiores");
+        definirChecks("depositoGrasaMinimoModeradoMinimaLaxitud", "si", obj[0].depositoGrasaMinimoModeradoMinimaLaxitud, "sugerenciaDepositoMinimoGrasa");
+        definirChecks("depositoGrasaGeneralizadaModeradaLaxitud", "si", obj[0].depositoGrasaGeneralizadaModeradaLaxitud, "sugerenciaDepositoGrasaGeneralizada");
+        definirChecks("obesidadGeneralizadaSeveraLaxitud", "si", obj[0].obesidadGeneralizadaSeveraLaxitud, "sugerenciaObesidadGeneralizada");
+        definirChecks("minimaGrasaSubcutaneaExtensaLaxitud", "si", obj[0].minimaGrasaSubcutaneaExtensaLaxitud, "sugerenciaMinimaGrasaSubcutanea");
         //EXTREMIDADES INFERIORES
-        definirChecksCpEvo("extremidadesInferiores", "si", obj[0].extremidadesInferiores, "capaExtremidadesInferiores");
+        definirChecks("extremidadesInferiores", "si", obj[0].extremidadesInferiores, "capaExtremidadesInferiores");
         //RECONSTRUCTIVA CABEZA CUELLO
-        definirChecksCpEvo("reconstructivaCabezaCuello", "si", obj[0].reconstructivaCabezaCuello, "capaRcc");
+        definirChecks("reconstructivaCabezaCuello", "si", obj[0].reconstructivaCabezaCuello, "capaRcc");
         //RECONSTRUCTIVA CORPORAL
-        definirChecksCpEvo("reconstructivaCorporal", "si", obj[0].reconstructivaCorporal, "capaRc");
+        definirChecks("reconstructivaCorporal", "si", obj[0].reconstructivaCorporal, "capaRc");
         //
         deshabilitarCamposCp();
+
     } else {
         $('input[type="radio"][value="no"]').prop('checked', true);
         habilitarCamposCp();
