@@ -399,6 +399,7 @@ CREATE TABLE  IF NOT EXISTS `HCEMed`.`CirugiaPlastica` (
   `formaMamariaIzquierda` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `ptosisMamaria` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `clasificacionPtosisRegnoult` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `gradoPtosisRegnault` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `tipoPielDerecha` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `tipoPielIzquierda` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `sensibilidadPezonDerecho` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
