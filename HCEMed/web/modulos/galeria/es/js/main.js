@@ -126,7 +126,9 @@ function traerFoto(id, funcion) {
 function listarFotos(){
 	var idPaciente = getPatientId();
 	if(modoMedsio == "local"){
-            traerTabla("Galeria", "idPaciente="+idPaciente, listarFotosSuccess);
+            //traerTabla("Galeria", "idPaciente="+idPaciente, listarFotosSuccess);
+            var sql = "SELECT * FROM Galeria WHERE idPaciente='" + getPatientId() + "' ORDER BY idFoto DESC";
+            crearSql(sql, listarFotosSuccess);
         }else{
             var service= "Galeria/listar";
             var string = "idPaciente="+idPaciente;
@@ -139,11 +141,12 @@ function listarFotosSuccess(x){
 	var html = "";
 
 	for(var i=0;i<obj.length;i++){
+            var fecha = obj[i].fecha.split("-");
             var foto = decodeURIComponent(obj[i].foto);
 		html += '<div onmouseover="mostrarX(this);" onmouseout="esconderX(this);">';
                 html += '<a href="javascript:void(0);" class="botonParaBorrar" onclick="borrarFoto('+obj[i].idFoto+');" ontouch="borrarFoto('+obj[i].idFoto+');"></a>';
                 html += '<div class="cell"  ontouchstart="activarBorrar();" ontouchend="desactivarBorrar('+obj[i].idFoto+');" onclick="desplegarFoto('+obj[i].idFoto+');" style="background-image:url('+foto+');">';
-                html += '<span class="fecha">'+obj[i].fecha+'</span>';
+                html += '<span class="fecha">'+fecha[2]+'-'+fecha[1]+'-'+fecha[0]+'</span>';
                 html += '</div></div>';
 	}
 

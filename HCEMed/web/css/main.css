@@ -2,6 +2,10 @@ li img + h1 {
     text-transform: capitalize;
 }
 
+#MedsioContent #pacienteInfoGeneralMedsio p:nth-child(2) {
+    text-transform: uppercase;
+}
+
 body{
     height:100%;
     width:100%;

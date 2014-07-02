@@ -66,7 +66,7 @@ and open the template in the editor.
                     <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                <span>normal (80-100)</span>
+                                <span>normal (80-100/día)</span>
                             </div>   
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <input type="radio" name="caidaDeCabello" value="normal">
@@ -76,7 +76,7 @@ and open the template in the editor.
                     <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                <span>Moderada (150-200)</span>
+                                <span>Moderada (150-200/día)</span>
                             </div>   
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <input type="radio" name="caidaDeCabello" value="moderada">
@@ -86,7 +86,7 @@ and open the template in the editor.
                     <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                                <span>Severa (250 ó más)</span>
+                                <span>Severa (250 ó más/día)</span>
                             </div>   
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <input type="radio" name="caidaDeCabello" value="severa">
@@ -1752,12 +1752,50 @@ and open the template in the editor.
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
                             <span class="verde">Si</span>
-                            <input type="radio" name="clasificacionPtosisRegnoult" value="si">
+                            <input type="radio" name="clasificacionPtosisRegnoult" value="si" onclick="mostrar('capaImagenesPtosisRegnault');" />
                         </div>
 
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
                             <span class="rojo">No</span>
-                            <input type="radio" name="clasificacionPtosisRegnoult" value="no">
+                            <input type="radio" name="clasificacionPtosisRegnoult" value="no" onclick="ocultar('capaImagenesPtosisRegnault')" />
+                        </div>
+                    </div>
+                </div>
+
+                <div id="capaImagenesPtosisRegnault" class="oculto">
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    <input type="text" id="gradoPtosisRegnault" class="oculto" />
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/caso_seno_normal.png" id="senoPtosisGrado01" class="img-responsive" onclick="gradoAlopecia(this, 'capaImagenesPtosisRegnault', 'gradoPtosisRegnault');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/caso_seno_parenchymal_maldistribution_unusual_shape.png" id="senoPtosisGrado02" class="img-responsive" onclick="gradoAlopecia(this, 'capaImagenesPtosisRegnault', 'gradoPtosisRegnault');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/2.png" id="senoPtosisGrado03" class="img-responsive" onclick="gradoAlopecia(this, 'capaImagenesPtosisRegnault', 'gradoPtosisRegnault');" />
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        &nbsp;
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/caso_seno_ptosis_grade_01_mild_sagging.png" id="senoPtosisGrado01" class="img-responsive" onclick="gradoAlopecia(this, 'capaImagenesPtosisRegnault', 'gradoPtosisRegnault');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/caso_seno_ptosis_grade_02_moderate_sagging.png" id="senoPtosisGrado02" class="img-responsive" onclick="gradoAlopecia(this, 'capaImagenesPtosisRegnault', 'gradoPtosisRegnault');" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="modulos/cirugia_plastica/img/caso_seno_ptosis_grade_03_significant_sagging.png" id="senoPtosisGrado03" class="img-responsive" onclick="gradoAlopecia(this, 'capaImagenesPtosisRegnault', 'gradoPtosisRegnault');" />
                         </div>
                     </div>
                 </div>
@@ -1919,7 +1957,7 @@ and open the template in the editor.
                         </div>
                         <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="diametroComplejoAreolaDerecho">
+                                <input type="text" class="form-control" id="diametroComplejoAreolaDerecho" maxlength="2">
                                 <span class="input-group-addon">cm</span>
                             </div>
                         </div>
@@ -1930,7 +1968,7 @@ and open the template in the editor.
                         </div>
                         <div class="col-lg-3 col-ms-3 col-sm-3 col-xs-3">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="diametroComplejoAreolaIzquierdo">
+                                <input type="text" class="form-control" id="diametroComplejoAreolaIzquierdo" maxlength="2">
                                 <span class="input-group-addon">cm</span>
                             </div>
                         </div>
