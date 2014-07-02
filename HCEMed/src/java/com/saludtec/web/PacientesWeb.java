@@ -5,6 +5,7 @@
  */
 package com.saludtec.web;
 
+import com.saludtec.db.Conexion;
 import com.saludtec.entidades.Pacientes;
 import com.saludtec.entidades.Usuarios;
 import com.saludtec.jpa.PacientesEjb;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import integracionadminiohcemed.*;
 
 /**
  *
@@ -52,7 +54,7 @@ public class PacientesWeb extends HttpServlet {
                 case "traer":
                     traerPaciente(request).writeJSONString(out);
                     break;
-                    
+
                 case "traerIdentificacion":
                     traerPacienteIdentificacion(request).writeJSONString(out);
                     break;
@@ -240,8 +242,8 @@ public class PacientesWeb extends HttpServlet {
         }
         return objArray;
     }
-    
-     private JSONArray traerPacienteIdentificacion(HttpServletRequest request) {
+
+    private JSONArray traerPacienteIdentificacion(HttpServletRequest request) {
         Pacientes paciente = ejbPacientes.traer(request.getParameter("identificacionPaciente"));
         obj = new JSONObject();
         objArray = new JSONArray();
@@ -250,8 +252,8 @@ public class PacientesWeb extends HttpServlet {
             obj.put("nombrePaciente", paciente.getNombrePaciente());
             obj.put("apellidoPaciente", paciente.getApellidoPaciente());
             obj.put("tipoIdentificacionPaciente", paciente.getTipoIdentificacionPaciente());
-            obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());            
-            obj.put("sexoPaciente", paciente.getSexoPaciente());            
+            obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());
+            obj.put("sexoPaciente", paciente.getSexoPaciente());
             obj.put("fechaCreacion", paciente.getFechaCreacion());
             obj.put("horaCreacion", paciente.getHoraCreacion());
             objArray.add(obj);
@@ -278,18 +280,23 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray listarPacientesUsuario(HttpServletRequest request) {
-        List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
         objArray = new JSONArray();
-        if (pacientes != null) {
-            for (Pacientes paciente : pacientes) {
-                obj = new JSONObject();
-                obj.put("idPaciente", paciente.getIdPaciente());
-                obj.put("foto", paciente.getFoto());
-                obj.put("nombrePaciente", paciente.getNombrePaciente());
-                obj.put("apellidoPaciente", paciente.getApellidoPaciente());
-                obj.put("tipoIdentificacionPaciente", paciente.getTipoIdentificacionPaciente());
-                obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());
-                objArray.add(obj);
+        if (Conexion.Adminio.equals("si")) {
+            LoginHcemed hce = new LoginHcemed();
+            objArray = hce.listarPacientes(request.getSession().getAttribute("usuario").toString());
+        } else {
+            List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
+            if (pacientes != null) {
+                for (Pacientes paciente : pacientes) {
+                    obj = new JSONObject();
+                    obj.put("idPaciente", paciente.getIdPaciente());
+                    obj.put("foto", paciente.getFoto());
+                    obj.put("nombrePaciente", paciente.getNombrePaciente());
+                    obj.put("apellidoPaciente", paciente.getApellidoPaciente());
+                    obj.put("tipoIdentificacionPaciente", paciente.getTipoIdentificacionPaciente());
+                    obj.put("identificacionPaciente", paciente.getIdentificacionPaciente());
+                    objArray.add(obj);
+                }
             }
         }
         return objArray;
