@@ -6,8 +6,8 @@
 package com.saludtec.web;
 
 import com.saludtec.db.Conexion;
-import com.saludtec.entidades.hcemed.PacientesHcemed;
-import com.saludtec.entidades.hcemed.UsuariosHcemed;
+import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.Usuarios;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.UsuariosEjb;
 import integracionadminiohcemed.LoginHcemed;
@@ -88,7 +88,7 @@ public class UsuariosWeb extends HttpServlet {
                 objArray.add(obj);
             }
         } else {
-            UsuariosHcemed usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
+            Usuarios usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
             if (usuario != null) {
                 request.getSession().setAttribute("usuario", usuario.getIdUsuario());
                 obj = new JSONObject();

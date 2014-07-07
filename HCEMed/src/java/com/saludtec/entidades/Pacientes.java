@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.saludtec.entidades.hcemed;
+package com.saludtec.entidades;
 
 import java.io.Serializable;
 import java.util.List;
@@ -73,7 +73,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pacientes.findByFechaCreacion", query = "SELECT p FROM Pacientes p WHERE p.fechaCreacion = :fechaCreacion"),
     @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion"),
     @NamedQuery(name = "Pacientes.like", query = "SELECT p FROM Pacientes p WHERE p.nombrePaciente LIKE :nombrePaciente OR p.apellidoPaciente LIKE :apellidoPaciente OR p.identificacionPaciente LIKE :identificacionPaciente ORDER BY p.apellidoPaciente, p.nombrePaciente, p.identificacionPaciente ASC")})
-public class PacientesHcemed implements Serializable {
+public class Pacientes implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -204,7 +204,7 @@ public class PacientesHcemed implements Serializable {
     private List<EvolucionComentarios> evolucionComentariosList;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne(fetch = FetchType.LAZY)
-    private UsuariosHcemed idUsuario;
+    private Usuarios idUsuario;
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
     private List<ExamenFisico> examenFisicoList;
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
@@ -214,12 +214,12 @@ public class PacientesHcemed implements Serializable {
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
     private List<Anamnesis> anamnesisList;
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<TratamientosHcemed> tratamientosList;
+    private List<Tratamientos> tratamientosList;
 
-    public PacientesHcemed() {
+    public Pacientes() {
     }
 
-    public PacientesHcemed(Integer idPaciente) {
+    public Pacientes(Integer idPaciente) {
         this.idPaciente = idPaciente;
     }
 
@@ -563,11 +563,11 @@ public class PacientesHcemed implements Serializable {
         this.evolucionComentariosList = evolucionComentariosList;
     }
 
-    public UsuariosHcemed getIdUsuario() {
+    public Usuarios getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(UsuariosHcemed idUsuario) {
+    public void setIdUsuario(Usuarios idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -608,11 +608,11 @@ public class PacientesHcemed implements Serializable {
     }
 
     @XmlTransient
-    public List<TratamientosHcemed> getTratamientosList() {
+    public List<Tratamientos> getTratamientosList() {
         return tratamientosList;
     }
 
-    public void setTratamientosList(List<TratamientosHcemed> tratamientosList) {
+    public void setTratamientosList(List<Tratamientos> tratamientosList) {
         this.tratamientosList = tratamientosList;
     }
 
@@ -626,10 +626,10 @@ public class PacientesHcemed implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PacientesHcemed)) {
+        if (!(object instanceof Pacientes)) {
             return false;
         }
-        PacientesHcemed other = (PacientesHcemed) object;
+        Pacientes other = (Pacientes) object;
         if ((this.idPaciente == null && other.idPaciente != null) || (this.idPaciente != null && !this.idPaciente.equals(other.idPaciente))) {
             return false;
         }

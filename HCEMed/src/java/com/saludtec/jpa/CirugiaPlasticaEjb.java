@@ -5,7 +5,7 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.hcemed.CirugiaPlastica;
+import com.saludtec.entidades.CirugiaPlastica;
 
 /**
  *

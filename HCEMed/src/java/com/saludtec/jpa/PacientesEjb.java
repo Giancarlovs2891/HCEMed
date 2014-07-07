@@ -5,7 +5,7 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.Pacientes;
 import java.util.List;
 
 /**
@@ -14,20 +14,20 @@ import java.util.List;
  */
 public interface PacientesEjb {
 
-    PacientesHcemed crear(PacientesHcemed paciente);
+    Pacientes crear(Pacientes paciente);
 
-    PacientesHcemed editar(PacientesHcemed paciente);
+    Pacientes editar(Pacientes paciente);
 
     void eliminar(Integer idPaciente);
 
-    PacientesHcemed traer(Integer idPaciente);
+    Pacientes traer(Integer idPaciente);
     
-    PacientesHcemed traer(String identificacionPaciente);
+    Pacientes traer(String identificacionPaciente);
 
-    List<PacientesHcemed> listar();
+    List<Pacientes> listar();
 
-    List<PacientesHcemed> listar(PacientesHcemed like);
+    List<Pacientes> listar(Pacientes like);
     
-    List<PacientesHcemed> listar(Integer idUsuario);
+    List<Pacientes> listar(Integer idUsuario);
 
 }

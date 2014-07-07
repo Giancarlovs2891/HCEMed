@@ -5,8 +5,8 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.hcemed.Anamnesis;
-import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.Anamnesis;
+import com.saludtec.entidades.Pacientes;
 import com.saludtec.jpa.AnamnesisEjb;
 import com.saludtec.jpa.PacientesEjb;
 import java.io.IOException;
@@ -66,7 +66,7 @@ public class AnamnesisWeb extends HttpServlet {
 
     private JSONArray guardarAnamnesis(HttpServletRequest request) {
         Anamnesis anamnesis = new Anamnesis();
-        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         anamnesis.setIdPaciente(paciente);
         anamnesis.setMotivoConsulta(request.getParameter("motivoConsulta"));
         anamnesis.setHistoriaEnfermedadActual(request.getParameter("historiaEnfermedadActual"));

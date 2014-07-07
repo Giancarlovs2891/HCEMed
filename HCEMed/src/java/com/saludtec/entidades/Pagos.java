@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.saludtec.entidades.hcemed;
+package com.saludtec.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Basic;

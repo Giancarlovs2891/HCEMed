@@ -5,8 +5,8 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.hcemed.DescripcionPlanDeTratamiento;
-import com.saludtec.entidades.hcemed.PlanesDeTratamiento;
+import com.saludtec.entidades.DescripcionPlanDeTratamiento;
+import com.saludtec.entidades.PlanesDeTratamiento;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

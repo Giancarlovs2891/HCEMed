@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.saludtec.entidades.hcemed;
+package com.saludtec.entidades;
 
 import java.io.Serializable;
 import java.util.List;
@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Usuarios.findByUsuarioLogin", query = "SELECT u FROM Usuarios u WHERE u.usuarioLogin = :usuarioLogin"),
     @NamedQuery(name = "Usuarios.findByContrasenaLogin", query = "SELECT u FROM Usuarios u WHERE u.contrasenaLogin = :contrasenaLogin"),
     @NamedQuery(name = "Usuarios.findByLogin", query = "SELECT u FROM Usuarios u WHERE u.usuarioLogin = :usuarioLogin AND u.contrasenaLogin = :contrasenaLogin")})
-public class UsuariosHcemed implements Serializable {
+public class Usuarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,12 +58,12 @@ public class UsuariosHcemed implements Serializable {
     @Column(name = "contrasenaLogin")
     private String contrasenaLogin;
     @OneToMany(mappedBy = "idUsuario", fetch = FetchType.LAZY)
-    private List<PacientesHcemed> pacientesList;
+    private List<Pacientes> pacientesList;
 
-    public UsuariosHcemed() {
+    public Usuarios() {
     }
 
-    public UsuariosHcemed(Integer idUsuario) {
+    public Usuarios(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -108,11 +108,11 @@ public class UsuariosHcemed implements Serializable {
     }
 
     @XmlTransient
-    public List<PacientesHcemed> getPacientesList() {
+    public List<Pacientes> getPacientesList() {
         return pacientesList;
     }
 
-    public void setPacientesList(List<PacientesHcemed> pacientesList) {
+    public void setPacientesList(List<Pacientes> pacientesList) {
         this.pacientesList = pacientesList;
     }
 
@@ -126,10 +126,10 @@ public class UsuariosHcemed implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof UsuariosHcemed)) {
+        if (!(object instanceof Usuarios)) {
             return false;
         }
-        UsuariosHcemed other = (UsuariosHcemed) object;
+        Usuarios other = (Usuarios) object;
         if ((this.idUsuario == null && other.idUsuario != null) || (this.idUsuario != null && !this.idUsuario.equals(other.idUsuario))) {
             return false;
         }

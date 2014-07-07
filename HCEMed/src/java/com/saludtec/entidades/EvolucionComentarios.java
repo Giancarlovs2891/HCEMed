@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.saludtec.entidades.hcemed;
+package com.saludtec.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -62,7 +62,7 @@ public class EvolucionComentarios implements Serializable {
     private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
-    private PacientesHcemed idPaciente;
+    private Pacientes idPaciente;
 
     public EvolucionComentarios() {
     }
@@ -119,11 +119,11 @@ public class EvolucionComentarios implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public PacientesHcemed getIdPaciente() {
+    public Pacientes getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(PacientesHcemed idPaciente) {
+    public void setIdPaciente(Pacientes idPaciente) {
         this.idPaciente = idPaciente;
     }
 

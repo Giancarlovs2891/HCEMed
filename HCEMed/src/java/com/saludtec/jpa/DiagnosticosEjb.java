@@ -6,7 +6,7 @@
 
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.hcemed.Diagnosticos;
+import com.saludtec.entidades.Diagnosticos;
 import java.util.List;
 
 /**

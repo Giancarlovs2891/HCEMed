@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.saludtec.entidades.hcemed;
+package com.saludtec.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Tratamientos.findByHoraTratamiento", query = "SELECT t FROM Tratamientos t WHERE t.horaTratamiento = :horaTratamiento"),
     @NamedQuery(name = "Tratamientos.findByIdUsuario", query = "SELECT t FROM Tratamientos t WHERE t.idUsuario = :idUsuario"),
     @NamedQuery(name = "Tratamientos.findByIdPacienteAndFecha", query = "SELECT t FROM Tratamientos t WHERE t.idPaciente = :idPaciente AND t.fechaTratamiento = :fechaTratamiento ORDER BY t.idTratamiento ASC")})
-public class TratamientosHcemed implements Serializable {
+public class Tratamientos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -58,12 +58,12 @@ public class TratamientosHcemed implements Serializable {
     private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
-    private PacientesHcemed idPaciente;
+    private Pacientes idPaciente;
 
-    public TratamientosHcemed() {
+    public Tratamientos() {
     }
 
-    public TratamientosHcemed(Integer idTratamiento) {
+    public Tratamientos(Integer idTratamiento) {
         this.idTratamiento = idTratamiento;
     }
 
@@ -107,11 +107,11 @@ public class TratamientosHcemed implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public PacientesHcemed getIdPaciente() {
+    public Pacientes getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(PacientesHcemed idPaciente) {
+    public void setIdPaciente(Pacientes idPaciente) {
         this.idPaciente = idPaciente;
     }
 
@@ -125,10 +125,10 @@ public class TratamientosHcemed implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TratamientosHcemed)) {
+        if (!(object instanceof Tratamientos)) {
             return false;
         }
-        TratamientosHcemed other = (TratamientosHcemed) object;
+        Tratamientos other = (Tratamientos) object;
         if ((this.idTratamiento == null && other.idTratamiento != null) || (this.idTratamiento != null && !this.idTratamiento.equals(other.idTratamiento))) {
             return false;
         }

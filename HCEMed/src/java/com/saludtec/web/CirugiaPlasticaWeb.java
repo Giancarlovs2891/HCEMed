@@ -5,8 +5,8 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.hcemed.CirugiaPlastica;
-import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.CirugiaPlastica;
+import com.saludtec.entidades.Pacientes;
 import com.saludtec.jpa.CirugiaPlasticaEjb;
 import com.saludtec.jpa.PacientesEjb;
 import java.io.IOException;
@@ -65,7 +65,7 @@ public class CirugiaPlasticaWeb extends HttpServlet {
 
     private JSONArray guardarCirugiaPlastica(HttpServletRequest request) {
         CirugiaPlastica cirugiaPlastica = new CirugiaPlastica();
-        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         cirugiaPlastica.setIdPaciente(paciente);
 //-----------------ESTETICA CABEZA CUELLO----------------->//-----------------ESTETICA CABEZA CUELLO----------------->
         cirugiaPlastica.setEsteticaCabezaCuello(request.getParameter("esteticaCabezaCuello"));

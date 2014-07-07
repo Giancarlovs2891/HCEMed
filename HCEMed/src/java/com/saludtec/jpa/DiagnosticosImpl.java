@@ -5,8 +5,8 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.hcemed.Diagnosticos;
-import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.Diagnosticos;
+import com.saludtec.entidades.Pacientes;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,7 +38,7 @@ public class DiagnosticosImpl implements DiagnosticosEjb {
     @Override
     public List<Diagnosticos> listar(Integer idPaciente, String fecha) {
         Query query = em.createNamedQuery("Diagnosticos.findByIdPacienteAndFecha");
-        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         query.setParameter("fecha", fecha);
         return query.getResultList();

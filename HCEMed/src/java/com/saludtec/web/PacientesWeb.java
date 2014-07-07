@@ -6,8 +6,8 @@
 package com.saludtec.web;
 
 import com.saludtec.db.Conexion;
-import com.saludtec.entidades.hcemed.PacientesHcemed;
-import com.saludtec.entidades.hcemed.UsuariosHcemed;
+import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.Usuarios;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.UsuariosEjb;
 import java.io.IOException;
@@ -80,7 +80,7 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray guardarPaciente(HttpServletRequest request) {
-        PacientesHcemed paciente = new PacientesHcemed();
+        Pacientes paciente = new Pacientes();
         Paciente hce = new Paciente();
         if(Conexion.Adminio.equals("si")){
         Integer idPaciente = hce.guardarPacienteAdminio(request.getParameter("nombrePaciente"), request.getParameter("apellidoPaciente"), request.getParameter("idEstado"), request.getParameter("idTipoDocumento"),
@@ -147,7 +147,7 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray editarPaciente(HttpServletRequest request) {
-        PacientesHcemed paciente = new PacientesHcemed();
+        Pacientes paciente = new Pacientes();
         paciente.setIdPaciente(Integer.parseInt(request.getParameter("idPaciente")));
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
@@ -208,7 +208,7 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray traerPaciente(HttpServletRequest request) {
-        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -256,7 +256,7 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray traerPacienteIdentificacion(HttpServletRequest request) {
-        PacientesHcemed paciente = ejbPacientes.traer(request.getParameter("identificacionPaciente"));
+        Pacientes paciente = ejbPacientes.traer(request.getParameter("identificacionPaciente"));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -274,10 +274,10 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray listarPacientes() {
-        List<PacientesHcemed> pacientes = ejbPacientes.listar();
+        List<Pacientes> pacientes = ejbPacientes.listar();
         objArray = new JSONArray();
         if (pacientes != null) {
-            for (PacientesHcemed paciente : pacientes) {
+            for (Pacientes paciente : pacientes) {
                 obj = new JSONObject();
                 obj.put("idPaciente", paciente.getIdPaciente());
                 obj.put("foto", paciente.getFoto());
@@ -297,9 +297,9 @@ public class PacientesWeb extends HttpServlet {
             LoginHcemed hce = new LoginHcemed();
             objArray = hce.listarPacientes(request.getSession().getAttribute("usuario").toString());
         } else {
-            List<PacientesHcemed> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
+            List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
             if (pacientes != null) {
-                for (PacientesHcemed paciente : pacientes) {
+                for (Pacientes paciente : pacientes) {
                     obj = new JSONObject();
                     obj.put("idPaciente", paciente.getIdPaciente());
                     obj.put("foto", paciente.getFoto());
@@ -315,14 +315,14 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray listarPacientesLike(HttpServletRequest request) {
-        PacientesHcemed like = new PacientesHcemed();
+        Pacientes like = new Pacientes();
         like.setNombrePaciente(request.getParameter("nombrePaciente"));
         like.setApellidoPaciente(request.getParameter("apellidoPaciente"));
         like.setIdentificacionPaciente(request.getParameter("identificacionPaciente"));
-        List<PacientesHcemed> pacientes = ejbPacientes.listar(like);
+        List<Pacientes> pacientes = ejbPacientes.listar(like);
         objArray = new JSONArray();
         if (pacientes != null) {
-            for (PacientesHcemed paciente : pacientes) {
+            for (Pacientes paciente : pacientes) {
                 obj = new JSONObject();
                 obj.put("idCategoria", paciente.getIdPaciente());
                 obj.put("categoriaProcedimiento", paciente.getNombrePaciente());

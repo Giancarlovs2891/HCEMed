@@ -5,9 +5,9 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.hcemed.Anamnesis;
-import com.saludtec.entidades.hcemed.ExamenFisico;
-import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.Anamnesis;
+import com.saludtec.entidades.ExamenFisico;
+import com.saludtec.entidades.Pacientes;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,7 +40,7 @@ public class AnamnesisImpl implements AnamnesisEjb {
     public Anamnesis traer(Integer idPaciente, String fecha) {
         Query query = em.createNamedQuery("Anamnesis.findByIdPacienteAndFecha");
         query.setParameter("fecha", fecha);
-        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         List<Anamnesis> anamnesis = query.getResultList();
         return anamnesis.get(0);
@@ -49,7 +49,7 @@ public class AnamnesisImpl implements AnamnesisEjb {
     @Override
     public Anamnesis traerUltimo(Integer idPaciente) {
         Query query = em.createNamedQuery("Anamnesis.findByIdPaciente");
-        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
+        Pacientes paciente = em.find(Pacientes.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         List<Anamnesis> anamnesisList = query.getResultList();
         Anamnesis anamnesis = null;
