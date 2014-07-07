@@ -5,7 +5,7 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Usuarios;
+import com.saludtec.entidades.UsuariosHcemed;
 import com.saludtec.utilidades.EncriptacionMD5;
 import java.util.List;
 import java.util.logging.Level;
@@ -26,17 +26,17 @@ public class UsuariosImpl implements UsuariosEjb {
     EntityManager em;
 
     @Override
-    public Usuarios login(String user, String pass) throws Exception{
+    public UsuariosHcemed login(String user, String pass) throws Exception{
         Query query = em.createNamedQuery("Usuarios.findByLogin");
         query.setParameter("usuarioLogin", user);
         query.setParameter("contrasenaLogin", EncriptacionMD5.encriptar(pass));
-        List<Usuarios> usuario = query.getResultList();
+        List<UsuariosHcemed> usuario = query.getResultList();
         return usuario.get(0);
     }
 
     @Override
-    public Usuarios traer(Integer idUsuario) {
-        return em.find(Usuarios.class, idUsuario);
+    public UsuariosHcemed traer(Integer idUsuario) {
+        return em.find(UsuariosHcemed.class, idUsuario);
     }
 
 }

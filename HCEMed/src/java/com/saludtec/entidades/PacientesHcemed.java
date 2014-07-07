@@ -73,7 +73,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pacientes.findByFechaCreacion", query = "SELECT p FROM Pacientes p WHERE p.fechaCreacion = :fechaCreacion"),
     @NamedQuery(name = "Pacientes.findByHoraCreacion", query = "SELECT p FROM Pacientes p WHERE p.horaCreacion = :horaCreacion"),
     @NamedQuery(name = "Pacientes.like", query = "SELECT p FROM Pacientes p WHERE p.nombrePaciente LIKE :nombrePaciente OR p.apellidoPaciente LIKE :apellidoPaciente OR p.identificacionPaciente LIKE :identificacionPaciente ORDER BY p.apellidoPaciente, p.nombrePaciente, p.identificacionPaciente ASC")})
-public class Pacientes implements Serializable {
+public class PacientesHcemed implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -204,7 +204,7 @@ public class Pacientes implements Serializable {
     private List<EvolucionComentarios> evolucionComentariosList;
     @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Usuarios idUsuario;
+    private UsuariosHcemed idUsuario;
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
     private List<ExamenFisico> examenFisicoList;
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
@@ -214,12 +214,12 @@ public class Pacientes implements Serializable {
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
     private List<Anamnesis> anamnesisList;
     @OneToMany(mappedBy = "idPaciente", fetch = FetchType.LAZY)
-    private List<Tratamientos> tratamientosList;
+    private List<TratamientosHcemed> tratamientosList;
 
-    public Pacientes() {
+    public PacientesHcemed() {
     }
 
-    public Pacientes(Integer idPaciente) {
+    public PacientesHcemed(Integer idPaciente) {
         this.idPaciente = idPaciente;
     }
 
@@ -563,11 +563,11 @@ public class Pacientes implements Serializable {
         this.evolucionComentariosList = evolucionComentariosList;
     }
 
-    public Usuarios getIdUsuario() {
+    public UsuariosHcemed getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Usuarios idUsuario) {
+    public void setIdUsuario(UsuariosHcemed idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -608,11 +608,11 @@ public class Pacientes implements Serializable {
     }
 
     @XmlTransient
-    public List<Tratamientos> getTratamientosList() {
+    public List<TratamientosHcemed> getTratamientosList() {
         return tratamientosList;
     }
 
-    public void setTratamientosList(List<Tratamientos> tratamientosList) {
+    public void setTratamientosList(List<TratamientosHcemed> tratamientosList) {
         this.tratamientosList = tratamientosList;
     }
 
@@ -626,10 +626,10 @@ public class Pacientes implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pacientes)) {
+        if (!(object instanceof PacientesHcemed)) {
             return false;
         }
-        Pacientes other = (Pacientes) object;
+        PacientesHcemed other = (PacientesHcemed) object;
         if ((this.idPaciente == null && other.idPaciente != null) || (this.idPaciente != null && !this.idPaciente.equals(other.idPaciente))) {
             return false;
         }

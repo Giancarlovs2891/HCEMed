@@ -6,7 +6,7 @@
 package com.saludtec.web;
 
 import com.saludtec.entidades.Galeria;
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.PacientesHcemed;
 import com.saludtec.jpa.GaleriaEjb;
 import com.saludtec.jpa.PacientesEjb;
 import java.io.IOException;
@@ -75,7 +75,7 @@ public class GaleriaWeb extends HttpServlet {
 
     private JSONArray guardarGaleria(HttpServletRequest request) {
         Galeria galeria = new Galeria();
-        Pacientes paciente = new Pacientes();
+        PacientesHcemed paciente = new PacientesHcemed();
         paciente.setIdPaciente(Integer.parseInt(request.getParameter("idPaciente")));
         galeria.setIdPaciente(paciente);
         galeria.setFoto(request.getParameter("foto"));
@@ -97,7 +97,7 @@ public class GaleriaWeb extends HttpServlet {
 
     private JSONArray editarGaleria(HttpServletRequest request) {
         Galeria galeria = new Galeria();
-        Pacientes paciente = ejbPaciente.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        PacientesHcemed paciente = ejbPaciente.traer(Integer.parseInt(request.getParameter("idPaciente")));
         galeria.setIdPaciente(paciente);
         galeria.setFoto(request.getParameter("foto"));
         galeria.setFecha(request.getParameter("fecha"));

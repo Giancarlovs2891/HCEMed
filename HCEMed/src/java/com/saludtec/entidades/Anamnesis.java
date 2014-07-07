@@ -1323,7 +1323,7 @@ public class Anamnesis implements Serializable {
     private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Pacientes idPaciente;
+    private PacientesHcemed idPaciente;
 
     public Anamnesis() {
     }
@@ -3900,11 +3900,11 @@ public class Anamnesis implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Pacientes getIdPaciente() {
+    public PacientesHcemed getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(Pacientes idPaciente) {
+    public void setIdPaciente(PacientesHcemed idPaciente) {
         this.idPaciente = idPaciente;
     }
 

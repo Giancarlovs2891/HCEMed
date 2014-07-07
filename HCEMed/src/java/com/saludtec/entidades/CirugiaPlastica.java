@@ -666,7 +666,7 @@ public class CirugiaPlastica implements Serializable {
     private String pronosticoGinecomastia;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Pacientes idPaciente;
+    private PacientesHcemed idPaciente;
 
     public CirugiaPlastica() {
     }
@@ -1932,11 +1932,11 @@ public class CirugiaPlastica implements Serializable {
         this.pronosticoGinecomastia = pronosticoGinecomastia;
     }
 
-    public Pacientes getIdPaciente() {
+    public PacientesHcemed getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(Pacientes idPaciente) {
+    public void setIdPaciente(PacientesHcemed idPaciente) {
         this.idPaciente = idPaciente;
     }
 

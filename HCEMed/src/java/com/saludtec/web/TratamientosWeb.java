@@ -5,8 +5,8 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.Pacientes;
-import com.saludtec.entidades.Tratamientos;
+import com.saludtec.entidades.PacientesHcemed;
+import com.saludtec.entidades.TratamientosHcemed;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.TratamientosEjb;
 import java.io.IOException;
@@ -70,8 +70,8 @@ public class TratamientosWeb extends HttpServlet {
     }
 
     private JSONArray guardarTratamiento(HttpServletRequest request) {
-        Tratamientos tratamiento = new Tratamientos();
-        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        TratamientosHcemed tratamiento = new TratamientosHcemed();
+        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         tratamiento.setIdPaciente(paciente);
         tratamiento.setDesTratamiento(request.getParameter("desTratamiento"));
         tratamiento.setFechaTratamiento(request.getParameter("fechaTratamiento"));
@@ -98,10 +98,10 @@ public class TratamientosWeb extends HttpServlet {
     }
 
     private JSONArray listarTratamientosPaciente(HttpServletRequest request) {
-        List<Tratamientos> tratamientos = ejbTratamientos.listar(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
+        List<TratamientosHcemed> tratamientos = ejbTratamientos.listar(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
         objArray = new JSONArray();
         if (tratamientos != null) {
-            for (Tratamientos tratamiento : tratamientos) {
+            for (TratamientosHcemed tratamiento : tratamientos) {
                 obj = new JSONObject();
                 obj.put("idTratamiento", tratamiento.getIdTratamiento());
                 obj.put("idPaciente", tratamiento.getIdPaciente().getIdPaciente());
@@ -115,7 +115,7 @@ public class TratamientosWeb extends HttpServlet {
     }
 
     private JSONArray listarTratamientosFecha(HttpServletRequest request) {
-        Tratamientos tratamiento = ejbTratamientos.traer(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
+        TratamientosHcemed tratamiento = ejbTratamientos.traer(Integer.parseInt(request.getParameter("idPaciente")), request.getParameter("fecha"));
         objArray = new JSONArray();
         if (tratamiento != null) {
             obj = new JSONObject();

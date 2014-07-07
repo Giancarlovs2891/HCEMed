@@ -5,7 +5,7 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.PacientesHcemed;
 import com.saludtec.entidades.PlanesDeTratamiento;
 import java.util.List;
 import java.util.logging.Level;
@@ -55,7 +55,7 @@ public class PlanesDeTratamientoImpl implements PlanesDeTratamientoEjb {
     @Override
     public List<PlanesDeTratamiento> listar(Integer idPaciente) {
         Query query = em.createNamedQuery("PlanesDeTratamiento.findByIdPaciente");
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         return query.getResultList();
     }
@@ -63,7 +63,7 @@ public class PlanesDeTratamientoImpl implements PlanesDeTratamientoEjb {
     @Override
     public List<PlanesDeTratamiento> listar(Integer idPaciente, String fecha) {
         Query query = em.createNamedQuery("PlanesDeTratamiento.findByIdPacienteAndFecha");
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         query.setParameter("fecha", fecha);
         return query.getResultList();

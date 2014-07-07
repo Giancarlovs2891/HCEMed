@@ -6,7 +6,7 @@
 package com.saludtec.jpa;
 
 import com.saludtec.entidades.ExamenFisico;
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.PacientesHcemed;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +39,7 @@ public class ExamenFisicoImpl implements ExamenFisicoEjb {
     public ExamenFisico traer(Integer idPaciente,String fecha) {
         Query query = em.createNamedQuery("ExamenFisico.findByIdPacienteAndFecha");
         query.setParameter("fecha", fecha);
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         List<ExamenFisico> examenFisico = query.getResultList();
         return examenFisico.get(0);
@@ -48,7 +48,7 @@ public class ExamenFisicoImpl implements ExamenFisicoEjb {
     @Override
     public ExamenFisico traerUltimo(Integer idPaciente) {
         Query query = em.createNamedQuery("ExamenFisico.findByIdPaciente");
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         List<ExamenFisico> examenFisicoList = query.getResultList();
         ExamenFisico examenFisico = null;

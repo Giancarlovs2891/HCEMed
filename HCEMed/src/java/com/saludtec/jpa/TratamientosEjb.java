@@ -5,7 +5,7 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Tratamientos;
+import com.saludtec.entidades.TratamientosHcemed;
 import java.util.List;
 
 /**
@@ -14,12 +14,12 @@ import java.util.List;
  */
 public interface TratamientosEjb {
 
-    Tratamientos crear(Tratamientos tratamiento);
+    TratamientosHcemed crear(TratamientosHcemed tratamiento);
 
     void eliminar(Integer idTratamiento);
 
-    Tratamientos traer(Integer idPaciente, String fecha);
+    TratamientosHcemed traer(Integer idPaciente, String fecha);
 
-    List<Tratamientos> listar(Integer idPaciente, String fecha);
+    List<TratamientosHcemed> listar(Integer idPaciente, String fecha);
 
 }

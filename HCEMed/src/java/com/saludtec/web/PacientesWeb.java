@@ -6,8 +6,8 @@
 package com.saludtec.web;
 
 import com.saludtec.db.Conexion;
-import com.saludtec.entidades.Pacientes;
-import com.saludtec.entidades.Usuarios;
+import com.saludtec.entidades.PacientesHcemed;
+import com.saludtec.entidades.UsuariosHcemed;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.UsuariosEjb;
 import java.io.IOException;
@@ -80,7 +80,19 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray guardarPaciente(HttpServletRequest request) {
-        Pacientes paciente = new Pacientes();
+        PacientesHcemed paciente = new PacientesHcemed();
+        Paciente hce = new Paciente();
+        if(Conexion.Adminio.equals("si")){
+        Integer idPaciente = hce.guardarPacienteAdminio(request.getParameter("nombrePaciente"), request.getParameter("apellidoPaciente"), request.getParameter("idEstado"), request.getParameter("idTipoDocumento"),
+            request.getParameter("numeroDocumento"), request.getParameter("fechaNacimiento"), request.getParameter("estadoCivil"), request.getParameter("sexo"), request.getParameter("email"), request.getParameter("telefono"),
+            request.getParameter("celular"), request.getParameter("idEstrato"), request.getParameter("pais"), request.getParameter("idDepartamento"), request.getParameter("ciudad"), request.getParameter("nacionalidad"),
+            request.getParameter("direccion"), request.getParameter("idCompaniaSeguro"), request.getParameter("ocupacionPaciente"), request.getParameter("codigoPostal"), request.getParameter("zonaResidencial"),
+            request.getParameter("idTipoVinculacion"), request.getParameter("nombreAcudienteP"), request.getParameter("apellidoAcudienteP"), request.getParameter("idTipoDocumentoAP"),
+            request.getParameter("numeroDocumentoAP"), request.getParameter("telefonoAcudienteP"), request.getParameter("parentescoAcudienteP"), request.getParameter("contactoEmergenciaP"),
+            request.getParameter("telefonoContactoEP"), request.getParameter("parentescoContactoEP"), request.getParameter("fotoPaciente"),
+            request.getParameter("ultimaModificacion"), request.getParameter("referido"));
+            paciente.setIdPaciente(idPaciente);
+        }
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
         paciente.setNombrePaciente(request.getParameter("nombrePaciente"));
@@ -135,7 +147,7 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray editarPaciente(HttpServletRequest request) {
-        Pacientes paciente = new Pacientes();
+        PacientesHcemed paciente = new PacientesHcemed();
         paciente.setIdPaciente(Integer.parseInt(request.getParameter("idPaciente")));
         paciente.setFoto(request.getParameter("foto"));
         paciente.setAlertaMedica(request.getParameter("alertaMedica"));
@@ -196,7 +208,7 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray traerPaciente(HttpServletRequest request) {
-        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -244,7 +256,7 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray traerPacienteIdentificacion(HttpServletRequest request) {
-        Pacientes paciente = ejbPacientes.traer(request.getParameter("identificacionPaciente"));
+        PacientesHcemed paciente = ejbPacientes.traer(request.getParameter("identificacionPaciente"));
         obj = new JSONObject();
         objArray = new JSONArray();
         if (paciente != null) {
@@ -262,10 +274,10 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray listarPacientes() {
-        List<Pacientes> pacientes = ejbPacientes.listar();
+        List<PacientesHcemed> pacientes = ejbPacientes.listar();
         objArray = new JSONArray();
         if (pacientes != null) {
-            for (Pacientes paciente : pacientes) {
+            for (PacientesHcemed paciente : pacientes) {
                 obj = new JSONObject();
                 obj.put("idPaciente", paciente.getIdPaciente());
                 obj.put("foto", paciente.getFoto());
@@ -285,9 +297,9 @@ public class PacientesWeb extends HttpServlet {
             LoginHcemed hce = new LoginHcemed();
             objArray = hce.listarPacientes(request.getSession().getAttribute("usuario").toString());
         } else {
-            List<Pacientes> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
+            List<PacientesHcemed> pacientes = ejbPacientes.listar(Integer.parseInt(request.getSession().getAttribute("usuario").toString()));
             if (pacientes != null) {
-                for (Pacientes paciente : pacientes) {
+                for (PacientesHcemed paciente : pacientes) {
                     obj = new JSONObject();
                     obj.put("idPaciente", paciente.getIdPaciente());
                     obj.put("foto", paciente.getFoto());
@@ -303,14 +315,14 @@ public class PacientesWeb extends HttpServlet {
     }
 
     private JSONArray listarPacientesLike(HttpServletRequest request) {
-        Pacientes like = new Pacientes();
+        PacientesHcemed like = new PacientesHcemed();
         like.setNombrePaciente(request.getParameter("nombrePaciente"));
         like.setApellidoPaciente(request.getParameter("apellidoPaciente"));
         like.setIdentificacionPaciente(request.getParameter("identificacionPaciente"));
-        List<Pacientes> pacientes = ejbPacientes.listar(like);
+        List<PacientesHcemed> pacientes = ejbPacientes.listar(like);
         objArray = new JSONArray();
         if (pacientes != null) {
-            for (Pacientes paciente : pacientes) {
+            for (PacientesHcemed paciente : pacientes) {
                 obj = new JSONObject();
                 obj.put("idCategoria", paciente.getIdPaciente());
                 obj.put("categoriaProcedimiento", paciente.getNombrePaciente());

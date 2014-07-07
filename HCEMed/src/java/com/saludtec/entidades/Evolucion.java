@@ -62,7 +62,7 @@ public class Evolucion implements Serializable {
     private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Pacientes idPaciente;
+    private PacientesHcemed idPaciente;
 
     public Evolucion() {
     }
@@ -119,11 +119,11 @@ public class Evolucion implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Pacientes getIdPaciente() {
+    public PacientesHcemed getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(Pacientes idPaciente) {
+    public void setIdPaciente(PacientesHcemed idPaciente) {
         this.idPaciente = idPaciente;
     }
 
