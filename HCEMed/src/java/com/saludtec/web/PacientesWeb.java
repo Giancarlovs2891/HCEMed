@@ -6,8 +6,8 @@
 package com.saludtec.web;
 
 import com.saludtec.db.Conexion;
-import com.saludtec.entidades.PacientesHcemed;
-import com.saludtec.entidades.UsuariosHcemed;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.hcemed.UsuariosHcemed;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.UsuariosEjb;
 import java.io.IOException;

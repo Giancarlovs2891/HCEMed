@@ -5,8 +5,8 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.Galeria;
-import com.saludtec.entidades.PacientesHcemed;
+import com.saludtec.entidades.hcemed.Galeria;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
 import com.saludtec.jpa.GaleriaEjb;
 import com.saludtec.jpa.PacientesEjb;
 import java.io.IOException;

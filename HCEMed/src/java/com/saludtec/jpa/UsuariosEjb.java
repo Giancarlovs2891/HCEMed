@@ -6,7 +6,7 @@
 
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.UsuariosHcemed;
+import com.saludtec.entidades.hcemed.UsuariosHcemed;
 
 /**
  *

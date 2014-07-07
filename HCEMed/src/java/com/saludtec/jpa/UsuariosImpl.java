@@ -5,7 +5,7 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.UsuariosHcemed;
+import com.saludtec.entidades.hcemed.UsuariosHcemed;
 import com.saludtec.utilidades.EncriptacionMD5;
 import java.util.List;
 import java.util.logging.Level;
