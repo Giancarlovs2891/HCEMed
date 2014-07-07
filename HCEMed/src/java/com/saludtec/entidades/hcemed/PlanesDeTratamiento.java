@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.saludtec.entidades;
+package com.saludtec.entidades.hcemed;
 
 import java.io.Serializable;
 import java.util.List;
@@ -66,7 +66,7 @@ public class PlanesDeTratamiento implements Serializable {
     private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Pacientes idPaciente;
+    private PacientesHcemed idPaciente;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPlanTratamiento", fetch = FetchType.LAZY)
     private List<DescripcionPlanDeTratamiento> descripcionPlanDeTratamientoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idPlanTratamiento", fetch = FetchType.LAZY)
@@ -127,11 +127,11 @@ public class PlanesDeTratamiento implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Pacientes getIdPaciente() {
+    public PacientesHcemed getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(Pacientes idPaciente) {
+    public void setIdPaciente(PacientesHcemed idPaciente) {
         this.idPaciente = idPaciente;
     }
 

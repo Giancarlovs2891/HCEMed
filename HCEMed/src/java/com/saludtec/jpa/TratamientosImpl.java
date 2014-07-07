@@ -1,7 +1,7 @@
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Pacientes;
-import com.saludtec.entidades.Tratamientos;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.hcemed.TratamientosHcemed;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,20 +21,20 @@ public class TratamientosImpl implements TratamientosEjb {
     EntityManager em;
 
     @Override
-    public Tratamientos crear(Tratamientos tratamiento) {
+    public TratamientosHcemed crear(TratamientosHcemed tratamiento) {
         try {
             em.persist(tratamiento);
         } catch (Exception ex) {
-            Logger.getLogger(Tratamientos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TratamientosHcemed.class.getName()).log(Level.SEVERE, null, ex);
         }
         return tratamiento;
     }
 
     @Override
     public void eliminar(Integer idTratamiento) {
-        Tratamientos tratamiento;
+        TratamientosHcemed tratamiento;
         try {
-            tratamiento = em.find(Tratamientos.class, idTratamiento);
+            tratamiento = em.find(TratamientosHcemed.class, idTratamiento);
             if (tratamiento != null) {
                 em.remove(tratamiento);
             }
@@ -44,19 +44,19 @@ public class TratamientosImpl implements TratamientosEjb {
     }
     
     @Override
-    public Tratamientos traer(Integer idPaciente,String fecha) {
+    public TratamientosHcemed traer(Integer idPaciente,String fecha) {
         Query query = em.createNamedQuery("Tratamientos.findByIdPacienteAndFecha");
         query.setParameter("fechaTratamiento", fecha);
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
-        List<Tratamientos> tratamiento = query.getResultList();
+        List<TratamientosHcemed> tratamiento = query.getResultList();
         return tratamiento.get(tratamiento.size()-1);
     }
 
     @Override
-    public List<Tratamientos> listar(Integer idPaciente, String fecha) {
+    public List<TratamientosHcemed> listar(Integer idPaciente, String fecha) {
         Query query = em.createNamedQuery("Tratamientos.findByIdPacienteAndFecha");
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         query.setParameter("fechaTratamiento", fecha);
         return query.getResultList();

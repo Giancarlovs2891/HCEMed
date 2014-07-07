@@ -6,7 +6,7 @@
 
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Galeria;
+import com.saludtec.entidades.hcemed.Galeria;
 import java.util.List;
 
 /**

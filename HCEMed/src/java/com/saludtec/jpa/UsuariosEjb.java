@@ -6,7 +6,7 @@
 
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Usuarios;
+import com.saludtec.entidades.hcemed.UsuariosHcemed;
 
 /**
  *
@@ -14,7 +14,7 @@ import com.saludtec.entidades.Usuarios;
  */
 public interface UsuariosEjb {
     
-    Usuarios login(String user, String pass)throws Exception;
+    UsuariosHcemed login(String user, String pass)throws Exception;
     
-    Usuarios traer(Integer idUsuario);
+    UsuariosHcemed traer(Integer idUsuario);
 }

@@ -5,8 +5,8 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.Pacientes;
-import com.saludtec.entidades.PlanesDeTratamiento;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.hcemed.PlanesDeTratamiento;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.PlanesDeTratamientoEjb;
 import java.io.IOException;
@@ -74,7 +74,7 @@ public class PlanesDeTratamientoWeb extends HttpServlet {
 
     private JSONArray guardarPlanTratamiento(HttpServletRequest request) {
         PlanesDeTratamiento planTratamiento = new PlanesDeTratamiento();
-        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         planTratamiento.setIdPaciente(paciente);
         planTratamiento.setFechaPlanTratamiento(request.getParameter("fechaPlanTratamiento"));
         planTratamiento.setImpuestoPlanTratamiento(request.getParameter("impuestoPlanTratamiento"));

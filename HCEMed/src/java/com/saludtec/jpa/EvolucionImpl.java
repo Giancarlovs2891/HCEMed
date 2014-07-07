@@ -5,8 +5,8 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Evolucion;
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.hcemed.Evolucion;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,7 +38,7 @@ public class EvolucionImpl implements EvolucionEjb {
     @Override
     public List<Evolucion> listar(Integer idPaciente) {
         Query query = em.createNamedQuery("Evolucion.findByIdPaciente");
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         return query.getResultList();
     }

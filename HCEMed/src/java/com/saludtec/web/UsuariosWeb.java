@@ -5,10 +5,12 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.Pacientes;
-import com.saludtec.entidades.Usuarios;
+import com.saludtec.db.Conexion;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.hcemed.UsuariosHcemed;
 import com.saludtec.jpa.PacientesEjb;
 import com.saludtec.jpa.UsuariosEjb;
+import integracionadminiohcemed.LoginHcemed;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -71,19 +73,33 @@ public class UsuariosWeb extends HttpServlet {
     }
 
     private JSONArray login(HttpServletRequest request) throws Exception {
-        Usuarios usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
         objArray = new JSONArray();
-        if (usuario != null) {
-            request.getSession().setAttribute("usuario", usuario.getIdUsuario());
-            obj = new JSONObject();
-            obj.put("Exito", "1");
-            objArray.add(obj);
+        if (Conexion.Adminio.equals("si")) {
+            LoginHcemed hce = new LoginHcemed();
+            Integer idUsuario = hce.login(request.getParameter("usuario"), request.getParameter("contrasena"));
+            if (idUsuario > 0) {
+                request.getSession().setAttribute("usuario", idUsuario);
+                obj = new JSONObject();
+                obj.put("Exito", "1");
+                objArray.add(obj);
+            } else {
+                obj = new JSONObject();
+                obj.put("Error", "datos incorrectos");
+                objArray.add(obj);
+            }
         } else {
-            obj = new JSONObject();
-            obj.put("Error", "datos incorrectos");
-            objArray.add(obj);
+            UsuariosHcemed usuario = ejbUsuarios.login(request.getParameter("usuario"), request.getParameter("contrasena"));
+            if (usuario != null) {
+                request.getSession().setAttribute("usuario", usuario.getIdUsuario());
+                obj = new JSONObject();
+                obj.put("Exito", "1");
+                objArray.add(obj);
+            } else {
+                obj = new JSONObject();
+                obj.put("Error", "datos incorrectos");
+                objArray.add(obj);
+            }
         }
-
         return objArray;
     }
 

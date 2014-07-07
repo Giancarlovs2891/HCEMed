@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.saludtec.entidades;
+package com.saludtec.entidades.hcemed;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -58,7 +58,7 @@ public class Galeria implements Serializable {
     private Integer idUsuario;
     @JoinColumn(name = "idPaciente", referencedColumnName = "idPaciente")
     @ManyToOne(fetch = FetchType.LAZY)
-    private Pacientes idPaciente;
+    private PacientesHcemed idPaciente;
 
     public Galeria() {
     }
@@ -107,11 +107,11 @@ public class Galeria implements Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Pacientes getIdPaciente() {
+    public PacientesHcemed getIdPaciente() {
         return idPaciente;
     }
 
-    public void setIdPaciente(Pacientes idPaciente) {
+    public void setIdPaciente(PacientesHcemed idPaciente) {
         this.idPaciente = idPaciente;
     }
 

@@ -4,18 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.saludtec.jpa;
-
-import com.saludtec.entidades.hcemed.Pagos;
-import java.util.List;
+package com.saludtec.db;
 
 /**
  *
  * @author saintec
  */
-public interface PagosEjb {
-    
-    Pagos crear(Pagos pago);
-    
-    List<Pagos> listar(Integer idPlanTratamiento);
+public class Conexion {
+    public static String Adminio ="si";
 }

@@ -6,8 +6,8 @@
 
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Galeria;
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.hcemed.Galeria;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -69,7 +69,7 @@ public class GaleriaImpl implements GaleriaEjb{
     @Override
     public List<Galeria> listar(Integer idPaciente) {
         Query query = em.createNamedQuery("Galeria.findByIdPaciente");
-        Pacientes paciente = em.find(Pacientes.class, idPaciente);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, idPaciente);
         query.setParameter("idPaciente", paciente);
         return query.getResultList();
     }
@@ -77,7 +77,7 @@ public class GaleriaImpl implements GaleriaEjb{
     @Override
     public List<Galeria> lis() {
         Query query = em.createNamedQuery("Galeria.findprueba");
-        Pacientes paciente = em.find(Pacientes.class, 1);
+        PacientesHcemed paciente = em.find(PacientesHcemed.class, 1);
         query.setParameter("idPaciente", paciente);
         return query.getResultList();
     }

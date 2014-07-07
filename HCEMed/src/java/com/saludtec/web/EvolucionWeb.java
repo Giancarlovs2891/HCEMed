@@ -5,8 +5,8 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.Evolucion;
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.hcemed.Evolucion;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
 import com.saludtec.jpa.EvolucionEjb;
 import com.saludtec.jpa.PacientesEjb;
 import java.io.IOException;
@@ -62,7 +62,7 @@ public class EvolucionWeb extends HttpServlet {
     
     private JSONArray guardarEvolucion(HttpServletRequest request) {
         Evolucion evolucion = new Evolucion();
-        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         evolucion.setIdPaciente(paciente);
         evolucion.setNombreModulo(request.getParameter("nombreModulo"));
         evolucion.setFecha(request.getParameter("fecha"));

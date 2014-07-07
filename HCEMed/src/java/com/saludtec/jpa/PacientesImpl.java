@@ -5,8 +5,8 @@
  */
 package com.saludtec.jpa;
 
-import com.saludtec.entidades.Pacientes;
-import com.saludtec.entidades.Usuarios;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
+import com.saludtec.entidades.hcemed.UsuariosHcemed;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,19 +26,19 @@ public class PacientesImpl implements PacientesEjb {
     EntityManager em;
 
     @Override
-    public Pacientes crear(Pacientes paciente) {
+    public PacientesHcemed crear(PacientesHcemed paciente) {
         try {
             em.persist(paciente);
         } catch (Exception ex) {
-            Logger.getLogger(Pacientes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PacientesHcemed.class.getName()).log(Level.SEVERE, null, ex);
         }
         return paciente;
     }
 
     @Override
-    public Pacientes editar(Pacientes paciente) {
+    public PacientesHcemed editar(PacientesHcemed paciente) {
         try {
-            if (em.find(Pacientes.class, paciente.getIdPaciente()) != null) {
+            if (em.find(PacientesHcemed.class, paciente.getIdPaciente()) != null) {
                 em.merge(paciente);
             }
         } catch (Exception ex) {
@@ -49,9 +49,9 @@ public class PacientesImpl implements PacientesEjb {
 
     @Override
     public void eliminar(Integer idPaciente) {
-        Pacientes paciente;
+        PacientesHcemed paciente;
         try {
-            paciente = em.find(Pacientes.class, idPaciente);
+            paciente = em.find(PacientesHcemed.class, idPaciente);
             if (paciente != null) {
                 em.remove(paciente);
             }
@@ -61,26 +61,26 @@ public class PacientesImpl implements PacientesEjb {
     }
 
     @Override
-    public Pacientes traer(Integer idPaciente) {
-        return em.find(Pacientes.class, idPaciente);
+    public PacientesHcemed traer(Integer idPaciente) {
+        return em.find(PacientesHcemed.class, idPaciente);
     }
 
     @Override
-    public Pacientes traer(String identificacionPaciente) {
+    public PacientesHcemed traer(String identificacionPaciente) {
         Query query = em.createNamedQuery("Pacientes.findByIdentificacionPaciente");
         query.setParameter("identificacionPaciente", identificacionPaciente);
-        List<Pacientes> paciente = query.getResultList();
+        List<PacientesHcemed> paciente = query.getResultList();
         return paciente.get(0);
     }
 
     @Override
-    public List<Pacientes> listar() {
+    public List<PacientesHcemed> listar() {
         Query query = em.createNamedQuery("Pacientes.findAll");
         return query.getResultList();
     }
 
     @Override
-    public List<Pacientes> listar(Pacientes like) {
+    public List<PacientesHcemed> listar(PacientesHcemed like) {
         Query query = em.createNamedQuery("Pacientes.like");
         query.setParameter("nombrePaciente", "%" + like.getNombrePaciente() + "%");
         query.setParameter("apellidoPaciente", "%" + like.getApellidoPaciente() + "%");
@@ -89,9 +89,9 @@ public class PacientesImpl implements PacientesEjb {
     }
 
     @Override
-    public List<Pacientes> listar(Integer idUsuario) {
+    public List<PacientesHcemed> listar(Integer idUsuario) {
         Query query = em.createNamedQuery("Pacientes.findByIdUsuario");
-        Usuarios usuario = em.find(Usuarios.class, idUsuario);
+        UsuariosHcemed usuario = em.find(UsuariosHcemed.class, idUsuario);
         query.setParameter("idUsuario", usuario);
         return query.getResultList();
     }

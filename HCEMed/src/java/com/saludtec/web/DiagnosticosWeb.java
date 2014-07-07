@@ -5,8 +5,8 @@
  */
 package com.saludtec.web;
 
-import com.saludtec.entidades.Diagnosticos;
-import com.saludtec.entidades.Pacientes;
+import com.saludtec.entidades.hcemed.Diagnosticos;
+import com.saludtec.entidades.hcemed.PacientesHcemed;
 import com.saludtec.jpa.DiagnosticosEjb;
 import com.saludtec.jpa.PacientesEjb;
 import java.io.IOException;
@@ -62,7 +62,7 @@ public class DiagnosticosWeb extends HttpServlet {
 
     private JSONArray guardarEvolucionComentario(HttpServletRequest request) {
         Diagnosticos diagnostico = new Diagnosticos();
-        Pacientes paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
+        PacientesHcemed paciente = ejbPacientes.traer(Integer.parseInt(request.getParameter("idPaciente")));
         diagnostico.setIdPaciente(paciente);
         diagnostico.setNombreModulo(request.getParameter("nombreModulo"));
         diagnostico.setNombreDiagnostico(request.getParameter("nombreDiagnostico"));
