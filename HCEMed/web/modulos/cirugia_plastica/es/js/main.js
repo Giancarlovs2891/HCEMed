@@ -11,6 +11,7 @@ tabla += "edadInicioCaidaCapilar, ";
 tabla += "estabilizada, ";
 tabla += "antecedentesFamiliares, ";
 tabla += "tratamientosPrevios, ";
+tabla += "tipoDeTratamientos, ";
 tabla += "cortes, ";
 tabla += "color, ";
 tabla += "comentarioOtroColor, ";
@@ -140,6 +141,9 @@ tabla += "caracteristicasPielGluteos, ";
 tabla += "asimetria, ";
 tabla += "secuelasTrauma, ";
 tabla += "comentariosGluteos, ";
+tabla += "diagnosticoGluteos, ";
+tabla += "pronosticoGluteos, ";
+tabla += "planDeTratamientoGluteos, ";
 //EXTREMIDADES SUPERIORES--------------------->
 tabla += "extremidadesSuperiores, ";
 tabla += "depositoGrasaMinimoModeradoMinimaLaxitud, ";
@@ -217,16 +221,18 @@ tabla2 += "horaCreacionEf";
 tabla2 += ")";
 start();
 
-var tablap = "CREATE TABLE IF NOT EXISTS Prueba (id, campo1)";
 function start() {
 
     var storage = getModoMedsio();
     if (storage == "local") {
         crearTabla(tabla);
         crearTabla(tabla2);
-        crearTabla(tablap);
         function alter(tx) {
             tx.executeSql("ALTER TABLE CirugiaPlastica ADD COLUMN gradoPtosisRegnault");
+            tx.executeSql("ALTER TABLE CirugiaPlastica ADD COLUMN tipoDeTratamientos");
+            tx.executeSql("ALTER TABLE CirugiaPlastica ADD COLUMN diagnosticoGluteos");
+            tx.executeSql("ALTER TABLE CirugiaPlastica ADD COLUMN pronosticoGluteos");
+            tx.executeSql("ALTER TABLE CirugiaPlastica ADD COLUMN planDeTratamientoGluteos");
         }
         db.transaction(alter);
 
@@ -265,6 +271,7 @@ function cargarCamposCirugiaPlastica(json) {
         definirChecks("esteticaCabezaCuello", "si", obj[0].esteticaCabezaCuello, "alopeciaFacial");
         //ALOPECIA
         definirChecks("alopecia", "si", obj[0].alopecia, "capaAlopecia");
+        definirChecks("tratamientosPrevios", "si", obj[0].tratamientosPrevios, "capaTipoTratamiento");
         definirSelects("tipoAlopeciaNoCicatricial", "otra", "otroTipoDeAlopeciaNoCicatricial");
         definirSelects("tipoAlopeciaCicatricial", "otra", "otroTipoAlopeciaCicatricial");
         if (obj[0].gradoDeAlopeciaHombre != "" || obj[0].gradoDeAlopeciaMujer != "") {
@@ -625,6 +632,7 @@ function guardarDiagnosticosCp() {
     guardarDiagnosticos("#diagnosticoExtremidadesSuperiores", "Cirugia plastica", "Extremidades superiores");
     guardarDiagnosticos("#diagnosticoReconstructivaCabezaCuello", "Cirugia plastica", "Reconstructiva cabeza cuello");
     guardarDiagnosticos("#diagnosticoReconstructivaCorporal", "Cirugia plastica", "Reconstructiva corporal");
+    guardarDiagnosticos("#diagnosticoGluteos", "Cirugia plastica", "Gluteos");
 }
 
 function gradoAlopecia(imagen, capaContenedor, campo) {
